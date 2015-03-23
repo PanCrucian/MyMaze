@@ -1,0 +1,881 @@
+fileFormatVersion: 2
+guid: ce90d784641f9824d91e14c00d7273b5
+timeCreated: 1427113293
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ia_Pyramid_000
+    21300002: ia_Pyramid_001
+    21300004: ia_Pyramid_002
+    21300006: ia_Pyramid_003
+    21300008: ia_Pyramid_004
+    21300010: ia_Pyramid_005
+    21300012: ia_Pyramid_006
+    21300014: ia_Pyramid_007
+    21300016: ia_Pyramid_008
+    21300018: ia_Pyramid_009
+    21300020: ia_Pyramid_010
+    21300022: ia_Pyramid_011
+    21300024: ia_Pyramid_012
+    21300026: ia_Pyramid_013
+    21300028: ia_Pyramid_014
+    21300030: ia_Pyramid_015
+    21300032: ia_Pyramid_016
+    21300034: ia_Pyramid_017
+    21300036: ia_Pyramid_018
+    21300038: ia_Pyramid_019
+    21300040: ia_Pyramid_020
+    21300042: ia_Pyramid_021
+    21300044: ia_Pyramid_022
+    21300046: ia_Pyramid_023
+    21300048: ia_Pyramid_024
+    21300050: ia_Pyramid_025
+    21300052: ia_Pyramid_026
+    21300054: ia_Pyramid_027
+    21300056: ia_Pyramid_028
+    21300058: ia_Pyramid_029
+    21300060: ia_Pyramid_030
+    21300062: ia_Pyramid_031
+    21300064: ia_Pyramid_032
+    21300066: ia_Pyramid_033
+    21300068: ia_Pyramid_034
+    21300070: ia_Pyramid_035
+    21300072: ia_Pyramid_036
+    21300074: ia_Pyramid_037
+    21300076: ia_Pyramid_038
+    21300078: ia_Pyramid_039
+    21300080: ia_Pyramid_040
+    21300082: ia_Pyramid_041
+    21300084: ia_Pyramid_042
+    21300086: ia_Pyramid_043
+    21300088: ia_Pyramid_044
+    21300090: ia_Pyramid_045
+    21300092: ia_FX00_000
+    21300094: ia_FX00_001
+    21300096: ia_FX00_002
+    21300098: ia_FX00_003
+    21300100: ia_FX00_004
+    21300102: ia_FX00_005
+    21300104: ia_FX00_006
+    21300106: ia_FX00_007
+    21300108: ia_FX00_008
+    21300110: ia_FX00_009
+    21300112: ia_FX00_010
+    21300114: ia_FX00_011
+    21300116: ia_FX00_012
+    21300118: ia_FX00_013
+    21300120: ia_FX00_014
+    21300122: ia_FX00_015
+    21300124: ia_FX00_016
+    21300126: ia_FX00_017
+    21300128: ia_FX00_018
+    21300130: ia_FX00_019
+    21300132: ia_FX00_020
+    21300134: ia_FX00_021
+    21300136: ia_FX00_022
+    21300138: ia_FX00_023
+    21300140: ia_FX00_024
+    21300142: ia_FX00_025
+    21300144: ia_FX00_026
+    21300146: ia_FX00_027
+    21300148: ia_FX00_028
+    21300150: ia_FX00_029
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ia_FX00_000
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 1170
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_001
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 1170
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_002
+      rect:
+        serializedVersion: 2
+        x: 1522
+        y: 1170
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_003
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 1170
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_004
+      rect:
+        serializedVersion: 2
+        x: 1862
+        y: 1170
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_005
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 1000
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_006
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 934
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_007
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 1000
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_008
+      rect:
+        serializedVersion: 2
+        x: 1522
+        y: 1000
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_009
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 1000
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_010
+      rect:
+        serializedVersion: 2
+        x: 1862
+        y: 1000
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_011
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 830
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_012
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 764
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_013
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 830
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_014
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 830
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_015
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 830
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_016
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 830
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_017
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 594
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_018
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 424
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_019
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 254
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_020
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 84
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_021
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 660
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_022
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 490
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_023
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 320
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_024
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 150
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_025
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 660
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_026
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 660
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_027
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 660
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_028
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 660
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_029
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 490
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_000
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1812
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_001
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1576
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_002
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1340
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_003
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1104
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_004
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 868
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_005
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 632
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_006
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 396
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_007
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 160
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_008
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1812
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_009
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 1812
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_010
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 1812
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_011
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 1812
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_012
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 1812
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_013
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 1812
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_014
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 1812
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_015
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1576
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_016
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1340
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_017
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1104
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_018
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 868
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_019
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 632
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_020
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 396
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_021
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 160
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_022
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 1576
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_023
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 1576
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_024
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 1576
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_025
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 1576
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_026
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 1576
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_027
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 1576
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_028
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 1340
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_029
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 1104
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_030
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 868
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_031
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 632
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_032
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 396
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_033
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 160
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_034
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 1340
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_035
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 1340
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_036
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 1340
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_037
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 1340
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_038
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 1340
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_039
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 1104
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_040
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 868
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_041
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 632
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_042
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 396
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_043
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 160
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_Pyramid_044
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 1104
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

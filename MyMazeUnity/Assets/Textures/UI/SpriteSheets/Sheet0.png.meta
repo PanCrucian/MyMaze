@@ -1,0 +1,230 @@
+fileFormatVersion: 2
+guid: 425dafc30817a104d9a57e8cca356bec
+timeCreated: 1427116932
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: b_Achievements
+    21300002: b_Info
+    21300004: b_MusicOff
+    21300006: b_MusicOn
+    21300008: b_Rating
+    21300010: i_FX01
+    21300012: i_FX02
+    21300014: i_MainMenuBg
+    21300016: i_MyMaze
+    21300018: ia_NumbersFX_001
+    21300020: ia_NumbersFX_002
+    21300022: ia_NumbersFX_003
+    21300024: ia_NumbersFX_004
+    21300026: ia_NumbersFX_005
+    21300028: ia_NumbersFX_006
+    21300030: ia_NumbersFX_007
+    21300032: ia_NumbersFX_008
+    21300034: ia_NumbersFX_009
+    21300036: ia_NumbersFX_010
+    21300038: ia_NumbersFX_011
+    21300040: ia_NumbersFX_012
+    21300042: ia_NumbersFX_013
+    21300044: ia_NumbersFX_014
+    21300046: ia_NumbersFX_015
+    21300048: ia_NumbersFX_016
+    21300050: ia_NumbersFX_017
+    21300052: ia_NumbersFX_018
+    21300054: ia_NumbersFX_019
+    21300056: ia_NumbersFX_020
+    21300058: ia_NumbersFX_021
+    21300060: ia_NumbersFX_022
+    21300062: ia_NumbersFX_023
+    21300064: ia_NumbersFX_024
+    21300066: ia_NumbersFX_025
+    21300068: ia_NumbersFX_026
+    21300070: ia_NumbersFX_027
+    21300072: ia_NumbersFX_028
+    21300074: ia_NumbersFX_029
+    21300076: ia_NumbersFX_030
+    21300078: ia_NumbersFX_031
+    21300080: ia_NumbersFX_032
+    21300082: ia_NumbersFX_033
+    21300084: ia_NumbersFX_034
+    21300086: ia_NumbersFX_035
+    21300088: ia_NumbersFX_036
+    21300090: ia_NumbersFX_037
+    21300092: ia_NumbersFX_038
+    21300094: ia_NumbersFX_039
+    21300096: ia_Pyramid_000
+    21300098: ia_Pyramid_001
+    21300100: ia_Pyramid_002
+    21300102: ia_Pyramid_003
+    21300104: ia_Pyramid_004
+    21300106: ia_Pyramid_005
+    21300108: ia_Pyramid_006
+    21300110: ia_Pyramid_007
+    21300112: ia_Pyramid_008
+    21300114: ia_Pyramid_009
+    21300116: ia_Pyramid_010
+    21300118: ia_Pyramid_011
+    21300120: ia_Pyramid_012
+    21300122: ia_Pyramid_013
+    21300124: ia_Pyramid_014
+    21300126: ia_Pyramid_015
+    21300128: ia_Pyramid_016
+    21300130: ia_Pyramid_017
+    21300132: ia_Pyramid_018
+    21300134: ia_Pyramid_019
+    21300136: ia_Pyramid_020
+    21300138: ia_Pyramid_021
+    21300140: ia_Pyramid_022
+    21300142: ia_Pyramid_023
+    21300144: ia_Pyramid_024
+    21300146: ia_Pyramid_025
+    21300148: ia_Pyramid_026
+    21300150: ia_Pyramid_027
+    21300152: ia_Pyramid_028
+    21300154: ia_Pyramid_029
+    21300156: ia_Pyramid_030
+    21300158: ia_Pyramid_031
+    21300160: ia_Pyramid_032
+    21300162: ia_Pyramid_033
+    21300164: ia_Pyramid_034
+    21300166: ia_Pyramid_035
+    21300168: ia_Pyramid_036
+    21300170: ia_Pyramid_037
+    21300172: ia_Pyramid_038
+    21300174: ia_Pyramid_039
+    21300176: ia_Pyramid_040
+    21300178: ia_Pyramid_041
+    21300180: ia_Pyramid_042
+    21300182: ia_Pyramid_043
+    21300184: ia_Pyramid_044
+    21300186: ia_Pyramid_045
+    21300188: ss_Rect01
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: b_Achievements
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 1982
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_Info
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 1982
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_MusicOff
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 1982
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_MusicOn
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 1982
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_Rating
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 1982
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_MainMenuBg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 910
+        width: 640
+        height: 1136
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_MyMaze
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 830
+        width: 473
+        height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ss_Rect01
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 2021
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 10, y: 10, z: 10, w: 10}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

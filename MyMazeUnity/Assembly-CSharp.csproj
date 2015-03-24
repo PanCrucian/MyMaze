@@ -47,8 +47,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\FpsCounter.cs" />
+     <Compile Include="Assets\Scripts\Localization\Localization.cs" />
+     <Compile Include="Assets\Scripts\Localization\LocalizedText.cs" />
      <Compile Include="Assets\Scripts\MyMaze.cs" />
-     <Compile Include="Assets\Scripts\UIGradient.cs" />
+     <Compile Include="Assets\Scripts\UI\CanvasSwitcher.cs" />
+     <Compile Include="Assets\Scripts\UI\LevelPages.cs" />
+     <Compile Include="Assets\Scripts\UI\UIGradient.cs" />
+     <Compile Include="Assets\Scripts\Util\Deligates.cs" />
      <None Include="Assets\Textures\UI\SpriteSheets\Readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

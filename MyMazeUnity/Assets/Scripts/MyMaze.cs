@@ -17,6 +17,6 @@ public class MyMaze : MonoBehaviour {
     /// </summary>
     void SetupApplicationPreferences()
     {
-        Application.targetFrameRate = 60;
+        //Application.targetFrameRate = 60;
     }
 }

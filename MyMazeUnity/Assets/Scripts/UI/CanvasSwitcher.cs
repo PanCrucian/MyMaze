@@ -32,5 +32,6 @@ public class CanvasSwitcher : MonoBehaviour {
         yield return new WaitForSeconds(delay);
         animatorForHide.SetTrigger("FadeOut");
         animatorForShow.SetTrigger("FadeIn");
+        delay = 0f;
     }
 }

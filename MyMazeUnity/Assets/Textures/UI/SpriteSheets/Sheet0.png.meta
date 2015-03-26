@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 425dafc30817a104d9a57e8cca356bec
-timeCreated: 1427178217
+timeCreated: 1427360814
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -103,6 +103,43 @@ TextureImporter:
     21300192: b_Back
     21300194: i_Star01
     21300196: b_Arrow
+    21300198: ia_FX00_000
+    21300200: ia_FX00_001
+    21300202: ia_FX00_002
+    21300204: ia_FX00_003
+    21300206: ia_FX00_004
+    21300208: ia_FX00_005
+    21300210: ia_FX00_006
+    21300212: ia_FX00_007
+    21300214: ia_FX00_008
+    21300216: ia_FX00_009
+    21300218: ia_FX00_010
+    21300220: ia_FX00_011
+    21300222: ia_FX00_012
+    21300224: ia_FX00_013
+    21300226: ia_FX00_014
+    21300228: ia_FX00_015
+    21300230: ia_FX00_016
+    21300232: ia_FX00_017
+    21300234: ia_FX00_018
+    21300236: ia_FX00_019
+    21300238: ia_FX00_020
+    21300240: ia_FX00_021
+    21300242: ia_FX00_022
+    21300244: ia_FX00_023
+    21300246: ia_FX00_024
+    21300248: ia_FX00_025
+    21300250: ia_FX00_026
+    21300252: ia_FX00_027
+    21300254: ia_FX00_028
+    21300256: ia_FX00_029
+    21300258: i_Square10x10
+    21300260: i_SquareSmooth
+    21300262: i_SquareSmooth2px
+    21300264: i_PreviewWall01
+    21300266: i_PreviewWall02
+    21300268: i_Square3x2Ratio
+    21300270: i_Square100x100
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -151,8 +188,8 @@ TextureImporter:
     - name: b_Achievements
       rect:
         serializedVersion: 2
-        x: 1886
-        y: 1982
+        x: 1954
+        y: 1861
         width: 64
         height: 64
       alignment: 0
@@ -161,8 +198,8 @@ TextureImporter:
     - name: b_Arrow
       rect:
         serializedVersion: 2
-        x: 1886
-        y: 1756
+        x: 1988
+        y: 1954
         width: 34
         height: 92
       alignment: 0
@@ -171,10 +208,10 @@ TextureImporter:
     - name: b_Back
       rect:
         serializedVersion: 2
-        x: 1952
-        y: 1982
-        width: 64
-        height: 64
+        x: 1886
+        y: 1878
+        width: 66
+        height: 66
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,7 +219,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1886
-        y: 1916
+        y: 1812
         width: 64
         height: 64
       alignment: 0
@@ -192,7 +229,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1952
-        y: 1916
+        y: 1795
         width: 64
         height: 64
       alignment: 0
@@ -202,7 +239,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1886
-        y: 1850
+        y: 1746
         width: 64
         height: 64
       alignment: 0
@@ -212,7 +249,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1952
-        y: 1850
+        y: 1729
         width: 64
         height: 64
       alignment: 0
@@ -241,28 +278,368 @@ TextureImporter:
     - name: i_MyMaze
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1192
         y: 630
         width: 473
         height: 78
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Square100x100
+      rect:
+        serializedVersion: 2
+        x: 1886
+        y: 1946
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 50, y: 50, z: 50, w: 50}
+    - name: i_Square10x10
+      rect:
+        serializedVersion: 2
+        x: 2024
+        y: 1970
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+    - name: i_SquareSmooth
+      rect:
+        serializedVersion: 2
+        x: 2024
+        y: 2026
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 6, y: 6, z: 6, w: 6}
+    - name: i_SquareSmooth2px
+      rect:
+        serializedVersion: 2
+        x: 2024
+        y: 2004
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 3, y: 3, z: 3, w: 3}
     - name: i_Star01
       rect:
         serializedVersion: 2
-        x: 2018
-        y: 2000
+        x: 2024
+        y: 1982
         width: 20
-        height: 19
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_000
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 540
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_001
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 370
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_002
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 200
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_003
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 30
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_004
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 540
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_005
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 370
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_006
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 200
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_007
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 30
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_008
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 540
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_009
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 370
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_010
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 200
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_011
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 30
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_012
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 540
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_013
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 370
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_014
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 200
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_015
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 30
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_016
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 540
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_017
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 370
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_018
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 200
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_019
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 30
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_020
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 540
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_021
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 370
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_022
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 200
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_023
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 30
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_024
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 540
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_025
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 370
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_026
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 200
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_027
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 30
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_028
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 540
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_029
+      rect:
+        serializedVersion: 2
+        x: 1837
+        y: 540
+        width: 168
+        height: 168
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: ss_Rect01
       rect:
         serializedVersion: 2
-        x: 2018
-        y: 2021
+        x: 1988
+        y: 1927
         width: 25
         height: 25
       alignment: 0

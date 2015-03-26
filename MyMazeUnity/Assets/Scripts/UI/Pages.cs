@@ -71,8 +71,10 @@ public class Pages : MonoBehaviour {
         {
             Page page = t.GetComponent<Page>();
             if (page)
+            {
                 __data.pages[i] = page;
-            i++;
+                i++;
+            }
         }
     }
 
@@ -98,9 +100,9 @@ public class Pages : MonoBehaviour {
             if (Time.time - lastSwipe < swipeDelay)
                 return;
             if (pointer.delta.x < 0f)
-                InputSimulator.Instance.SimulateClick(__data.pages[PageNumber].buttons.nextButton.gameObject);
+                InputSimulator.Instance.SimulatePressThenClick(__data.pages[PageNumber].buttons.nextButton.gameObject);
             else
-                InputSimulator.Instance.SimulateClick(__data.pages[PageNumber].buttons.prevButton.gameObject);
+                InputSimulator.Instance.SimulatePressThenClick(__data.pages[PageNumber].buttons.prevButton.gameObject);
             lastSwipe = Time.time;
         }
     }

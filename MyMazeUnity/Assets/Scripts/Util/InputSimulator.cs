@@ -22,7 +22,7 @@ public class InputSimulator : MonoBehaviour {
     /// <summary>
     /// Задержка между кликом и нажатием для красивой симуляции
     /// </summary>
-    private float presThenClickDelay = 0.25f;
+    private float presThenClickDelay = 0.175f;
 
     void Awake()
     {
@@ -53,9 +53,11 @@ public class InputSimulator : MonoBehaviour {
     IEnumerator PressThenClick(GameObject go)
     {
         PointerEventData pointer = new PointerEventData(EventSystem.current);
+        ExecuteEvents.Execute(go, pointer, ExecuteEvents.pointerEnterHandler);
+        yield return new WaitForSeconds(presThenClickDelay);
         ExecuteEvents.Execute(go, pointer, ExecuteEvents.pointerDownHandler);
         yield return new WaitForSeconds(presThenClickDelay);
-        pointer = new PointerEventData(EventSystem.current);
+        ExecuteEvents.Execute(go, pointer, ExecuteEvents.pointerUpHandler);
         ExecuteEvents.Execute(go, pointer, ExecuteEvents.pointerClickHandler);
     }
 }

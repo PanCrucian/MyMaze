@@ -4,7 +4,10 @@ using UnityEngine;
 /// <summary>
 /// Звезда
 /// </summary>
+[Serializable]
 public class Star : IStar, IComparable {
+
+    public string starName = "Star";
 
     /// <summary>
     /// Секретная звезда?
@@ -16,16 +19,24 @@ public class Star : IStar, IComparable {
     /// </summary>
     public int movesToGet;
 
-    private bool isCollected;
+    public bool IsCollected
+    {
+        get
+        {
+            return _isCollected;
+        }
+    }
+
+    private bool _isCollected;
 
     /// <summary>
     /// Подобрать звезду
     /// </summary>
     public void Collect()
     {
-        if (this.isCollected)
+        if (this._isCollected)
             Debug.Log("Монета уже была собрана, но вы снова подбираете её");
-        this.isCollected = true;
+        this._isCollected = true;
     }
 
     /// <summary>
@@ -33,9 +44,9 @@ public class Star : IStar, IComparable {
     /// </summary>
     public void Lose()
     {
-        if (!this.isCollected)
+        if (!this._isCollected)
             Debug.Log("Монеты и так нет, но вы пытаетесь потерять её");
-        this.isCollected = false;
+        this._isCollected = false;
     }
 
     public int CompareTo(object obj)
@@ -44,7 +55,7 @@ public class Star : IStar, IComparable {
 
         if (this.movesToGet > star.movesToGet) return 1;
         if (this.movesToGet < star.movesToGet) return -1;
-
+        
         return 0;
     }
 }

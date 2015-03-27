@@ -3,6 +3,7 @@ using UnityEditor;
 using System.Collections;
 
 [CustomEditor(typeof(PackUI))]
+[CanEditMultipleObjects]
 public class PackUIEditor : Editor
 {  
 

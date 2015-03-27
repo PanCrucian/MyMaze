@@ -12,31 +12,26 @@ public class Star : IStar, IComparable {
     /// <summary>
     /// Секретная звезда?
     /// </summary>
-    public bool isHidden;
+    public bool IsHidden;
 
     /// <summary>
     /// Сколько ходов нужно сделать чтобы получить Star
     /// </summary>
     public int movesToGet;
 
-    public bool IsCollected
-    {
-        get
-        {
-            return _isCollected;
-        }
-    }
-
-    private bool _isCollected;
-
+    /// <summary>
+    /// Подобрана?
+    /// </summary>
+    public bool IsCollected;
+    
     /// <summary>
     /// Подобрать звезду
     /// </summary>
     public void Collect()
     {
-        if (this._isCollected)
+        if (this.IsCollected)
             Debug.Log("Монета уже была собрана, но вы снова подбираете её");
-        this._isCollected = true;
+        this.IsCollected = true;
     }
 
     /// <summary>
@@ -44,9 +39,9 @@ public class Star : IStar, IComparable {
     /// </summary>
     public void Lose()
     {
-        if (!this._isCollected)
+        if (!this.IsCollected)
             Debug.Log("Монеты и так нет, но вы пытаетесь потерять её");
-        this._isCollected = false;
+        this.IsCollected = false;
     }
 
     public int CompareTo(object obj)
@@ -58,4 +53,10 @@ public class Star : IStar, IComparable {
         
         return 0;
     }
+
+    public void SetHidden()
+    {
+        this.IsHidden = true;
+    }
+
 }

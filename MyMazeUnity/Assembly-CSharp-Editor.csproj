@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\LevelEditor.cs" />
+     <Compile Include="Assets\Editor\LevelUIEditor.cs" />
      <Compile Include="Assets\Editor\MainMenuEditor.cs" />
      <Compile Include="Assets\Editor\PackEditor.cs" />
      <Compile Include="Assets\Editor\PackUIEditor.cs" />

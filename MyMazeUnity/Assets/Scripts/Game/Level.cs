@@ -22,7 +22,7 @@ public class Level : MonoBehaviour, ILevel, IComparable
     /// <summary>
     /// Список звезд
     /// </summary>
-    public List<Star> stars = new List<Star>() { new Star(), new Star(), new Star()};
+    public List<Star> stars;
 
     /// <summary>
     /// Минимальное количество ходов сделанные на этом уровне
@@ -46,15 +46,13 @@ public class Level : MonoBehaviour, ILevel, IComparable
     /// <summary>
     /// Уровень пройден? true = да false = нет
     /// </summary>
-    public bool IsPassed { get { return this.isPassed; } }
+    public bool IsPassed;
 
     /// <summary>
     /// Уровень закрыт? true = да false = нет
     /// </summary>
-    public bool IsClosed { get { return this.isClosed; } }
+    public bool IsClosed;
 
-    private bool isPassed;
-    private bool isClosed;
     private int minMovesRecord;
     
     /// <summary>
@@ -62,9 +60,9 @@ public class Level : MonoBehaviour, ILevel, IComparable
     /// </summary>
     public void Open()
     {
-        if (!this.isClosed)
+        if (!this.IsClosed)
             Debug.Log("Уровень уже был открыт");
-        this.isClosed = false;
+        this.IsClosed = false;
     }
 
     /// <summary>
@@ -72,9 +70,9 @@ public class Level : MonoBehaviour, ILevel, IComparable
     /// </summary>
     public void Close()
     {
-        if (this.isClosed)
+        if (this.IsClosed)
             Debug.Log("Уровень уже был закрыт");
-        this.isClosed = true;
+        this.IsClosed = true;
     }
 
     /// <summary>
@@ -82,12 +80,12 @@ public class Level : MonoBehaviour, ILevel, IComparable
     /// </summary>
     public void Pass()
     {
-        if (this.isClosed)
+        if (this.IsClosed)
         {
             Debug.LogWarning("Вы пытаетесь пройти уровень который закрыт, прохождение не будет засчитано. Вначале откройте уровень!");
             return;
         }
-        this.isPassed = true;
+        this.IsPassed = true;
     }
 
     public int CompareTo(object obj)
@@ -108,7 +106,7 @@ public class Level : MonoBehaviour, ILevel, IComparable
     {
         foreach (Star star in this.stars)
         {
-            if (star.isHidden)
+            if (star.IsHidden)
                 return true;
         }
 
@@ -124,7 +122,7 @@ public class Level : MonoBehaviour, ILevel, IComparable
     {
         foreach (Star star in this.stars)
         {
-            if (star.isHidden)
+            if (star.IsHidden)
                 return star;
         }
 
@@ -140,7 +138,7 @@ public class Level : MonoBehaviour, ILevel, IComparable
         List<Star> stars = new List<Star>();
         foreach (Star star in this.stars)
         {
-            if (star.isHidden)
+            if (star.IsHidden)
                 stars.Add(star);
         }
 
@@ -153,13 +151,13 @@ public class Level : MonoBehaviour, ILevel, IComparable
     /// <returns></returns>
     public List<Star> GetSimpleStars()
     {
-        List<Star> stars = new List<Star>();
+        List<Star> ss = new List<Star>();
         foreach (Star star in this.stars)
         {
-            if (!star.isHidden)
-                stars.Add(star);
+            if (!star.IsHidden)
+                ss.Add(star);
         }
 
-        return stars;
+        return ss;
     }
 }

@@ -13,28 +13,40 @@ public class Pack : MonoBehaviour, IPack {
     /// <summary>
     /// Массив уровней в паке
     /// </summary>
-    public List<Level> levels;
+    public Level[] levels;
 
     /// <summary>
     /// Количество звезд в паке
     /// </summary>
-    public int StarsCount
-    {
-        get
-        {
-            return _starsCount;
-        }
-    }
-    private int _starsCount;
+    public int StarsCount;
 
-    public int StarsRecived
+    /// <summary>
+    /// Получено звезд в паке
+    /// </summary>
+    public int StarsRecived;
+
+    /// <summary>
+    /// Количество звезд которое необходимо набрать для открытия пака
+    /// </summary>
+    public int StarsRequired;
+
+    /// <summary>
+    /// Закрыт ли пак? Считает все приобретенные звезды, сравнивает с необходимым количеством и говорит да или нет
+    /// </summary>
+    public bool IsClosed
     {
         get
         {
-            return _starsRecived;
+            int starsOwned = 0;
+            foreach (Pack pack in MyMaze.Instance.packs)
+                starsOwned += pack.StarsRecived;
+
+            if (starsOwned >= StarsRequired)
+                return false;
+
+            return true;
         }
     }
-    private int _starsRecived;
 
     void Awake()
     {
@@ -56,13 +68,13 @@ public class Pack : MonoBehaviour, IPack {
     /// </summary>
     void SetRecivedStars()
     {
-        _starsRecived = 0;
+        StarsRecived = 0;
         foreach (Level level in levels)
         {
             foreach (Star star in level.stars)
             {
                 if(star.IsCollected)
-                    _starsRecived++;
+                    StarsRecived++;
             }
         }
     }
@@ -72,21 +84,15 @@ public class Pack : MonoBehaviour, IPack {
     /// </summary>
     void SetMaximumStars()
     {
-        _starsCount = 0;
+        StarsCount = 0;
         foreach (Level level in levels)
         {
-            _starsCount += level.stars.Count;
+            StarsCount += level.stars.Count;
         }
     }
 
     void SetupLevels()
     {
-        foreach (Transform t in transform)
-        {
-            Level level = t.GetComponent<Level>();
-            if (!level)
-                continue;
-            levels.Add(level);
-        }
+        levels = GetComponentsInChildren<Level>();
     }
 }

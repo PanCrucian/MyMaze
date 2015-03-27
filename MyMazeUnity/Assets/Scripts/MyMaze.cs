@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class MyMaze : MonoBehaviour {
+    public Pack LastSelectedPack;
     public List<Pack> packs;
     public List<Level> levels;
 
@@ -33,6 +34,7 @@ public class MyMaze : MonoBehaviour {
     {
         SetupData();
         CheckNames();
+        LastSelectedPack = packs[0];
     }
 
     /// <summary>

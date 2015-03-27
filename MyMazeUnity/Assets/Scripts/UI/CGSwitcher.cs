@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CanvasSwitcher : MonoBehaviour {
+public class CGSwitcher : MonoBehaviour {
 
     private Animator animatorForHide;
     private Animator animatorForShow;
@@ -24,14 +24,16 @@ public class CanvasSwitcher : MonoBehaviour {
 
     public void Switch()
     {
-        StartCoroutine(SwitchAfterDelay());
+        StartCoroutine(SwitchAfterDelay());        
     }
 
     IEnumerator SwitchAfterDelay()
     {
         yield return new WaitForSeconds(delay);
-        animatorForHide.SetTrigger("FadeOut");
-        animatorForShow.SetTrigger("FadeIn");
+        if (animatorForHide != null)
+            animatorForHide.SetTrigger("FadeOut");
+        if (animatorForShow != null)
+            animatorForShow.SetTrigger("FadeIn");
         delay = 0f;
     }
 }

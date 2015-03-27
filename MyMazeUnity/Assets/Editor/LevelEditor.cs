@@ -3,7 +3,9 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.Collections;
 
+
 [CustomEditor(typeof(Level))]
+[CanEditMultipleObjects]
 public class LevelEditor : Editor
 {
     public bool allowAutoLevelNaming = true;
@@ -11,7 +13,7 @@ public class LevelEditor : Editor
     int starIndexForActions;
 
     GUIStyle textStyle01 = new GUIStyle();
-    private bool[] foldout = {false};
+    private bool[] foldout = {true};
 
     public override void OnInspectorGUI()
     {
@@ -22,7 +24,7 @@ public class LevelEditor : Editor
         string newname = "Level_" + level.levelName;
         if (!target.name.Equals(newname))
             target.name = "Level_" + level.levelName;
-        StarControl(level);
+        StarControl();
 
         EditorGUILayout.Space();
         allowAutoLevelNaming = EditorGUILayout.Toggle("Авто имя:", allowAutoLevelNaming);
@@ -42,6 +44,17 @@ public class LevelEditor : Editor
         foldout[0] = EditorGUILayout.Foldout(foldout[0], new GUIContent() { text = "Управление звездами" });
         if (foldout[0])
         {
+            if (level.GetHiddenStar() == null)
+            {
+                if (GUILayout.Button("Добавить секретную звезду"))
+                    AddHiddenStar();
+            }
+            else
+            {
+                GUILayout.Label("Здесь есть секретная звезда :3", textStyle01);
+                if (GUILayout.Button("Удалить секретную звезду"))
+                    RemoveHiddenStar();
+            }
             allowAutoSort = EditorGUILayout.Toggle("Авто сортировка:", allowAutoSort);
             if (!allowAutoSort)
             {
@@ -72,14 +85,36 @@ public class LevelEditor : Editor
             level.stars.Sort();
     }
 
-    void StarControl(Level level)
+    void AddHiddenStar()
     {
+        Star star = new Star();
+        star.IsHidden = true;
+        Level level = (Level)target;
+        level.stars.Add(star);
+    }
+
+    void RemoveHiddenStar()
+    {
+        Level level = (Level)target;
+        foreach (Star star in level.stars)
+        {
+            if (star.IsHidden)
+            {
+                level.stars.Remove(star);
+                break;
+            }                
+        }
+    }
+
+    void StarControl()
+    {
+        Level level = (Level)target;
         string newname;
         List<Star> simpleStars = level.GetSimpleStars();
 
         //нехватки звезд
         if (simpleStars.Count < 3) { 
-            //Debug.LogWarning("Звезд должно быть не меньше 3-х!");
+            Debug.LogWarning("Звезд должно быть не меньше 3-х!");
             for (int i = 0; i < 3 - simpleStars.Count; i++)
             {
                 Star star = new Star();
@@ -101,7 +136,7 @@ public class LevelEditor : Editor
             //Если скрытых звезд больше 2-х то выключим все
             if (hiddenStars.Count > 1)
                 foreach (Star star in hiddenStars)
-                    star.isHidden = false;
+                    star.IsHidden = false;
 
             //поставим число ходов на 0
             hiddenStars[0].movesToGet = 0;
@@ -114,6 +149,7 @@ public class LevelEditor : Editor
         //Если звезд больше положеного удалим их
         if (simpleStars.Count > 3)
         {
+            Debug.LogWarning("Удалил лишние звезды");
             for (int i = simpleStars.Count - 1; i >= 3; i--)
             {
                 level.stars.Remove(simpleStars[i]);

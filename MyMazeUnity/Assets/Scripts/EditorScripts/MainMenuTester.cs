@@ -8,6 +8,7 @@ public class MainMenuTester : MonoBehaviour {
         public string mainMenuName = "cg_MainMenu";
         public CanvasGroup[] menus;
         public CanvasGroup pages;
+        public CanvasGroup mainMenuContent;
     }
 
     public LocalData __data;
@@ -26,22 +27,27 @@ public class MainMenuTester : MonoBehaviour {
         int index = 0;
         foreach (Transform t in __data.pages.transform)
         {
-            Page page = t.GetComponent<Page>();
+            PageUI page = t.GetComponent<PageUI>();
             if (!page)
                 continue;
-            CanvasGroup cg = t.GetComponent<CanvasGroup>();
-            if (!cg)
+            CanvasGroup pagecg = t.GetComponent<CanvasGroup>();
+            if (!pagecg)
                 continue;
             if (index > 0)
-                ToggleCG(cg, false);
+                ToggleCG(pagecg, false);
             else
-                ToggleCG(cg, true);
+                ToggleCG(pagecg, true);
+
+            ToggleCG(page.containers.packsContainer, true);
+            ToggleCG(page.containers.levelsContainer, false);
             index++;
         }
+        __data.mainMenuContent.alpha = 0f;
     }
 
-    public void PrepareForWork(CanvasGroup workMenu, int workPage)
+    public void PrepareForWork(CanvasGroup workMenu, int workPage, bool isPackWork)
     {
+        __data.mainMenuContent.alpha = 1f;
         if (!CheckPlayData() || !workMenu)
             return;
         foreach (CanvasGroup cg in __data.menus)
@@ -52,16 +58,28 @@ public class MainMenuTester : MonoBehaviour {
         int index = 0;
         foreach (Transform t in __data.pages.transform)
         {
-            Page page = t.GetComponent<Page>();
+            PageUI page = t.GetComponent<PageUI>();
             if (!page)
                 continue;
-            CanvasGroup cg = t.GetComponent<CanvasGroup>();
-            if (!cg)
+            CanvasGroup pagecg = t.GetComponent<CanvasGroup>();
+            if (!pagecg)
                 continue;
             if (index == workPage)
-                ToggleCG(cg, true);
+            {
+                ToggleCG(pagecg, true);
+                if (isPackWork)
+                {
+                    ToggleCG(page.containers.packsContainer, true);
+                    ToggleCG(page.containers.levelsContainer, false);
+                }
+                else
+                {
+                    ToggleCG(page.containers.packsContainer, false);
+                    ToggleCG(page.containers.levelsContainer, true);
+                }
+            }
             else
-                ToggleCG(cg, false);
+                ToggleCG(pagecg, false);
             index++;
         }
     }
@@ -79,6 +97,11 @@ public class MainMenuTester : MonoBehaviour {
 
     void ToggleCG(CanvasGroup cg, bool flag)
     {
+        if (cg == null)
+        {
+            Debug.LogWarning("Тестер обнаружил потерянные объекты в ссылках на компоненты");
+            return;
+        }
         if (flag)
         {
             cg.alpha = 1f;

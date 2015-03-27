@@ -3,15 +3,17 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
 
-public class Pages : MonoBehaviour {
+public class PagesUI : MonoBehaviour {
     [System.Serializable]
     public class Local_data
     {
-        public Page[] pages;
+        public PageUI[] pages;
     }
 
     public Local_data __data;
+    public CGSwitcherStruct switcherData;
     public float swipeDelay = 0.25f;
+
     private float lastSwipe = 0f;
     public int PageNumber 
     {
@@ -38,6 +40,30 @@ public class Pages : MonoBehaviour {
         SetupPages();
     }
 
+    void Update()
+    {
+        PageUI currentPage = __data.pages[pageNumber];
+        try
+        {
+            PageUI nextPage = __data.pages[pageNumber + 1];
+            currentPage.buttons.nextButton.gameObject.SetActive(true);
+        }
+        catch
+        {
+            currentPage.buttons.nextButton.gameObject.SetActive(false);
+        }
+            
+        try
+        {
+            PageUI prevPage = __data.pages[pageNumber - 1];
+            currentPage.buttons.prevButton.gameObject.SetActive(true);
+        }
+        catch
+        {
+            currentPage.buttons.prevButton.gameObject.SetActive(false);
+        }
+    }
+
     /// <summary>
     /// Установки для страниц с уровнями
     /// </summary>
@@ -62,14 +88,14 @@ public class Pages : MonoBehaviour {
         int pagescount = 0;
         foreach (Transform t in transform)
         {
-            if (t.GetComponent<Page>())
+            if (t.GetComponent<PageUI>())
                 pagescount++;
         }
-        __data.pages = new Page[pagescount];
+        __data.pages = new PageUI[pagescount];
         int i = 0;
         foreach (Transform t in transform)
         {
-            Page page = t.GetComponent<Page>();
+            PageUI page = t.GetComponent<PageUI>();
             if (page)
             {
                 __data.pages[i] = page;
@@ -84,6 +110,11 @@ public class Pages : MonoBehaviour {
     public void NextPage()
     {
         PageNumber++;
+        CGSwitcher switcher = switcherData.switcher;
+        switcher.SetHideObject(__data.pages[pageNumber - 1].GetComponent<Animator>());
+        switcher.SetShowObject(__data.pages[pageNumber].GetComponent<Animator>());
+        switcher.SetDelayTime(switcherData.delay);
+        switcher.Switch();
     }
 
     /// <summary>
@@ -92,6 +123,12 @@ public class Pages : MonoBehaviour {
     public void PrevPage()
     {        
         PageNumber--;
+
+        CGSwitcher switcher = switcherData.switcher;
+        switcher.SetHideObject(__data.pages[pageNumber + 1].GetComponent<Animator>());
+        switcher.SetShowObject(__data.pages[pageNumber].GetComponent<Animator>());
+        switcher.SetDelayTime(switcherData.delay);
+        switcher.Switch();
     }
 
     public void Drag(BaseEventData data) {

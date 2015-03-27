@@ -16,7 +16,6 @@ public class PackEditor : Editor
         if (!target.name.Equals(newname))
             target.name = newname;
         if (GUILayout.Button("Закрыть все уровни, кроме первого"))
-        {
             for (int i = 0; i < pack.levels.Length; i++)
             {
                 Level level = pack.levels[i];
@@ -25,16 +24,17 @@ public class PackEditor : Editor
                 else
                     level.IsClosed = true;
             }
-        }
         if (GUILayout.Button("Закрыть все уровни"))
-        {
             for (int i = 0; i < pack.levels.Length; i++)
             {
                 Level level = pack.levels[i];
                 level.IsClosed = true;
             }
-        }
         if (pack.StarsRequired < 0)
             pack.StarsRequired = 0;
+        if (GUILayout.Button("Подобрать все звезды"))
+            foreach (Level level in pack.levels)
+                foreach (Star star in level.stars)
+                    star.Collect();
     }
 }

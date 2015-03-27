@@ -4,9 +4,27 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class MyMaze : MonoBehaviour {
+    /// <summary>
+    /// Последний выбранный пак
+    /// </summary>
     public Pack LastSelectedPack;
     public List<Pack> packs;
     public List<Level> levels;
+
+    /// <summary>
+    /// Сколько всего звезд получено
+    /// </summary>
+    public int StarsRecived;
+
+    /// <summary>
+    /// Сколько всего звезд в игре
+    /// </summary>
+    public int StarsCount;
+
+    /// <summary>
+    /// Последняя выбранная страница
+    /// </summary>
+    public PageUI LastSelectedPage;
 
     public static MyMaze Instance 
     { 
@@ -35,6 +53,34 @@ public class MyMaze : MonoBehaviour {
         SetupData();
         CheckNames();
         LastSelectedPack = packs[0];
+    }
+
+    void Update()
+    {
+        CalculateTotalStars();
+        CalculateStarsRecived();
+    }
+
+    /// <summary>
+    /// Считаем сколько всего звезд было получено
+    /// </summary>
+    void CalculateStarsRecived()
+    {
+        int summ = 0;
+        foreach (Pack pack in MyMaze.Instance.packs)
+            summ += pack.StarsRecived;
+        StarsRecived = summ;
+    }
+
+    /// <summary>
+    /// Считаем сколько всего звезд в игре
+    /// </summary>
+    void CalculateTotalStars()
+    {
+        int summ = 0;
+        foreach (Pack pack in MyMaze.Instance.packs)
+            summ += pack.StarsCount;
+        StarsCount = summ;
     }
 
     /// <summary>

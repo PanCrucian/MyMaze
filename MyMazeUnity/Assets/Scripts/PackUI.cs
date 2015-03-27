@@ -13,7 +13,12 @@ public class PackUI : MonoBehaviour {
     public float contentLockAlpha = 0.5f;
 
     public CGSwitcherStruct switcherData;
-    
+
+    void Start()
+    {
+        switcherData.showObject = GetComponentInParent<PageUI>().containers.levelsContainer.GetComponent<Animator>();
+        switcherData.hideObject = GetComponentInParent<PacksContainerUI>().GetComponent<Animator>();
+    }
 
     void Update()
     {

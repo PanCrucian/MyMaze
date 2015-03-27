@@ -38,30 +38,42 @@ public class PagesUI : MonoBehaviour {
     void Start()
     {
         SetupPages();
+        MyMaze game = MyMaze.Instance;
+
+        if (game.LastSelectedPage == null)
+            game.LastSelectedPage = __data.pages[0];
+
+        foreach (PageUI page in __data.pages)
+        {
+            CanvasGroup cg = page.GetComponent<CanvasGroup>();
+            if (game.LastSelectedPage.Equals(page))
+            {
+                cg.alpha = 1f;
+                cg.interactable = true;
+                cg.blocksRaycasts = true;
+            }
+            else
+            {
+                cg.alpha = 0f;
+                cg.interactable = false;
+                cg.blocksRaycasts = false;
+            }
+        }
     }
 
     void Update()
     {
         PageUI currentPage = __data.pages[pageNumber];
-        try
-        {
-            PageUI nextPage = __data.pages[pageNumber + 1];
-            currentPage.buttons.nextButton.gameObject.SetActive(true);
-        }
-        catch
-        {
-            currentPage.buttons.nextButton.gameObject.SetActive(false);
-        }
-            
-        try
-        {
-            PageUI prevPage = __data.pages[pageNumber - 1];
-            currentPage.buttons.prevButton.gameObject.SetActive(true);
-        }
-        catch
-        {
+        
+        if(pageNumber - 1 < 0)
             currentPage.buttons.prevButton.gameObject.SetActive(false);
-        }
+        else
+            currentPage.buttons.prevButton.gameObject.SetActive(true);
+
+        if(pageNumber + 1 >= __data.pages.Length)
+            currentPage.buttons.nextButton.gameObject.SetActive(false);
+        else
+            currentPage.buttons.nextButton.gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -110,11 +122,15 @@ public class PagesUI : MonoBehaviour {
     public void NextPage()
     {
         PageNumber++;
+        Debug.Log(pageNumber);
         CGSwitcher switcher = switcherData.switcher;
-        switcher.SetHideObject(__data.pages[pageNumber - 1].GetComponent<Animator>());
-        switcher.SetShowObject(__data.pages[pageNumber].GetComponent<Animator>());
+        switcherData.hideObject = __data.pages[pageNumber - 1].GetComponent<Animator>();
+        switcher.SetHideObject(switcherData.hideObject);
+        switcherData.showObject = __data.pages[pageNumber].GetComponent<Animator>();
+        switcher.SetShowObject(switcherData.showObject);
         switcher.SetDelayTime(switcherData.delay);
         switcher.Switch();
+        MyMaze.Instance.LastSelectedPage = __data.pages[pageNumber];
     }
 
     /// <summary>
@@ -125,10 +141,13 @@ public class PagesUI : MonoBehaviour {
         PageNumber--;
 
         CGSwitcher switcher = switcherData.switcher;
-        switcher.SetHideObject(__data.pages[pageNumber + 1].GetComponent<Animator>());
-        switcher.SetShowObject(__data.pages[pageNumber].GetComponent<Animator>());
+        switcherData.hideObject = __data.pages[pageNumber + 1].GetComponent<Animator>();
+        switcher.SetHideObject(switcherData.hideObject);
+        switcherData.showObject = __data.pages[pageNumber].GetComponent<Animator>();
+        switcher.SetShowObject(switcherData.showObject);
         switcher.SetDelayTime(switcherData.delay);
         switcher.Switch();
+        MyMaze.Instance.LastSelectedPage = __data.pages[pageNumber];
     }
 
     public void Drag(BaseEventData data) {

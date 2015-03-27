@@ -27,6 +27,8 @@ public class LevelUI : MonoBehaviour {
 
     void Update()
     {
+        if (!MyMaze.Instance.LastSelectedPack.IsYourLevel(level))
+            return;
         numberText.text = level.displayText;
         if (level.IsClosed)
             CloseLevel();

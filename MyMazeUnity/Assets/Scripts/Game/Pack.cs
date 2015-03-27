@@ -37,11 +37,7 @@ public class Pack : MonoBehaviour, IPack {
     {
         get
         {
-            int starsOwned = 0;
-            foreach (Pack pack in MyMaze.Instance.packs)
-                starsOwned += pack.StarsRecived;
-
-            if (starsOwned >= StarsRequired)
+            if (MyMaze.Instance.StarsRecived >= StarsRequired)
                 return false;
 
             return true;
@@ -94,5 +90,19 @@ public class Pack : MonoBehaviour, IPack {
     void SetupLevels()
     {
         levels = GetComponentsInChildren<Level>();
+    }
+
+    /// <summary>
+    /// проверяет принадлежит ли уровень к данному паку
+    /// </summary>
+    /// <param name="level">объект уровень</param>
+    /// <returns></returns>
+    public bool IsYourLevel(Level level)
+    {
+        foreach (Level lvl in levels)
+            if (lvl.Equals(level))
+                return true;
+
+        return false;
     }
 }

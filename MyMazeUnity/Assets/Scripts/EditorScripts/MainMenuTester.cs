@@ -33,10 +33,7 @@ public class MainMenuTester : MonoBehaviour {
             CanvasGroup pagecg = t.GetComponent<CanvasGroup>();
             if (!pagecg)
                 continue;
-            if (index > 0)
-                ToggleCG(pagecg, false);
-            else
-                ToggleCG(pagecg, true);
+            ToggleCG(pagecg, false);
 
             ToggleCG(page.containers.packsContainer, true);
             ToggleCG(page.containers.levelsContainer, false);
@@ -51,7 +48,9 @@ public class MainMenuTester : MonoBehaviour {
         if (!CheckPlayData() || !workMenu)
             return;
         foreach (CanvasGroup cg in __data.menus)
+        {
             ToggleCG(cg, false);
+        }
         ToggleCG(workMenu, true);
         ToggleCG(__data.pages, true);
 
@@ -113,6 +112,18 @@ public class MainMenuTester : MonoBehaviour {
             cg.alpha = 0f;
             cg.interactable = false;
             cg.blocksRaycasts = false;
+        }
+    }
+
+    void ToggleGameObject(GameObject obj, bool flag)
+    {
+        if (flag)
+        {
+            obj.SetActive(true);
+        }
+        else
+        {
+            obj.SetActive(false);
         }
     }
 

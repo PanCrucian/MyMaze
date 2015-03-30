@@ -2,7 +2,8 @@
 using UnityEngine.EventSystems;
 using System.Collections;
 
-public class InputSimulator : MonoBehaviour {
+public class InputSimulator : MonoBehaviour
+{
 
     public static InputSimulator Instance
     {
@@ -26,11 +27,18 @@ public class InputSimulator : MonoBehaviour {
 
     void Awake()
     {
-        //Сохраняем инстанс в каждой сцене
-        if (Application.isPlaying)
-            DontDestroyOnLoad(gameObject);
+        if (!IsExist())
+        {
+            //Сохраняем инстанс в каждой сцене
+            if (Application.isPlaying)
+                DontDestroyOnLoad(gameObject);
 
-        _instance = this;
+            _instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SimulateClick(GameObject go)
@@ -59,5 +67,18 @@ public class InputSimulator : MonoBehaviour {
         yield return new WaitForSeconds(presThenClickDelay);
         ExecuteEvents.Execute(go, pointer, ExecuteEvents.pointerUpHandler);
         ExecuteEvents.Execute(go, pointer, ExecuteEvents.pointerClickHandler);
+    }
+
+    /// <summary>
+    /// Проверяет на копии себя же
+    /// </summary>
+    bool IsExist()
+    {
+        InputSimulator[] objects = GameObject.FindObjectsOfType<InputSimulator>();
+        if (objects.Length > 1)
+        {
+            return true;
+        }
+        return false;
     }
 }

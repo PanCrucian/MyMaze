@@ -38,39 +38,44 @@ public class PagesUI : MonoBehaviour {
     void Start()
     {
         SetupPages();
-        MyMaze game = MyMaze.Instance;
+        Game game = Game.Instance;
 
         if (game.LastSelectedPage == null)
+        {
             game.LastSelectedPage = __data.pages[0];
+        }
+        PageNumber = game.LastSelectedPage.transform.GetSiblingIndex();
 
+        SetlastSelectedPageVisability();
+    }
+
+    void SetlastSelectedPageVisability()
+    {
+        Game game = Game.Instance;
         foreach (PageUI page in __data.pages)
         {
-            CanvasGroup cg = page.GetComponent<CanvasGroup>();
-            if (game.LastSelectedPage.Equals(page))
+            Animator animator = page.GetComponent<Animator>();
+            if (game.LastSelectedPage == page)
             {
-                cg.alpha = 1f;
-                cg.interactable = true;
-                cg.blocksRaycasts = true;
+                animator.SetTrigger("FadeIn");
             }
             else
             {
-                cg.alpha = 0f;
-                cg.interactable = false;
-                cg.blocksRaycasts = false;
+                animator.SetTrigger("FadeOut");
             }
         }
     }
 
     void Update()
     {
-        PageUI currentPage = __data.pages[pageNumber];
-        
-        if(pageNumber - 1 < 0)
+        PageUI currentPage = __data.pages[PageNumber];
+
+        if (PageNumber - 1 < 0)
             currentPage.buttons.prevButton.gameObject.SetActive(false);
         else
             currentPage.buttons.prevButton.gameObject.SetActive(true);
 
-        if(pageNumber + 1 >= __data.pages.Length)
+        if (PageNumber + 1 >= __data.pages.Length)
             currentPage.buttons.nextButton.gameObject.SetActive(false);
         else
             currentPage.buttons.nextButton.gameObject.SetActive(true);
@@ -122,32 +127,31 @@ public class PagesUI : MonoBehaviour {
     public void NextPage()
     {
         PageNumber++;
-        Debug.Log(pageNumber);
         CGSwitcher switcher = switcherData.switcher;
-        switcherData.hideObject = __data.pages[pageNumber - 1].GetComponent<Animator>();
+        switcherData.hideObject = __data.pages[PageNumber - 1].GetComponent<Animator>();
         switcher.SetHideObject(switcherData.hideObject);
-        switcherData.showObject = __data.pages[pageNumber].GetComponent<Animator>();
+        switcherData.showObject = __data.pages[PageNumber].GetComponent<Animator>();
         switcher.SetShowObject(switcherData.showObject);
         switcher.SetDelayTime(switcherData.delay);
         switcher.Switch();
-        MyMaze.Instance.LastSelectedPage = __data.pages[pageNumber];
+        Game.Instance.LastSelectedPage = __data.pages[PageNumber];
     }
 
     /// <summary>
     /// Вернуться на предыдущую страницу
     /// </summary>
     public void PrevPage()
-    {        
+    {
         PageNumber--;
 
         CGSwitcher switcher = switcherData.switcher;
-        switcherData.hideObject = __data.pages[pageNumber + 1].GetComponent<Animator>();
+        switcherData.hideObject = __data.pages[PageNumber + 1].GetComponent<Animator>();
         switcher.SetHideObject(switcherData.hideObject);
-        switcherData.showObject = __data.pages[pageNumber].GetComponent<Animator>();
+        switcherData.showObject = __data.pages[PageNumber].GetComponent<Animator>();
         switcher.SetShowObject(switcherData.showObject);
         switcher.SetDelayTime(switcherData.delay);
         switcher.Switch();
-        MyMaze.Instance.LastSelectedPage = __data.pages[pageNumber];
+        Game.Instance.LastSelectedPage = __data.pages[PageNumber];
     }
 
     public void Drag(BaseEventData data) {

@@ -12,10 +12,16 @@ public class LevelUIEditor : Editor
         DrawDefaultInspector();
         LevelUI levelui = (LevelUI)target;
         if (levelui.level == null)
-            return;
-        string newname = levelui.level.name + "UI";
-        if (!target.name.Equals(newname))
-            target.name = newname;
+        {
+            if (!target.name.Equals("LevelUI"))
+                levelui.name = "LevelUI";
+        }
+        else
+        {
+            string newname = levelui.level.name + "UI";
+            if (!target.name.Equals(newname))
+                target.name = newname;
+        }
         
     }
 }

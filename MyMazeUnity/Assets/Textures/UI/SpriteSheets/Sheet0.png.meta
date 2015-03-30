@@ -161,6 +161,12 @@ TextureImporter:
     21300308: i_Pack_7
     21300310: i_Pack_8
     21300312: i_Pack_9
+    21300314: b_MusicHalf
+    21300316: i_Facebook
+    21300318: i_Vk
+    21300320: i_iTunes
+    21300322: i_Player
+    21300324: i_iPhone6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -209,8 +215,8 @@ TextureImporter:
     - name: b_Achievements
       rect:
         serializedVersion: 2
-        x: 1967
-        y: 1234
+        x: 1933
+        y: 1491
         width: 64
         height: 64
       alignment: 0
@@ -219,8 +225,8 @@ TextureImporter:
     - name: b_Arrow
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 1450
+        x: 1097
+        y: 1400
         width: 34
         height: 92
       alignment: 0
@@ -229,8 +235,8 @@ TextureImporter:
     - name: b_Back
       rect:
         serializedVersion: 2
-        x: 1967
-        y: 1300
+        x: 1933
+        y: 1557
         width: 66
         height: 66
       alignment: 0
@@ -239,8 +245,18 @@ TextureImporter:
     - name: b_Info
       rect:
         serializedVersion: 2
-        x: 1967
-        y: 1168
+        x: 1933
+        y: 1425
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_MusicHalf
+      rect:
+        serializedVersion: 2
+        x: 1933
+        y: 1359
         width: 64
         height: 64
       alignment: 0
@@ -249,8 +265,8 @@ TextureImporter:
     - name: b_MusicOff
       rect:
         serializedVersion: 2
-        x: 1708
-        y: 1229
+        x: 1933
+        y: 1293
         width: 64
         height: 64
       alignment: 0
@@ -259,8 +275,8 @@ TextureImporter:
     - name: b_MusicOn
       rect:
         serializedVersion: 2
-        x: 1708
-        y: 1163
+        x: 1373
+        y: 1382
         width: 64
         height: 64
       alignment: 0
@@ -269,10 +285,20 @@ TextureImporter:
     - name: b_Rating
       rect:
         serializedVersion: 2
-        x: 1944
-        y: 1102
+        x: 1373
+        y: 1316
         width: 64
         height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Facebook
+      rect:
+        serializedVersion: 2
+        x: 1933
+        y: 1946
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,8 +335,8 @@ TextureImporter:
     - name: i_Lock
       rect:
         serializedVersion: 2
-        x: 1708
-        y: 1295
+        x: 1933
+        y: 1625
         width: 87
         height: 115
       alignment: 0
@@ -339,8 +365,8 @@ TextureImporter:
     - name: i_Pack_1
       rect:
         serializedVersion: 2
-        x: 1157
-        y: 1870
+        x: 682
+        y: 1790
         width: 238
         height: 176
       alignment: 0
@@ -350,7 +376,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 682
-        y: 1790
+        y: 1612
         width: 238
         height: 176
       alignment: 0
@@ -360,83 +386,13 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 682
-        y: 1612
-        width: 238
-        height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_Pack_12
-      rect:
-        serializedVersion: 2
-        x: 1397
-        y: 1870
-        width: 238
-        height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_Pack_13
-      rect:
-        serializedVersion: 2
-        x: 1637
-        y: 1870
-        width: 238
-        height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_Pack_14
-      rect:
-        serializedVersion: 2
-        x: 1134
-        y: 1692
-        width: 238
-        height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_Pack_15
-      rect:
-        serializedVersion: 2
-        x: 682
         y: 1434
         width: 238
         height: 176
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_Pack_2
-      rect:
-        serializedVersion: 2
-        x: 1374
-        y: 1692
-        width: 238
-        height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_Pack_3
-      rect:
-        serializedVersion: 2
-        x: 1614
-        y: 1692
-        width: 238
-        height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_Pack_4
-      rect:
-        serializedVersion: 2
-        x: 1134
-        y: 1514
-        width: 238
-        height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_Pack_5
+    - name: i_Pack_12
       rect:
         serializedVersion: 2
         x: 682
@@ -446,11 +402,81 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Pack_13
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 1870
+        width: 238
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Pack_14
+      rect:
+        serializedVersion: 2
+        x: 1693
+        y: 1870
+        width: 238
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Pack_15
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 1692
+        width: 238
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Pack_2
+      rect:
+        serializedVersion: 2
+        x: 1693
+        y: 1692
+        width: 238
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Pack_3
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 1514
+        width: 238
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Pack_4
+      rect:
+        serializedVersion: 2
+        x: 1693
+        y: 1514
+        width: 238
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Pack_5
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 1336
+        width: 238
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_6
       rect:
         serializedVersion: 2
-        x: 1374
-        y: 1514
+        x: 1693
+        y: 1336
         width: 238
         height: 176
       alignment: 0
@@ -459,24 +485,14 @@ TextureImporter:
     - name: i_Pack_7
       rect:
         serializedVersion: 2
-        x: 1614
-        y: 1514
+        x: 1133
+        y: 1270
         width: 238
         height: 176
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_8
-      rect:
-        serializedVersion: 2
-        x: 1128
-        y: 1336
-        width: 238
-        height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_Pack_9
       rect:
         serializedVersion: 2
         x: 682
@@ -486,11 +502,31 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Pack_9
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 1158
+        width: 238
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Player
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 1494
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Square100x100
       rect:
         serializedVersion: 2
-        x: 1708
-        y: 1412
+        x: 1933
+        y: 1844
         width: 100
         height: 100
       alignment: 0
@@ -529,8 +565,8 @@ TextureImporter:
     - name: i_Star02
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 1419
+        x: 2001
+        y: 1594
         width: 32
         height: 29
       alignment: 0
@@ -539,10 +575,40 @@ TextureImporter:
     - name: i_Star03
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 1393
+        x: 2001
+        y: 1568
         width: 26
         height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Vk
+      rect:
+        serializedVersion: 2
+        x: 1933
+        y: 1742
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_iPhone6
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 1448
+        width: 294
+        height: 598
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_iTunes
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 1467
+        width: 173
+        height: 75
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -589,8 +655,8 @@ TextureImporter:
     - name: ia_FX00_004
       rect:
         serializedVersion: 2
-        x: 1877
-        y: 1878
+        x: 922
+        y: 1297
         width: 168
         height: 168
       alignment: 0
@@ -599,8 +665,8 @@ TextureImporter:
     - name: ia_FX00_005
       rect:
         serializedVersion: 2
-        x: 1877
-        y: 1708
+        x: 922
+        y: 1127
         width: 168
         height: 168
       alignment: 0
@@ -609,8 +675,8 @@ TextureImporter:
     - name: ia_FX00_006
       rect:
         serializedVersion: 2
-        x: 1854
-        y: 1538
+        x: 1679
+        y: 1166
         width: 168
         height: 168
       alignment: 0
@@ -619,8 +685,8 @@ TextureImporter:
     - name: ia_FX00_007
       rect:
         serializedVersion: 2
-        x: 922
-        y: 1374
+        x: 1849
+        y: 1123
         width: 168
         height: 168
       alignment: 0
@@ -629,8 +695,8 @@ TextureImporter:
     - name: ia_FX00_008
       rect:
         serializedVersion: 2
-        x: 1854
-        y: 1368
+        x: 1679
+        y: 996
         width: 168
         height: 168
       alignment: 0
@@ -639,8 +705,8 @@ TextureImporter:
     - name: ia_FX00_009
       rect:
         serializedVersion: 2
-        x: 922
-        y: 1204
+        x: 1849
+        y: 953
         width: 168
         height: 168
       alignment: 0
@@ -649,8 +715,8 @@ TextureImporter:
     - name: ia_FX00_010
       rect:
         serializedVersion: 2
-        x: 1368
-        y: 1344
+        x: 1092
+        y: 1100
         width: 168
         height: 168
       alignment: 0
@@ -659,8 +725,8 @@ TextureImporter:
     - name: ia_FX00_011
       rect:
         serializedVersion: 2
-        x: 1538
-        y: 1344
+        x: 922
+        y: 957
         width: 168
         height: 168
       alignment: 0
@@ -669,64 +735,14 @@ TextureImporter:
     - name: ia_FX00_012
       rect:
         serializedVersion: 2
-        x: 1797
-        y: 1198
+        x: 1262
+        y: 1100
         width: 168
         height: 168
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: ia_FX00_013
-      rect:
-        serializedVersion: 2
-        x: 1368
-        y: 1174
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_014
-      rect:
-        serializedVersion: 2
-        x: 1538
-        y: 1174
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_015
-      rect:
-        serializedVersion: 2
-        x: 1774
-        y: 1028
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_016
-      rect:
-        serializedVersion: 2
-        x: 1092
-        y: 1166
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_017
-      rect:
-        serializedVersion: 2
-        x: 922
-        y: 1034
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_018
       rect:
         serializedVersion: 2
         x: 682
@@ -736,11 +752,61 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_019
+    - name: ia_FX00_014
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 988
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_015
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 826
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_016
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 783
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_017
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 930
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_018
       rect:
         serializedVersion: 2
         x: 1262
-        y: 1004
+        y: 930
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_019
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 818
         width: 168
         height: 168
       alignment: 0
@@ -749,8 +815,8 @@ TextureImporter:
     - name: ia_FX00_020
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 996
+        x: 1602
+        y: 656
         width: 168
         height: 168
       alignment: 0
@@ -760,7 +826,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 852
-        y: 864
+        y: 787
         width: 168
         height: 168
       alignment: 0
@@ -779,8 +845,8 @@ TextureImporter:
     - name: ia_FX00_023
       rect:
         serializedVersion: 2
-        x: 1432
-        y: 1004
+        x: 1772
+        y: 613
         width: 168
         height: 168
       alignment: 0
@@ -789,8 +855,8 @@ TextureImporter:
     - name: ia_FX00_024
       rect:
         serializedVersion: 2
-        x: 1602
-        y: 993
+        x: 1022
+        y: 760
         width: 168
         height: 168
       alignment: 0
@@ -799,8 +865,8 @@ TextureImporter:
     - name: ia_FX00_025
       rect:
         serializedVersion: 2
-        x: 1772
-        y: 858
+        x: 852
+        y: 617
         width: 168
         height: 168
       alignment: 0
@@ -809,8 +875,8 @@ TextureImporter:
     - name: ia_FX00_026
       rect:
         serializedVersion: 2
-        x: 1262
-        y: 834
+        x: 682
+        y: 568
         width: 168
         height: 168
       alignment: 0
@@ -819,8 +885,8 @@ TextureImporter:
     - name: ia_FX00_027
       rect:
         serializedVersion: 2
-        x: 1432
-        y: 834
+        x: 1192
+        y: 760
         width: 168
         height: 168
       alignment: 0
@@ -829,8 +895,8 @@ TextureImporter:
     - name: ia_FX00_028
       rect:
         serializedVersion: 2
-        x: 1602
-        y: 823
+        x: 1362
+        y: 648
         width: 168
         height: 168
       alignment: 0
@@ -839,8 +905,8 @@ TextureImporter:
     - name: ia_FX00_029
       rect:
         serializedVersion: 2
-        x: 1022
-        y: 826
+        x: 1532
+        y: 486
         width: 168
         height: 168
       alignment: 0

@@ -47,12 +47,18 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\LevelEditor.cs" />
+     <Compile Include="Assets\Editor\LevelLoaderEditor.cs" />
      <Compile Include="Assets\Editor\LevelUIEditor.cs" />
+     <Compile Include="Assets\Editor\LocalizationEditor.cs" />
      <Compile Include="Assets\Editor\MainMenuEditor.cs" />
      <Compile Include="Assets\Editor\PackEditor.cs" />
      <Compile Include="Assets\Editor\PackUIEditor.cs" />
+     <Compile Include="Assets\Editor\TestEditor.cs" />
      <Compile Include="Assets\Editor\TexturePackerImporter.cs" />
+     <Compile Include="Assets\Editor\TutorialEditor.cs" />
      <None Include="Assets\Textures\UI\SpriteSheets\Readme.txt" />
+     <None Include="Assets\Localization\ru.xml" />
+     <None Include="Assets\Localization\en.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

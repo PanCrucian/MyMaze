@@ -32,7 +32,7 @@ public class LevelUI : MonoBehaviour {
         {
             return;
         }
-        if (!Game.Instance.LastSelectedPack.IsYourLevel(level))
+        if (!MyMaze.Instance.LastSelectedPack.IsYourLevel(level))
             return;
         numberText.text = level.displayText;
         if (level.IsClosed)

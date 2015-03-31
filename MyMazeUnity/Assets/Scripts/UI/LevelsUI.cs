@@ -12,14 +12,14 @@ public class LevelsUI : MonoBehaviour {
 
     void Update()
     {
-        Pack pack = Game.Instance.LastSelectedPack;
+        Pack pack = MyMaze.Instance.LastSelectedPack;
         if (pack == null)
         {
             Debug.LogWarning("Потерялась переменная с последним выбранным паком");
             return;
         }
         PageUI pageui = transform.parent.GetComponentInParent<PageUI>();
-        if (pageui != Game.Instance.LastSelectedPage)
+        if (pageui != MyMaze.Instance.LastSelectedPage)
             return;
         int i = 0;
         foreach (Level level in pack.levels)

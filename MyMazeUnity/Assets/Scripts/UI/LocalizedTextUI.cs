@@ -12,7 +12,7 @@ public class LocalizedTextUI : MonoBehaviour {
 
     void Start()
     {
-        localization = Game.Instance.Localization;
+        localization = MyMaze.Instance.Localization;
         textMesh = GetComponent<Text>();
         if (textMesh == null || localization == null)
         {

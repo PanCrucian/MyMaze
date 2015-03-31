@@ -12,6 +12,6 @@ public class StarsCounterUI : MonoBehaviour {
     }
 
 	void Update () {
-        text.text = System.String.Format("{0:000}", Game.Instance.StarsRecived) + "/" + System.String.Format("{0:000}", Game.Instance.StarsCount);
+        text.text = System.String.Format("{0:000}", MyMaze.Instance.StarsRecived) + "/" + System.String.Format("{0:000}", MyMaze.Instance.StarsCount);
 	}
 }

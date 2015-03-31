@@ -5,11 +5,11 @@ public class InfoUI : MonoBehaviour {
 
     public void OpenFacebookWebPage()
     {
-        Game.Instance.WebLinks.OpenFacebook();
+        MyMaze.Instance.WebLinks.OpenFacebook();
     }
 
     public void OpenVkWebPage()
     {
-        Game.Instance.WebLinks.OpenVk();
+        MyMaze.Instance.WebLinks.OpenVk();
     }
 }

@@ -85,7 +85,7 @@ public class PackUI : MonoBehaviour {
             switcher.SetShowObject(switcherData.showObject);
             switcher.SetDelayTime(switcherData.delay);
             switcher.Switch();
-            Game.Instance.LastSelectedPack = pack;
+            MyMaze.Instance.LastSelectedPack = pack;
         }
     }
 }

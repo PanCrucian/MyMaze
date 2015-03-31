@@ -5,16 +5,16 @@ public class SoundsUI : MonoBehaviour {
 
     public void EnableAllSounds()
     {
-        Game.Instance.Sounds.EnableAllSounds();
+        MyMaze.Instance.Sounds.EnableAllSounds();
     }
 
     public void DisableAllSounds()
     {
-        Game.Instance.Sounds.DisableAllSounds();
+        MyMaze.Instance.Sounds.DisableAllSounds();
     }
 
     public void SoundsOnly()
     {
-        Game.Instance.Sounds.SoundsOnly();
+        MyMaze.Instance.Sounds.SoundsOnly();
     }
 }

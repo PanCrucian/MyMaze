@@ -38,7 +38,7 @@ public class PagesUI : MonoBehaviour {
     void Start()
     {
         SetupPages();
-        Game game = Game.Instance;
+        MyMaze game = MyMaze.Instance;
 
         if (game.LastSelectedPage == null)
         {
@@ -51,7 +51,7 @@ public class PagesUI : MonoBehaviour {
 
     void SetlastSelectedPageVisability()
     {
-        Game game = Game.Instance;
+        MyMaze game = MyMaze.Instance;
         foreach (PageUI page in __data.pages)
         {
             Animator animator = page.GetComponent<Animator>();
@@ -134,7 +134,7 @@ public class PagesUI : MonoBehaviour {
         switcher.SetShowObject(switcherData.showObject);
         switcher.SetDelayTime(switcherData.delay);
         switcher.Switch();
-        Game.Instance.LastSelectedPage = __data.pages[PageNumber];
+        MyMaze.Instance.LastSelectedPage = __data.pages[PageNumber];
     }
 
     /// <summary>
@@ -151,7 +151,7 @@ public class PagesUI : MonoBehaviour {
         switcher.SetShowObject(switcherData.showObject);
         switcher.SetDelayTime(switcherData.delay);
         switcher.Switch();
-        Game.Instance.LastSelectedPage = __data.pages[PageNumber];
+        MyMaze.Instance.LastSelectedPage = __data.pages[PageNumber];
     }
 
     public void Drag(BaseEventData data) {

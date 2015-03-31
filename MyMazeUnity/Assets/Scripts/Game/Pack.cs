@@ -37,7 +37,7 @@ public class Pack : MonoBehaviour, IPack {
     {
         get
         {
-            if (Game.Instance.StarsRecived >= StarsRequired)
+            if (MyMaze.Instance.StarsRecived >= StarsRequired)
                 return false;
 
             return true;

@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Game : MonoBehaviour
+public class MyMaze : MonoBehaviour
 {
     /// <summary>
     /// Сколько всего звезд получено
@@ -89,7 +89,7 @@ public class Game : MonoBehaviour
     /// <summary>
     /// Ссылка на геймобъект
     /// </summary>
-    public static Game Instance 
+    public static MyMaze Instance 
     { 
         get {
             if (!_instance) {
@@ -100,7 +100,7 @@ public class Game : MonoBehaviour
         }
     }
 
-    private static Game _instance;
+    private static MyMaze _instance;
 
     void Awake()
     {
@@ -137,7 +137,7 @@ public class Game : MonoBehaviour
     void CalculateStarsRecived()
     {
         int summ = 0;
-        foreach (Pack pack in Game.Instance.packs)
+        foreach (Pack pack in MyMaze.Instance.packs)
             summ += pack.StarsRecived;
         StarsRecived = summ;
     }
@@ -148,7 +148,7 @@ public class Game : MonoBehaviour
     void CalculateTotalStars()
     {
         int summ = 0;
-        foreach (Pack pack in Game.Instance.packs)
+        foreach (Pack pack in MyMaze.Instance.packs)
             summ += pack.StarsCount;
         StarsCount = summ;
     }

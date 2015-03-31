@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 425dafc30817a104d9a57e8cca356bec
-timeCreated: 1427438951
+timeCreated: 1427795960
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -167,6 +167,12 @@ TextureImporter:
     21300320: i_iTunes
     21300322: i_Player
     21300324: i_iPhone6
+    21300326: i_LevelWall
+    21300328: i_LevelWallCornerInner
+    21300330: i_LevelWallCornerOuter
+    21300332: i_LevelWallFill
+    21300334: i_LevelWallCorner
+    21300336: 1px
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -212,11 +218,21 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
+    - name: 1px
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 2045
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: b_Achievements
       rect:
         serializedVersion: 2
         x: 1933
-        y: 1491
+        y: 1399
         width: 64
         height: 64
       alignment: 0
@@ -236,7 +252,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1933
-        y: 1557
+        y: 1465
         width: 66
         height: 66
       alignment: 0
@@ -246,33 +262,13 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1933
-        y: 1425
+        y: 1333
         width: 64
         height: 64
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: b_MusicHalf
-      rect:
-        serializedVersion: 2
-        x: 1933
-        y: 1359
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: b_MusicOff
-      rect:
-        serializedVersion: 2
-        x: 1933
-        y: 1293
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: b_MusicOn
       rect:
         serializedVersion: 2
         x: 1373
@@ -282,11 +278,31 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: b_Rating
+    - name: b_MusicOff
       rect:
         serializedVersion: 2
         x: 1373
         y: 1316
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_MusicOn
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 1250
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: b_Rating
+      rect:
+        serializedVersion: 2
+        x: 1849
+        y: 1270
         width: 64
         height: 64
       alignment: 0
@@ -322,6 +338,36 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_LevelWall
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 193
+        width: 162
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_LevelWallCorner
+      rect:
+        serializedVersion: 2
+        x: 1933
+        y: 1650
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_LevelWallFill
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 1012
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_LevelsBg
       rect:
         serializedVersion: 2
@@ -336,7 +382,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1933
-        y: 1625
+        y: 1533
         width: 87
         height: 115
       alignment: 0
@@ -566,7 +612,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2001
-        y: 1594
+        y: 1502
         width: 32
         height: 29
       alignment: 0
@@ -576,7 +622,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2001
-        y: 1568
+        y: 1476
         width: 26
         height: 24
       alignment: 0
@@ -686,7 +732,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1849
-        y: 1123
+        y: 1100
         width: 168
         height: 168
       alignment: 0
@@ -706,7 +752,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1849
-        y: 953
+        y: 930
         width: 168
         height: 168
       alignment: 0
@@ -736,53 +782,13 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1262
-        y: 1100
+        y: 1080
         width: 168
         height: 168
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: ia_FX00_013
-      rect:
-        serializedVersion: 2
-        x: 682
-        y: 908
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_014
-      rect:
-        serializedVersion: 2
-        x: 1432
-        y: 988
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_015
-      rect:
-        serializedVersion: 2
-        x: 1602
-        y: 826
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_016
-      rect:
-        serializedVersion: 2
-        x: 1772
-        y: 783
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_017
       rect:
         serializedVersion: 2
         x: 1092
@@ -792,37 +798,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_018
+    - name: ia_FX00_014
       rect:
         serializedVersion: 2
-        x: 1262
-        y: 930
+        x: 682
+        y: 908
         width: 168
         height: 168
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_019
-      rect:
-        serializedVersion: 2
-        x: 1432
-        y: 818
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_020
-      rect:
-        serializedVersion: 2
-        x: 1602
-        y: 656
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_021
+    - name: ia_FX00_015
       rect:
         serializedVersion: 2
         x: 852
@@ -832,7 +818,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_022
+    - name: ia_FX00_016
       rect:
         serializedVersion: 2
         x: 682
@@ -842,17 +828,27 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_023
+    - name: ia_FX00_017
       rect:
         serializedVersion: 2
-        x: 1772
-        y: 613
+        x: 1432
+        y: 988
         width: 168
         height: 168
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_024
+    - name: ia_FX00_018
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 910
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_019
       rect:
         serializedVersion: 2
         x: 1022
@@ -862,7 +858,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_025
+    - name: ia_FX00_020
       rect:
         serializedVersion: 2
         x: 852
@@ -872,7 +868,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_026
+    - name: ia_FX00_021
       rect:
         serializedVersion: 2
         x: 682
@@ -882,11 +878,61 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_FX00_027
+    - name: ia_FX00_022
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 826
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_023
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 818
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_024
       rect:
         serializedVersion: 2
         x: 1192
-        y: 760
+        y: 740
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_025
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 590
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_026
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 447
+        width: 168
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_FX00_027
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 398
         width: 168
         height: 168
       alignment: 0
@@ -895,8 +941,8 @@ TextureImporter:
     - name: ia_FX00_028
       rect:
         serializedVersion: 2
-        x: 1362
-        y: 648
+        x: 662
+        y: 228
         width: 168
         height: 168
       alignment: 0
@@ -905,8 +951,8 @@ TextureImporter:
     - name: ia_FX00_029
       rect:
         serializedVersion: 2
-        x: 1532
-        y: 486
+        x: 682
+        y: 23
         width: 168
         height: 168
       alignment: 0

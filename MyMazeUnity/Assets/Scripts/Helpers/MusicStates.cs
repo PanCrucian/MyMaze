@@ -2,6 +2,5 @@
 using System.Collections;
 
 public enum MusicStates {
-
-	Normal
+    Normal
 }

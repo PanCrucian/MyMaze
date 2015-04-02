@@ -21,6 +21,8 @@ public class LevelEditor : Editor
         DrawDefaultInspector();
 
         Level level = (Level)target;
+        if (level == null)
+            return;
         string newname = "Level_" + level.levelName;
         if (!target.name.Equals(newname))
             target.name = "Level_" + level.levelName;
@@ -32,6 +34,8 @@ public class LevelEditor : Editor
         {
             Transform parent = level.transform.parent;
             newname = parent.GetComponent<Pack>().packName + (level.transform.GetSiblingIndex() + 1).ToString();
+            if (level.levelName == null)
+                return;
             if (!level.levelName.Equals(newname))
                 level.levelName = newname;
 

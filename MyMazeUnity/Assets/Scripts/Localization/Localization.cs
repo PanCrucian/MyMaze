@@ -13,12 +13,14 @@ public class Localization : MonoBehaviour
     public Dictionary<string, LocalizationData> words = new Dictionary<string,LocalizationData>();
 
     public SystemLanguage language;
+    public bool updateDinamically = true;
 
     private string region;
 
     void Awake()
     {
-        language = Application.systemLanguage;
+        if(updateDinamically)
+            language = Application.systemLanguage;
         Setup();
     }
 

@@ -26,6 +26,11 @@ public class MyMaze : MonoBehaviour
     public Pack LastSelectedPack;
 
     /// <summary>
+    /// Последний выбранный уровень
+    /// </summary>
+    public Level LastSelectedLevel;
+
+    /// <summary>
     /// Ссылки на все паки
     /// </summary>
     public List<Pack> packs;
@@ -122,7 +127,19 @@ public class MyMaze : MonoBehaviour
     {
         SetupData();
         CheckNames();
-        LastSelectedPack = packs[0];
+        CheckLastSelectedForNull();
+    }
+
+    /// <summary>
+    /// Проверяем чтобы не было нулевых ссылок на последние выбранные объекты игры
+    /// </summary>
+    void CheckLastSelectedForNull()
+    {
+        if (LastSelectedPack == null)
+            LastSelectedPack = packs[0];
+        if (LastSelectedLevel == null)
+            LastSelectedLevel = levels[0];
+        //LastSelectedPage не проверяем, он устанавливается в меню
     }
 
     void Update()

@@ -7,6 +7,20 @@ public class CGSwitcher : MonoBehaviour {
     private Animator animatorForShow;
     private float delay = 0f;
 
+    public static CGSwitcher Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+    private static CGSwitcher _instance;
+    
+    void Awake()
+    {
+        _instance = this;
+    }
+
     public void SetHideObject(Animator animator)
     {
         animatorForHide = animator;

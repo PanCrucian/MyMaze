@@ -14,7 +14,7 @@ public class MovesCounterUI : MonoBehaviour {
             return;
         }
         if (MyMaze.Instance.LastSelectedLevel != null)
-            counterText.text = Player.Instance.MovesCount.ToString() + "/" + MyMaze.Instance.LastSelectedLevel.MinMovesRecord;
+            counterText.text = Player.Instance.MovesCount.ToString() + "/" + MyMaze.Instance.LastSelectedLevel.MinMovesRecord.ToString();
         else
             counterText.text = Player.Instance.MovesCount.ToString() + "/N";
     }

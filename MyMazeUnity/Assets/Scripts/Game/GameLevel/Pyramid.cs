@@ -2,8 +2,9 @@
 using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(GridDraggableObject))]
 [RequireComponent(typeof(Animator))]
-public class Pyramid : MonoBehaviour, IRecordingElement, IPauseable {
+public class Pyramid : MonoBehaviour, IRecordingElement, IPauseable, IRestartable {
     public Deligates.PyramidEvent OnPyramidPickUp;
 
     /// <summary>
@@ -20,11 +21,14 @@ public class Pyramid : MonoBehaviour, IRecordingElement, IPauseable {
     private bool _isUsed;
     private BoxCollider2D collider2d;
     private Animator animator;
+    private GridDraggableObject draggable;
 
     void Start()
     {
         collider2d = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        draggable = GetComponent<GridDraggableObject>();
+        GameLevel.Instance.OnRestart += Restart;
     }
 
     void Update()
@@ -42,7 +46,7 @@ public class Pyramid : MonoBehaviour, IRecordingElement, IPauseable {
     {
         _isUsed = true;
         collider2d.enabled = false;
-        animator.SetTrigger("PickUp");
+        animator.SetBool("PickUp", true);
 
         if (OnPyramidPickUp != null)
             OnPyramidPickUp(this);
@@ -70,5 +74,17 @@ public class Pyramid : MonoBehaviour, IRecordingElement, IPauseable {
         {
             animator.speed = 1f;
         }
+    }
+
+    /// <summary>
+    /// Уровень перезапустился
+    /// </summary>
+    public void Restart()
+    {
+        draggable.SetPositionVars(draggable.StartPosition);
+        draggable.UpdatePosition();
+        animator.SetBool("PickUp", false);
+        collider2d.enabled = true;
+        _isUsed = false;
     }
 }

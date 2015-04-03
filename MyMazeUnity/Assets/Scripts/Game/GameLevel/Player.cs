@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(GridDraggableObject))]
-public class Player : MonoBehaviour, IRecordingElement, IPauseable {
+public class Player : MonoBehaviour, IRecordingElement, IPauseable, IRestartable {
     public DesignSettings designSettings;
     public PlayerStates state;
     public bool allowControl = true;
@@ -20,6 +20,7 @@ public class Player : MonoBehaviour, IRecordingElement, IPauseable {
     public class DesignSettings
     {
         public float moveImpulsePower = 5f;
+        public float stopMovingDelay = 0.075f;
     }
 	public static Player Instance {
         get
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour, IRecordingElement, IPauseable {
         SetupStartVars();
         Spawn();
         GameLevel.Instance.OnPlayerMoveRequest += OnMoveRequest;
+        GameLevel.Instance.OnRestart += Restart;
     }
 
     /// <summary>
@@ -62,8 +64,25 @@ public class Player : MonoBehaviour, IRecordingElement, IPauseable {
     /// </summary>
     void Spawn()
     {
-        animator.SetTrigger("FadeIn");
+        EnableControl();
         _movesCount = 0;
+        allowControl = true;
+    }
+
+    /// <summary>
+    /// Разрешает управлять игроком + анимация появления
+    /// </summary>
+    public void EnableControl()
+    {
+        animator.SetTrigger("FadeIn");
+    }
+
+    /// <summary>
+    /// Запрещает управлять игроком + анимация исчезания
+    /// </summary>
+    public void DisableControl()
+    {
+        animator.SetTrigger("FadeOut");
     }
 
     void Update()
@@ -80,10 +99,27 @@ public class Player : MonoBehaviour, IRecordingElement, IPauseable {
     /// </summary>
     public void StopMoving()
     {
+        if (state != PlayerStates.Move)
+            return;
+
         state = PlayerStates.Idle;
         draggable.UpdatePositionVars();
         draggable.UpdatePosition();
         rigidbody2d.velocity = Vector2.zero;
+    }
+
+    /// <summary>
+    /// Остановка движения игрока после временной задержки
+    /// </summary>
+    public void StopMovingDelay()
+    {
+        StartCoroutine(StopMovingDelayEnumerator());
+    }
+
+    IEnumerator StopMovingDelayEnumerator()
+    {
+        yield return new WaitForSeconds(designSettings.stopMovingDelay);
+        StopMoving();
     }
 
     /// <summary>
@@ -139,5 +175,16 @@ public class Player : MonoBehaviour, IRecordingElement, IPauseable {
             animator.speed = 1f;
             rigidbody2d.simulated = true;
         }
+    }
+
+    /// <summary>
+    /// Уровень перезапустился
+    /// </summary>
+    public void Restart()
+    {
+        StopMoving();
+        draggable.SetPositionVars(draggable.StartPosition);
+        draggable.UpdatePosition();
+        Spawn();
     }
 }

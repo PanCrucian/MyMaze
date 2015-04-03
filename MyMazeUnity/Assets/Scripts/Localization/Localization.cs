@@ -34,7 +34,7 @@ public class Localization : MonoBehaviour
         LocalizationData word;
         if (words.TryGetValue(key, out word))
         {
-            return word.represent;
+            return word.represent.Replace("\\n","\n");
         }
 
         return key;

@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class LevelsUI : MonoBehaviour {
 
     public LevelUI[] levelsui;
+    public Text loadingText;
 
     void Start()
     {

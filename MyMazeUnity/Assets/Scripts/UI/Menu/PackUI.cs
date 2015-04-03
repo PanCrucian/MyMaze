@@ -17,7 +17,7 @@ public class PackUI : MonoBehaviour {
     void Start()
     {
         switcherData.showObject = GetComponentInParent<PageUI>().containers.levelsContainer.GetComponent<Animator>();
-        switcherData.hideObject = GetComponentInParent<PacksContainerUI>().GetComponent<Animator>();
+        switcherData.hideObject = GetComponentInParent<PageUI>().containers.packsContainer.GetComponent<Animator>();
     }
 
     void Update()
@@ -31,7 +31,7 @@ public class PackUI : MonoBehaviour {
         }
 
         progressImage.fillAmount = (float)((float)pack.StarsRecived * 100f / (float)pack.StarsCount) / 100f;
-        starsText.text = System.String.Format("{0:00}", pack.StarsRecived);
+        starsText.text = System.String.Format("{0:0}", pack.StarsRecived);
         numberText.text = (pack.transform.GetSiblingIndex() + 1).ToString();
 
         if (pack.IsClosed)
@@ -81,8 +81,8 @@ public class PackUI : MonoBehaviour {
         else
         {
             CGSwitcher switcher = switcherData.switcher;
-            switcher.SetHideObject(switcherData.hideObject);
-            switcher.SetShowObject(switcherData.showObject);
+            switcher.SetHideObject(switcherData.hideObject); //ссылка в методе старт
+            switcher.SetShowObject(switcherData.showObject); //ссылка в методе старт
             switcher.SetDelayTime(switcherData.delay);
             switcher.Switch();
             MyMaze.Instance.LastSelectedPack = pack;

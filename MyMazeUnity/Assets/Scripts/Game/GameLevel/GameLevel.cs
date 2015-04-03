@@ -6,7 +6,10 @@ using System.Linq;
 
 public class GameLevel : MonoBehaviour {
     public Deligates.DirectionEvent OnPlayerMoveRequest;
+    public Deligates.SimpleEvent OnRestart;
     public DesignSettings designSettings;
+    public Animator uiGame;
+    public Animator uiResults;
     public GameLevelStates state;
     public List<Pyramid> pyramids;
 
@@ -22,7 +25,16 @@ public class GameLevel : MonoBehaviour {
         /// Запрос на движение не чаще времени в этой переменной
         /// </summary>
         public float moveRequestDelayTime = 0.25f;
-        public string sceneMenuName = "Main";
+
+        /// <summary>
+        /// Задержка перед завершением игры
+        /// </summary>
+        public float gameOverDelay = 0.5f;
+
+        /// <summary>
+        /// Задержка между анимациями получения звезд
+        /// </summary>
+        public float starsCollectingDelay = 1f;
 
         [HideInInspector]
         public float lastMoveRequestTime = 0f;
@@ -48,6 +60,13 @@ public class GameLevel : MonoBehaviour {
     void Start()
     {
         pyramids = transform.GetComponentsInChildren<Pyramid>().ToList<Pyramid>();
+    }
+
+    void Update()
+    {
+        if (state != GameLevelStates.GameOver)
+            if (IsGameOver())
+                GameOver();
     }
 
     /// <summary>
@@ -92,5 +111,72 @@ public class GameLevel : MonoBehaviour {
             OnPlayerMoveRequest(direction);
 
         designSettings.lastMoveRequestTime = Time.time;
+    }
+
+    /// <summary>
+    /// Проверяет, выполнены ли условия конца игры
+    /// </summary>
+    /// <returns></returns>
+    bool IsGameOver()
+    {
+        bool isGameOver = true;
+        foreach (Pyramid pyramid in pyramids)
+        {
+            if (!pyramid.IsUsed) { 
+                isGameOver = false;
+                break;
+            }
+        }
+        return isGameOver;
+    }
+
+    /// <summary>
+    /// Уровень выполнил условия победы. Завершаем игру
+    /// </summary>
+    void GameOver()
+    {
+        state = GameLevelStates.GameOver;
+        Player.Instance.DisableControl();
+        Player.Instance.StopMovingDelay();
+        StartCoroutine(GameOverEnumerator());
+        Debug.Log("Игра окончена");
+    }
+
+    /// <summary>
+    /// Методы по завершению игры после задержки
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator GameOverEnumerator()
+    {
+        yield return new WaitForSeconds(designSettings.gameOverDelay);
+        CGSwitcher.Instance.SetHideObject(uiGame);
+        CGSwitcher.Instance.SetShowObject(uiResults);
+        CGSwitcher.Instance.Switch();
+
+    }
+
+    /// <summary>
+    /// Пробуем загрузить следующий игровой уровень
+    /// </summary>
+    public void OnNextLevelRequest()
+    {
+
+        Debug.Log("Загружаю следующий уровень");
+    }
+
+    /// <summary>
+    /// Нажали кнопку рестарта уровня
+    /// </summary>
+    public void OnRestartRequest()
+    {
+        if (state == GameLevelStates.GameOver)
+        {
+            CGSwitcher.Instance.SetHideObject(uiResults);
+            CGSwitcher.Instance.SetShowObject(uiGame);
+            CGSwitcher.Instance.Switch();
+        }
+        state = GameLevelStates.Game;
+        if (OnRestart != null)
+            OnRestart();
     }
 }

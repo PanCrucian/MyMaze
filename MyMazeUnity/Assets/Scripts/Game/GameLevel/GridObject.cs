@@ -26,7 +26,7 @@ public class GridObject : Grid {
     IEnumerator Start()
     {
         yield return new WaitForEndOfFrame();
-        _startPosition = position;
+        _startPosition = new Position() { xCell = position.xCell, yRow = position.yRow};
     }
 
     void Update()
@@ -45,6 +45,9 @@ public class GridObject : Grid {
 
     public void SetPositionVars(Position position)
     {
-        this.position = position;
+        Position newposition = new Position();
+        newposition.xCell = position.xCell;
+        newposition.yRow = position.yRow;
+        this.position = newposition;
     }
 }

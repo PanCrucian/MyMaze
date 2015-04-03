@@ -26,6 +26,18 @@ public class LevelUI : MonoBehaviour {
         //ссылку на level устанавливает LevelsUI исходя из последнего выбранного пака
     }
 
+    /// <summary>
+    /// Кликнули на кнопку уровня, попробуем загрузить уровень
+    /// </summary>
+    public void LevelLoadRequest() {
+        LevelsUI levelsui = GetComponentInParent<LevelsUI>();
+        Color color = levelsui.loadingText.color;
+        color.a = 1f;
+        levelsui.loadingText.color = color;
+        MyMaze.Instance.LevelLoader.levelName = level.name;
+        MyMaze.Instance.LevelLoader.Load();
+    }
+
     void Update()
     {
         if (level == null)

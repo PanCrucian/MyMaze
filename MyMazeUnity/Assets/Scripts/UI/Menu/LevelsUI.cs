@@ -20,9 +20,6 @@ public class LevelsUI : MonoBehaviour {
             Debug.LogWarning("Потерялась переменная с последним выбранным паком");
             return;
         }
-        PageUI pageui = transform.parent.GetComponentInParent<PageUI>();
-        if (pageui != MyMaze.Instance.LastSelectedPage)
-            return;
         int i = 0;
         foreach (Level level in pack.levels)
         {

@@ -30,11 +30,23 @@ public class LevelUI : MonoBehaviour {
     /// Кликнули на кнопку уровня, попробуем загрузить уровень
     /// </summary>
     public void LevelLoadRequest() {
-        LevelsUI levelsui = GetComponentInParent<LevelsUI>();
+        InputSimulator.Instance.OffAllInput();
+        StartCoroutine(LevelLoadNumerator());
+    }
+
+    IEnumerator LevelLoadNumerator()
+    {
+        /*LevelsUI levelsui = GetComponentInParent<LevelsUI>();
         Color color = levelsui.loadingText.color;
         color.a = 1f;
-        levelsui.loadingText.color = color;
+        levelsui.loadingText.color = color;*/
+        ScreenOverlayUI.Instance.FadeIn();
+
+        yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
+        InputSimulator.Instance.OnAllInput();
+        MyMaze.Instance.LastSelectedLevel = level;
         MyMaze.Instance.LevelLoader.levelName = level.name;
+        Debug.Log("Загружаю уровень " + level.name);
         MyMaze.Instance.LevelLoader.Load();
     }
 

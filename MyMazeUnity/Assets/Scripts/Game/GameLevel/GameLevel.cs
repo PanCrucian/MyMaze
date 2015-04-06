@@ -13,6 +13,8 @@ public class GameLevel : MonoBehaviour {
     public GameLevelStates state;
     public List<Pyramid> pyramids;
 
+    private Level nextLevel;
+
     [System.Serializable]
     public class DesignSettings
     {
@@ -34,7 +36,12 @@ public class GameLevel : MonoBehaviour {
         /// <summary>
         /// Задержка между анимациями получения звезд
         /// </summary>
-        public float starsCollectingDelay = 1f;
+        public float starsCollectingDelay = 0.75f;
+
+        /// <summary>
+        /// задержка перед загрузкой следующего уровня
+        /// </summary>
+        public float nextLevelDelay = 1f;
 
         [HideInInspector]
         public float lastMoveRequestTime = 0f;
@@ -59,6 +66,9 @@ public class GameLevel : MonoBehaviour {
 
     void Start()
     {
+        //включим управление
+        InputSimulator.Instance.OnAllInput();
+
         pyramids = transform.GetComponentsInChildren<Pyramid>().ToList<Pyramid>();
     }
 
@@ -148,11 +158,57 @@ public class GameLevel : MonoBehaviour {
     /// <returns></returns>
     IEnumerator GameOverEnumerator()
     {
+        //выключим любое управление
+        InputSimulator.Instance.OffAllInput();
+
+        //подождем немного и переключим экраны
         yield return new WaitForSeconds(designSettings.gameOverDelay);
         CGSwitcher.Instance.SetHideObject(uiGame);
         CGSwitcher.Instance.SetShowObject(uiResults);
         CGSwitcher.Instance.Switch();
 
+        //установим рекорд движений
+        Level lastSelectedLevel = MyMaze.Instance.LastSelectedLevel;
+        if (lastSelectedLevel.MinMovesRecord == 0)
+            lastSelectedLevel.MinMovesRecord = Player.Instance.MovesCount;
+        else
+            if (Player.Instance.MovesCount <= lastSelectedLevel.MinMovesRecord)
+                lastSelectedLevel.MinMovesRecord = Player.Instance.MovesCount;
+        
+        //проверим какие звезды мы должны получить и получим их
+        List<Star> stars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();  
+        foreach (Star star in stars)
+        {
+            if (Player.Instance.MovesCount <= star.movesToGet)
+                star.IsCollected = true;
+            if (star.IsCollected) {
+                Animator starAnimator = StarsResultsUI.Instance.GetNotCollectedStar();
+                if (starAnimator != null)
+                {
+                    starAnimator.SetBool("IsCollected", true);
+                    yield return new WaitForSeconds(designSettings.starsCollectingDelay);
+                }
+            }
+        }
+                
+        //откроем следующий уровень
+        Pack pack = MyMaze.Instance.LastSelectedPack;
+        nextLevel = pack.GetNextLevel(lastSelectedLevel);
+        if (nextLevel == null)
+        {
+            Debug.Log("Пак " + pack.packName + " пройден");
+            pack = MyMaze.Instance.GetNextPack(pack);
+            if (pack != null)
+                nextLevel = pack.levels[0];
+        }
+
+        if (nextLevel != null)
+            nextLevel.IsClosed = false;
+        else
+            Debug.Log("Игра пройдена, нет уровня для загрузки");
+
+        //включим управление Input
+        InputSimulator.Instance.OnAllInput();
     }
 
     /// <summary>
@@ -160,8 +216,39 @@ public class GameLevel : MonoBehaviour {
     /// </summary>
     public void OnNextLevelRequest()
     {
+        //выключим любое управление
+        InputSimulator.Instance.OffAllInput();
 
-        Debug.Log("Загружаю следующий уровень");
+        StartCoroutine(NextLevelNumerator());
+    }
+
+    IEnumerator NextLevelNumerator()
+    {
+        yield return new WaitForSeconds(designSettings.nextLevelDelay);
+        ScreenOverlayUI.Instance.FadeIn();
+        yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
+
+        //загружаем меню
+        if (nextLevel == null)
+        {
+            Debug.Log("Уровни кончились, загружаю меню");
+            MyMaze.Instance.LevelLoader.LoadMenu();
+        }
+
+        //обновляем курсоры на паки и уровни
+        foreach (Pack pack in MyMaze.Instance.packs)
+        {
+            if (pack.IsYourLevel(nextLevel))
+            {
+                MyMaze.Instance.LastSelectedPack = pack;
+                MyMaze.Instance.LastSelectedLevel = nextLevel;
+                break;
+            }
+        }
+
+        //загружаем следующий уровень
+        Debug.Log("Загружаю следующий уровень " + nextLevel.name);
+        Application.LoadLevel(nextLevel.name);
     }
 
     /// <summary>

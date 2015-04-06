@@ -14,12 +14,7 @@ public class MyMaze : MonoBehaviour
     /// Сколько всего звезд в игре
     /// </summary>
     public int StarsCount;
-
-    /// <summary>
-    /// Последняя выбранная страница
-    /// </summary>
-    public PageUI LastSelectedPage;
-
+    
     /// <summary>
     /// Последний выбранный пак
     /// </summary>
@@ -29,6 +24,17 @@ public class MyMaze : MonoBehaviour
     /// Последний выбранный уровень
     /// </summary>
     public Level LastSelectedLevel;
+
+    /// <summary>
+    /// Последняя выбранная страница (её номер)
+    /// </summary>
+    public int LastSelectedPageNumber;
+
+    /// <summary>
+    /// Общий счет ходов игрока
+    /// </summary>
+    [HideInInspector]
+    public int MovesCounter;
 
     /// <summary>
     /// Ссылки на все паки
@@ -105,7 +111,19 @@ public class MyMaze : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Первый запуск приложения?
+    /// </summary>
+    public bool IsFirstLoad
+    {
+        get
+        {
+            return _isFirstLoad;
+        }
+    }
+
     private static MyMaze _instance;
+    private bool _isFirstLoad = true;
 
     void Awake()
     {
@@ -144,6 +162,8 @@ public class MyMaze : MonoBehaviour
 
     void Update()
     {
+        if (_isFirstLoad)
+            _isFirstLoad = false;
         CalculateTotalStars();
         CalculateStarsRecived();
     }
@@ -295,5 +315,23 @@ public class MyMaze : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    /// <summary>
+    /// Возвращает следующий пак исходя из аргумента
+    /// </summary>
+    /// <param name="currentPack">Пак после которого нужно получить следующий пак</param>
+    /// <returns></returns>
+    public Pack GetNextPack(Pack currentPack)
+    {
+        bool returnFlag = false;
+        foreach (Pack pack in packs)
+        {
+            if (returnFlag)
+                return pack;
+            if (pack.packName.Equals(currentPack.packName))
+                returnFlag = true;
+        }
+        return null;
     }
 }

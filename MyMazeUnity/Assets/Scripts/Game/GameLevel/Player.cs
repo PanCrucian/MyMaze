@@ -141,6 +141,7 @@ public class Player : MonoBehaviour, IRecordingElement, IPauseable, IRestartable
 
         state = PlayerStates.Move;
         _movesCount++;
+        MyMaze.Instance.MovesCounter++;
     }
 
     /// <summary>

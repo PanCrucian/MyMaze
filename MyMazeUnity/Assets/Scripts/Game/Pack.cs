@@ -105,4 +105,22 @@ public class Pack : MonoBehaviour, IPack {
 
         return false;
     }
+
+    /// <summary>
+    /// Возвращает следующий уровень исходя из аргумента
+    /// </summary>
+    /// <param name="currentLevel">Уровень после которого нужно получить следующий уровень</param>
+    /// <returns></returns>
+    public Level GetNextLevel(Level currentLevel)
+    {
+        bool returnFlag = false;
+        foreach (Level level in levels)
+        {
+            if(returnFlag)
+                return level;
+            if(level.levelName.Equals(currentLevel.levelName))
+                returnFlag = true;
+        }
+        return null;
+    }
 }

@@ -37,7 +37,7 @@ public class Level : MonoBehaviour, ILevel, IComparable
                 minMovesRecord = value;
             else
             {
-                minMovesRecord = 1;
+                minMovesRecord = 0;
                 Debug.LogWarning("Значение рекорда не может быть отрицательным, установил свое значение");
             }
         }

@@ -80,30 +80,30 @@ public class Localization : MonoBehaviour
         }
         try
         {
-            using (StreamReader stream = new StreamReader(Path.Combine(Application.dataPath, "Localization/" + region + ".xml")))
-            {
-                XElement xElement = XElement.Parse(stream.ReadToEnd());
-                words = new Dictionary<string, LocalizationData>();
-                foreach (XElement xWords in xElement.Elements())
-                {
-                    LocalizationData word = new LocalizationData();
-                    foreach (XElement xWord in xWords.Elements())
-                    {
-                        switch (xWord.Name.LocalName)
-                        {
-                            case "key":
-                                word.key = xWord.Value;
-                                break;
-                            case "represent":
-                                word.represent = xWord.Value;
-                                break;
-                            default:
-                                break;
-                        }
-                    }
+            TextAsset textAsset = (TextAsset)Resources.Load("Localization/" + region, typeof(TextAsset));
 
-                    words.Add(word.key, word);
+            XElement xElement = XElement.Parse(textAsset.text);
+            textAsset = null;
+            words = new Dictionary<string, LocalizationData>();
+            foreach (XElement xWords in xElement.Elements())
+            {
+                LocalizationData word = new LocalizationData();
+                foreach (XElement xWord in xWords.Elements())
+                {
+                    switch (xWord.Name.LocalName)
+                    {
+                        case "key":
+                            word.key = xWord.Value;
+                            break;
+                        case "represent":
+                            word.represent = xWord.Value;
+                            break;
+                        default:
+                            break;
+                    }
                 }
+
+                words.Add(word.key, word);
             }
         }
         catch (FileNotFoundException e)

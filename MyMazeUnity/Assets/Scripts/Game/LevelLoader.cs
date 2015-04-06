@@ -26,4 +26,10 @@ public class LevelLoader : MonoBehaviour {
     {
         Application.LoadLevel(levelName);
     }
+
+    public void LoadMenu()
+    {
+        levelName = "Main";
+        Application.LoadLevel(levelName);
+    }
 }

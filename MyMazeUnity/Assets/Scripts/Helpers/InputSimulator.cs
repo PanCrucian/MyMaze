@@ -81,4 +81,22 @@ public class InputSimulator : MonoBehaviour
         }
         return false;
     }
+
+    /// <summary>
+    /// Выключим любое управление Input, через EventSystem
+    /// </summary>
+    public void OffAllInput()
+    {
+        EventSystem eventSystem = GameObject.FindObjectOfType<EventSystem>();
+        eventSystem.enabled = false;
+    }
+
+    /// <summary>
+    /// Включим любое управление Input, через EventSystem
+    /// </summary>
+    public void OnAllInput()
+    {
+        EventSystem eventSystem = GameObject.FindObjectOfType<EventSystem>();
+        eventSystem.enabled = true;
+    }
 }

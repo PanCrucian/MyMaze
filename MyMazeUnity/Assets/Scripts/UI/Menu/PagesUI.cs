@@ -38,24 +38,20 @@ public class PagesUI : MonoBehaviour {
     void Start()
     {
         SetupPages();
-        MyMaze game = MyMaze.Instance;
-
-        if (game.LastSelectedPage == null)
-        {
-            game.LastSelectedPage = __data.pages[0];
-        }
-        PageNumber = game.LastSelectedPage.transform.GetSiblingIndex();
+        PageNumber = __data.pages[0].transform.GetSiblingIndex();
 
         SetlastSelectedPageVisability();
     }
 
+    /// <summary>
+    /// Сделаем видимым последнюю выбранную страницу с паками, НЕДОДЕЛАНО УДАЛИЛ LastSelctedPage -> if pages[0] ==...
+    /// </summary>
     void SetlastSelectedPageVisability()
     {
-        MyMaze game = MyMaze.Instance;
         foreach (PageUI page in __data.pages)
         {
             Animator animator = page.GetComponent<Animator>();
-            if (game.LastSelectedPage == page)
+            if (MyMaze.Instance.LastSelectedPageNumber == page.transform.GetSiblingIndex())
             {
                 animator.SetTrigger("FadeIn");
             }
@@ -134,7 +130,7 @@ public class PagesUI : MonoBehaviour {
         switcher.SetShowObject(switcherData.showObject);
         switcher.SetDelayTime(switcherData.delay);
         switcher.Switch();
-        MyMaze.Instance.LastSelectedPage = __data.pages[PageNumber];
+        MyMaze.Instance.LastSelectedPageNumber = PageNumber;
     }
 
     /// <summary>
@@ -151,7 +147,7 @@ public class PagesUI : MonoBehaviour {
         switcher.SetShowObject(switcherData.showObject);
         switcher.SetDelayTime(switcherData.delay);
         switcher.Switch();
-        MyMaze.Instance.LastSelectedPage = __data.pages[PageNumber];
+        MyMaze.Instance.LastSelectedPageNumber = PageNumber;
     }
 
     public void Drag(BaseEventData data) {

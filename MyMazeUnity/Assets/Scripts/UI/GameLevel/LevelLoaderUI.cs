@@ -5,7 +5,15 @@ public class LevelLoaderUI : MonoBehaviour {
 
     public void LoadMenu()
     {
-        MyMaze.Instance.LevelLoader.levelName = "Main";
-        MyMaze.Instance.LevelLoader.Load();
+        InputSimulator.Instance.OffAllInput();
+        StartCoroutine(LoadMenuNumerator());
+    }
+
+    IEnumerator LoadMenuNumerator()
+    {
+        ScreenOverlayUI.Instance.FadeIn();
+        yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
+        InputSimulator.Instance.OnAllInput();
+        MyMaze.Instance.LevelLoader.LoadMenu();
     }
 }

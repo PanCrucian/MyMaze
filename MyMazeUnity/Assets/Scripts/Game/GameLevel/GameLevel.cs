@@ -7,46 +7,13 @@ using System.Linq;
 public class GameLevel : MonoBehaviour {
     public Deligates.DirectionEvent OnPlayerMoveRequest;
     public Deligates.SimpleEvent OnRestart;
-    public DesignSettings designSettings;
     public Animator uiGame;
     public Animator uiResults;
     public GameLevelStates state;
     public List<Pyramid> pyramids;
 
     private Level nextLevel;
-
-    [System.Serializable]
-    public class DesignSettings
-    {
-        /// <summary>
-        /// Диапазон значение из события инпута drag delta при котором не учитывается событие drag
-        /// </summary>
-        public float dragTreshold = 3f;
-
-        /// <summary>
-        /// Запрос на движение не чаще времени в этой переменной
-        /// </summary>
-        public float moveRequestDelayTime = 0.25f;
-
-        /// <summary>
-        /// Задержка перед завершением игры
-        /// </summary>
-        public float gameOverDelay = 0.5f;
-
-        /// <summary>
-        /// Задержка между анимациями получения звезд
-        /// </summary>
-        public float starsCollectingDelay = 0.75f;
-
-        /// <summary>
-        /// задержка перед загрузкой следующего уровня
-        /// </summary>
-        public float nextLevelDelay = 1f;
-
-        [HideInInspector]
-        public float lastMoveRequestTime = 0f;
-    }
-
+    
     public static GameLevel Instance
     {
         get
@@ -68,15 +35,28 @@ public class GameLevel : MonoBehaviour {
     {
         //включим управление
         InputSimulator.Instance.OnAllInput();
-
+        uiGame = GameObject.FindGameObjectWithTag("uiGame").GetComponent<Animator>();
+        uiResults = GameObject.FindGameObjectWithTag("uiResults").GetComponent<Animator>();
         pyramids = transform.GetComponentsInChildren<Pyramid>().ToList<Pyramid>();
     }
 
     void Update()
     {
-        if (state != GameLevelStates.GameOver)
+        if (state != GameLevelStates.GameOver && state != GameLevelStates.NextLevelLoading)
             if (IsGameOver())
                 GameOver();
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            CallMoveRequest(Directions.Up);
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            CallMoveRequest(Directions.Right);
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            CallMoveRequest(Directions.Down);
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+            CallMoveRequest(Directions.Left);
+        if (Input.GetKeyDown(KeyCode.R))
+            OnRestartRequest();
+        if (Input.GetKeyDown(KeyCode.Space))
+            InputSimulator.Instance.SimulateClick(ButtonPlayNextUI.Instance.gameObject);
     }
 
     /// <summary>
@@ -86,7 +66,7 @@ public class GameLevel : MonoBehaviour {
     {
         PointerEventData pointer = (PointerEventData)data;
         Vector2 delta = pointer.delta;
-        float threshold = designSettings.dragTreshold;
+        float threshold = GameLevelDesign.Instance.dragTreshold;
         if (Mathf.Abs(delta.x) >= threshold)
         {
             if (delta.x < 0)
@@ -110,7 +90,7 @@ public class GameLevel : MonoBehaviour {
     /// <param name="direction"></param>
     void CallMoveRequest(Directions direction)
     {
-        if (Time.time - designSettings.lastMoveRequestTime < designSettings.moveRequestDelayTime)
+        if (Time.time - GameLevelDesign.Instance.lastMoveRequestTime < GameLevelDesign.Instance.moveRequestDelayTime)
             return;
         if (state == GameLevelStates.Pause)
         {
@@ -120,7 +100,7 @@ public class GameLevel : MonoBehaviour {
         if (OnPlayerMoveRequest != null)
             OnPlayerMoveRequest(direction);
 
-        designSettings.lastMoveRequestTime = Time.time;
+        GameLevelDesign.Instance.lastMoveRequestTime = Time.time;
     }
 
     /// <summary>
@@ -162,7 +142,7 @@ public class GameLevel : MonoBehaviour {
         InputSimulator.Instance.OffAllInput();
 
         //подождем немного и переключим экраны
-        yield return new WaitForSeconds(designSettings.gameOverDelay);
+        yield return new WaitForSeconds(GameLevelDesign.Instance.gameOverDelay);
         CGSwitcher.Instance.SetHideObject(uiGame);
         CGSwitcher.Instance.SetShowObject(uiResults);
         CGSwitcher.Instance.Switch();
@@ -186,7 +166,7 @@ public class GameLevel : MonoBehaviour {
                 if (starAnimator != null)
                 {
                     starAnimator.SetBool("IsCollected", true);
-                    yield return new WaitForSeconds(designSettings.starsCollectingDelay);
+                    yield return new WaitForSeconds(GameLevelDesign.Instance.starsCollectingDelay);
                 }
             }
         }
@@ -196,7 +176,7 @@ public class GameLevel : MonoBehaviour {
         nextLevel = pack.GetNextLevel(lastSelectedLevel);
         if (nextLevel == null)
         {
-            Debug.Log("Пак " + pack.packName + " пройден");
+            Debug.Log("Пак " + pack.packName + " пройден!");
             pack = MyMaze.Instance.GetNextPack(pack);
             if (pack != null)
                 nextLevel = pack.levels[0];
@@ -205,7 +185,7 @@ public class GameLevel : MonoBehaviour {
         if (nextLevel != null)
             nextLevel.IsClosed = false;
         else
-            Debug.Log("Игра пройдена, нет уровня для загрузки");
+            Debug.Log("Игра пройдена! Нет уровня для загрузки");
 
         //включим управление Input
         InputSimulator.Instance.OnAllInput();
@@ -216,6 +196,8 @@ public class GameLevel : MonoBehaviour {
     /// </summary>
     public void OnNextLevelRequest()
     {
+        if (state != GameLevelStates.GameOver )
+            return;
         //выключим любое управление
         InputSimulator.Instance.OffAllInput();
 
@@ -224,7 +206,8 @@ public class GameLevel : MonoBehaviour {
 
     IEnumerator NextLevelNumerator()
     {
-        yield return new WaitForSeconds(designSettings.nextLevelDelay);
+        state = GameLevelStates.NextLevelLoading;
+        yield return new WaitForSeconds(GameLevelDesign.Instance.nextLevelDelay);
         ScreenOverlayUI.Instance.FadeIn();
         yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
 
@@ -234,21 +217,33 @@ public class GameLevel : MonoBehaviour {
             Debug.Log("Уровни кончились, загружаю меню");
             MyMaze.Instance.LevelLoader.LoadMenu();
         }
-
-        //обновляем курсоры на паки и уровни
-        foreach (Pack pack in MyMaze.Instance.packs)
+        else
         {
-            if (pack.IsYourLevel(nextLevel))
+            Pack pack = MyMaze.Instance.GetPackViaLevel(nextLevel);
+            if (pack.IsClosed)
             {
-                MyMaze.Instance.LastSelectedPack = pack;
+                Debug.Log("Пак " + pack.packName + " закрыт, загружаю меню");
+                MyMaze.Instance.LevelLoader.LoadMenu();
+            }
+            else
+            {
+                //обновляем курсоры на паки и уровни
+                MyMaze.Instance.LastSelectedPack = MyMaze.Instance.GetPackViaLevel(nextLevel);
                 MyMaze.Instance.LastSelectedLevel = nextLevel;
-                break;
+
+                //загружаем следующий уровень
+                Debug.Log("Загружаю следующий уровень " + nextLevel.name);
+                try
+                {
+                    Application.LoadLevel(nextLevel.name);
+                }
+                catch
+                {
+                    Debug.LogWarning("Не найдень уровень " + nextLevel.name + " в BuildSettings. Вместо уровня загружаю меню");
+                    MyMaze.Instance.LevelLoader.LoadMenu();
+                }
             }
         }
-
-        //загружаем следующий уровень
-        Debug.Log("Загружаю следующий уровень " + nextLevel.name);
-        Application.LoadLevel(nextLevel.name);
     }
 
     /// <summary>

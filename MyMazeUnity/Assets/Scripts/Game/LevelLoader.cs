@@ -19,17 +19,18 @@ public class LevelLoader : MonoBehaviour {
 
     public void Load()
     {
+        InputSimulator.Instance.OnAllInput();
         Application.LoadLevel(this.levelName);
     }
 
     public void Load(string levelName)
     {
-        Application.LoadLevel(levelName);
+        this.levelName = levelName;
+        Load();
     }
 
     public void LoadMenu()
     {
-        levelName = "Main";
-        Application.LoadLevel(levelName);
+        Load("Main");
     }
 }

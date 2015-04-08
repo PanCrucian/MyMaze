@@ -21,6 +21,18 @@ public class InputSimulator : MonoBehaviour
     private static InputSimulator _instance;
 
     /// <summary>
+    /// Включен ли инпут?
+    /// </summary>
+    public bool InputEnabled
+    {
+        get
+        {
+            EventSystem eventSystem = GameObject.FindObjectOfType<EventSystem>();
+            return eventSystem.enabled;
+        }
+    }
+
+    /// <summary>
     /// Задержка между кликом и нажатием для красивой симуляции
     /// </summary>
     private float presThenClickDelay = 0.175f;

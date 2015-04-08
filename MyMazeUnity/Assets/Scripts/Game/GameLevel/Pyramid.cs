@@ -2,9 +2,8 @@
 using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(GridDraggableObject))]
-[RequireComponent(typeof(Animator))]
-public class Pyramid : MonoBehaviour, IRecordingElement, IPauseable, IRestartable {
+public class Pyramid : GameLevelObject
+{
     public Deligates.PyramidEvent OnPyramidPickUp;
 
     /// <summary>
@@ -19,24 +18,12 @@ public class Pyramid : MonoBehaviour, IRecordingElement, IPauseable, IRestartabl
     }
 
     private bool _isUsed;
-    private BoxCollider2D collider2d;
-    private Animator animator;
-    private GridDraggableObject draggable;
+    private BoxCollider2D boxCollider;
 
-    void Start()
+    public override void Start()
     {
-        collider2d = GetComponent<BoxCollider2D>();
-        animator = GetComponent<Animator>();
-        draggable = GetComponent<GridDraggableObject>();
-        GameLevel.Instance.OnRestart += Restart;
-    }
-
-    void Update()
-    {
-        if (GameLevel.Instance.state == GameLevelStates.Pause)
-            TogglePause(true);
-        else
-            TogglePause(false);
+        base.Start();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     /// <summary>
@@ -45,13 +32,17 @@ public class Pyramid : MonoBehaviour, IRecordingElement, IPauseable, IRestartabl
     public void PickUp()
     {
         _isUsed = true;
-        collider2d.enabled = false;
+        boxCollider.enabled = false;
         animator.SetBool("PickUp", true);
 
         if (OnPyramidPickUp != null)
             OnPyramidPickUp(this);
     }
 
+    /// <summary>
+    /// Что-то вошло в зону тригера
+    /// </summary>
+    /// <param name="coll"></param>
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag.Equals("Player"))
@@ -61,30 +52,13 @@ public class Pyramid : MonoBehaviour, IRecordingElement, IPauseable, IRestartabl
     }
 
     /// <summary>
-    /// Если игра встала на паузу
-    /// </summary>
-    /// <param name="pause">Состояние bool паузы</param>
-    public void TogglePause(bool pause)
-    {
-        if (pause)
-        {
-            animator.speed = 0f;
-        }
-        else
-        {
-            animator.speed = 1f;
-        }
-    }
-
-    /// <summary>
     /// Уровень перезапустился
     /// </summary>
-    public void Restart()
+    public override void Restart()
     {
-        draggable.SetPositionVars(draggable.StartPosition);
-        draggable.UpdatePosition();
+        base.Restart();
         animator.SetBool("PickUp", false);
-        collider2d.enabled = true;
+        boxCollider.enabled = true;
         _isUsed = false;
     }
 }

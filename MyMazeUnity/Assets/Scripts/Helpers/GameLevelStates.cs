@@ -4,5 +4,6 @@ using System.Collections;
 public enum GameLevelStates {
     Pause,
     Game,
-    GameOver
+    GameOver,
+    NextLevelLoading
 }

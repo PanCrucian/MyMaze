@@ -5,7 +5,7 @@ public class MainMenuTester : MonoBehaviour {
     [System.Serializable]
     public class LocalData
     {
-        public string mainMenuName = "cg_MainMenu";
+        public string mainMenuName = "cg_Main";
         public CanvasGroup[] menus;
         public CanvasGroup pages;
         public CanvasGroup mainMenuContent;

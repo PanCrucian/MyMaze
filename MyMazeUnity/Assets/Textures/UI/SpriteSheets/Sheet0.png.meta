@@ -289,6 +289,50 @@ TextureImporter:
     21300564: i_Square50x50
     21300566: i_Star04
     21300568: i_Star05
+    21300570: i_PortalCircle
+    21300572: i_PortalInner
+    21300574: i_Box
+    21300576: i_BoxFX_000
+    21300578: i_BoxFX_001
+    21300580: i_BoxFX_002
+    21300582: i_BoxFX_003
+    21300584: i_BoxFX_004
+    21300586: i_BoxFX_005
+    21300588: i_BoxFX_006
+    21300590: i_BoxFX_007
+    21300592: i_BoxFX_008
+    21300594: i_BoxFX_009
+    21300596: i_BoxFX_010
+    21300598: i_BoxFX_011
+    21300600: i_BoxFX_012
+    21300602: i_BoxFX_013
+    21300604: i_BoxFX_014
+    21300606: i_BoxFX_015
+    21300608: i_BoxFX_016
+    21300610: i_BoxFX_017
+    21300612: i_BoxFX_018
+    21300614: i_BoxFX_019
+    21300616: i_BoxStrong
+    21300618: ia_BoxStrongFX_000
+    21300620: ia_BoxStrongFX_001
+    21300622: ia_BoxStrongFX_002
+    21300624: ia_BoxStrongFX_003
+    21300626: ia_BoxStrongFX_004
+    21300628: ia_BoxStrongFX_005
+    21300630: ia_BoxStrongFX_006
+    21300632: ia_BoxStrongFX_007
+    21300634: ia_BoxStrongFX_008
+    21300636: ia_BoxStrongFX_009
+    21300638: ia_BoxStrongFX_010
+    21300640: ia_BoxStrongFX_011
+    21300642: ia_BoxStrongFX_012
+    21300644: ia_BoxStrongFX_013
+    21300646: ia_BoxStrongFX_014
+    21300648: ia_BoxStrongFX_015
+    21300650: ia_BoxStrongFX_016
+    21300652: ia_BoxStrongFX_017
+    21300654: ia_BoxStrongFX_018
+    21300656: ia_BoxStrongFX_019
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -337,8 +381,8 @@ TextureImporter:
     - name: b_Achievements
       rect:
         serializedVersion: 2
-        x: 1312
-        y: 1136
+        x: 1978
+        y: 821
         width: 64
         height: 64
       alignment: 0
@@ -347,8 +391,8 @@ TextureImporter:
     - name: b_Arrow
       rect:
         serializedVersion: 2
-        x: 1388
-        y: 549
+        x: 2006
+        y: 1910
         width: 34
         height: 92
       alignment: 0
@@ -357,8 +401,8 @@ TextureImporter:
     - name: b_Back
       rect:
         serializedVersion: 2
-        x: 1312
-        y: 1202
+        x: 1978
+        y: 887
         width: 66
         height: 66
       alignment: 0
@@ -367,8 +411,8 @@ TextureImporter:
     - name: b_Info
       rect:
         serializedVersion: 2
-        x: 1378
-        y: 1116
+        x: 1974
+        y: 755
         width: 64
         height: 64
       alignment: 0
@@ -377,8 +421,8 @@ TextureImporter:
     - name: b_Menu
       rect:
         serializedVersion: 2
-        x: 1312
-        y: 1070
+        x: 1974
+        y: 689
         width: 64
         height: 64
       alignment: 0
@@ -387,8 +431,8 @@ TextureImporter:
     - name: b_MusicHalf
       rect:
         serializedVersion: 2
-        x: 852
-        y: 884
+        x: 1963
+        y: 623
         width: 64
         height: 64
       alignment: 0
@@ -397,8 +441,8 @@ TextureImporter:
     - name: b_MusicOff
       rect:
         serializedVersion: 2
-        x: 852
-        y: 818
+        x: 1963
+        y: 557
         width: 64
         height: 64
       alignment: 0
@@ -407,8 +451,8 @@ TextureImporter:
     - name: b_MusicOn
       rect:
         serializedVersion: 2
-        x: 852
-        y: 752
+        x: 940
+        y: 262
         width: 64
         height: 64
       alignment: 0
@@ -417,8 +461,8 @@ TextureImporter:
     - name: b_Rating
       rect:
         serializedVersion: 2
-        x: 852
-        y: 686
+        x: 758
+        y: 238
         width: 64
         height: 64
       alignment: 0
@@ -427,8 +471,8 @@ TextureImporter:
     - name: b_Replay
       rect:
         serializedVersion: 2
-        x: 852
-        y: 620
+        x: 940
+        y: 196
         width: 64
         height: 64
       alignment: 0
@@ -437,9 +481,229 @@ TextureImporter:
     - name: i_ArrowTutor
       rect:
         serializedVersion: 2
-        x: 1933
-        y: 1994
+        x: 1044
+        y: 1434
         width: 102
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_Box
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1702
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_000
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 1932
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_001
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 1816
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_002
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 1700
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_003
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 1584
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_004
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 1468
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_005
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1216
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_006
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 1352
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_007
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1100
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_008
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 984
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_009
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 868
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_010
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 752
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_011
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 877
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_012
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 832
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_013
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 721
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_014
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 636
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_015
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 588
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_016
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 560
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_017
+      rect:
+        serializedVersion: 2
+        x: 1862
+        y: 839
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_018
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 761
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxFX_019
+      rect:
+        serializedVersion: 2
+        x: 1858
+        y: 723
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_BoxStrong
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1648
+        width: 52
         height: 52
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -447,8 +711,8 @@ TextureImporter:
     - name: i_Circle
       rect:
         serializedVersion: 2
-        x: 1407
-        y: 814
+        x: 2006
+        y: 1815
         width: 28
         height: 28
       alignment: 0
@@ -457,8 +721,8 @@ TextureImporter:
     - name: i_Cup
       rect:
         serializedVersion: 2
-        x: 1312
-        y: 930
+        x: 2006
+        y: 2004
         width: 39
         height: 42
       alignment: 0
@@ -467,8 +731,8 @@ TextureImporter:
     - name: i_Facebook
       rect:
         serializedVersion: 2
-        x: 1933
-        y: 1892
+        x: 1044
+        y: 1332
         width: 100
         height: 100
       alignment: 0
@@ -478,16 +742,16 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 682
-        y: 1662
-        width: 254
-        height: 304
+        y: 1526
+        width: 191
+        height: 228
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_LevelBg
       rect:
         serializedVersion: 2
-        x: 938
+        x: 682
         y: 1756
         width: 210
         height: 210
@@ -497,8 +761,8 @@ TextureImporter:
     - name: i_LevelBg02
       rect:
         serializedVersion: 2
-        x: 938
-        y: 1544
+        x: 894
+        y: 1756
         width: 210
         height: 210
       alignment: 0
@@ -517,8 +781,8 @@ TextureImporter:
     - name: i_LevelWall
       rect:
         serializedVersion: 2
-        x: 1395
-        y: 1434
+        x: 1103
+        y: 1602
         width: 52
         height: 12
       alignment: 0
@@ -527,8 +791,8 @@ TextureImporter:
     - name: i_LevelWallCorner
       rect:
         serializedVersion: 2
-        x: 1353
-        y: 940
+        x: 2006
+        y: 1876
         width: 32
         height: 32
       alignment: 0
@@ -537,8 +801,8 @@ TextureImporter:
     - name: i_LevelWallFill
       rect:
         serializedVersion: 2
-        x: 1978
-        y: 846
+        x: 758
+        y: 172
         width: 64
         height: 64
       alignment: 0
@@ -557,8 +821,8 @@ TextureImporter:
     - name: i_Lock
       rect:
         serializedVersion: 2
-        x: 1188
-        y: 813
+        x: 824
+        y: 47
         width: 87
         height: 115
       alignment: 0
@@ -587,158 +851,178 @@ TextureImporter:
     - name: i_Pack_1
       rect:
         serializedVersion: 2
-        x: 682
-        y: 1484
-        width: 238
-        height: 176
+        x: 1536
+        y: 1243
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_10
       rect:
         serializedVersion: 2
-        x: 682
-        y: 1306
-        width: 238
-        height: 176
+        x: 1705
+        y: 1243
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_11
       rect:
         serializedVersion: 2
-        x: 682
-        y: 1128
-        width: 238
-        height: 176
+        x: 1874
+        y: 1205
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_12
       rect:
         serializedVersion: 2
-        x: 1453
-        y: 1870
-        width: 238
-        height: 176
+        x: 1536
+        y: 1118
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_13
       rect:
         serializedVersion: 2
-        x: 1693
-        y: 1870
-        width: 238
-        height: 176
+        x: 1705
+        y: 1118
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_14
       rect:
         serializedVersion: 2
-        x: 1453
-        y: 1692
-        width: 238
-        height: 176
+        x: 1874
+        y: 1080
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_15
       rect:
         serializedVersion: 2
-        x: 1693
-        y: 1692
-        width: 238
-        height: 176
+        x: 1358
+        y: 1073
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_2
       rect:
         serializedVersion: 2
-        x: 1453
-        y: 1514
-        width: 238
-        height: 176
+        x: 1138
+        y: 962
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_3
       rect:
         serializedVersion: 2
-        x: 1693
-        y: 1514
-        width: 238
-        height: 176
+        x: 1527
+        y: 993
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_4
       rect:
         serializedVersion: 2
-        x: 1453
-        y: 1336
-        width: 238
-        height: 176
+        x: 1358
+        y: 948
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_5
       rect:
         serializedVersion: 2
-        x: 1693
-        y: 1336
-        width: 238
-        height: 176
+        x: 1138
+        y: 837
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_6
       rect:
         serializedVersion: 2
-        x: 1155
-        y: 1270
-        width: 238
-        height: 176
+        x: 852
+        y: 704
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_7
       rect:
         serializedVersion: 2
-        x: 682
-        y: 950
-        width: 238
-        height: 176
+        x: 1696
+        y: 993
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_8
       rect:
         serializedVersion: 2
-        x: 1445
-        y: 1158
-        width: 238
-        height: 176
+        x: 1865
+        y: 955
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Pack_9
       rect:
         serializedVersion: 2
-        x: 1685
-        y: 1158
-        width: 238
-        height: 176
+        x: 1527
+        y: 868
+        width: 167
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_Player
       rect:
         serializedVersion: 2
-        x: 1395
-        y: 1332
+        x: 1106
+        y: 1918
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_PortalCircle
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 1868
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_PortalInner
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 1818
         width: 48
         height: 48
       alignment: 0
@@ -747,8 +1031,8 @@ TextureImporter:
     - name: i_Square100x100
       rect:
         serializedVersion: 2
-        x: 1933
-        y: 1790
+        x: 1254
+        y: 685
         width: 100
         height: 100
       alignment: 0
@@ -767,8 +1051,8 @@ TextureImporter:
     - name: i_Square50x50
       rect:
         serializedVersion: 2
-        x: 1395
-        y: 1382
+        x: 1104
+        y: 1666
         width: 50
         height: 50
       alignment: 0
@@ -777,8 +1061,8 @@ TextureImporter:
     - name: i_SquareSmooth
       rect:
         serializedVersion: 2
-        x: 2021
-        y: 1282
+        x: 852
+        y: 1504
         width: 20
         height: 20
       alignment: 0
@@ -787,8 +1071,8 @@ TextureImporter:
     - name: i_Star01
       rect:
         serializedVersion: 2
-        x: 2021
-        y: 1260
+        x: 2006
+        y: 1767
         width: 20
         height: 20
       alignment: 0
@@ -797,8 +1081,8 @@ TextureImporter:
     - name: i_Star02
       rect:
         serializedVersion: 2
-        x: 1373
-        y: 813
+        x: 2006
+        y: 1845
         width: 32
         height: 29
       alignment: 0
@@ -807,8 +1091,8 @@ TextureImporter:
     - name: i_Star03
       rect:
         serializedVersion: 2
-        x: 1188
-        y: 787
+        x: 2006
+        y: 1789
         width: 26
         height: 24
       alignment: 0
@@ -817,8 +1101,8 @@ TextureImporter:
     - name: i_Star04
       rect:
         serializedVersion: 2
-        x: 1097
-        y: 1489
+        x: 1045
+        y: 1593
         width: 56
         height: 53
       alignment: 0
@@ -827,8 +1111,8 @@ TextureImporter:
     - name: i_Star05
       rect:
         serializedVersion: 2
-        x: 1097
-        y: 1434
+        x: 1045
+        y: 1538
         width: 56
         height: 53
       alignment: 0
@@ -837,8 +1121,8 @@ TextureImporter:
     - name: i_Vk
       rect:
         serializedVersion: 2
-        x: 1933
-        y: 1688
+        x: 1253
+        y: 583
         width: 100
         height: 100
       alignment: 0
@@ -848,19 +1132,219 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1157
-        y: 1448
-        width: 294
-        height: 598
+        y: 1597
+        width: 221
+        height: 449
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_iTunes
       rect:
         serializedVersion: 2
-        x: 922
-        y: 1467
+        x: 875
+        y: 1679
         width: 173
         height: 75
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_000
+      rect:
+        serializedVersion: 2
+        x: 1523
+        y: 752
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_001
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 716
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_002
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 605
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_003
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 520
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_004
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 600
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_005
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 489
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_006
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 472
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_007
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 444
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_008
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 328
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_009
+      rect:
+        serializedVersion: 2
+        x: 1519
+        y: 636
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_010
+      rect:
+        serializedVersion: 2
+        x: 1685
+        y: 645
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_011
+      rect:
+        serializedVersion: 2
+        x: 1847
+        y: 607
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_012
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 529
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_013
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 520
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_014
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 484
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_015
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 404
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_016
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 404
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_017
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 356
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_018
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 373
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_BoxStrongFX_019
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 288
+        width: 114
+        height: 114
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -907,8 +1391,8 @@ TextureImporter:
     - name: ia_FX00_004
       rect:
         serializedVersion: 2
-        x: 922
-        y: 1297
+        x: 875
+        y: 1509
         width: 168
         height: 168
       alignment: 0
@@ -917,8 +1401,8 @@ TextureImporter:
     - name: ia_FX00_005
       rect:
         serializedVersion: 2
-        x: 922
-        y: 1127
+        x: 682
+        y: 1356
         width: 168
         height: 168
       alignment: 0
@@ -927,8 +1411,8 @@ TextureImporter:
     - name: ia_FX00_006
       rect:
         serializedVersion: 2
-        x: 1142
-        y: 1100
+        x: 1380
+        y: 1878
         width: 168
         height: 168
       alignment: 0
@@ -937,8 +1421,8 @@ TextureImporter:
     - name: ia_FX00_007
       rect:
         serializedVersion: 2
-        x: 922
-        y: 957
+        x: 1550
+        y: 1878
         width: 168
         height: 168
       alignment: 0
@@ -947,8 +1431,8 @@ TextureImporter:
     - name: ia_FX00_008
       rect:
         serializedVersion: 2
-        x: 1142
-        y: 930
+        x: 1720
+        y: 1878
         width: 168
         height: 168
       alignment: 0
@@ -957,8 +1441,8 @@ TextureImporter:
     - name: ia_FX00_009
       rect:
         serializedVersion: 2
-        x: 922
-        y: 787
+        x: 1380
+        y: 1708
         width: 168
         height: 168
       alignment: 0
@@ -967,8 +1451,8 @@ TextureImporter:
     - name: ia_FX00_010
       rect:
         serializedVersion: 2
-        x: 682
-        y: 780
+        x: 1550
+        y: 1708
         width: 168
         height: 168
       alignment: 0
@@ -977,8 +1461,8 @@ TextureImporter:
     - name: ia_FX00_011
       rect:
         serializedVersion: 2
-        x: 682
-        y: 610
+        x: 1720
+        y: 1708
         width: 168
         height: 168
       alignment: 0
@@ -987,8 +1471,8 @@ TextureImporter:
     - name: ia_FX00_012
       rect:
         serializedVersion: 2
-        x: 662
-        y: 440
+        x: 1380
+        y: 1538
         width: 168
         height: 168
       alignment: 0
@@ -997,8 +1481,8 @@ TextureImporter:
     - name: ia_FX00_013
       rect:
         serializedVersion: 2
-        x: 662
-        y: 270
+        x: 1153
+        y: 1427
         width: 168
         height: 168
       alignment: 0
@@ -1007,8 +1491,8 @@ TextureImporter:
     - name: ia_FX00_014
       rect:
         serializedVersion: 2
-        x: 682
-        y: 4
+        x: 874
+        y: 1339
         width: 168
         height: 168
       alignment: 0
@@ -1017,8 +1501,8 @@ TextureImporter:
     - name: ia_FX00_015
       rect:
         serializedVersion: 2
-        x: 852
-        y: 4
+        x: 682
+        y: 1186
         width: 168
         height: 168
       alignment: 0
@@ -1027,8 +1511,8 @@ TextureImporter:
     - name: ia_FX00_016
       rect:
         serializedVersion: 2
-        x: 832
-        y: 440
+        x: 852
+        y: 1169
         width: 168
         height: 168
       alignment: 0
@@ -1037,8 +1521,8 @@ TextureImporter:
     - name: ia_FX00_017
       rect:
         serializedVersion: 2
-        x: 832
-        y: 270
+        x: 682
+        y: 1016
         width: 168
         height: 168
       alignment: 0
@@ -1047,8 +1531,8 @@ TextureImporter:
     - name: ia_FX00_018
       rect:
         serializedVersion: 2
-        x: 1022
-        y: 4
+        x: 1550
+        y: 1538
         width: 168
         height: 168
       alignment: 0
@@ -1057,8 +1541,8 @@ TextureImporter:
     - name: ia_FX00_019
       rect:
         serializedVersion: 2
-        x: 918
-        y: 617
+        x: 1720
+        y: 1538
         width: 168
         height: 168
       alignment: 0
@@ -1067,8 +1551,8 @@ TextureImporter:
     - name: ia_FX00_020
       rect:
         serializedVersion: 2
-        x: 1002
-        y: 447
+        x: 1373
+        y: 1368
         width: 168
         height: 168
       alignment: 0
@@ -1077,8 +1561,8 @@ TextureImporter:
     - name: ia_FX00_021
       rect:
         serializedVersion: 2
-        x: 1088
-        y: 617
+        x: 1146
+        y: 1257
         width: 168
         height: 168
       alignment: 0
@@ -1087,8 +1571,8 @@ TextureImporter:
     - name: ia_FX00_022
       rect:
         serializedVersion: 2
-        x: 1002
-        y: 277
+        x: 1543
+        y: 1368
         width: 168
         height: 168
       alignment: 0
@@ -1097,8 +1581,8 @@ TextureImporter:
     - name: ia_FX00_023
       rect:
         serializedVersion: 2
-        x: 1192
-        y: 11
+        x: 1713
+        y: 1368
         width: 168
         height: 168
       alignment: 0
@@ -1107,8 +1591,8 @@ TextureImporter:
     - name: ia_FX00_024
       rect:
         serializedVersion: 2
-        x: 1172
-        y: 447
+        x: 1366
+        y: 1198
         width: 168
         height: 168
       alignment: 0
@@ -1117,8 +1601,8 @@ TextureImporter:
     - name: ia_FX00_025
       rect:
         serializedVersion: 2
-        x: 1172
-        y: 277
+        x: 1138
+        y: 1087
         width: 168
         height: 168
       alignment: 0
@@ -1127,8 +1611,8 @@ TextureImporter:
     - name: ia_FX00_026
       rect:
         serializedVersion: 2
-        x: 1362
-        y: 11
+        x: 852
+        y: 999
         width: 168
         height: 168
       alignment: 0
@@ -1137,8 +1621,8 @@ TextureImporter:
     - name: ia_FX00_027
       rect:
         serializedVersion: 2
-        x: 1258
-        y: 643
+        x: 682
+        y: 846
         width: 168
         height: 168
       alignment: 0
@@ -1147,8 +1631,8 @@ TextureImporter:
     - name: ia_FX00_028
       rect:
         serializedVersion: 2
-        x: 1424
-        y: 942
+        x: 852
+        y: 829
         width: 168
         height: 168
       alignment: 0
@@ -1157,8 +1641,8 @@ TextureImporter:
     - name: ia_FX00_029
       rect:
         serializedVersion: 2
-        x: 1628
-        y: 988
+        x: 682
+        y: 676
         width: 168
         height: 168
       alignment: 0
@@ -1167,8 +1651,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_000
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 1384
+        x: 1106
+        y: 1768
         width: 48
         height: 48
       alignment: 0
@@ -1177,8 +1661,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_001
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 1334
+        x: 1106
+        y: 1718
         width: 48
         height: 48
       alignment: 0
@@ -1187,8 +1671,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_002
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 1284
+        x: 1104
+        y: 1616
         width: 48
         height: 48
       alignment: 0
@@ -1197,8 +1681,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_003
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 1234
+        x: 1103
+        y: 1552
         width: 48
         height: 48
       alignment: 0
@@ -1207,8 +1691,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_004
       rect:
         serializedVersion: 2
-        x: 1395
-        y: 1282
+        x: 1103
+        y: 1502
         width: 48
         height: 48
       alignment: 0
@@ -1217,8 +1701,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_005
       rect:
         serializedVersion: 2
-        x: 1395
-        y: 1232
+        x: 1323
+        y: 1547
         width: 48
         height: 48
       alignment: 0
@@ -1227,8 +1711,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_006
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 1184
+        x: 1323
+        y: 1497
         width: 48
         height: 48
       alignment: 0
@@ -1237,8 +1721,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_007
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 1134
+        x: 1045
+        y: 1488
         width: 48
         height: 48
       alignment: 0
@@ -1247,8 +1731,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_008
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 1084
+        x: 1323
+        y: 1447
         width: 48
         height: 48
       alignment: 0
@@ -1257,8 +1741,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_009
       rect:
         serializedVersion: 2
-        x: 1380
-        y: 1182
+        x: 1323
+        y: 1397
         width: 48
         height: 48
       alignment: 0
@@ -1267,8 +1751,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_010
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 1034
+        x: 1316
+        y: 1347
         width: 48
         height: 48
       alignment: 0
@@ -1277,8 +1761,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_011
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 984
+        x: 1316
+        y: 1297
         width: 48
         height: 48
       alignment: 0
@@ -1287,8 +1771,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_012
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 934
+        x: 1316
+        y: 1247
         width: 48
         height: 48
       alignment: 0
@@ -1297,8 +1781,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_013
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 884
+        x: 1308
+        y: 1197
         width: 48
         height: 48
       alignment: 0
@@ -1307,8 +1791,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_014
       rect:
         serializedVersion: 2
-        x: 1990
-        y: 1062
+        x: 1308
+        y: 1147
         width: 48
         height: 48
       alignment: 0
@@ -1317,8 +1801,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_015
       rect:
         serializedVersion: 2
-        x: 1990
-        y: 1012
+        x: 1308
+        y: 1097
         width: 48
         height: 48
       alignment: 0
@@ -1327,8 +1811,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_016
       rect:
         serializedVersion: 2
-        x: 1990
-        y: 962
+        x: 1308
+        y: 1047
         width: 48
         height: 48
       alignment: 0
@@ -1337,8 +1821,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_017
       rect:
         serializedVersion: 2
-        x: 1990
-        y: 912
+        x: 1307
+        y: 997
         width: 48
         height: 48
       alignment: 0
@@ -1347,8 +1831,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_018
       rect:
         serializedVersion: 2
-        x: 1532
-        y: 892
+        x: 1307
+        y: 947
         width: 48
         height: 48
       alignment: 0
@@ -1357,8 +1841,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_019
       rect:
         serializedVersion: 2
-        x: 1469
-        y: 892
+        x: 1812
+        y: 943
         width: 48
         height: 48
       alignment: 0
@@ -1367,8 +1851,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_020
       rect:
         serializedVersion: 2
-        x: 1978
-        y: 796
+        x: 1307
+        y: 897
         width: 48
         height: 48
       alignment: 0
@@ -1377,8 +1861,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_021
       rect:
         serializedVersion: 2
-        x: 1469
-        y: 842
+        x: 1307
+        y: 847
         width: 48
         height: 48
       alignment: 0
@@ -1387,8 +1871,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_022
       rect:
         serializedVersion: 2
-        x: 1724
-        y: 842
+        x: 1307
+        y: 797
         width: 48
         height: 48
       alignment: 0
@@ -1397,8 +1881,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_023
       rect:
         serializedVersion: 2
-        x: 1724
-        y: 792
+        x: 1473
+        y: 898
         width: 48
         height: 48
       alignment: 0
@@ -1407,8 +1891,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_024
       rect:
         serializedVersion: 2
-        x: 1966
-        y: 746
+        x: 1473
+        y: 848
         width: 48
         height: 48
       alignment: 0
@@ -1417,8 +1901,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_025
       rect:
         serializedVersion: 2
-        x: 1966
-        y: 696
+        x: 1254
+        y: 787
         width: 48
         height: 48
       alignment: 0
@@ -1427,8 +1911,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_026
       rect:
         serializedVersion: 2
-        x: 1628
-        y: 746
+        x: 968
+        y: 654
         width: 48
         height: 48
       alignment: 0
@@ -1437,8 +1921,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_027
       rect:
         serializedVersion: 2
-        x: 1724
-        y: 742
+        x: 968
+        y: 604
         width: 48
         height: 48
       alignment: 0
@@ -1447,8 +1931,8 @@ TextureImporter:
     - name: ia_PlayerFadeInOut_028
       rect:
         serializedVersion: 2
-        x: 1628
-        y: 696
+        x: 798
+        y: 626
         width: 48
         height: 48
       alignment: 0
@@ -1457,8 +1941,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_003
       rect:
         serializedVersion: 2
-        x: 1933
-        y: 1592
+        x: 1250
+        y: 487
         width: 94
         height: 94
       alignment: 0
@@ -1467,8 +1951,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_004
       rect:
         serializedVersion: 2
-        x: 1933
-        y: 1496
+        x: 662
+        y: 192
         width: 94
         height: 94
       alignment: 0
@@ -1477,8 +1961,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_005
       rect:
         serializedVersion: 2
-        x: 1933
-        y: 1400
+        x: 844
+        y: 260
         width: 94
         height: 94
       alignment: 0
@@ -1487,8 +1971,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_006
       rect:
         serializedVersion: 2
-        x: 1933
-        y: 1304
+        x: 1238
+        y: 391
         width: 94
         height: 94
       alignment: 0
@@ -1497,8 +1981,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_007
       rect:
         serializedVersion: 2
-        x: 1925
-        y: 1208
+        x: 1843
+        y: 511
         width: 94
         height: 94
       alignment: 0
@@ -1507,8 +1991,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_008
       rect:
         serializedVersion: 2
-        x: 1925
-        y: 1112
+        x: 1939
+        y: 461
         width: 94
         height: 94
       alignment: 0
@@ -1517,8 +2001,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_009
       rect:
         serializedVersion: 2
-        x: 662
-        y: 174
+        x: 1334
+        y: 388
         width: 94
         height: 94
       alignment: 0
@@ -1527,8 +2011,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_010
       rect:
         serializedVersion: 2
-        x: 758
-        y: 174
+        x: 1238
+        y: 295
         width: 94
         height: 94
       alignment: 0
@@ -1537,8 +2021,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_011
       rect:
         serializedVersion: 2
-        x: 854
-        y: 174
+        x: 1122
+        y: 277
         width: 94
         height: 94
       alignment: 0
@@ -1547,8 +2031,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_012
       rect:
         serializedVersion: 2
-        x: 950
-        y: 174
+        x: 1006
+        y: 192
         width: 94
         height: 94
       alignment: 0
@@ -1557,8 +2041,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_013
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 788
+        x: 824
+        y: 164
         width: 94
         height: 94
       alignment: 0
@@ -1567,8 +2051,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_014
       rect:
         serializedVersion: 2
-        x: 1046
-        y: 181
+        x: 728
+        y: 76
         width: 94
         height: 94
       alignment: 0
@@ -1577,8 +2061,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_015
       rect:
         serializedVersion: 2
-        x: 1142
-        y: 181
+        x: 913
+        y: 68
         width: 94
         height: 94
       alignment: 0
@@ -1587,8 +2071,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_016
       rect:
         serializedVersion: 2
-        x: 1238
-        y: 181
+        x: 1680
+        y: 433
         width: 94
         height: 94
       alignment: 0
@@ -1597,8 +2081,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_017
       rect:
         serializedVersion: 2
-        x: 1334
-        y: 181
+        x: 1776
+        y: 415
         width: 94
         height: 94
       alignment: 0
@@ -1607,8 +2091,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_018
       rect:
         serializedVersion: 2
-        x: 1277
-        y: 834
+        x: 1633
+        y: 337
         width: 94
         height: 94
       alignment: 0
@@ -1617,8 +2101,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_019
       rect:
         serializedVersion: 2
-        x: 1312
-        y: 974
+        x: 1872
+        y: 365
         width: 94
         height: 94
       alignment: 0
@@ -1627,8 +2111,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_020
       rect:
         serializedVersion: 2
-        x: 1373
-        y: 844
+        x: 1729
+        y: 319
         width: 94
         height: 94
       alignment: 0
@@ -1637,8 +2121,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_021
       rect:
         serializedVersion: 2
-        x: 1798
-        y: 1062
+        x: 1009
+        y: 96
         width: 94
         height: 94
       alignment: 0
@@ -1647,8 +2131,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_022
       rect:
         serializedVersion: 2
-        x: 1894
-        y: 1016
+        x: 1430
+        y: 308
         width: 94
         height: 94
       alignment: 0
@@ -1657,8 +2141,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_023
       rect:
         serializedVersion: 2
-        x: 1798
-        y: 966
+        x: 1334
+        y: 292
         width: 94
         height: 94
       alignment: 0
@@ -1667,8 +2151,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_024
       rect:
         serializedVersion: 2
-        x: 1894
-        y: 920
+        x: 1526
+        y: 308
         width: 94
         height: 94
       alignment: 0
@@ -1677,8 +2161,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_025
       rect:
         serializedVersion: 2
-        x: 1594
-        y: 892
+        x: 1622
+        y: 241
         width: 94
         height: 94
       alignment: 0
@@ -1687,8 +2171,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_026
       rect:
         serializedVersion: 2
-        x: 1690
-        y: 892
+        x: 1218
+        y: 199
         width: 94
         height: 94
       alignment: 0
@@ -1697,8 +2181,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_027
       rect:
         serializedVersion: 2
-        x: 1786
-        y: 870
+        x: 1105
+        y: 181
         width: 94
         height: 94
       alignment: 0
@@ -1707,8 +2191,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_028
       rect:
         serializedVersion: 2
-        x: 1882
-        y: 824
+        x: 1105
+        y: 85
         width: 94
         height: 94
       alignment: 0
@@ -1717,8 +2201,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_029
       rect:
         serializedVersion: 2
-        x: 1532
-        y: 796
+        x: 1430
+        y: 212
         width: 94
         height: 94
       alignment: 0
@@ -1727,8 +2211,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_030
       rect:
         serializedVersion: 2
-        x: 1430
-        y: 718
+        x: 1526
+        y: 212
         width: 94
         height: 94
       alignment: 0
@@ -1737,8 +2221,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_031
       rect:
         serializedVersion: 2
-        x: 1628
-        y: 796
+        x: 1314
+        y: 196
         width: 94
         height: 94
       alignment: 0
@@ -1747,8 +2231,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_032
       rect:
         serializedVersion: 2
-        x: 1774
-        y: 774
+        x: 1201
+        y: 103
         width: 94
         height: 94
       alignment: 0
@@ -1757,8 +2241,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_033
       rect:
         serializedVersion: 2
-        x: 1870
-        y: 728
+        x: 1201
+        y: 7
         width: 94
         height: 94
       alignment: 0
@@ -1767,8 +2251,8 @@ TextureImporter:
     - name: ia_PyramidSmallFX01_034
       rect:
         serializedVersion: 2
-        x: 1532
-        y: 700
+        x: 1297
+        y: 100
         width: 94
         height: 94
       alignment: 0
@@ -1777,8 +2261,8 @@ TextureImporter:
     - name: ia_PyramidSmall_000
       rect:
         serializedVersion: 2
-        x: 1142
-        y: 884
+        x: 1999
+        y: 1422
         width: 44
         height: 44
       alignment: 0
@@ -1787,8 +2271,8 @@ TextureImporter:
     - name: ia_PyramidSmall_001
       rect:
         serializedVersion: 2
-        x: 1378
-        y: 1070
+        x: 1999
+        y: 1376
         width: 44
         height: 44
       alignment: 0
@@ -1797,8 +2281,8 @@ TextureImporter:
     - name: ia_PyramidSmall_002
       rect:
         serializedVersion: 2
-        x: 1444
-        y: 1112
+        x: 1999
+        y: 1330
         width: 44
         height: 44
       alignment: 0
@@ -1807,8 +2291,8 @@ TextureImporter:
     - name: ia_PyramidSmall_003
       rect:
         serializedVersion: 2
-        x: 1490
-        y: 1112
+        x: 798
+        y: 580
         width: 44
         height: 44
       alignment: 0
@@ -1817,8 +2301,8 @@ TextureImporter:
     - name: ia_PyramidSmall_004
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 1112
+        x: 1812
+        y: 897
         width: 44
         height: 44
       alignment: 0
@@ -1827,8 +2311,8 @@ TextureImporter:
     - name: ia_PyramidSmall_005
       rect:
         serializedVersion: 2
-        x: 1582
-        y: 1112
+        x: 1812
+        y: 851
         width: 44
         height: 44
       alignment: 0
@@ -1837,8 +2321,8 @@ TextureImporter:
     - name: ia_PyramidSmall_006
       rect:
         serializedVersion: 2
-        x: 1678
-        y: 750
+        x: 1812
+        y: 805
         width: 44
         height: 44
       alignment: 0
@@ -1847,8 +2331,8 @@ TextureImporter:
     - name: ia_PyramidSmall_007
       rect:
         serializedVersion: 2
-        x: 1678
-        y: 704
+        x: 1812
+        y: 759
         width: 44
         height: 44
       alignment: 0
@@ -1857,8 +2341,8 @@ TextureImporter:
     - name: ia_PyramidSmall_008
       rect:
         serializedVersion: 2
-        x: 1532
-        y: 654
+        x: 1473
+        y: 802
         width: 44
         height: 44
       alignment: 0
@@ -1867,8 +2351,8 @@ TextureImporter:
     - name: ia_PyramidSmall_009
       rect:
         serializedVersion: 2
-        x: 1578
-        y: 654
+        x: 968
+        y: 558
         width: 44
         height: 44
       alignment: 0
@@ -1877,8 +2361,8 @@ TextureImporter:
     - name: ia_PyramidSmall_010
       rect:
         serializedVersion: 2
-        x: 1774
-        y: 728
+        x: 1473
+        y: 756
         width: 44
         height: 44
       alignment: 0
@@ -1887,8 +2371,8 @@ TextureImporter:
     - name: ia_PyramidSmall_011
       rect:
         serializedVersion: 2
-        x: 1724
-        y: 696
+        x: 1473
+        y: 710
         width: 44
         height: 44
       alignment: 0
@@ -1897,8 +2381,8 @@ TextureImporter:
     - name: ia_PyramidSmall_012
       rect:
         serializedVersion: 2
-        x: 1678
-        y: 658
+        x: 798
+        y: 534
         width: 44
         height: 44
       alignment: 0
@@ -1907,8 +2391,8 @@ TextureImporter:
     - name: ia_PyramidSmall_013
       rect:
         serializedVersion: 2
-        x: 1820
-        y: 728
+        x: 798
+        y: 488
         width: 44
         height: 44
       alignment: 0
@@ -1917,8 +2401,8 @@ TextureImporter:
     - name: ia_PyramidSmall_014
       rect:
         serializedVersion: 2
-        x: 1624
-        y: 650
+        x: 798
+        y: 442
         width: 44
         height: 44
       alignment: 0
@@ -1927,8 +2411,8 @@ TextureImporter:
     - name: ia_PyramidSmall_015
       rect:
         serializedVersion: 2
-        x: 1532
-        y: 608
+        x: 1639
+        y: 822
         width: 44
         height: 44
       alignment: 0
@@ -1937,8 +2421,8 @@ TextureImporter:
     - name: ia_PyramidSmall_016
       rect:
         serializedVersion: 2
-        x: 1578
-        y: 608
+        x: 1639
+        y: 776
         width: 44
         height: 44
       alignment: 0
@@ -1947,8 +2431,8 @@ TextureImporter:
     - name: ia_PyramidSmall_017
       rect:
         serializedVersion: 2
-        x: 1430
-        y: 672
+        x: 1639
+        y: 730
         width: 44
         height: 44
       alignment: 0
@@ -1957,8 +2441,8 @@ TextureImporter:
     - name: ia_PyramidSmall_018
       rect:
         serializedVersion: 2
-        x: 1476
-        y: 672
+        x: 1472
+        y: 664
         width: 44
         height: 44
       alignment: 0
@@ -1967,8 +2451,8 @@ TextureImporter:
     - name: ia_PyramidSmall_019
       rect:
         serializedVersion: 2
-        x: 1430
-        y: 626
+        x: 1472
+        y: 618
         width: 44
         height: 44
       alignment: 0
@@ -1977,8 +2461,8 @@ TextureImporter:
     - name: ia_PyramidSmall_020
       rect:
         serializedVersion: 2
-        x: 1476
-        y: 626
+        x: 1635
+        y: 684
         width: 44
         height: 44
       alignment: 0
@@ -1987,8 +2471,8 @@ TextureImporter:
     - name: ia_PyramidSmall_021
       rect:
         serializedVersion: 2
-        x: 1342
-        y: 597
+        x: 1635
+        y: 638
         width: 44
         height: 44
       alignment: 0
@@ -1997,8 +2481,8 @@ TextureImporter:
     - name: ia_PyramidSmall_022
       rect:
         serializedVersion: 2
-        x: 1342
-        y: 551
+        x: 1801
+        y: 713
         width: 44
         height: 44
       alignment: 0
@@ -2007,8 +2491,8 @@ TextureImporter:
     - name: ia_PyramidSmall_023
       rect:
         serializedVersion: 2
-        x: 1342
-        y: 505
+        x: 1801
+        y: 667
         width: 44
         height: 44
       alignment: 0
@@ -2017,8 +2501,8 @@ TextureImporter:
     - name: ia_PyramidSmall_024
       rect:
         serializedVersion: 2
-        x: 1430
-        y: 580
+        x: 1801
+        y: 621
         width: 44
         height: 44
       alignment: 0
@@ -2027,8 +2511,8 @@ TextureImporter:
     - name: ia_PyramidSmall_025
       rect:
         serializedVersion: 2
-        x: 1476
-        y: 580
+        x: 1635
+        y: 592
         width: 44
         height: 44
       alignment: 0
@@ -2037,8 +2521,8 @@ TextureImporter:
     - name: ia_PyramidSmall_026
       rect:
         serializedVersion: 2
-        x: 1770
-        y: 682
+        x: 1472
+        y: 572
         width: 44
         height: 44
       alignment: 0
@@ -2047,8 +2531,8 @@ TextureImporter:
     - name: ia_PyramidSmall_027
       rect:
         serializedVersion: 2
-        x: 1724
-        y: 650
+        x: 1471
+        y: 526
         width: 44
         height: 44
       alignment: 0
@@ -2057,8 +2541,8 @@ TextureImporter:
     - name: ia_PyramidSmall_028
       rect:
         serializedVersion: 2
-        x: 1670
-        y: 612
+        x: 1471
+        y: 480
         width: 44
         height: 44
       alignment: 0
@@ -2067,8 +2551,8 @@ TextureImporter:
     - name: ia_PyramidSmall_029
       rect:
         serializedVersion: 2
-        x: 1624
-        y: 604
+        x: 1634
+        y: 546
         width: 44
         height: 44
       alignment: 0
@@ -2077,8 +2561,8 @@ TextureImporter:
     - name: ia_PyramidSmall_030
       rect:
         serializedVersion: 2
-        x: 1532
-        y: 562
+        x: 1634
+        y: 500
         width: 44
         height: 44
       alignment: 0
@@ -2087,8 +2571,8 @@ TextureImporter:
     - name: ia_PyramidSmall_031
       rect:
         serializedVersion: 2
-        x: 1578
-        y: 562
+        x: 1797
+        y: 575
         width: 44
         height: 44
       alignment: 0
@@ -2097,8 +2581,8 @@ TextureImporter:
     - name: ia_PyramidSmall_032
       rect:
         serializedVersion: 2
-        x: 1430
-        y: 534
+        x: 960
+        y: 512
         width: 44
         height: 44
       alignment: 0
@@ -2107,8 +2591,8 @@ TextureImporter:
     - name: ia_PyramidSmall_033
       rect:
         serializedVersion: 2
-        x: 1476
-        y: 534
+        x: 960
+        y: 466
         width: 44
         height: 44
       alignment: 0
@@ -2117,8 +2601,8 @@ TextureImporter:
     - name: ia_PyramidSmall_034
       rect:
         serializedVersion: 2
-        x: 1816
-        y: 682
+        x: 798
+        y: 396
         width: 44
         height: 44
       alignment: 0
@@ -2127,8 +2611,8 @@ TextureImporter:
     - name: ia_PyramidSmall_035
       rect:
         serializedVersion: 2
-        x: 1862
-        y: 682
+        x: 798
+        y: 350
         width: 44
         height: 44
       alignment: 0
@@ -2137,8 +2621,8 @@ TextureImporter:
     - name: ia_PyramidSmall_036
       rect:
         serializedVersion: 2
-        x: 1908
-        y: 682
+        x: 960
+        y: 420
         width: 44
         height: 44
       alignment: 0
@@ -2147,8 +2631,8 @@ TextureImporter:
     - name: ia_PyramidSmall_037
       rect:
         serializedVersion: 2
-        x: 1954
-        y: 650
+        x: 960
+        y: 374
         width: 44
         height: 44
       alignment: 0
@@ -2157,8 +2641,8 @@ TextureImporter:
     - name: ia_PyramidSmall_038
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 650
+        x: 960
+        y: 328
         width: 44
         height: 44
       alignment: 0
@@ -2167,8 +2651,8 @@ TextureImporter:
     - name: ia_PyramidSmall_039
       rect:
         serializedVersion: 2
-        x: 1770
-        y: 636
+        x: 798
+        y: 304
         width: 44
         height: 44
       alignment: 0
@@ -2177,8 +2661,8 @@ TextureImporter:
     - name: ia_PyramidSmall_040
       rect:
         serializedVersion: 2
-        x: 1716
-        y: 604
+        x: 1797
+        y: 529
         width: 44
         height: 44
       alignment: 0
@@ -2187,8 +2671,8 @@ TextureImporter:
     - name: ia_PyramidSmall_041
       rect:
         serializedVersion: 2
-        x: 1670
-        y: 566
+        x: 682
+        y: 146
         width: 44
         height: 44
       alignment: 0
@@ -2197,8 +2681,8 @@ TextureImporter:
     - name: ia_PyramidSmall_042
       rect:
         serializedVersion: 2
-        x: 1624
-        y: 558
+        x: 682
+        y: 100
         width: 44
         height: 44
       alignment: 0
@@ -2207,8 +2691,8 @@ TextureImporter:
     - name: ia_PyramidSmall_043
       rect:
         serializedVersion: 2
-        x: 1532
-        y: 516
+        x: 682
+        y: 54
         width: 44
         height: 44
       alignment: 0
@@ -2217,8 +2701,8 @@ TextureImporter:
     - name: ia_PyramidSmall_044
       rect:
         serializedVersion: 2
-        x: 1578
-        y: 516
+        x: 682
+        y: 8
         width: 44
         height: 44
       alignment: 0

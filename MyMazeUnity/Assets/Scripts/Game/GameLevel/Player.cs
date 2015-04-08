@@ -2,9 +2,9 @@
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(GridDraggableObject))]
-public class Player : MonoBehaviour, IRecordingElement, IPauseable, IRestartable {
+[RequireComponent(typeof(CircleCollider2D))]
+public class Player : GameLevelObject
+{
     public DesignSettings designSettings;
     public PlayerStates state;
     public bool allowControl = true;
@@ -31,8 +31,6 @@ public class Player : MonoBehaviour, IRecordingElement, IPauseable, IRestartable
 
     private static Player _instance;
     private Rigidbody2D rigidbody2d;
-    private Animator animator;
-    private GridDraggableObject draggable;
     private Directions moveDirection;
     private int _movesCount;
 
@@ -41,22 +39,12 @@ public class Player : MonoBehaviour, IRecordingElement, IPauseable, IRestartable
         _instance = this;
     }
 
-    void Start()
+    public override void Start()
     {
-        SetupStartVars();
+        base.Start();
+        rigidbody2d = GetComponent<Rigidbody2D>();
         Spawn();
         GameLevel.Instance.OnPlayerMoveRequest += OnMoveRequest;
-        GameLevel.Instance.OnRestart += Restart;
-    }
-
-    /// <summary>
-    /// Делаем ссылки и умолчания для переменных
-    /// </summary>
-    void SetupStartVars()
-    {
-        rigidbody2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        draggable = GetComponent<GridDraggableObject>();
     }
 
     /// <summary>
@@ -84,16 +72,7 @@ public class Player : MonoBehaviour, IRecordingElement, IPauseable, IRestartable
     {
         animator.SetTrigger("FadeOut");
     }
-
-    void Update()
-    {
-        if (GameLevel.Instance.state == GameLevelStates.Pause)
-            TogglePause(true);
-        else
-            TogglePause(false);
-    }
-
-
+    
     /// <summary>
     /// Останавливает движение игрока
     /// </summary>
@@ -161,10 +140,26 @@ public class Player : MonoBehaviour, IRecordingElement, IPauseable, IRestartable
     }
 
     /// <summary>
+    /// Телпортация игрока
+    /// </summary>
+    /// <param name="portal">Портал в который нужно телепортироваться</param>
+    public void Teleport(Portal portal)
+    {
+        GridObject.Position portalPosition = portal.GetComponent<GridObject>().position;
+        GridObject.Position newPosition = new GridObject.Position()
+        {
+            xCell = portalPosition.xCell,
+            yRow = portalPosition.yRow
+        };
+        draggable.SetPositionVars(newPosition);
+        draggable.UpdatePosition();
+    }
+
+    /// <summary>
     /// Если игра встала на паузу
     /// </summary>
     /// <param name="pause">Состояние bool паузы</param>
-    public void TogglePause(bool pause)
+    public override void TogglePause(bool pause)
     {
         if (pause)
         {
@@ -181,11 +176,10 @@ public class Player : MonoBehaviour, IRecordingElement, IPauseable, IRestartable
     /// <summary>
     /// Уровень перезапустился
     /// </summary>
-    public void Restart()
+    public override void Restart()
     {
         StopMoving();
-        draggable.SetPositionVars(draggable.StartPosition);
-        draggable.UpdatePosition();
+        base.Restart();
         Spawn();
     }
 }

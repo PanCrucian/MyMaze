@@ -334,4 +334,19 @@ public class MyMaze : MonoBehaviour
         }
         return null;
     }
+
+    /// <summary>
+    /// Возвращает пак к которому пренадлежит уровень
+    /// </summary>
+    /// <param name="level">Уровень</param>
+    /// <returns></returns>
+    public Pack GetPackViaLevel(Level level)
+    {
+        foreach (Pack pack in packs)
+        {
+            if (pack.IsYourLevel(level))
+                return pack;
+        }
+        return null;
+    }
 }

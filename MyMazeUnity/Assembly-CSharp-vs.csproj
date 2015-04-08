@@ -47,12 +47,17 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\EditorScripts\MainMenuTester.cs" />
+     <Compile Include="Assets\Scripts\Game\GameLevel\Box.cs" />
+     <Compile Include="Assets\Scripts\Game\GameLevel\BoxStrong.cs" />
      <Compile Include="Assets\Scripts\Game\GameLevel\GameLevel.cs" />
+     <Compile Include="Assets\Scripts\Game\GameLevel\GameLevelDesign.cs" />
+     <Compile Include="Assets\Scripts\Game\GameLevel\GameLevelObject.cs" />
      <Compile Include="Assets\Scripts\Game\GameLevel\Grid.cs" />
      <Compile Include="Assets\Scripts\Game\GameLevel\GridDraggableObject.cs" />
      <Compile Include="Assets\Scripts\Game\GameLevel\GridObject.cs" />
      <Compile Include="Assets\Scripts\Game\GameLevel\LockPosition.cs" />
      <Compile Include="Assets\Scripts\Game\GameLevel\Player.cs" />
+     <Compile Include="Assets\Scripts\Game\GameLevel\Portal.cs" />
      <Compile Include="Assets\Scripts\Game\GameLevel\Pyramid.cs" />
      <Compile Include="Assets\Scripts\Game\GameLevel\Wall.cs" />
      <Compile Include="Assets\Scripts\Game\Interfaces\IDescription.cs" />
@@ -72,6 +77,7 @@
      <Compile Include="Assets\Scripts\Game\Tutorial\MoveTutorialUI.cs" />
      <Compile Include="Assets\Scripts\Game\Tutorial\Tutorial.cs" />
      <Compile Include="Assets\Scripts\Game\WebLinks.cs" />
+     <Compile Include="Assets\Scripts\Helpers\BoxColors.cs" />
      <Compile Include="Assets\Scripts\Helpers\CGSwitcherStruct.cs" />
      <Compile Include="Assets\Scripts\Helpers\Deligates.cs" />
      <Compile Include="Assets\Scripts\Helpers\Directions.cs" />
@@ -86,6 +92,8 @@
      <Compile Include="Assets\Scripts\MyMaze.cs" />
      <Compile Include="Assets\Scripts\UI\CGSwitcher.cs" />
      <Compile Include="Assets\Scripts\UI\ChangeColor.cs" />
+     <Compile Include="Assets\Scripts\UI\GameLevel\ButtonPlayNextUI.cs" />
+     <Compile Include="Assets\Scripts\UI\GameLevel\ButtonReplayUI.cs" />
      <Compile Include="Assets\Scripts\UI\GameLevel\LevelLoaderUI.cs" />
      <Compile Include="Assets\Scripts\UI\GameLevel\LevelNameUI.cs" />
      <Compile Include="Assets\Scripts\UI\GameLevel\MovesCounterResultsUI.cs" />

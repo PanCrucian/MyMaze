@@ -42,7 +42,7 @@ public class Box : GameLevelObject
     /// <param name="coll"></param>
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.tag.Equals("Player"))
+        if (CheckForPlayer(coll.gameObject))
         {
             Player.Instance.StopMoving();
             if (OnPlayerEnter != null)

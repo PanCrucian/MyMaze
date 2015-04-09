@@ -28,7 +28,7 @@ public class Portal : GameLevelObject
         if (!AllowTeleporting || outPortal == null)
             return;
 
-        if (coll.tag.Equals("Player"))
+        if (CheckForPlayer(coll.gameObject))
             Player.Instance.Teleport(outPortal);
 
         //запретим телепортировать выходному порталу, чтобы наш объект не скакал туда-сюда

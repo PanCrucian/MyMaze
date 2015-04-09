@@ -33,8 +33,6 @@ public class GameLevel : MonoBehaviour {
 
     void Start()
     {
-        //включим управление
-        InputSimulator.Instance.OnAllInput();
         uiGame = GameObject.FindGameObjectWithTag("uiGame").GetComponent<Animator>();
         uiResults = GameObject.FindGameObjectWithTag("uiResults").GetComponent<Animator>();
         pyramids = transform.GetComponentsInChildren<Pyramid>().ToList<Pyramid>();
@@ -138,9 +136,6 @@ public class GameLevel : MonoBehaviour {
     /// <returns></returns>
     IEnumerator GameOverEnumerator()
     {
-        //выключим любое управление
-        InputSimulator.Instance.OffAllInput();
-
         //подождем немного и переключим экраны
         yield return new WaitForSeconds(GameLevelDesign.Instance.gameOverDelay);
         CGSwitcher.Instance.SetHideObject(uiGame);
@@ -186,9 +181,6 @@ public class GameLevel : MonoBehaviour {
             nextLevel.IsClosed = false;
         else
             Debug.Log("Игра пройдена! Нет уровня для загрузки");
-
-        //включим управление Input
-        InputSimulator.Instance.OnAllInput();
     }
 
     /// <summary>
@@ -198,8 +190,6 @@ public class GameLevel : MonoBehaviour {
     {
         if (state != GameLevelStates.GameOver )
             return;
-        //выключим любое управление
-        InputSimulator.Instance.OffAllInput();
 
         StartCoroutine(NextLevelNumerator());
     }

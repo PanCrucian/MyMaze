@@ -105,7 +105,7 @@ public class Player : GameLevelObject
     /// Дает импульс движения компоненте rigidbody2d
     /// </summary>
     /// <param name="direction">Направление движения</param>
-    void MoveImpulse(Directions direction)
+    public void MoveImpulse(Directions direction)
     {
         Vector2 impulseVector = Vector2.zero;
         switch (direction)

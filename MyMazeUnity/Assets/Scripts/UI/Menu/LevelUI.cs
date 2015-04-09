@@ -30,7 +30,6 @@ public class LevelUI : MonoBehaviour {
     /// Кликнули на кнопку уровня, попробуем загрузить уровень
     /// </summary>
     public void LevelLoadRequest() {
-        InputSimulator.Instance.OffAllInput();
         StartCoroutine(LevelLoadNumerator());
     }
 
@@ -43,7 +42,7 @@ public class LevelUI : MonoBehaviour {
         ScreenOverlayUI.Instance.FadeIn();
 
         yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
-        InputSimulator.Instance.OnAllInput();
+        
         MyMaze.Instance.LastSelectedLevel = level;
         MyMaze.Instance.LevelLoader.levelName = level.name;
         Debug.Log("Загружаю уровень " + level.name);

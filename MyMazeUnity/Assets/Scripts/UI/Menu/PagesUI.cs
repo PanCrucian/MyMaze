@@ -11,7 +11,6 @@ public class PagesUI : MonoBehaviour {
     }
 
     public Local_data __data;
-    public CGSwitcherStruct switcherData;
     public float swipeDelay = 0.25f;
 
     private float lastSwipe = 0f;
@@ -123,13 +122,10 @@ public class PagesUI : MonoBehaviour {
     public void NextPage()
     {
         PageNumber++;
-        CGSwitcher switcher = switcherData.switcher;
-        switcherData.hideObject = __data.pages[PageNumber - 1].GetComponent<Animator>();
-        switcher.SetHideObject(switcherData.hideObject);
-        switcherData.showObject = __data.pages[PageNumber].GetComponent<Animator>();
-        switcher.SetShowObject(switcherData.showObject);
-        switcher.SetDelayTime(switcherData.delay);
-        switcher.Switch();
+        CGSwitcher.Instance.SetHideObject(__data.pages[PageNumber - 1].GetComponent<Animator>());
+        CGSwitcher.Instance.SetShowObject(__data.pages[PageNumber].GetComponent<Animator>());
+        CGSwitcher.Instance.SetDelayTime(0.35f);
+        CGSwitcher.Instance.Switch();
         MyMaze.Instance.LastSelectedPageNumber = PageNumber;
     }
 
@@ -140,13 +136,10 @@ public class PagesUI : MonoBehaviour {
     {
         PageNumber--;
 
-        CGSwitcher switcher = switcherData.switcher;
-        switcherData.hideObject = __data.pages[PageNumber + 1].GetComponent<Animator>();
-        switcher.SetHideObject(switcherData.hideObject);
-        switcherData.showObject = __data.pages[PageNumber].GetComponent<Animator>();
-        switcher.SetShowObject(switcherData.showObject);
-        switcher.SetDelayTime(switcherData.delay);
-        switcher.Switch();
+        CGSwitcher.Instance.SetHideObject(__data.pages[PageNumber + 1].GetComponent<Animator>());
+        CGSwitcher.Instance.SetShowObject(__data.pages[PageNumber].GetComponent<Animator>());
+        CGSwitcher.Instance.SetDelayTime(0.35f);
+        CGSwitcher.Instance.Switch();
         MyMaze.Instance.LastSelectedPageNumber = PageNumber;
     }
 

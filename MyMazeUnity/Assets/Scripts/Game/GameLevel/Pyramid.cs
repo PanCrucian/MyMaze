@@ -45,7 +45,7 @@ public class Pyramid : GameLevelObject
     /// <param name="coll"></param>
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag.Equals("Player"))
+        if (CheckForPlayer(coll.gameObject))
         {
             PickUp();
         }

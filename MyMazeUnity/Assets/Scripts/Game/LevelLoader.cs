@@ -19,7 +19,6 @@ public class LevelLoader : MonoBehaviour {
 
     public void Load()
     {
-        InputSimulator.Instance.OnAllInput();
         Application.LoadLevel(this.levelName);
     }
 

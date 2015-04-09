@@ -12,14 +12,6 @@ public class PackUI : MonoBehaviour {
     public Text requiredStarsText;
     public float contentLockAlpha = 0.5f;
 
-    public CGSwitcherStruct switcherData;
-
-    void Start()
-    {
-        switcherData.showObject = GetComponentInParent<PageUI>().containers.levelsContainer.GetComponent<Animator>();
-        switcherData.hideObject = GetComponentInParent<PageUI>().containers.packsContainer.GetComponent<Animator>();
-    }
-
     void Update()
     {
 
@@ -80,11 +72,13 @@ public class PackUI : MonoBehaviour {
         }
         else
         {
-            CGSwitcher switcher = switcherData.switcher;
-            switcher.SetHideObject(switcherData.hideObject); //ссылка в методе старт
-            switcher.SetShowObject(switcherData.showObject); //ссылка в методе старт
-            switcher.SetDelayTime(switcherData.delay);
-            switcher.Switch();
+            CGSwitcher.Instance.SetShowObject(
+                GetComponentInParent<PageUI>().containers.levelsContainer.GetComponent<Animator>()
+                );
+            CGSwitcher.Instance.SetHideObject(
+                GetComponentInParent<PageUI>().containers.packsContainer.GetComponent<Animator>()
+                );
+            CGSwitcher.Instance.Switch();
             MyMaze.Instance.LastSelectedPack = pack;
         }
     }

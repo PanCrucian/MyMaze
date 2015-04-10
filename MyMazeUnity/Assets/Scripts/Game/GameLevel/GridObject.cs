@@ -7,6 +7,30 @@ public class GridObject : Grid {
     {
         public int xCell;
         public int yRow;
+
+        /// <summary>
+        /// Сравнение позиций
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
+        public bool Equals(Position position)
+        {
+            if (this.xCell == position.xCell && this.yRow == position.yRow)
+                return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Делаем клон в памяти
+        /// </summary>
+        /// <returns></returns>
+        public Position Clone()
+        {
+            Position position = new Position();
+            position.xCell = this.xCell;
+            position.yRow = this.yRow;
+            return position;
+        }
     }
 
     public Position position;

@@ -19,9 +19,14 @@ public class MovingWall : GameLevelObject {
         base.Start();
         animator.enabled = false;
         wallBorder = GetComponentInChildren<WallBorder>().gameObject;
+        ResetLocalVars();
+        if (button == null)
+        {
+            Debug.LogWarning("У стены не присвоена кнопка. Проверь инспектор на наличие ссылки");
+            return;
+        }
         button.OnPress += OnPress;
         button.OnRelease += OnRelease;
-        ResetLocalVars();
     }
 
     void ResetLocalVars()

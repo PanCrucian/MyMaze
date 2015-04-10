@@ -25,7 +25,7 @@ public class Switcher : ButtonLevel
     /// Что-то стоит в зоне переключателя
     /// </summary>
     /// <param name="coll"></param>
-	public override void OnTriggerStay2D(Collider2D coll) {
+	public override void OnTriggerEnter2D(Collider2D coll) {
         if (CheckForPlayer(coll.gameObject))
         {
             if (switchState == SwitcherStates.Off)

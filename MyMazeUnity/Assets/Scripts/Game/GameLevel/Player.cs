@@ -7,6 +7,9 @@ public class Player : GameLevelObject
 {
     public DesignSettings designSettings;
     public PlayerStates state;
+    /// <summary>
+    /// Можно ли управлять, контролируется из анимации
+    /// </summary>
     public bool allowControl = true;
 
     public int MovesCount
@@ -19,8 +22,8 @@ public class Player : GameLevelObject
     [System.Serializable]
     public class DesignSettings
     {
-        public float moveImpulsePower = 5f;
-        public float stopMovingDelay = 0.075f;
+        public float moveImpulsePower = 4.75f;
+        public float stopMovingDelay = 0.055f;
     }
 	public static Player Instance {
         get
@@ -34,6 +37,21 @@ public class Player : GameLevelObject
     private Directions moveDirection;
     private int _movesCount;
 
+    /// <summary>
+    /// Прыгаем?
+    /// </summary>
+    private bool isJump;
+
+    /// <summary>
+    /// Позиция в которой должна начать играть анимация приземления
+    /// </summary>
+    private GridObject.Position jumpEndAnimationPosition;
+
+    /// <summary>
+    /// Позиция в которой игрок должен остановиться после прыжка
+    /// </summary>
+    private GridObject.Position jumpEndPosition;
+
     void Awake()
     {
         _instance = this;
@@ -43,8 +61,28 @@ public class Player : GameLevelObject
     {
         base.Start();
         rigidbody2d = GetComponent<Rigidbody2D>();
+        //circleCollider = GetComponent<CircleCollider2D>();
         Spawn();
         GameLevel.Instance.OnPlayerMoveRequest += OnMoveRequest;
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        //Обрабатываем прыжок
+        if (!isJump)
+            return;
+        if (draggable.position.Equals(jumpEndAnimationPosition))
+        {
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpOut"))
+                animator.SetTrigger("JumpOut");
+        }
+        if (draggable.position.Equals(jumpEndPosition))
+        {
+            StopMovingDelay();
+            isJump = false;
+        }
     }
 
     /// <summary>
@@ -54,7 +92,8 @@ public class Player : GameLevelObject
     {
         EnableControl();
         _movesCount = 0;
-        allowControl = true;
+        isJump = false;
+        moveDirection = Directions.Unknown;
     }
 
     /// <summary>
@@ -108,7 +147,8 @@ public class Player : GameLevelObject
     public void MoveImpulse(Directions direction)
     {
         Vector2 impulseVector = Vector2.zero;
-        switch (direction)
+        moveDirection = direction;
+        switch (moveDirection)
         {
             case Directions.Up: impulseVector.y = designSettings.moveImpulsePower; break;
             case Directions.Right: impulseVector.x = designSettings.moveImpulsePower; break;
@@ -153,6 +193,69 @@ public class Player : GameLevelObject
         };
         draggable.SetPositionVars(newPosition);
         draggable.UpdatePosition();
+    }
+
+    /// <summary>
+    /// Делаем прыжок
+    /// </summary>
+    /// <param name="jumpCellDistance">На сколько клеток прыгать</param>
+    public void Jump(Trampoline trampoline)
+    {
+        int jumpCellDistance = trampoline.jumpCellDistance;        
+        isJump = true;
+        animator.SetTrigger("JumpIn");
+        jumpEndPosition = new GridObject.Position()
+        {
+            xCell = trampoline.draggable.position.xCell,
+            yRow = trampoline.draggable.position.yRow
+        };
+        jumpEndAnimationPosition = jumpEndPosition.Clone();
+
+        if (state != PlayerStates.Move)
+        {
+            MoveImpulse(moveDirection);
+        }
+
+        switch (moveDirection)
+        {
+            case Directions.Up:
+                jumpEndAnimationPosition.yRow += jumpCellDistance - 1;
+                jumpEndPosition.yRow += jumpCellDistance; 
+                break;
+            case Directions.Right:
+                jumpEndAnimationPosition.xCell += jumpCellDistance - 1;
+                jumpEndPosition.xCell += jumpCellDistance; 
+                break;
+            case Directions.Down:
+                jumpEndAnimationPosition.yRow -= jumpCellDistance - 1;
+                jumpEndPosition.yRow -= jumpCellDistance; 
+                break;
+            case Directions.Left:
+                jumpEndAnimationPosition.xCell -= jumpCellDistance - 1;
+                jumpEndPosition.xCell -= jumpCellDistance; 
+                break;
+            default: break;
+        }
+        //Если прыжок короткий, то конец приземления и будет анимацией
+        if (jumpCellDistance < 2)
+            jumpEndAnimationPosition = jumpEndPosition.Clone();
+    }
+
+    /// <summary>
+    /// Игрок умер
+    /// </summary>
+    public void Die()
+    {
+        StopMoving();
+        animator.SetTrigger("Death");
+    }
+
+    /// <summary>
+    /// Анимация смерти закончилась
+    /// </summary>
+    public void OnDie()
+    {
+        Restart();
     }
 
     /// <summary>

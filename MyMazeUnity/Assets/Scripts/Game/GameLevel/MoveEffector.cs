@@ -5,7 +5,6 @@ using System.Collections;
 public class MoveEffector : GameLevelObject {
     public Directions direction;
 
-    private CircleCollider2D collider2D;
     public GameObject Arrow
     {
         get
@@ -13,13 +12,7 @@ public class MoveEffector : GameLevelObject {
             return GetComponentInChildren<MoveEffectorArrow>().gameObject;
         }
     }
-
-    public override void Start()
-    {
-        base.Start();
-        collider2D = GetComponent<CircleCollider2D>();
-    }
-
+    
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (CheckForPlayer(coll.gameObject))

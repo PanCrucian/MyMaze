@@ -28,6 +28,9 @@ public class PageUI : MonoBehaviour {
             return;
         }
         if (!buttons.nextButton || !buttons.prevButton)
-            Debug.LogWarning("Кнопки навигации не найдены");
+        {
+            buttons.nextButton = GetComponentInChildren<PageNextButtonUI>().GetComponent<Button>();
+            buttons.prevButton = GetComponentInChildren<PagePrevButtonUI>().GetComponent<Button>();
+        }
     }
 }

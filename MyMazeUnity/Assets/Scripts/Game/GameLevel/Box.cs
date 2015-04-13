@@ -23,7 +23,6 @@ public class Box : GameLevelObject
             animator.SetTrigger("Reset");
 
         boxCollider.enabled = true;
-        Debug.Log(1);
     }
 
     void FadeOut()

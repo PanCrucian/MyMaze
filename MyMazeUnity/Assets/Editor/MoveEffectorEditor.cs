@@ -11,6 +11,9 @@ public class MoveEffectorEditor : Editor
     {
         DrawDefaultInspector();
         MoveEffector effector = (MoveEffector)target;
+        
+        if (effector.Arrow == null)
+            return;
         switch (effector.direction)
         {
             case Directions.Up:

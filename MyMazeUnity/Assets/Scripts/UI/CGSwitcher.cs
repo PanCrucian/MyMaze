@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CGSwitcher : MonoBehaviour {
 
+    public Deligates.SimpleEvent OnSwitched;
+
     private Animator animatorForHide;
     private Animator animatorForShow;
     private float delay = 0f;

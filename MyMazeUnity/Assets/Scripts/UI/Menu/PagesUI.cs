@@ -124,7 +124,7 @@ public class PagesUI : MonoBehaviour {
         PageNumber++;
         CGSwitcher.Instance.SetHideObject(__data.pages[PageNumber - 1].GetComponent<Animator>());
         CGSwitcher.Instance.SetShowObject(__data.pages[PageNumber].GetComponent<Animator>());
-        CGSwitcher.Instance.SetDelayTime(0.35f);
+        //CGSwitcher.Instance.SetDelayTime(0.35f);
         CGSwitcher.Instance.Switch();
         MyMaze.Instance.LastSelectedPageNumber = PageNumber;
     }
@@ -135,10 +135,9 @@ public class PagesUI : MonoBehaviour {
     public void PrevPage()
     {
         PageNumber--;
-
         CGSwitcher.Instance.SetHideObject(__data.pages[PageNumber + 1].GetComponent<Animator>());
         CGSwitcher.Instance.SetShowObject(__data.pages[PageNumber].GetComponent<Animator>());
-        CGSwitcher.Instance.SetDelayTime(0.35f);
+        //CGSwitcher.Instance.SetDelayTime(0.35f);
         CGSwitcher.Instance.Switch();
         MyMaze.Instance.LastSelectedPageNumber = PageNumber;
     }

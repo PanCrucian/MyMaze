@@ -9,6 +9,8 @@ public class MoveEffector : GameLevelObject {
     {
         get
         {
+            if (GetComponentInChildren<MoveEffectorArrow>() == null)
+                return null;
             return GetComponentInChildren<MoveEffectorArrow>().gameObject;
         }
     }

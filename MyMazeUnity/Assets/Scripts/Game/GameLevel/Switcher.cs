@@ -79,7 +79,8 @@ public class Switcher : ButtonLevel
     public void Off()
     {
         switchState = SwitcherStates.Off;
-        animator.SetTrigger("Reset");
+        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Empty"))
+            animator.SetTrigger("Reset");
         workingTime = 0f;
     }
 

@@ -29,6 +29,86 @@ TextureImporter:
     21300044: ia_HiddenStarFX_023
     21300046: ia_HiddenStarFX_024
     21300048: ia_HiddenStarFX_025
+    21300050: ia_HiddenStarNormal_000
+    21300052: ia_HiddenStarNormal_001
+    21300054: ia_HiddenStarNormal_002
+    21300056: ia_HiddenStarNormal_003
+    21300058: ia_HiddenStarNormal_004
+    21300060: ia_HiddenStarNormal_005
+    21300062: ia_HiddenStarNormal_006
+    21300064: ia_HiddenStarNormal_007
+    21300066: ia_HiddenStarNormal_008
+    21300068: ia_HiddenStarNormal_009
+    21300070: ia_HiddenStarNormal_010
+    21300072: ia_HiddenStarNormal_011
+    21300074: ia_HiddenStarNormal_012
+    21300076: ia_HiddenStarNormal_013
+    21300078: ia_HiddenStarNormal_014
+    21300080: ia_HiddenStarNormal_015
+    21300082: ia_HiddenStarNormal_016
+    21300084: ia_HiddenStarNormal_017
+    21300086: ia_HiddenStarNormal_018
+    21300088: ia_HiddenStarNormal_019
+    21300090: ia_HiddenStarNormal_020
+    21300092: ia_HiddenStarNormal_021
+    21300094: ia_HiddenStarNormal_022
+    21300096: ia_HiddenStarNormal_023
+    21300098: ia_HiddenStarNormal_024
+    21300100: ia_HiddenStarNormal_025
+    21300102: ia_HiddenStarNormal_026
+    21300104: ia_HiddenStarNormal_027
+    21300106: ia_HiddenStarNormal_028
+    21300108: ia_HiddenStarNormal_029
+    21300110: ia_HiddenStarNormal_030
+    21300112: ia_HiddenStarNormal_031
+    21300114: ia_HiddenStarNormal_032
+    21300116: ia_HiddenStarNormal_033
+    21300118: ia_HiddenStarNormal_034
+    21300120: ia_HiddenStarNormal_035
+    21300122: ia_HiddenStarNormal_036
+    21300124: ia_HiddenStarNormal_037
+    21300126: ia_HiddenStarNormal_038
+    21300128: ia_HiddenStarNormal_039
+    21300130: ia_HiddenStarNormal_040
+    21300132: ia_HiddenStarNormal_041
+    21300134: ia_HiddenStarNormal_042
+    21300136: ia_HiddenStarNormal_043
+    21300138: ia_HiddenStarNormal_044
+    21300140: ia_HiddenStarNormal_045
+    21300142: ia_HiddenStarNormal_046
+    21300144: ia_HiddenStarNormal_047
+    21300146: ia_HiddenStarPickUpFX_001
+    21300148: ia_HiddenStarPickUpFX_002
+    21300150: ia_HiddenStarPickUpFX_003
+    21300152: ia_HiddenStarPickUpFX_004
+    21300154: ia_HiddenStarPickUpFX_005
+    21300156: ia_HiddenStarPickUpFX_006
+    21300158: ia_HiddenStarPickUpFX_007
+    21300160: ia_HiddenStarPickUpFX_008
+    21300162: ia_HiddenStarPickUpFX_009
+    21300164: ia_HiddenStarPickUpFX_010
+    21300166: ia_HiddenStarPickUpFX_011
+    21300168: ia_HiddenStarPickUpFX_012
+    21300170: ia_HiddenStarPickUpFX_013
+    21300172: ia_HiddenStarPickUpFX_014
+    21300174: ia_HiddenStarPickUpFX_015
+    21300176: ia_HiddenStarPickUpFX_016
+    21300178: ia_HiddenStarPickUpFX_017
+    21300180: ia_HiddenStarPickUpFX_018
+    21300182: ia_HiddenStarPickUpFX_019
+    21300184: ia_HiddenWallCrackFX_000
+    21300186: ia_HiddenWallCrackFX_001
+    21300188: ia_HiddenWallCrackFX_002
+    21300190: ia_HiddenWallCrackFX_003
+    21300192: ia_HiddenWallCrackFX_004
+    21300194: ia_HiddenWallCrackFX_005
+    21300196: ia_HiddenWallCrackFX_006
+    21300198: ia_HiddenWallCrackFX_007
+    21300200: ia_HiddenWallCrackFX_008
+    21300202: ia_HiddenWallCrackFX_009
+    21300204: ia_HiddenWallCrackFX_010
+    21300206: ia_HiddenWallCrackFX_011
+    21300208: ia_HiddenWallCrackFX_012
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -137,8 +217,8 @@ TextureImporter:
     - name: ia_HiddenStarFX_007
       rect:
         serializedVersion: 2
-        x: 756
-        y: 1671
+        x: 379
+        y: 1294
         width: 375
         height: 375
       alignment: 0
@@ -147,8 +227,8 @@ TextureImporter:
     - name: ia_HiddenStarFX_008
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 1671
+        x: 379
+        y: 917
         width: 375
         height: 375
       alignment: 0
@@ -157,8 +237,8 @@ TextureImporter:
     - name: ia_HiddenStarFX_009
       rect:
         serializedVersion: 2
-        x: 1510
-        y: 1671
+        x: 379
+        y: 540
         width: 375
         height: 375
       alignment: 0
@@ -168,7 +248,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 379
-        y: 1294
+        y: 163
         width: 375
         height: 375
       alignment: 0
@@ -177,8 +257,8 @@ TextureImporter:
     - name: ia_HiddenStarFX_011
       rect:
         serializedVersion: 2
-        x: 379
-        y: 917
+        x: 756
+        y: 1671
         width: 375
         height: 375
       alignment: 0
@@ -187,8 +267,8 @@ TextureImporter:
     - name: ia_HiddenStarFX_012
       rect:
         serializedVersion: 2
-        x: 379
-        y: 540
+        x: 756
+        y: 1294
         width: 375
         height: 375
       alignment: 0
@@ -197,8 +277,8 @@ TextureImporter:
     - name: ia_HiddenStarFX_013
       rect:
         serializedVersion: 2
-        x: 379
-        y: 163
+        x: 756
+        y: 917
         width: 375
         height: 375
       alignment: 0
@@ -208,13 +288,33 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 756
-        y: 1294
+        y: 540
         width: 375
         height: 375
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: ia_HiddenStarFX_015
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 163
+        width: 375
+        height: 375
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarFX_016
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 1671
+        width: 375
+        height: 375
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarFX_017
       rect:
         serializedVersion: 2
         x: 1133
@@ -224,31 +324,11 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_HiddenStarFX_016
-      rect:
-        serializedVersion: 2
-        x: 1510
-        y: 1294
-        width: 375
-        height: 375
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ia_HiddenStarFX_017
-      rect:
-        serializedVersion: 2
-        x: 756
-        y: 917
-        width: 375
-        height: 375
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: ia_HiddenStarFX_018
       rect:
         serializedVersion: 2
-        x: 756
-        y: 540
+        x: 1133
+        y: 917
         width: 375
         height: 375
       alignment: 0
@@ -257,8 +337,8 @@ TextureImporter:
     - name: ia_HiddenStarFX_019
       rect:
         serializedVersion: 2
-        x: 756
-        y: 163
+        x: 1133
+        y: 540
         width: 375
         height: 375
       alignment: 0
@@ -268,7 +348,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1133
-        y: 917
+        y: 163
         width: 375
         height: 375
       alignment: 0
@@ -278,7 +358,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1510
-        y: 917
+        y: 1671
         width: 375
         height: 375
       alignment: 0
@@ -287,8 +367,8 @@ TextureImporter:
     - name: ia_HiddenStarFX_022
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 540
+        x: 1510
+        y: 1294
         width: 375
         height: 375
       alignment: 0
@@ -297,8 +377,8 @@ TextureImporter:
     - name: ia_HiddenStarFX_023
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 163
+        x: 1510
+        y: 917
         width: 375
         height: 375
       alignment: 0
@@ -321,6 +401,806 @@ TextureImporter:
         y: 163
         width: 375
         height: 375
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_000
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1994
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_001
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1994
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_002
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1994
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_003
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1994
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_004
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1940
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_005
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1886
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_006
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1832
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_007
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1778
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_008
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1724
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_009
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1670
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_010
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1616
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_011
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1562
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_012
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1508
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_013
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1454
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_014
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1400
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_015
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1346
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_016
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1292
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_017
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1238
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_018
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1184
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_019
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1130
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_020
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1076
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_021
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1022
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_022
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 968
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_023
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 914
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_024
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 860
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_025
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 806
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_026
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 752
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_027
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 698
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_028
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 644
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_029
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 590
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_030
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 536
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_031
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 482
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_032
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 428
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_033
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 374
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_034
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 320
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_035
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 266
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_036
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 212
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_037
+      rect:
+        serializedVersion: 2
+        x: 1940
+        y: 158
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_038
+      rect:
+        serializedVersion: 2
+        x: 1940
+        y: 104
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_039
+      rect:
+        serializedVersion: 2
+        x: 1940
+        y: 50
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_040
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1994
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_041
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1940
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_042
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1886
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_043
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1832
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_044
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1778
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_045
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1724
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_046
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1994
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarNormal_047
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1994
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_001
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_002
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_003
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_004
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_005
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_006
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_007
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_008
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_009
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_010
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_011
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_012
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_013
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_014
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_015
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_016
+      rect:
+        serializedVersion: 2
+        x: 1532
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_017
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_018
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenStarPickUpFX_019
+      rect:
+        serializedVersion: 2
+        x: 1838
+        y: 61
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_000
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1672
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_001
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1620
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_002
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1568
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_003
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1516
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_004
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1464
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_005
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1412
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_006
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1360
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_007
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1308
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_008
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1256
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_009
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1204
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_010
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1152
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_011
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1672
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ia_HiddenWallCrackFX_012
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 1672
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

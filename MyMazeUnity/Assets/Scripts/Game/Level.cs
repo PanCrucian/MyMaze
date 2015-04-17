@@ -61,7 +61,7 @@ public class Level : MonoBehaviour, ILevel, IComparable
     public void Open()
     {
         if (!this.IsClosed)
-            Debug.Log("Уровень уже был открыт");
+            Debug.Log("Уровень " + levelName + " уже был открыт");
         this.IsClosed = false;
     }
 
@@ -71,7 +71,7 @@ public class Level : MonoBehaviour, ILevel, IComparable
     public void Close()
     {
         if (this.IsClosed)
-            Debug.Log("Уровень уже был закрыт");
+            Debug.Log("Уровень " + levelName + " уже был закрыт");
         this.IsClosed = true;
     }
 
@@ -82,7 +82,7 @@ public class Level : MonoBehaviour, ILevel, IComparable
     {
         if (this.IsClosed)
         {
-            Debug.LogWarning("Вы пытаетесь пройти уровень который закрыт, прохождение не будет засчитано. Вначале откройте уровень!");
+            Debug.LogWarning("Вы пытаетесь пройти уровень " + levelName + " который закрыт, прохождение не будет засчитано. Вначале откройте уровень!");
             return;
         }
         this.IsPassed = true;

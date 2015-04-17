@@ -16,6 +16,7 @@ public class Localization : MonoBehaviour
     public bool viaSystemLanguage = true;
 
     private string region;
+    private int tries = 0;
 
     void Awake()
     {
@@ -66,22 +67,18 @@ public class Localization : MonoBehaviour
     /// </summary>
     void ReadFiles()
     {
-        switch (language)
-        {
-            case SystemLanguage.Russian:
-                region = "ru";
-                break;
-            case SystemLanguage.English:
-                region = "en";
-                break;
-            default:
-                region = "en";
-                break;
-        }
+        region = language.ToString("g");
         try
         {
             TextAsset textAsset = (TextAsset)Resources.Load("Localization/" + region, typeof(TextAsset));
-
+            if (textAsset == null && tries == 0)
+            {
+                language = SystemLanguage.English;
+                Debug.LogWarning("Файл локализации " + region + " не найден ставлю " + language.ToString("g"));
+                tries++;
+                ReadFiles();
+                return;
+            }
             XElement xElement = XElement.Parse(textAsset.text);
             textAsset = null;
             words = new Dictionary<string, LocalizationData>();

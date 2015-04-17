@@ -148,14 +148,14 @@ public class GameLevel : MonoBehaviour {
             lastSelectedLevel.MinMovesRecord = Player.Instance.MovesCount;
         else
             if (Player.Instance.MovesCount <= lastSelectedLevel.MinMovesRecord)
-                lastSelectedLevel.MinMovesRecord = Player.Instance.MovesCount;
-        
+                lastSelectedLevel.MinMovesRecord = Player.Instance.MovesCount;  
+
         //проверим какие звезды мы должны получить и получим их
         List<Star> stars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();  
         foreach (Star star in stars)
         {
             if (Player.Instance.MovesCount <= star.movesToGet)
-                star.IsCollected = true;
+                star.Collect();
             if (star.IsCollected) {
                 Animator starAnimator = StarsResultsUI.Instance.GetNotCollectedStar();
                 if (starAnimator != null)
@@ -165,6 +165,11 @@ public class GameLevel : MonoBehaviour {
                 }
             }
         }
+
+        //пройдем текущий уровень
+        if (lastSelectedLevel.IsClosed)
+            lastSelectedLevel.Open();
+        lastSelectedLevel.Pass();
                 
         //откроем следующий уровень
         Pack pack = MyMaze.Instance.LastSelectedPack;
@@ -178,7 +183,7 @@ public class GameLevel : MonoBehaviour {
         }
 
         if (nextLevel != null)
-            nextLevel.IsClosed = false;
+            nextLevel.Open();
         else
             Debug.Log("Игра пройдена! Нет уровня для загрузки");
     }

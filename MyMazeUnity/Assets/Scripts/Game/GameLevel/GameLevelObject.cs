@@ -32,10 +32,13 @@ public class GameLevelObject : MonoBehaviour, IRecordingElement, IPauseable, IRe
     /// <param name="pause">Состояние bool паузы</param>
     public virtual void TogglePause(bool pause)
     {
-        if (pause)
+        if (pause) {
             animator.speed = 0f;
-        else
+        }
+        else 
+        { 
             animator.speed = 1f;
+        }
     }
 
     /// <summary>

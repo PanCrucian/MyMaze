@@ -58,7 +58,8 @@ public class Gate : GameLevelObject {
     public override void Restart()
     {
         base.Restart();
-        animator.SetTrigger("Reset");
+        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Empty"))
+            animator.SetTrigger("Reset");
         OnOpen();
     }
 }

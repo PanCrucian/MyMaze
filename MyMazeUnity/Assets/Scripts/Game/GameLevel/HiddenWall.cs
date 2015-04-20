@@ -70,7 +70,12 @@ public class HiddenWall : GameLevelObject {
     void HideObjects()
     {
         foreach (SpriteRenderer ren in hideObjects)
+        {
             ren.enabled = false;
+            Collider2D coll = ren.GetComponent<Collider2D>();
+            if (coll != null)
+                coll.enabled = false;
+        }
     }
 
     /// <summary>
@@ -79,6 +84,11 @@ public class HiddenWall : GameLevelObject {
     void ShowObjects()
     {
         foreach (SpriteRenderer ren in hideObjects)
+        {
             ren.enabled = true;
+            Collider2D coll = ren.GetComponent<Collider2D>();
+            if (coll != null)
+                coll.enabled = true;
+        }
     }
 }

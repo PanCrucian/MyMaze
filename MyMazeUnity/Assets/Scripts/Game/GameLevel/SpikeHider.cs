@@ -5,6 +5,7 @@ using System.Collections;
 public class SpikeHider : GameLevelObject {
 
     public float hideTime = 0.75f;
+    public bool inversed = true;
     public Spike[] spikes;
 
     public override void Start()
@@ -16,18 +17,32 @@ public class SpikeHider : GameLevelObject {
             animator.enabled = false;
     }
 
+    /// <summary>
+    /// Вошли в пряталку
+    /// </summary>
+    /// <param name="coll">Вошедший объект</param>
     void OnTriggerEnter2D(Collider2D coll) {
         if (CheckForPlayer(coll.gameObject))
         {
-            ShowSpikes();
+            if (!inversed)
+                ShowSpikes();
+            else
+                HideSpikes();
         }
     }
 
+    /// <summary>
+    /// Вышли из пряталки
+    /// </summary>
+    /// <param name="coll">Вышедший объект</param>
     void OnTriggerExit2D(Collider2D coll)
     {
         if (CheckForPlayer(coll.gameObject))
         {
-            HideSpikes();
+            if (!inversed)
+                HideSpikes();
+            else
+                ShowSpikes();
         }
     }
 

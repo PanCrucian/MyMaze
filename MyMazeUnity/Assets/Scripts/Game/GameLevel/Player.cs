@@ -255,7 +255,7 @@ public class Player : GameLevelObject
     /// </summary>
     public void OnDie()
     {
-        Restart();
+        GameLevel.Instance.OnRestartRequest();
     }
 
     /// <summary>

@@ -160,4 +160,38 @@ public class Level : MonoBehaviour, ILevel, IComparable
 
         return ss;
     }
+
+
+    /// <summary>
+    /// Сохраняет в PlayerPrefs информацию о текущем состоянии уровня и звезд
+    /// </summary>
+    public void Save()
+    {
+        PlayerPrefs.SetInt(levelName + "#IsPassed", Convert.ToInt32(this.IsPassed));
+        PlayerPrefs.SetInt(levelName + "#IsClosed", Convert.ToInt32(this.IsClosed));
+
+        for (int i = 0; i < stars.Count; i++)
+        {
+            Star star = stars[i];
+            PlayerPrefs.SetInt(levelName + "#Star" + i.ToString() + "#IsCollected", Convert.ToInt32(star.IsCollected));
+        }
+    }
+
+    /// <summary>
+    /// Загружает из PlayerPrefs информацию о прошлом состоянии уровня и звезд
+    /// </summary>
+    public void Load()
+    {
+        if (PlayerPrefs.HasKey(levelName + "#IsPassed"))
+            this.IsPassed = Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#IsPassed"));
+        if (PlayerPrefs.HasKey(levelName + "#IsClosed"))
+            this.IsClosed = Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#IsClosed"));
+
+        for (int i = 0; i < stars.Count; i++)
+        {
+            Star star = stars[i];
+            if (PlayerPrefs.HasKey(levelName + "#Star" + i.ToString() + "#IsCollected"))
+                star.IsCollected = Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#Star" + i.ToString() + "#IsCollected"));
+        }
+    }
 }

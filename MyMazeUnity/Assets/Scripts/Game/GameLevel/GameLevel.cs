@@ -186,6 +186,9 @@ public class GameLevel : MonoBehaviour {
             nextLevel.Open();
         else
             Debug.Log("Игра пройдена! Нет уровня для загрузки");
+
+        //сохраним весь прогресс
+        MyMaze.Instance.Save();
     }
 
     /// <summary>

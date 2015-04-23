@@ -129,4 +129,36 @@ public class Tutorial : MonoBehaviour, ITutorial {
         StartNextStep();
         step.Complete();
     }
+
+    /// <summary>
+    /// Сохраним состояние туториала в PlayerPrefs
+    /// </summary>
+    public void Save()
+    {
+        PlayerPrefs.SetString("TutorialStepName", GetCurrentStep().stepName);
+    }
+
+    /// <summary>
+    /// Загрузим из PlayerPrefs состояние туториала
+    /// </summary>
+    public void Load()
+    {
+        if (PlayerPrefs.HasKey("TutorialStepName"))
+        {
+            foreach (TutorialStep step in steps)
+            {
+                if (step.stepName.Equals(PlayerPrefs.GetString("TutorialStepName")))
+                {
+                    step.ResetStates();
+                    step.Start();
+                }
+                else
+                {
+                    step.ResetStates();
+                    step.Start();
+                    step.Complete();
+                }
+            }
+        }
+    }
 }

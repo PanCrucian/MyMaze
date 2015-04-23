@@ -146,6 +146,7 @@ public class MyMaze : MonoBehaviour
         SetupData();
         CheckNames();
         CheckLastSelectedForNull();
+        Load();
     }
 
     /// <summary>
@@ -348,5 +349,111 @@ public class MyMaze : MonoBehaviour
                 return pack;
         }
         return null;
+    }
+
+    /// <summary>
+    /// Возвращает пак через имя
+    /// </summary>
+    /// <param name="packName">имя пака</param>
+    /// <returns></returns>
+    public Pack GetPackViaName(string packName)
+    {
+        foreach (Pack pack in packs)
+        {
+            if (pack.packName.Equals(packName))
+                return pack;
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// Возвращает уровень через имя
+    /// </summary>
+    /// <param name="levelName">имя уровня</param>
+    /// <returns></returns>
+    public Level GetLevelViaName(string levelName)
+    {
+        foreach (Level level in levels)
+        {
+            if (level.levelName.Equals(levelName))
+                return level;
+        }
+        return null;
+    }
+
+    #region "Методы Сохранения"
+
+    /// <summary>
+    /// Сохраняет в PlayerPrefs информацию о текущем состоянии игры
+    /// </summary>
+    public void Save()
+    {
+        //уровни
+        foreach (Level level in levels)
+            level.Save();
+
+        //ссылки на последние объекты
+        PlayerPrefs.SetInt("LastSelectedPageNumber", LastSelectedPageNumber);
+        PlayerPrefs.SetString("LastSelectedPack", LastSelectedPack.packName);
+        PlayerPrefs.SetString("LastSelectedLevel", LastSelectedLevel.levelName);
+
+        //звуки
+        this.Sounds.Save();
+
+        //туториал
+        this.Tutorial.Save();
+
+        //Сбросим на диск
+        PlayerPrefs.Save();
+    }
+
+    /// <summary>
+    /// Загружает из PlayerPrefs информацию о прошлом состоянии игры
+    /// </summary>
+    public void Load()
+    {
+        //уровни
+        foreach (Level level in levels)
+            level.Load();
+
+        //ссылки на последние объекты
+        if (PlayerPrefs.HasKey("LastSelectedPageNumber"))
+            LastSelectedPageNumber = PlayerPrefs.GetInt("LastSelectedPageNumber");
+        if (PlayerPrefs.HasKey("LastSelectedPack"))
+        {
+            Pack pack = GetPackViaName(PlayerPrefs.GetString("LastSelectedPack"));
+            if (pack != null)
+                LastSelectedPack = pack;
+        }
+        if (PlayerPrefs.HasKey("LastSelectedLevel"))
+        {
+            Level level = GetLevelViaName(PlayerPrefs.GetString("LastSelectedLevel"));
+            if (level != null)
+                LastSelectedLevel = level;
+        }
+
+        //звуки
+        this.Sounds.Load();
+
+        //туториал
+        this.Tutorial.Load();
+    }
+
+    /// <summary>
+    /// Удалить все сохраниения
+    /// </summary>
+    public void ResetSaves()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
+    #endregion
+
+    /// <summary>
+    /// Когда выходим из приложения
+    /// </summary>
+    void OnApplicationQuit()
+    {
+        
     }
 }

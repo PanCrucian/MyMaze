@@ -13,4 +13,12 @@ public class MainMenuUI : MonoBehaviour {
             CGSwitcher.Instance.Switch();
         }
 	}
+
+    /// <summary>
+    /// Временная фича, сбрасывает сохранения
+    /// </summary>
+    public void ResetSaves()
+    {
+        MyMaze.Instance.ResetSaves();
+    }
 }

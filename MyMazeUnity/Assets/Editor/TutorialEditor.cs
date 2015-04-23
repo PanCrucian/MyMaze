@@ -48,8 +48,8 @@ public class TutorialEditor : Editor
         Tutorial tutorial = (Tutorial)target;
         foreach (TutorialStep step in tutorial.steps)
         {
-            if (!step.name.Equals(step.phase.ToString("g")))
-                step.name = step.phase.ToString("g");
+            if (!step.stepName.Equals(step.phase.ToString("g")))
+                step.stepName = step.phase.ToString("g");
         }
     }
 }

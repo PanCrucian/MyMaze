@@ -36,5 +36,27 @@ public class MainMenuEditor : Editor
         {
             mmTester.PrepareForWork(workMenu, pageNumber, isPackWork);
         }
+        EditorGUILayout.Separator();
+        if (GUILayout.Button("Сохранить состояние игры"))
+        {
+            if (MyMaze.Instance == null)
+                Debug.LogWarning("Запустите игру чтобы работать с сохранениями");
+            else
+                MyMaze.Instance.Save();
+        }
+        if (GUILayout.Button("Загрузить последнее сохранение"))
+        {
+            if (MyMaze.Instance == null)
+                Debug.LogWarning("Запустите игру чтобы работать с сохранениями");
+            else
+                MyMaze.Instance.Load();
+        }
+        if (GUILayout.Button("Сбросить сохранения"))
+        {
+            if (MyMaze.Instance == null)
+                Debug.LogWarning("Запустите игру чтобы работать с сохранениями");
+            else
+                MyMaze.Instance.ResetSaves();
+        }
     }
 }

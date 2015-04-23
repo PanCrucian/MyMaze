@@ -57,6 +57,5 @@ public class Star : IStar, IComparable {
     public void SetHidden()
     {
         this.IsHidden = true;
-    }
-
+    }    
 }

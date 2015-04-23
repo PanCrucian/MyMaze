@@ -4,7 +4,7 @@ using System.Collections;
 [System.Serializable]
 public class TutorialStep {
 
-    public string name;
+    public string stepName;
     public TutorialPhase phase;
     public bool IsComplete;
     public bool IsStarted;

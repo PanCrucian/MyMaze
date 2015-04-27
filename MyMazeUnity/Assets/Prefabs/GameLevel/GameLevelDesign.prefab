@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragTreshold: 30
-  moveRequestDelayTime: .25
+  moveRequestDelayTime: .100000001
   gameOverDelay: .5
   starsCollectingDelay: .75
   nextLevelDelay: 1.5

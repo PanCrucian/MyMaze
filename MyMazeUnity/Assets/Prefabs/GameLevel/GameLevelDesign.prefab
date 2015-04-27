@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ab9600110dd7743ab6ec0704954caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragTreshold: 30
+  dragTreshold: 15
   moveRequestDelayTime: .100000001
   gameOverDelay: .5
   starsCollectingDelay: .75

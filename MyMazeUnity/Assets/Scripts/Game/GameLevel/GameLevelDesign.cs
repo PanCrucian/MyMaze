@@ -11,7 +11,7 @@ public class GameLevelDesign : MonoBehaviour {
     /// <summary>
     /// Запрос на движение не чаще времени в этой переменной
     /// </summary>
-    public float moveRequestDelayTime = 0.25f;
+    public float moveRequestDelayTime = 0.1f;
 
     /// <summary>
     /// Задержка перед завершением игры
@@ -24,9 +24,9 @@ public class GameLevelDesign : MonoBehaviour {
     public float starsCollectingDelay = 0.75f;
 
     /// <summary>
-    /// задержка перед загрузкой следующего уровня
+    /// Задержка перед загрузкой следующего уровня
     /// </summary>
-    public float nextLevelDelay = 1f;
+    public float nextLevelDelay = 1.5f;
 
     [HideInInspector]
     public float lastMoveRequestTime = 0f;

@@ -3,5 +3,5 @@ using System.Collections;
 
 public enum GateStates {
     Opened,
-	Closed
+    Closed
 }

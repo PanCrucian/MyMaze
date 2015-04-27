@@ -41,6 +41,8 @@ public class TutorialEditor : Editor
         }
 
         SetupNames();
+        if (!Application.isPlaying)
+            EditorUtility.SetDirty(tutorial);
     }
 
     void SetupNames()

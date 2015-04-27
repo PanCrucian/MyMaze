@@ -14,5 +14,6 @@ public class GridObjectEditor : Editor
         if (Application.isPlaying)
             return;
         obj.UpdatePositionVars();
+        EditorUtility.SetDirty(obj);
     }
 }

@@ -3,5 +3,6 @@ using System.Collections;
 
 public enum PlayerStates {
     Idle,
-    Move
+    Move,
+    Die
 }

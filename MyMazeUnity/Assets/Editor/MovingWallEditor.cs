@@ -19,7 +19,8 @@ public class MovingWallEditor : Editor
                 xCell = wall.draggable.position.xCell,
                 yRow = wall.draggable.position.yRow
             };
-            EditorUtility.SetDirty(wall);
         }
+        if (!Application.isPlaying)
+            EditorUtility.SetDirty(wall);
     }
 }

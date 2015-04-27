@@ -20,6 +20,7 @@ public class GameLevelEditor : Editor {
         foreach(GridDraggableObject draggable in draggables) {
             draggable.UpdatePositionVars();
             draggable.UpdatePosition();
+            EditorUtility.SetDirty(draggable);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(MyMaze))]
 public class LevelLoader : MonoBehaviour {
 
     public string levelName;

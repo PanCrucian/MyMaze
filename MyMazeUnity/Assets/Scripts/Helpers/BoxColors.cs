@@ -2,7 +2,6 @@
 using System.Collections;
 
 public enum BoxColors {
-
-	White,
+    White,
     Yellow
 }

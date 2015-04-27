@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(MyMaze))]
 public class WebLinks : MonoBehaviour {
     public string facebook;
     public string vk;

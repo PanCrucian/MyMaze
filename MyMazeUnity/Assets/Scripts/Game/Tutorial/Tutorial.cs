@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(MyMaze))]
 public class Tutorial : MonoBehaviour, ITutorial {
 
     public TutorialStep[] steps;

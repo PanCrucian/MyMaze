@@ -7,6 +7,7 @@ using System.Linq;
 public class GameLevel : MonoBehaviour {
     public Deligates.DirectionEvent OnPlayerMoveRequest;
     public Deligates.SimpleEvent OnRestart;
+    public Deligates.IntegerEvent OnReturnToMove;
     public Animator uiGame;
     public Animator uiResults;
     public GameLevelStates state;
@@ -258,5 +259,20 @@ public class GameLevel : MonoBehaviour {
         state = GameLevelStates.Game;
         if (OnRestart != null)
             OnRestart();
+    }
+
+    /// <summary>
+    /// Просим вернуть состояния игровых объектов на конкретный ход
+    /// </summary>
+    /// <param name="move">Номер хода</param>
+    public void ReturnToMoveRequest(int move)
+    {
+        if (move < 0)
+            return;
+        if (Player.Instance.state != PlayerStates.Idle)
+            return;
+
+        if(OnReturnToMove != null)
+            OnReturnToMove(move);
     }
 }

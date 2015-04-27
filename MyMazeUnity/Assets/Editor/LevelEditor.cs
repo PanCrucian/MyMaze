@@ -27,7 +27,6 @@ public class LevelEditor : Editor
         if (!target.name.Equals(newname))
         {
             target.name = "Level_" + level.levelName;
-            EditorUtility.SetDirty(level);
         }
         StarControl();
 
@@ -42,14 +41,12 @@ public class LevelEditor : Editor
             if (!level.levelName.Equals(newname))
             {
                 level.levelName = newname;
-                EditorUtility.SetDirty(level);
             }
 
             newname = (parent.GetSiblingIndex() + 1).ToString() + "-" + (level.transform.GetSiblingIndex() + 1).ToString();
             if (!level.displayText.Equals(newname))
             {
                 level.displayText = newname;
-                EditorUtility.SetDirty(level);
             }
         }
 
@@ -62,7 +59,6 @@ public class LevelEditor : Editor
                 if (GUILayout.Button("Добавить секретную звезду"))
                 {
                     AddHiddenStar();
-                    EditorUtility.SetDirty(level);
                 }
             }
             else
@@ -71,7 +67,6 @@ public class LevelEditor : Editor
                 if (GUILayout.Button("Удалить секретную звезду"))
                 {
                     RemoveHiddenStar();
-                    EditorUtility.SetDirty(level);
                 }
             }
             allowAutoSort = EditorGUILayout.Toggle("Авто сортировка:", allowAutoSort);
@@ -80,7 +75,6 @@ public class LevelEditor : Editor
                 if (GUILayout.Button("Сортировать звезды"))
                 {
                     level.stars.Sort();
-                    EditorUtility.SetDirty(level);
                 }
             }
             //starIndexForActions = EditorGUILayout.IntField("ID звезды:", starIndexForActions);
@@ -95,7 +89,6 @@ public class LevelEditor : Editor
                 if (GUILayout.Button("Подобрать"))
                 {
                     level.stars[starIndexForActions].Collect();
-                    EditorUtility.SetDirty(level);
                 }
             }
             else
@@ -103,7 +96,6 @@ public class LevelEditor : Editor
                 if (GUILayout.Button("Бросить"))
                 {
                     level.stars[starIndexForActions].Lose();
-                    EditorUtility.SetDirty(level);
                 }
             }
         }
@@ -111,6 +103,8 @@ public class LevelEditor : Editor
         //автосортировка звезд
         if (allowAutoSort)
             level.stars.Sort();
+        if(!Application.isPlaying)
+            EditorUtility.SetDirty(level);
     }
 
     void AddHiddenStar()

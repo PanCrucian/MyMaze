@@ -47,10 +47,10 @@ public class GridObject : Grid {
     }
     private Position _startPosition;
 
-    IEnumerator Start()
+    void Start()
     {
-        yield return new WaitForEndOfFrame();
-        _startPosition = new Position() { xCell = position.xCell, yRow = position.yRow};
+        UpdatePositionVars();
+        _startPosition = position.Clone();
     }
 
     void Update()
@@ -67,11 +67,12 @@ public class GridObject : Grid {
         position.yRow = (int) Mathf.Round(transform.localPosition.y / gridStep.y);
     }
 
+    /// <summary>
+    /// Устанавливает MyMaze координаты объекта в Position
+    /// </summary>
+    /// <param name="position">Координаты</param>
     public void SetPositionVars(Position position)
     {
-        Position newposition = new Position();
-        newposition.xCell = position.xCell;
-        newposition.yRow = position.yRow;
-        this.position = newposition;
+        this.position = position.Clone();
     }
 }

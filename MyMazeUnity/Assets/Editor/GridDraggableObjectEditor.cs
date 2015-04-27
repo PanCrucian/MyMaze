@@ -18,6 +18,7 @@ public class GridDraggableObjectEditor : Editor {
         draggable.UpdatePositionVars();
         if (!mouseHook)
             draggable.UpdatePosition();
+        EditorUtility.SetDirty(draggable);
     }
 
     void OnSceneGUI()

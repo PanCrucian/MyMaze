@@ -16,7 +16,6 @@ public class PackEditor : Editor
         if (!target.name.Equals(newname))
         {
             target.name = newname;
-            EditorUtility.SetDirty(pack);
         }
         if (GUILayout.Button("Закрыть все уровни, кроме первого"))
         {
@@ -28,7 +27,6 @@ public class PackEditor : Editor
                 else
                     level.IsClosed = true;
             }
-            EditorUtility.SetDirty(pack);
         }
         if (GUILayout.Button("Закрыть все уровни"))
         {
@@ -51,5 +49,7 @@ public class PackEditor : Editor
                 EditorUtility.SetDirty(level);
             }
         }
+        if (!Application.isPlaying)
+            EditorUtility.SetDirty(pack);
     }
 }

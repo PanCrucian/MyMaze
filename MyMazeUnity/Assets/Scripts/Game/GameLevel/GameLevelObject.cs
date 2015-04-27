@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(GridDraggableObject))]
 [RequireComponent(typeof(Animator))]
@@ -11,11 +12,17 @@ public class GameLevelObject : MonoBehaviour, IRecordingElement, IPauseable, IRe
     [HideInInspector]
     public GridDraggableObject draggable;
 
+    private Dictionary<int, PositionRecordData> moveHistory = new Dictionary<int, PositionRecordData>();
+
     public virtual void Start()
     {
         animator = GetComponent<Animator>();
         draggable = GetComponent<GridDraggableObject>();
         GameLevel.Instance.OnRestart += Restart;
+        Player.Instance.OnMoveEnd += Record;
+        GameLevel.Instance.OnReturnToMove += ReturnToMove;
+
+        Record(0);
     }
 
     public virtual void Update()
@@ -46,8 +53,10 @@ public class GameLevelObject : MonoBehaviour, IRecordingElement, IPauseable, IRe
     /// </summary>
     public virtual void Restart()
     {
-        draggable.SetPositionVars(draggable.StartPosition);
+        draggable.SetPositionVars(draggable.StartPosition.Clone());
         draggable.UpdatePosition();
+        RecordsReset();
+        Record(0);
     }
 
     /// <summary>
@@ -61,5 +70,41 @@ public class GameLevelObject : MonoBehaviour, IRecordingElement, IPauseable, IRe
             return true;
 
         return false;
+    }
+
+    /// <summary>
+    /// Записывает состояние объекта на ход
+    /// </summary>
+    /// <param name="move">Номер хода</param>
+    public virtual void Record(int move)
+    {
+        if (moveHistory.ContainsKey(move))
+            moveHistory.Remove(move);
+
+        PositionRecordData recordData = new PositionRecordData();
+        recordData.position = draggable.position.Clone();
+        moveHistory.Add(move, recordData);
+    }
+
+    /// <summary>
+    /// Сбрасывает записи о состоянии объекта в ходах
+    /// </summary>
+    public virtual void RecordsReset()
+    {
+        moveHistory = new Dictionary<int, PositionRecordData>();
+    }
+
+    /// <summary>
+    /// Возвращаемся в состояние на конкретный ход
+    /// </summary>
+    /// <param name="move">Ход в который хотим вернуться</param>
+    public virtual void ReturnToMove(int move)
+    {
+        PositionRecordData recordData;
+        if (moveHistory.TryGetValue(move, out recordData))
+        {
+            draggable.SetPositionVars(recordData.position.Clone());
+            draggable.UpdatePosition();
+        }
     }
 }

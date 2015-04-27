@@ -5,6 +5,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.IO;
 
+[RequireComponent(typeof(MyMaze))]
 public class Localization : MonoBehaviour
 {
     public const string MISSING_KEY = "missing_key";

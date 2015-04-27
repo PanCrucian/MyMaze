@@ -31,26 +31,17 @@ public class MoveEffectorEditor : Editor
         }
 
         if (GUILayout.Button("^ Наверх"))
-        {
             effector.direction = Directions.Up;
-            EditorUtility.SetDirty(effector);
-        }
 
         if (GUILayout.Button("--> Вправо"))
-        {
             effector.direction = Directions.Right;
-            EditorUtility.SetDirty(effector);
-        }
 
         if (GUILayout.Button("V Вниз"))
-        {
             effector.direction = Directions.Down;
-            EditorUtility.SetDirty(effector);
-        }
+
         if (GUILayout.Button("<-- Влево"))
-        {
             effector.direction = Directions.Left;
+        if(!Application.isPlaying)
             EditorUtility.SetDirty(effector);
-        }
     }
 }

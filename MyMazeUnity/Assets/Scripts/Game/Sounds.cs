@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 
+[RequireComponent(typeof(MyMaze))]
 public class Sounds : MonoBehaviour{
 
     public MusicStates state;

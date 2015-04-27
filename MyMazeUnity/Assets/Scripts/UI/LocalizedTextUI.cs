@@ -46,6 +46,7 @@ public class LocalizedTextUI : MonoBehaviour {
 
     void OnDestroy()
     {
-        localization.OnRefreshTextMeshes -= Refresh;
+        if (localization != null)
+            localization.OnRefreshTextMeshes -= Refresh;
     }
 }

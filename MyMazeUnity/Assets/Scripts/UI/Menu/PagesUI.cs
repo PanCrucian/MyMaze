@@ -57,6 +57,7 @@ public class PagesUI : MonoBehaviour {
             else
             {
                 animator.SetTrigger("FadeOut");
+                page.gameObject.SetActive(false);
             }
         }
     }
@@ -122,11 +123,13 @@ public class PagesUI : MonoBehaviour {
     public void NextPage()
     {
         PageNumber++;
+        __data.pages[PageNumber].gameObject.SetActive(true);
         CGSwitcher.Instance.SetHideObject(__data.pages[PageNumber - 1].GetComponent<Animator>());
-        CGSwitcher.Instance.SetShowObject(__data.pages[PageNumber].GetComponent<Animator>());
+        CGSwitcher.Instance.SetShowObject(__data.pages[PageNumber].GetComponent<Animator>());        
         //CGSwitcher.Instance.SetDelayTime(0.35f);
         CGSwitcher.Instance.Switch();
         MyMaze.Instance.LastSelectedPageNumber = PageNumber;
+        StartCoroutine(OffPage(PageNumber - 1));
     }
 
     /// <summary>
@@ -135,11 +138,19 @@ public class PagesUI : MonoBehaviour {
     public void PrevPage()
     {
         PageNumber--;
+        __data.pages[PageNumber].gameObject.SetActive(true);
         CGSwitcher.Instance.SetHideObject(__data.pages[PageNumber + 1].GetComponent<Animator>());
         CGSwitcher.Instance.SetShowObject(__data.pages[PageNumber].GetComponent<Animator>());
         //CGSwitcher.Instance.SetDelayTime(0.35f);
         CGSwitcher.Instance.Switch();
         MyMaze.Instance.LastSelectedPageNumber = PageNumber;
+        StartCoroutine(OffPage(PageNumber + 1));
+    }
+
+    IEnumerator OffPage(int number)
+    {
+        yield return new WaitForSeconds(0.5f);
+        __data.pages[number].gameObject.SetActive(false);
     }
 
     public void Drag(BaseEventData data) {

@@ -12,6 +12,11 @@ public class PackUI : MonoBehaviour {
     public Text requiredStarsText;
     public float contentLockAlpha = 0.5f;
 
+    void Start()
+    {
+        GetComponentInParent<PageUI>().containers.levelsContainer.gameObject.SetActive(false);
+    }
+
     void Update()
     {
 
@@ -72,6 +77,7 @@ public class PackUI : MonoBehaviour {
         }
         else
         {
+            GetComponentInParent<PageUI>().containers.levelsContainer.gameObject.SetActive(true);
             CGSwitcher.Instance.SetShowObject(
                 GetComponentInParent<PageUI>().containers.levelsContainer.GetComponent<Animator>()
                 );

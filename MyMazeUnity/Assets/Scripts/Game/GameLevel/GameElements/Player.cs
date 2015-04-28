@@ -7,6 +7,7 @@ public class Player : GameLevelObject
 {
     public Deligates.IntegerEvent OnMoveEnd;
     public DesignSettings designSettings;
+    public PlayerControlTypes controlType;
     public PlayerStates state;
     /// <summary>
     /// Можно ли управлять, контролируется из анимации
@@ -62,7 +63,6 @@ public class Player : GameLevelObject
     {
         base.Start();
         rigidbody2d = GetComponent<Rigidbody2D>();
-        //circleCollider = GetComponent<CircleCollider2D>();
         Spawn();
         GameLevel.Instance.OnPlayerMoveRequest += OnMoveRequest;
     }
@@ -70,6 +70,27 @@ public class Player : GameLevelObject
     public override void Update()
     {
         base.Update();
+
+        if (state == PlayerStates.Move)
+        {
+            Vector2 impulseVector = Vector2.zero;
+            switch (moveDirection)
+            {
+                case Directions.Up: impulseVector.y = designSettings.moveImpulsePower * Time.deltaTime; break;
+                case Directions.Right: impulseVector.x = designSettings.moveImpulsePower * Time.deltaTime; break;
+                case Directions.Down: impulseVector.y = -1f * designSettings.moveImpulsePower * Time.deltaTime; break;
+                case Directions.Left: impulseVector.x = -1f * designSettings.moveImpulsePower * Time.deltaTime; break;
+                default: break;
+            }
+            if (controlType == PlayerControlTypes.TransformChange)
+                transform.localPosition = new Vector3(
+                    transform.localPosition.x + impulseVector.x,
+                    transform.localPosition.y + impulseVector.y,
+                    transform.localPosition.z
+                    );
+            if(controlType == PlayerControlTypes.RigidbodyImpulse)
+                rigidbody2d.velocity = new Vector3(impulseVector.x, impulseVector.y, 0);
+        }
 
         //Обрабатываем прыжок
         if (!isJump)
@@ -154,24 +175,23 @@ public class Player : GameLevelObject
     }
 
     /// <summary>
-    /// Дает импульс движения компоненте rigidbody2d
+    /// Дает импульс движения
     /// </summary>
     /// <param name="direction">Направление движения</param>
     /// <param name="isEffector">Это вызвал игровой объект ускоритель?</param>
     public void MoveImpulse(Directions direction, bool isEffector)
     {
-        Vector2 impulseVector = Vector2.zero;
         moveDirection = direction;
+        Vector2 impulseVector = Vector2.zero;
         switch (moveDirection)
         {
             case Directions.Up: impulseVector.y = designSettings.moveImpulsePower; break;
             case Directions.Right: impulseVector.x = designSettings.moveImpulsePower; break;
             case Directions.Down: impulseVector.y = -1f * designSettings.moveImpulsePower; break;
             case Directions.Left: impulseVector.x = -1f * designSettings.moveImpulsePower; break;
-            default: break;
         }
-        rigidbody2d.AddRelativeForce(impulseVector, ForceMode2D.Impulse);
-
+        //if (controlType == PlayerControlTypes.RigidbodyImpulse)
+            //rigidbody2d.AddRelativeForce(impulseVector, ForceMode2D.Impulse);
         state = PlayerStates.Move;
         if (!isEffector)
         {

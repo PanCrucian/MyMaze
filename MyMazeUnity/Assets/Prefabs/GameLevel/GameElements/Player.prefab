@@ -92,8 +92,9 @@ MonoBehaviour:
   animator: {fileID: 0}
   draggable: {fileID: 0}
   designSettings:
-    moveImpulsePower: 4.75
+    moveImpulsePower: 300
     stopMovingDelay: .0549999997
+  controlType: 0
   state: 0
   allowControl: 1
 --- !u!114 &11477578

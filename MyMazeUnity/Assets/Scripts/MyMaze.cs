@@ -139,8 +139,6 @@ public class MyMaze : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        Application.targetFrameRate = 30;
     }
 
     void Start()

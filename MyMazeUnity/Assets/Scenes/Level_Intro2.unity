@@ -14935,6 +14935,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11477578, guid: a89e2d02fc784d549bc948853b1789e9, type: 2}
+      propertyPath: position.xCell
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477578, guid: a89e2d02fc784d549bc948853b1789e9, type: 2}
+      propertyPath: position.yRow
+      value: -4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a89e2d02fc784d549bc948853b1789e9, type: 2}
   m_IsPrefabParent: 0

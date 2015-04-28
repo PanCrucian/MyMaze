@@ -57,7 +57,7 @@ public class PagesUI : MonoBehaviour {
             else
             {
                 animator.SetTrigger("FadeOut");
-                page.gameObject.SetActive(false);
+                StartCoroutine(OffPage(page.transform.GetSiblingIndex()));
             }
         }
     }
@@ -122,6 +122,10 @@ public class PagesUI : MonoBehaviour {
     /// </summary>
     public void NextPage()
     {
+        if (Time.time - lastSwipe < swipeDelay)
+            return;
+        lastSwipe = Time.time;
+
         PageNumber++;
         __data.pages[PageNumber].gameObject.SetActive(true);
         CGSwitcher.Instance.SetHideObject(__data.pages[PageNumber - 1].GetComponent<Animator>());
@@ -137,6 +141,10 @@ public class PagesUI : MonoBehaviour {
     /// </summary>
     public void PrevPage()
     {
+        if (Time.time - lastSwipe < swipeDelay)
+            return;
+        lastSwipe = Time.time;
+
         PageNumber--;
         __data.pages[PageNumber].gameObject.SetActive(true);
         CGSwitcher.Instance.SetHideObject(__data.pages[PageNumber + 1].GetComponent<Animator>());
@@ -149,20 +157,17 @@ public class PagesUI : MonoBehaviour {
 
     IEnumerator OffPage(int number)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.55f);
         __data.pages[number].gameObject.SetActive(false);
     }
 
     public void Drag(BaseEventData data) {
         PointerEventData pointer = (PointerEventData)data;
         if (Mathf.Abs(pointer.delta.x) >= 7.5f) {
-            if (Time.time - lastSwipe < swipeDelay)
-                return;
             if (pointer.delta.x < 0f)
                 InputSimulator.Instance.SimulatePressThenClick(__data.pages[PageNumber].buttons.nextButton.gameObject);
             else
                 InputSimulator.Instance.SimulatePressThenClick(__data.pages[PageNumber].buttons.prevButton.gameObject);
-            lastSwipe = Time.time;
         }
     }
 }

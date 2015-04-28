@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 [RequireComponent(typeof(Animator))]
-public class HiddenStarUI : MonoBehaviour {
-
+public class HiddenStarUI : MonoBehaviour {    
     /// <summary>
     /// Проигрываем анимацию подбора секретной звезды
     /// </summary>

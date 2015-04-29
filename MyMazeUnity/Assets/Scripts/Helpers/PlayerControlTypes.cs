@@ -1,4 +1,4 @@
 ﻿public enum PlayerControlTypes {
     RigidbodyImpulse,
-    TransformChange
+    RigidbodyMove
 }

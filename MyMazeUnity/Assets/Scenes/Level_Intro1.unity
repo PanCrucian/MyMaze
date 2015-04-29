@@ -22812,6 +22812,10 @@ Prefab:
       propertyPath: position.yRow
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11462418, guid: a89e2d02fc784d549bc948853b1789e9, type: 2}
+      propertyPath: controlType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a89e2d02fc784d549bc948853b1789e9, type: 2}
   m_IsPrefabParent: 0

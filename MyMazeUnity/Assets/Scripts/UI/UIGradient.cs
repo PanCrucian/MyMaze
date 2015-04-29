@@ -23,6 +23,13 @@ public class UIGradient : BaseVertexEffect
 				if (!IsActive () || vertexList.Count == 0) {
 						return;
 				}
+
+                if (targetGraphic == null)
+                {
+                    Debug.LogWarning("Graphic is null");
+                    return;
+                }
+
 				int count = vertexList.Count;
 				UIVertex uiVertex = vertexList [0];
 				if (gradientMode == GradientMode.Global) {

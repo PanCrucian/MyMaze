@@ -15720,7 +15720,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsCount: 0
   LastSelectedPack: {fileID: 0}
-  LastSelectedLevel: {fileID: 0}
+  LastSelectedLevel: {fileID: 370763695}
   LastSelectedPageNumber: 0
   MovesCounter: 0
   packs: []
@@ -19332,10 +19332,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1884763652}
   m_RootOrder: 2
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 375, y: 375}
+  m_AnchorMin: {x: 0, y: .171000004}
+  m_AnchorMax: {x: 1, y: .830718398}
+  m_AnchoredPosition: {x: 0, y: -.5}
+  m_SizeDelta: {x: 55, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1961629138
 MonoBehaviour:

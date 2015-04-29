@@ -71,28 +71,6 @@ public class Player : GameLevelObject
     {
         base.Update();
 
-        if (state == PlayerStates.Move)
-        {
-            if (controlType == PlayerControlTypes.TransformChange)
-            {
-                Vector2 impulseVector = Vector2.zero;
-                switch (moveDirection)
-                {
-                    case Directions.Up: impulseVector.y = designSettings.movePower * Time.deltaTime; break;
-                    case Directions.Right: impulseVector.x = designSettings.movePower * Time.deltaTime; break;
-                    case Directions.Down: impulseVector.y = -1f * designSettings.movePower * Time.deltaTime; break;
-                    case Directions.Left: impulseVector.x = -1f * designSettings.movePower * Time.deltaTime; break;
-                    default: break;
-                }
-
-                transform.localPosition = new Vector3(
-                    transform.localPosition.x + impulseVector.x,
-                    transform.localPosition.y + impulseVector.y,
-                    transform.localPosition.z
-                    );
-            }
-        }
-
         //Обрабатываем прыжок
         if (!isJump)
             return;
@@ -105,6 +83,25 @@ public class Player : GameLevelObject
         {
             StopMovingDelay();
             isJump = false;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (state == PlayerStates.Move)
+        {
+            Vector2 impulseVector = Vector2.zero;
+            switch (moveDirection)
+            {
+                case Directions.Up: impulseVector.y = designSettings.movePower; break;
+                case Directions.Right: impulseVector.x = designSettings.movePower; break;
+                case Directions.Down: impulseVector.y = -1f * designSettings.movePower; break;
+                case Directions.Left: impulseVector.x = -1f * designSettings.movePower; break;
+                default: break;
+            }
+
+            if (controlType == PlayerControlTypes.RigidbodyMove)
+                rigidbody2d.MovePosition(rigidbody2d.position + impulseVector * Time.fixedDeltaTime);
         }
     }
 

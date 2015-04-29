@@ -24,7 +24,7 @@ public class Player : GameLevelObject
     [System.Serializable]
     public class DesignSettings
     {
-        public float moveImpulsePower = 4.75f;
+        public float movePower = 4.75f;
         public float stopMovingDelay = 0.055f;
     }
 	public static Player Instance {
@@ -73,23 +73,24 @@ public class Player : GameLevelObject
 
         if (state == PlayerStates.Move)
         {
-            Vector2 impulseVector = Vector2.zero;
-            switch (moveDirection)
-            {
-                case Directions.Up: impulseVector.y = designSettings.moveImpulsePower * Time.deltaTime; break;
-                case Directions.Right: impulseVector.x = designSettings.moveImpulsePower * Time.deltaTime; break;
-                case Directions.Down: impulseVector.y = -1f * designSettings.moveImpulsePower * Time.deltaTime; break;
-                case Directions.Left: impulseVector.x = -1f * designSettings.moveImpulsePower * Time.deltaTime; break;
-                default: break;
-            }
             if (controlType == PlayerControlTypes.TransformChange)
+            {
+                Vector2 impulseVector = Vector2.zero;
+                switch (moveDirection)
+                {
+                    case Directions.Up: impulseVector.y = designSettings.movePower * Time.deltaTime; break;
+                    case Directions.Right: impulseVector.x = designSettings.movePower * Time.deltaTime; break;
+                    case Directions.Down: impulseVector.y = -1f * designSettings.movePower * Time.deltaTime; break;
+                    case Directions.Left: impulseVector.x = -1f * designSettings.movePower * Time.deltaTime; break;
+                    default: break;
+                }
+
                 transform.localPosition = new Vector3(
                     transform.localPosition.x + impulseVector.x,
                     transform.localPosition.y + impulseVector.y,
                     transform.localPosition.z
                     );
-            if(controlType == PlayerControlTypes.RigidbodyImpulse)
-                rigidbody2d.velocity = new Vector3(impulseVector.x, impulseVector.y, 0);
+            }
         }
 
         //Обрабатываем прыжок
@@ -185,13 +186,13 @@ public class Player : GameLevelObject
         Vector2 impulseVector = Vector2.zero;
         switch (moveDirection)
         {
-            case Directions.Up: impulseVector.y = designSettings.moveImpulsePower; break;
-            case Directions.Right: impulseVector.x = designSettings.moveImpulsePower; break;
-            case Directions.Down: impulseVector.y = -1f * designSettings.moveImpulsePower; break;
-            case Directions.Left: impulseVector.x = -1f * designSettings.moveImpulsePower; break;
+            case Directions.Up: impulseVector.y = designSettings.movePower; break;
+            case Directions.Right: impulseVector.x = designSettings.movePower; break;
+            case Directions.Down: impulseVector.y = -1f * designSettings.movePower; break;
+            case Directions.Left: impulseVector.x = -1f * designSettings.movePower; break;
         }
-        //if (controlType == PlayerControlTypes.RigidbodyImpulse)
-            //rigidbody2d.AddRelativeForce(impulseVector, ForceMode2D.Impulse);
+        if (controlType == PlayerControlTypes.RigidbodyImpulse)
+            rigidbody2d.AddRelativeForce(impulseVector, ForceMode2D.Impulse);
         state = PlayerStates.Move;
         if (!isEffector)
         {

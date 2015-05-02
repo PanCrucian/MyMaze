@@ -30,6 +30,8 @@ public class Pack : MonoBehaviour, IPack {
     /// </summary>
     public int StarsRequired;
 
+    private float oldUpdateTime = 0f;
+
     /// <summary>
     /// Закрыт ли пак? Считает все приобретенные звезды, сравнивает с необходимым количеством и говорит да или нет
     /// </summary>
@@ -52,11 +54,16 @@ public class Pack : MonoBehaviour, IPack {
     void Start()
     {
         SetMaximumStars();
+        oldUpdateTime = Time.time;
     }
 
     void Update()
     {
-        SetRecivedStars();
+        if (Mathf.Abs(oldUpdateTime - Time.time) >= 0.5f)
+        {
+            SetRecivedStars();
+            oldUpdateTime = Time.time;
+        }
     }
 
     /// <summary>

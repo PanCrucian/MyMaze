@@ -46,16 +46,22 @@ public class GridObject : Grid {
         }
     }
     private Position _startPosition;
+    private float oldUpdateTime = 0f;
 
     void Start()
     {
         UpdatePositionVars();
         _startPosition = position.Clone();
+        oldUpdateTime = Time.time;
     }
 
     void Update()
     {
-        UpdatePositionVars();
+        if (Mathf.Abs(oldUpdateTime - Time.time) >= 0.5f)
+        {
+            UpdatePositionVars();
+            oldUpdateTime = Time.time;
+        }
     }
 
     /// <summary>

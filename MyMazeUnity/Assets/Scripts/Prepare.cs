@@ -8,7 +8,7 @@ public class Prepare : MonoBehaviour {
 
     void Awake()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 120;
         counter = 0;
 #if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8
         if (Screen.currentResolution.width > 1280 && Screen.currentResolution.height > 800 && Screen.dpi > 240f)

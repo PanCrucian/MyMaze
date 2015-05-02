@@ -23,17 +23,18 @@ public class PackEditor : Editor
             {
                 Level level = pack.levels[i];
                 if (i == 0)
-                    level.IsClosed = false;
+                    level.Open();
                 else
-                    level.IsClosed = true;
+                    level.Close();
+                EditorUtility.SetDirty(level);
             }
         }
-        if (GUILayout.Button("Закрыть все уровни"))
+        if (GUILayout.Button("Открыть все уровни"))
         {
             for (int i = 0; i < pack.levels.Length; i++)
             {
                 Level level = pack.levels[i];
-                level.IsClosed = true;
+                level.Open();
                 EditorUtility.SetDirty(level);
             }
         }

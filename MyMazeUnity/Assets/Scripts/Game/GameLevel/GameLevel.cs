@@ -8,6 +8,7 @@ public class GameLevel : MonoBehaviour {
     public Deligates.DirectionEvent OnPlayerMoveRequest;
     public Deligates.SimpleEvent OnRestart;
     public Deligates.IntegerEvent OnReturnToMove;
+    public Deligates.Vector2Event OnPointerDown;
     public Animator uiGame;
     public Animator uiResults;
     public GameLevelStates state;
@@ -274,5 +275,12 @@ public class GameLevel : MonoBehaviour {
 
         if(OnReturnToMove != null)
             OnReturnToMove(move);
+    }
+
+    public void PointerDownRequest(BaseEventData data)
+    {
+        PointerEventData pointerData = (PointerEventData) data;
+        if (OnPointerDown != null)
+            OnPointerDown(pointerData.position);
     }
 }

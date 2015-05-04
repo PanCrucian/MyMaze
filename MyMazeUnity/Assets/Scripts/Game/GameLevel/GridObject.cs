@@ -81,4 +81,32 @@ public class GridObject : Grid {
     {
         this.position = position.Clone();
     }
+        
+    /// <summary>
+    /// Получить координаты позиции в системе координат Unity исходя из позиции
+    /// </summary>
+    /// <param name="position">Позиция как объект GridObject.Position</param>
+    /// <returns></returns>
+    public Vector3 GetWorldPosition(Position position)
+    {
+        Vector3 worldPosition = Vector3.zero;
+        worldPosition = new Vector3(
+            position.xCell * gridStep.x,
+            position.yRow * gridStep.y,
+            transform.localPosition.z
+            );
+        return worldPosition;
+    }
+
+    /// <summary>
+    /// Получить координаты позиции в системе игры MyMaze исходя из Unity позиции
+    /// </summary>
+    /// <param name="position">Позиция как Vector3</param>
+    public Position GetGridPosition(Vector3 position)
+    {
+        Position gridPosition = new Position();
+        gridPosition.xCell = (int) Mathf.Round(position.x / gridStep.x);
+        gridPosition.yRow = (int) Mathf.Round(position.y / gridStep.y);
+        return gridPosition;
+    }
 }

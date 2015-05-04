@@ -13,18 +13,23 @@ public class GridDraggableObject : GridObject {
     }
 
     /// <summary>
-    /// Получить координаты позиции в системе координат Unity исходя из позиции
+    /// Жестко обновляем координаты MyMaze, меняется и положение на экране
     /// </summary>
-    /// <param name="position">Позиция как объект GridObject.Position</param>
-    /// <returns></returns>
-    public Vector3 GetWorldPosition(Position position)
+    /// <param name="position">Координаты MyMaze</param>
+    public void ForceUpdatePosition(Position position)
     {
-        Vector3 worldPosition = Vector3.zero;
-        worldPosition = new Vector3(
-            position.xCell * gridStep.x,
-            position.yRow * gridStep.y,
-            transform.localPosition.z
-            );
-        return worldPosition;
+        SetPositionVars(position);
+        UpdatePosition();
+    }
+
+    /// <summary>
+    /// Жестко Обновляем координаты MyMaze после 1 кадра
+    /// </summary>
+    /// <param name="position">Координаты</param>
+    /// <returns></returns>
+    public IEnumerator DelayedForceUpdatePosition(Position position)
+    {
+        yield return new WaitForEndOfFrame();
+        ForceUpdatePosition(position);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Player : GameLevelObject
 {
     public Deligates.IntegerEvent OnMoveEnd;
@@ -33,7 +34,9 @@ public class Player : GameLevelObject
             return _instance;
         }
     }
+    public GameObject teleportPointerPrefab;
 
+    private GameObject tempTeleportPointerGO;
     private static Player _instance;
     private Rigidbody2D rigidbody2d;
     private Directions moveDirection;
@@ -54,6 +57,16 @@ public class Player : GameLevelObject
     /// </summary>
     private GridObject.Position jumpEndPosition;
 
+    /// <summary>
+    /// Телепорт?
+    /// </summary>
+    private bool isTeleport;
+
+    /// <summary>
+    /// Куда хотим телепортироваться
+    /// </summary>
+    private GridObject.Position tempTeleportPosition;
+
     void Awake()
     {
         _instance = this;
@@ -65,6 +78,7 @@ public class Player : GameLevelObject
         rigidbody2d = GetComponent<Rigidbody2D>();
         Spawn();
         GameLevel.Instance.OnPlayerMoveRequest += OnMoveRequest;
+        GameLevel.Instance.OnPointerDown += OnPointerDown;
     }
 
     public override void Update()
@@ -115,6 +129,12 @@ public class Player : GameLevelObject
         isJump = false;
         moveDirection = Directions.Unknown;
         state = PlayerStates.Idle;
+        ResetTempTeleportPosition();
+    }
+
+    void ResetTempTeleportPosition()
+    {
+        tempTeleportPosition = new GridObject.Position() { xCell = -999999, yRow = 999999 };
     }
 
     /// <summary>
@@ -191,11 +211,15 @@ public class Player : GameLevelObject
         if (controlType == PlayerControlTypes.RigidbodyImpulse)
             rigidbody2d.AddRelativeForce(impulseVector, ForceMode2D.Impulse);
         state = PlayerStates.Move;
+
         if (!isEffector)
-        {
-            _movesCount++;
-            MyMaze.Instance.MovesCounter++;
-        }
+            CountMove();
+    }
+
+    void CountMove()
+    {
+        _movesCount++;
+        MyMaze.Instance.MovesCounter++;
     }
 
     public void MoveImpulse(Directions direction)
@@ -217,6 +241,28 @@ public class Player : GameLevelObject
         if (state == PlayerStates.Move)
             return;
         MoveImpulse(direction);
+    }
+
+    /// <summary>
+    /// Нажали пальцем на экран
+    /// </summary>
+    /// <param name="position">Координаты пальца на экране</param>
+    void OnPointerDown(Vector2 position)
+    {
+        if (isTeleport)
+        {
+            Vector3 worldPosition = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ScreenToWorldPoint(new Vector3(position.x, position.y, 0f));
+            GridObject.Position gridPosition = draggable.GetGridPosition(worldPosition - GameLevel.Instance.transform.localPosition - transform.parent.localPosition);
+            if (gridPosition.Equals(tempTeleportPosition))
+            {
+                Teleport(gridPosition);
+                ResetTempTeleportPosition();
+            }
+            else
+            {
+                TeleportPlace(gridPosition);
+            }
+        }
     }
 
     /// <summary>
@@ -327,9 +373,47 @@ public class Player : GameLevelObject
         Spawn();
     }
 
+    /// <summary>
+    /// Возвращаяемся на записанный ход
+    /// </summary>
+    /// <param name="move">Номер хода</param>
     public override void ReturnToMove(int move)
     {
         base.ReturnToMove(move);
         _movesCount = move;
+    }
+
+    public void PrepareForTeleport()
+    {
+        if (isTeleport)
+            return;
+        DisableControl();
+        isTeleport = true;
+    }
+
+    void Teleport(GridObject.Position gridPosition)
+    {
+        DestroyTempTeleportGO();
+        draggable.ForceUpdatePosition(gridPosition);
+        EnableControl();
+        isTeleport = false;
+        CountMove();
+        if (OnMoveEnd != null)
+            OnMoveEnd(MovesCount);
+    }
+
+    void TeleportPlace(GridObject.Position gridPosition)
+    {
+        DestroyTempTeleportGO();
+        tempTeleportPosition = gridPosition.Clone();
+        tempTeleportPointerGO = (GameObject)Instantiate(teleportPointerPrefab, transform.position, transform.rotation);
+        tempTeleportPointerGO.transform.parent = transform.parent;
+        tempTeleportPointerGO.GetComponent<GridDraggableObject>().ForceUpdatePosition(tempTeleportPosition);
+    }
+
+    void DestroyTempTeleportGO()
+    {
+        if (tempTeleportPointerGO != null)
+            Destroy(tempTeleportPointerGO);
     }
 }

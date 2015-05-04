@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEngine;
 
 public static class Deligates
 {
@@ -7,4 +8,5 @@ public static class Deligates
     public delegate void PyramidEvent(Pyramid pyramid);
     public delegate void ButtonEvent(ButtonLevel button);
     public delegate void IntegerEvent(int value);
+    public delegate void Vector2Event(Vector2 vector2);
 }

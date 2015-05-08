@@ -10,7 +10,8 @@ public class MoveTutorialUI : MonoBehaviour {
     void Start()
     {
         animator = GetComponent<Animator>();
-        if (MyMaze.Instance.Tutorial.GetCurrentStep().phase != TutorialPhase.HowToMove) {
+        if (!MyMaze.Instance.Tutorial.GetStep(TutorialPhase.HowToMove).IsTeach())
+        {
             gameObject.SetActive(false);
             return;
         }
@@ -24,7 +25,8 @@ public class MoveTutorialUI : MonoBehaviour {
     void OnPlayerMoveRequest(Directions direction)
     {
         animator.SetTrigger("FadeOut");
-        MyMaze.Instance.Tutorial.NextStep();
+        MyMaze.Instance.Tutorial.GetStep(TutorialPhase.HowToMove).Complete();
+        MyMaze.Instance.Tutorial.StartStep(TutorialPhase.NotTeach);
         GameLevel.Instance.OnPlayerMoveRequest -= OnPlayerMoveRequest;
     }
 }

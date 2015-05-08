@@ -21,7 +21,12 @@ public class GameLevelObject : MonoBehaviour, IRecordingElement, IPauseable, IRe
         GameLevel.Instance.OnRestart += Restart;
         Player.Instance.OnMoveEnd += Record;
         GameLevel.Instance.OnReturnToMove += ReturnToMove;
+        StartCoroutine(FirstRecord());
+    }
 
+    IEnumerator FirstRecord()
+    {
+        yield return new WaitForEndOfFrame();
         Record(0);
     }
 

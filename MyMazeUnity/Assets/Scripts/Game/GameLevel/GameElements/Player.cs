@@ -132,11 +132,6 @@ public class Player : GameLevelObject
         ResetTempTeleportPosition();
     }
 
-    void ResetTempTeleportPosition()
-    {
-        tempTeleportPosition = new GridObject.Position() { xCell = -999999, yRow = 999999 };
-    }
-
     /// <summary>
     /// Разрешает управлять игроком + анимация появления
     /// </summary>
@@ -252,7 +247,11 @@ public class Player : GameLevelObject
         if (isTeleport)
         {
             Vector3 worldPosition = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ScreenToWorldPoint(new Vector3(position.x, position.y, 0f));
-            GridObject.Position gridPosition = draggable.GetGridPosition(worldPosition - GameLevel.Instance.transform.localPosition - transform.parent.localPosition);
+            GridObject.Position gridPosition = draggable.GetGridPosition(
+                worldPosition - 
+                GameLevel.Instance.transform.localPosition - 
+                (GameLevel.Instance.transform.localPosition - (GameLevel.Instance.transform.localPosition * GameLevel.Instance.transform.localScale.x)) - 
+                transform.parent.localPosition);
             if (gridPosition.Equals(tempTeleportPosition))
             {
                 Teleport(gridPosition);
@@ -263,22 +262,6 @@ public class Player : GameLevelObject
                 TeleportPlace(gridPosition);
             }
         }
-    }
-
-    /// <summary>
-    /// Телпортация игрока
-    /// </summary>
-    /// <param name="portal">Портал в который нужно телепортироваться</param>
-    public void Teleport(Portal portal)
-    {
-        GridObject.Position portalPosition = portal.GetComponent<GridObject>().position;
-        GridObject.Position newPosition = new GridObject.Position()
-        {
-            xCell = portalPosition.xCell,
-            yRow = portalPosition.yRow
-        };
-        draggable.SetPositionVars(newPosition);
-        draggable.UpdatePosition();
     }
 
     /// <summary>
@@ -383,6 +366,9 @@ public class Player : GameLevelObject
         _movesCount = move;
     }
 
+    /// <summary>
+    /// Подготовиться к телепортации
+    /// </summary>
     public void PrepareForTeleport()
     {
         if (isTeleport)
@@ -391,6 +377,10 @@ public class Player : GameLevelObject
         isTeleport = true;
     }
 
+    /// <summary>
+    /// Телепортироваться в намеченное место
+    /// </summary>
+    /// <param name="gridPosition">Координаты MyMaze</param>
     void Teleport(GridObject.Position gridPosition)
     {
         DestroyTempTeleportGO();
@@ -402,6 +392,27 @@ public class Player : GameLevelObject
             OnMoveEnd(MovesCount);
     }
 
+
+    /// <summary>
+    /// Телпортация игрока
+    /// </summary>
+    /// <param name="portal">Портал в который нужно телепортироваться</param>
+    public void Teleport(Portal portal)
+    {
+        GridObject.Position portalPosition = portal.GetComponent<GridObject>().position;
+        GridObject.Position newPosition = new GridObject.Position()
+        {
+            xCell = portalPosition.xCell,
+            yRow = portalPosition.yRow
+        };
+        draggable.SetPositionVars(newPosition);
+        draggable.UpdatePosition();
+    }
+
+    /// <summary>
+    /// Наметить место для телепортации
+    /// </summary>
+    /// <param name="gridPosition">Координаты MyMaze</param>
     void TeleportPlace(GridObject.Position gridPosition)
     {
         DestroyTempTeleportGO();
@@ -411,9 +422,17 @@ public class Player : GameLevelObject
         tempTeleportPointerGO.GetComponent<GridDraggableObject>().ForceUpdatePosition(tempTeleportPosition);
     }
 
+    /// <summary>
+    /// Уничтожить временный силует игрока, используется в цикле телепортации
+    /// </summary>
     void DestroyTempTeleportGO()
     {
         if (tempTeleportPointerGO != null)
             Destroy(tempTeleportPointerGO);
+    }
+
+    void ResetTempTeleportPosition()
+    {
+        tempTeleportPosition = new GridObject.Position() { xCell = -999999, yRow = 999999 };
     }
 }

@@ -24,6 +24,19 @@ public class TutorialStep {
         IsComplete = true;
     }
 
+    /// <summary>
+    /// Этот шаг обучает?
+    /// </summary>
+    /// <returns></returns>
+    public bool IsTeach()
+    {
+        if (IsStarted && !IsComplete)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void Start()
     {
         IsStarted = true;

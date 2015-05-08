@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class GridObject : Grid {
+    public bool saveCPUResources = true;
+
     [System.Serializable]
     public class Position
     {
@@ -57,10 +59,17 @@ public class GridObject : Grid {
 
     void Update()
     {
-        if (Mathf.Abs(oldUpdateTime - Time.time) >= 0.5f)
+        if (saveCPUResources)
+        {
+            if (Mathf.Abs(oldUpdateTime - Time.time) >= 0.5f)
+            {
+                UpdatePositionVars();
+                oldUpdateTime = Time.time;
+            }
+        }
+        else
         {
             UpdatePositionVars();
-            oldUpdateTime = Time.time;
         }
     }
 

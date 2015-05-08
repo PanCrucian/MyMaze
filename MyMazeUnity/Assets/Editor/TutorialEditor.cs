@@ -17,16 +17,7 @@ public class TutorialEditor : Editor
         DrawDefaultInspector();
         Tutorial tutorial = (Tutorial)target;
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Текущая фаза обучения: ");
-        if (tutorial.GetCurrentStep() != null)
-            GUILayout.Label(tutorial.GetCurrentStep().phase.ToString("g"), textStyle01);
-        else
-            GUILayout.Label("Ошибка!", textStyle01);
         GUILayout.EndHorizontal();
-        if (GUILayout.Button("Cледующий шаг"))
-        {
-            tutorial.NextStep();
-        }
 
         if (GUILayout.Button("Сбросить"))
         {

@@ -12,6 +12,9 @@ public class GameLevelEditor : Editor {
         if(GUILayout.Button("Объекты к сетке")) {
             CorrectDraggablePosition();
         }
+        if(Application.isPlaying)
+            if (GUILayout.Button("Закончить уровень"))
+                PickUpAllPyramids();
     }
 
     void CorrectDraggablePosition() {
@@ -22,5 +25,12 @@ public class GameLevelEditor : Editor {
             draggable.UpdatePosition();
             EditorUtility.SetDirty(draggable);
         }
+    }
+
+    void PickUpAllPyramids()
+    {
+        GameLevel gameLevel = (GameLevel)target;
+        foreach (Pyramid pyramid in gameLevel.pyramids)
+            pyramid.PickUp();
     }
 }

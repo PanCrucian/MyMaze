@@ -68,20 +68,6 @@ public class Tutorial : MonoBehaviour, ITutorial {
     }
 
     /// <summary>
-    /// Возвращает обучающий шаг у которого есть пометка (!первая из всего массива) о том что шаг стартовал
-    /// </summary>
-    /// <returns></returns>
-    public TutorialStep GetCurrentStep()
-    {
-        foreach (TutorialStep step in steps)
-            if (step.IsStarted && !step.IsComplete)
-                return step;
-
-        Debug.LogWarning("Не найден текущий шаг в обучении");
-        return null;
-    }
-
-    /// <summary>
     /// Закончить шаг обучения исходя из указанной фазы
     /// </summary>
     /// <param name="phase">Нумератор фазы</param>
@@ -100,43 +86,17 @@ public class Tutorial : MonoBehaviour, ITutorial {
         TutorialStep step = GetStep(phase);
         step.Start();
     }
-    
-    /// <summary>
-    /// Начать следующий шаг обучения, который занимает место в массиве после GetCurrentStep метода
-    /// </summary>
-    public void StartNextStep()
-    {
-        TutorialStep currentStep = GetCurrentStep();
-            
-        bool hook = false;
-        foreach (TutorialStep step in steps)
-        {
-            if (hook)
-            {
-                step.Start();
-                break;
-            }
-            if (step.phase == currentStep.phase)
-                hook = true;
-        }
-    }
-
-    /// <summary>
-    /// Заканчивает текущий шиг обучения и начинает следующий
-    /// </summary>
-    public void NextStep()
-    {
-        TutorialStep step = GetCurrentStep();
-        StartNextStep();
-        step.Complete();
-    }
 
     /// <summary>
     /// Сохраним состояние туториала в PlayerPrefs
     /// </summary>
     public void Save()
     {
-        PlayerPrefs.SetString("TutorialStepName", GetCurrentStep().stepName);
+        foreach (TutorialStep step in steps)
+        {
+            PlayerPrefs.SetInt("TutorialPhase#" + step.stepName + "#started", System.Convert.ToInt32(step.IsStarted));
+            PlayerPrefs.SetInt("TutorialPhase#" + step.stepName + "#complete", System.Convert.ToInt32(step.IsComplete));
+        }
     }
 
     /// <summary>
@@ -144,22 +104,14 @@ public class Tutorial : MonoBehaviour, ITutorial {
     /// </summary>
     public void Load()
     {
-        if (PlayerPrefs.HasKey("TutorialStepName"))
+        foreach (TutorialStep step in steps)
         {
-            foreach (TutorialStep step in steps)
+            if (PlayerPrefs.HasKey("TutorialPhase#" + step.stepName + "#started"))
             {
-                if (step.stepName.Equals(PlayerPrefs.GetString("TutorialStepName")))
-                {
-                    step.ResetStates();
-                    step.Start();
-                }
-                else
-                {
-                    step.ResetStates();
-                    step.Start();
-                    step.Complete();
-                }
+                step.IsStarted = System.Convert.ToBoolean(PlayerPrefs.GetInt("TutorialPhase#" + step.stepName + "#started"));
             }
+            if (PlayerPrefs.HasKey("TutorialPhase#" + step.stepName + "#complete"))
+                step.IsComplete = System.Convert.ToBoolean(PlayerPrefs.GetInt("TutorialPhase#" + step.stepName + "#complete"));
         }
     }
 }

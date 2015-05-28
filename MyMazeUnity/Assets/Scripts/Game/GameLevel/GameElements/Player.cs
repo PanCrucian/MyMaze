@@ -358,6 +358,8 @@ public class Player : GameLevelObject
         StopMoving();
         base.Restart();
         Spawn();
+        DestroyTempTeleportGO();
+        isTeleport = false;
     }
 
     /// <summary>
@@ -403,14 +405,13 @@ public class Player : GameLevelObject
     /// <returns></returns>
     bool CheckOntheLegalPositionForTeleport(GridObject.Position gridPosition)
     {
-        GridObject[] gridObjects = GameObject.FindObjectsOfType<GridObject>();
+        GameObject centerGO = GameObject.Find("Center");
+        GridObject[] gridObjects = centerGO.GetComponentsInChildren<GridObject>();
+        
         foreach (GridObject go in gridObjects)
         {
             if (go.position.Equals(gridPosition))
-                if (go.tag.Equals("WallFill"))
-                    return false;
-                else if (go.tag.Equals("Spike"))
-                    return false;
+                return false;
         }
         return true;
     }

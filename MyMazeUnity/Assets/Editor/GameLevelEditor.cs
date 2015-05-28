@@ -9,7 +9,7 @@ public class GameLevelEditor : Editor {
     {
  	    DrawDefaultInspector();
         EditorGUILayout.Space();
-        if(GUILayout.Button("Объекты к сетке")) {
+        if(GUILayout.Button("Объекты к сетке") || Input.GetKeyDown(KeyCode.CapsLock)) {
             CorrectDraggablePosition();
         }
         if(Application.isPlaying)

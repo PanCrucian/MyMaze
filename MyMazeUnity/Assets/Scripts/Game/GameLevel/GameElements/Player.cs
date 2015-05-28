@@ -413,6 +413,7 @@ public class Player : GameLevelObject
             if (go.position.Equals(gridPosition))
                 return false;
         }
+        
         return true;
     }
 

@@ -33,6 +33,8 @@ public class Portal : GameLevelObject
 
         //запретим телепортировать выходному порталу, чтобы наш объект не скакал туда-сюда
         outPortal.AllowTeleporting = false;
+        if (AllowTeleporting)
+            GetComponent<SoundsPlayer>().PlayOneShootSound();
     }
 
     /// <summary>

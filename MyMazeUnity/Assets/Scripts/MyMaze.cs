@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 public class MyMaze : MonoBehaviour
 {
+    public Deligates.LevelLoadEvent OnLevelLoad;
+    public Deligates.SimpleEvent OnMenuLoad;
+
     /// <summary>
     /// Сколько всего звезд получено
     /// </summary>
@@ -104,7 +107,7 @@ public class MyMaze : MonoBehaviour
     { 
         get {
             if (!_instance) {
-                Debug.LogError("Не могу найти экземляр класса MyMaze");
+                Debug.LogWarning("Не могу найти экземляр класса MyMaze");
                 return null;
             }
             return _instance; 
@@ -379,6 +382,25 @@ public class MyMaze : MonoBehaviour
                 return level;
         }
         return null;
+    }
+
+    /// <summary>
+    /// Игрок загружает игровой уровень
+    /// </summary>
+    /// <param name="level">Какой уровень загружается</param>
+    public void LevelLoadAction(Level level)
+    {
+        if (OnLevelLoad != null)
+            OnLevelLoad(level);
+        LevelLoader.levelName = level.name;
+        LevelLoader.Load();
+    }
+
+    public void MenuLoadAction()
+    {
+        if (OnMenuLoad != null)
+            OnMenuLoad();
+        LevelLoader.LoadMenu();
     }
 
     #region "Методы Сохранения"

@@ -375,120 +375,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 411702, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_PrefabInternal: {fileID: 24761501}
---- !u!1 &25905911
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 132294, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 25905912}
-  - 114: {fileID: 25905913}
-  m_Layer: 0
-  m_Name: Level_Ghost1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &25905912
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 481652, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 25905911}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1621570463}
-  m_RootOrder: 0
---- !u!114 &25905913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11494690, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 25905911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Ghost1
-  displayText: 10-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 18
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 17
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 16
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
---- !u!1 &31284558
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 139050, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 31284559}
-  - 114: {fileID: 31284560}
-  m_Layer: 0
-  m_Name: Level_Boxes3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &31284559
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 457932, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 31284558}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1735122193}
-  m_RootOrder: 2
---- !u!114 &31284560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11443214, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 31284558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Boxes3
-  displayText: 3-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 28
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 28
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 25
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &33115081
 Prefab:
   m_ObjectHideFlags: 0
@@ -777,63 +663,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 417378, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
   m_PrefabInternal: {fileID: 40452211}
---- !u!1 &41314085
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 149530, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 41314086}
-  - 114: {fileID: 41314087}
-  m_Layer: 0
-  m_Name: Level_PackE2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &41314086
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 430332, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 41314085}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 120626531}
-  m_RootOrder: 1
---- !u!114 &41314087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11485398, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 41314085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackE2
-  displayText: 15-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 45
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 45
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 38
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &42865183
 Prefab:
   m_ObjectHideFlags: 0
@@ -904,63 +733,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 483756, guid: 4e915a4f37989ba45acf4495bb0bd7a0, type: 2}
   m_PrefabInternal: {fileID: 236750933}
---- !u!1 &62812938
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 160238, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 62812939}
-  - 114: {fileID: 62812940}
-  m_Layer: 0
-  m_Name: Level_PackC4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &62812939
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 421292, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 62812938}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 650273995}
-  m_RootOrder: 3
---- !u!114 &62812940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11472454, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 62812938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackC4
-  displayText: 13-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 33
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 33
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 30
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &63380073
 Prefab:
   m_ObjectHideFlags: 0
@@ -1400,15 +1172,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -54.6480103
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80212e13a346984a87151b1b5984a72, type: 2}
@@ -1418,63 +1190,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22439846, guid: c80212e13a346984a87151b1b5984a72,
     type: 2}
   m_PrefabInternal: {fileID: 97248557}
---- !u!1 &102122967
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 133622, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 102122968}
-  - 114: {fileID: 102122969}
-  m_Layer: 0
-  m_Name: Level_Portals2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &102122968
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 481884, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 102122967}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 920851718}
-  m_RootOrder: 1
---- !u!114 &102122969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11411928, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 102122967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Portals2
-  displayText: 2-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 13
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 13
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 10
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &102998281
 Transform:
   m_PrefabParentObject: {fileID: 468724, guid: 005cae2368e5d334f8d5db2a95982bdd, type: 2}
@@ -1709,59 +1424,6 @@ MonoBehaviour:
   overwriteAllColor: 0
   vertex1: {r: .184313729, g: .545098066, b: .556862772, a: 1}
   vertex2: {r: .282352954, g: .423529446, b: .717647076, a: 1}
---- !u!1 &120626530
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 181104, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 120626531}
-  - 114: {fileID: 120626532}
-  m_Layer: 0
-  m_Name: Pack15_PackE
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &120626531
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 404014, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 120626530}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1048058223}
-  - {fileID: 41314086}
-  - {fileID: 1156570948}
-  - {fileID: 1834016883}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 14
---- !u!114 &120626532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11470804, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 120626530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: PackE
-  levels:
-  - {fileID: 1048058224}
-  - {fileID: 41314087}
-  - {fileID: 1156570949}
-  - {fileID: 1834016884}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 120
 --- !u!1001 &121297229
 Prefab:
   m_ObjectHideFlags: 0
@@ -1898,67 +1560,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
   m_PrefabInternal: {fileID: 1500905047}
---- !u!1 &133793633
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 196092, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 133793634}
-  - 114: {fileID: 133793635}
-  m_Layer: 0
-  m_Name: Level_StrongBoxes3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &133793634
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 467444, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 133793633}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 690538210}
-  m_RootOrder: 2
---- !u!114 &133793635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11407578, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 133793633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: StrongBoxes3
-  displayText: 4-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 25
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 25
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 22
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &141962135
 Prefab:
   m_ObjectHideFlags: 0
@@ -2095,67 +1696,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &148382045
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 172000, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 148382046}
-  - 114: {fileID: 148382047}
-  m_Layer: 0
-  m_Name: Level_Jumps3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &148382046
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 448066, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 148382045}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2132042425}
-  m_RootOrder: 2
---- !u!114 &148382047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11437736, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 148382045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Jumps3
-  displayText: 8-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 46
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 46
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 40
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &152477617
 Prefab:
   m_ObjectHideFlags: 0
@@ -2342,63 +1882,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e915a4f37989ba45acf4495bb0bd7a0, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &154986410
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 198304, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 154986411}
-  - 114: {fileID: 154986412}
-  m_Layer: 0
-  m_Name: Level_Intro3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &154986411
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 475344, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 154986410}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1383552800}
-  m_RootOrder: 2
---- !u!114 &154986412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11483856, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 154986410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Intro3
-  displayText: 1-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 12
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 12
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 10
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &155215342
 Transform:
   m_PrefabParentObject: {fileID: 417378, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
@@ -2469,120 +1952,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &160910558
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 152486, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 160910559}
-  - 114: {fileID: 160910560}
-  m_Layer: 0
-  m_Name: Level_Portals1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &160910559
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 435220, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 160910558}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 920851718}
-  m_RootOrder: 0
---- !u!114 &160910560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11430066, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 160910558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Portals1
-  displayText: 2-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 4
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 4
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 2
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
---- !u!1 &162873034
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 120104, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 162873035}
-  - 114: {fileID: 162873036}
-  m_Layer: 0
-  m_Name: Level_Effectors1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &162873035
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 444816, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 162873034}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 412820662}
-  m_RootOrder: 0
---- !u!114 &162873036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11455518, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 162873034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Effectors1
-  displayText: 6-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 9
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 9
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 7
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
 --- !u!4 &164113707
 Transform:
   m_PrefabParentObject: {fileID: 407102, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
@@ -4257,63 +3626,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 407102, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
   m_PrefabInternal: {fileID: 184893606}
---- !u!1 &300608285
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 126080, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 300608286}
-  - 114: {fileID: 300608287}
-  m_Layer: 0
-  m_Name: Level_Jumps2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &300608286
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 439072, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 300608285}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2132042425}
-  m_RootOrder: 1
---- !u!114 &300608287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11479802, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 300608285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Jumps2
-  displayText: 8-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 20
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &301098091
 Prefab:
   m_ObjectHideFlags: 0
@@ -4858,63 +4170,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &335801423
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 121798, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 335801424}
-  - 114: {fileID: 335801425}
-  m_Layer: 0
-  m_Name: Level_Switches1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &335801424
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 461556, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 335801423}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1220831657}
-  m_RootOrder: 0
---- !u!114 &335801425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11450910, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 335801423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Switches1
-  displayText: 5-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 27
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 27
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 21
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
 --- !u!1001 &342406025
 Prefab:
   m_ObjectHideFlags: 0
@@ -5471,63 +4726,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 407102, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
   m_PrefabInternal: {fileID: 1543751766}
---- !u!1 &378483634
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 141668, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 378483635}
-  - 114: {fileID: 378483636}
-  m_Layer: 0
-  m_Name: Level_PackD3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &378483635
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 432848, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 378483634}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1822107424}
-  m_RootOrder: 2
---- !u!114 &378483636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11477852, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 378483634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackD3
-  displayText: 14-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 23
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 23
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 20
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &382753053
 Transform:
   m_PrefabParentObject: {fileID: 483756, guid: 4e915a4f37989ba45acf4495bb0bd7a0, type: 2}
@@ -5718,59 +4916,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &412820661
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 163902, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 412820662}
-  - 114: {fileID: 412820663}
-  m_Layer: 0
-  m_Name: Pack6_Effectors
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &412820662
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 404284, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 412820661}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 162873035}
-  - {fileID: 750422160}
-  - {fileID: 1233547092}
-  - {fileID: 1749888150}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 5
---- !u!114 &412820663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11472532, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 412820661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: Effectors
-  levels:
-  - {fileID: 162873036}
-  - {fileID: 750422161}
-  - {fileID: 1233547093}
-  - {fileID: 1749888151}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 30
 --- !u!1001 &415187286
 Prefab:
   m_ObjectHideFlags: 0
@@ -6277,67 +5422,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &445544662
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 182998, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 445544663}
-  - 114: {fileID: 445544664}
-  m_Layer: 0
-  m_Name: Level_Portals4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &445544663
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 494502, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 445544662}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 920851718}
-  m_RootOrder: 3
---- !u!114 &445544664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11421364, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 445544662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Portals4
-  displayText: 2-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 36
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 36
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 30
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &446518754
 Prefab:
   m_ObjectHideFlags: 0
@@ -6852,63 +5936,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 463718, guid: c0155a6ba90ff7d4cb6db89b4755a2ca, type: 2}
   m_PrefabInternal: {fileID: 2090185153}
---- !u!1 &489994230
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 178326, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 489994231}
-  - 114: {fileID: 489994232}
-  m_Layer: 0
-  m_Name: Level_PackA2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &489994231
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 467144, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 489994230}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 530629578}
-  m_RootOrder: 1
---- !u!114 &489994232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11414498, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 489994230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackA2
-  displayText: 11-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 21
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &494169680
 Transform:
   m_PrefabParentObject: {fileID: 417378, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
@@ -7477,59 +6504,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &530629577
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 188278, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 530629578}
-  - 114: {fileID: 530629579}
-  m_Layer: 0
-  m_Name: Pack11_PackA
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &530629578
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 482146, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 530629577}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 947986094}
-  - {fileID: 489994231}
-  - {fileID: 903093776}
-  - {fileID: 976828928}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 10
---- !u!114 &530629579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400072, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 530629577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: PackA
-  levels:
-  - {fileID: 947986095}
-  - {fileID: 489994232}
-  - {fileID: 903093777}
-  - {fileID: 976828929}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 90
 --- !u!1001 &537489933
 Prefab:
   m_ObjectHideFlags: 0
@@ -7810,63 +6784,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 439324, guid: f6081546832346d49869b23bcd147d26, type: 2}
   m_PrefabInternal: {fileID: 948700928}
---- !u!1 &558905195
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 129204, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 558905196}
-  - 114: {fileID: 558905197}
-  m_Layer: 0
-  m_Name: Level_Spikes4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &558905196
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 441624, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 558905195}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 934458968}
-  m_RootOrder: 3
---- !u!114 &558905197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11490302, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 558905195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Spikes4
-  displayText: 9-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 21
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1 &559368475
 GameObject:
   m_ObjectHideFlags: 0
@@ -8006,67 +6923,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e915a4f37989ba45acf4495bb0bd7a0, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &572787046
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 134918, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 572787047}
-  - 114: {fileID: 572787048}
-  m_Layer: 0
-  m_Name: Level_Spikes3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &572787047
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 429136, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 572787046}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 934458968}
-  m_RootOrder: 2
---- !u!114 &572787048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11465874, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 572787046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Spikes3
-  displayText: 9-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 33
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 33
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 29
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &577379830
 Prefab:
   m_ObjectHideFlags: 0
@@ -8133,63 +6989,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &578465403
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 124234, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 578465405}
-  - 114: {fileID: 578465404}
-  m_Layer: 0
-  m_Name: Level_PackB1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &578465404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11483000, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 578465403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackB1
-  displayText: 12-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 19
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 19
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 16
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
---- !u!4 &578465405
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 406306, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 578465403}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2088401125}
-  m_RootOrder: 0
 --- !u!4 &580531745
 Transform:
   m_PrefabParentObject: {fileID: 411702, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
@@ -8458,63 +7257,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 005cae2368e5d334f8d5db2a95982bdd, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &611195391
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 113324, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 611195392}
-  - 114: {fileID: 611195393}
-  m_Layer: 0
-  m_Name: Level_Intro2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &611195392
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 480026, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 611195391}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1383552800}
-  m_RootOrder: 1
---- !u!114 &611195393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11433346, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 611195391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Intro2
-  displayText: 1-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 7
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 7
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 5
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &616181168
 Transform:
   m_PrefabParentObject: {fileID: 468724, guid: 005cae2368e5d334f8d5db2a95982bdd, type: 2}
@@ -8825,67 +7567,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ef8dade6f2536247afa3be717e1acb4, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &637754208
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114998, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 637754209}
-  - 114: {fileID: 637754210}
-  m_Layer: 0
-  m_Name: Level_Doors4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &637754209
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 411698, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 637754208}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1954338598}
-  m_RootOrder: 3
---- !u!114 &637754210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11445684, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 637754208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Doors4
-  displayText: 7-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 17
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 17
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 15
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &640866803
 Transform:
   m_PrefabParentObject: {fileID: 411702, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
@@ -9092,59 +7773,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &650273994
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 194778, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 650273995}
-  - 114: {fileID: 650273996}
-  m_Layer: 0
-  m_Name: Pack13_PackC
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &650273995
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 484432, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 650273994}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1669741785}
-  - {fileID: 1646140526}
-  - {fileID: 1972535598}
-  - {fileID: 62812939}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 12
---- !u!114 &650273996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11494970, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 650273994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: PackC
-  levels:
-  - {fileID: 1669741786}
-  - {fileID: 1646140527}
-  - {fileID: 1972535599}
-  - {fileID: 62812940}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 120
 --- !u!1001 &653537586
 Prefab:
   m_ObjectHideFlags: 0
@@ -9339,63 +7967,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 488384, guid: 75bedbefb0ba160409ef184a3943b66b, type: 2}
   m_PrefabInternal: {fileID: 152477617}
---- !u!1 &660343213
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 146492, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 660343214}
-  - 114: {fileID: 660343215}
-  m_Layer: 0
-  m_Name: Level_Switches2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &660343214
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 426900, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 660343213}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1220831657}
-  m_RootOrder: 1
---- !u!114 &660343215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11429884, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 660343213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Switches2
-  displayText: 5-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 28
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 28
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 22
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &660376475
 Prefab:
   m_ObjectHideFlags: 0
@@ -9602,120 +8173,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 463270, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_PrefabInternal: {fileID: 686299408}
---- !u!1 &690538209
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 158908, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 690538210}
-  - 114: {fileID: 690538211}
-  m_Layer: 0
-  m_Name: Pack4_StrongBoxes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &690538210
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 464782, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 690538209}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 962685016}
-  - {fileID: 1024058883}
-  - {fileID: 133793634}
-  - {fileID: 1694737940}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 3
---- !u!114 &690538211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11460456, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 690538209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: StrongBoxes
-  levels:
-  - {fileID: 962685017}
-  - {fileID: 1024058884}
-  - {fileID: 133793635}
-  - {fileID: 1694737941}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 30
---- !u!1 &691813677
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 146118, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 691813678}
-  - 114: {fileID: 691813679}
-  m_Layer: 0
-  m_Name: Level_Boxes4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &691813678
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 455728, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 691813677}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1735122193}
-  m_RootOrder: 3
---- !u!114 &691813679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11465086, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 691813677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Boxes4
-  displayText: 3-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 20
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 20
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 17
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &695272896
 Prefab:
   m_ObjectHideFlags: 0
@@ -10066,67 +8523,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &711884964
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 176692, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 711884965}
-  - 114: {fileID: 711884966}
-  m_Layer: 0
-  m_Name: Level_Switches3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &711884965
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 473526, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 711884964}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1220831657}
-  m_RootOrder: 2
---- !u!114 &711884966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11435762, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 711884964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Switches3
-  displayText: 5-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 39
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 39
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 35
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &712170317
 Prefab:
   m_ObjectHideFlags: 0
@@ -10341,63 +8737,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &750422159
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 196942, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 750422160}
-  - 114: {fileID: 750422161}
-  m_Layer: 0
-  m_Name: Level_Effectors2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &750422160
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 427310, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 750422159}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 412820662}
-  m_RootOrder: 1
---- !u!114 &750422161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11418474, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 750422159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Effectors2
-  displayText: 6-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 16
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 16
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 13
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &757563580
 Transform:
   m_PrefabParentObject: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
@@ -10476,63 +8815,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e915a4f37989ba45acf4495bb0bd7a0, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &765344459
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 176828, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 765344460}
-  - 114: {fileID: 765344461}
-  m_Layer: 0
-  m_Name: Level_PackB2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &765344460
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 410416, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 765344459}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2088401125}
-  m_RootOrder: 1
---- !u!114 &765344461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11435234, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 765344459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackB2
-  displayText: 12-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 23
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 23
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 18
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &767176113
 Transform:
   m_PrefabParentObject: {fileID: 463270, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
@@ -10607,63 +8889,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 417378, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
   m_PrefabInternal: {fileID: 342406025}
---- !u!1 &769678760
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 145382, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 769678761}
-  - 114: {fileID: 769678762}
-  m_Layer: 0
-  m_Name: Level_PackD2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &769678761
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 439946, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 769678760}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1822107424}
-  m_RootOrder: 1
---- !u!114 &769678762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11494274, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 769678760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackD2
-  displayText: 14-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 25
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 25
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 22
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &771997272
 Transform:
   m_PrefabParentObject: {fileID: 488384, guid: 75bedbefb0ba160409ef184a3943b66b, type: 2}
@@ -10902,63 +9127,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 483756, guid: 4e915a4f37989ba45acf4495bb0bd7a0, type: 2}
   m_PrefabInternal: {fileID: 105759469}
---- !u!1 &806348422
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 133998, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 806348423}
-  - 114: {fileID: 806348424}
-  m_Layer: 0
-  m_Name: Level_Portals3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &806348423
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 486114, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 806348422}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 920851718}
-  m_RootOrder: 2
---- !u!114 &806348424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11448992, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 806348422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Portals3
-  displayText: 2-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 18
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &811990760
 Transform:
   m_PrefabParentObject: {fileID: 411702, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
@@ -11399,181 +9567,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 411702, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_PrefabInternal: {fileID: 851873208}
---- !u!1 &856896521
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 191994, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 856896522}
-  - 114: {fileID: 856896529}
-  - 114: {fileID: 856896528}
-  - 114: {fileID: 856896527}
-  - 114: {fileID: 856896526}
-  - 114: {fileID: 856896525}
-  - 114: {fileID: 856896524}
-  - 114: {fileID: 856896523}
-  m_Layer: 0
-  m_Name: MyMazeController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &856896522
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 489930, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 856896521}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1383552800}
-  - {fileID: 920851718}
-  - {fileID: 1735122193}
-  - {fileID: 690538210}
-  - {fileID: 1220831657}
-  - {fileID: 412820662}
-  - {fileID: 1954338598}
-  - {fileID: 2132042425}
-  - {fileID: 934458968}
-  - {fileID: 1621570463}
-  - {fileID: 530629578}
-  - {fileID: 2088401125}
-  - {fileID: 650273995}
-  - {fileID: 1822107424}
-  - {fileID: 120626531}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
---- !u!114 &856896523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 856896521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a92feacb5fbb649a8fd4a8731ef606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boosters:
-  - name: Teleport
-    type: 0
-    avaliableAtLevel: {fileID: 998243158}
-  - name: TimeMachine
-    type: 1
-    avaliableAtLevel: {fileID: 998243158}
---- !u!114 &856896524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11473238, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 856896521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc6ecd278d96dde4e8a8cae18ff1d436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  facebook: https://www.facebook.com/whiteroomgames
-  vk: http://vk.com/white_room_games
-  itunes: 
---- !u!114 &856896525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11436386, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 856896521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37591dfef82a89240bb6142cca15f0b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  language: 10
-  viaSystemLanguage: 0
---- !u!114 &856896526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11403448, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 856896521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68e7baedbfcfd24f9011fedeff0c6ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  theme: 0
-  sounds: 0
-  volume: 1
---- !u!114 &856896527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11489570, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 856896521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 772d3a258e2bce045a0da2808e81aae5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: 
-  loadOnStart: 0
---- !u!114 &856896528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11493962, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 856896521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a4700266804ba243aa96ef3c2ecddaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  steps:
-  - stepName: HowToMove
-    phase: 0
-    IsComplete: 1
-    IsStarted: 1
-  - stepName: Teleport
-    phase: 1
-    IsComplete: 0
-    IsStarted: 0
-  - stepName: TimeMachine
-    phase: 2
-    IsComplete: 0
-    IsStarted: 0
-  - stepName: NotTeach
-    phase: 3
-    IsComplete: 0
-    IsStarted: 1
---- !u!114 &856896529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11489828, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 856896521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af425aeb4e0add540b30deba43add696, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StarsRecived: 0
-  StarsCount: 0
-  LastSelectedPack: {fileID: 0}
-  LastSelectedLevel: {fileID: 0}
-  LastSelectedPageNumber: 0
-  MovesCounter: 0
-  packs: []
-  levels: []
 --- !u!4 &861190870
 Transform:
   m_PrefabParentObject: {fileID: 463270, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
@@ -11764,63 +9757,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &874324148
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 111958, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 874324149}
-  - 114: {fileID: 874324150}
-  m_Layer: 0
-  m_Name: Level_PackB4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &874324149
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 409104, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 874324148}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2088401125}
-  m_RootOrder: 3
---- !u!114 &874324150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11457690, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 874324148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackB4
-  displayText: 12-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 25
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 25
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 22
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &876107190
 Transform:
   m_PrefabParentObject: {fileID: 486136, guid: b7c16b8cf8c512f4cb50a8e962ba61c9, type: 2}
@@ -12008,7 +9944,7 @@ Transform:
   - {fileID: 200384060}
   - {fileID: 1056310457}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!225 &892629021
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -12086,63 +10022,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &903093775
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 107114, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 903093776}
-  - 114: {fileID: 903093777}
-  m_Layer: 0
-  m_Name: Level_PackA3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &903093776
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 416480, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 903093775}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 530629578}
-  m_RootOrder: 2
---- !u!114 &903093777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11481318, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 903093775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackA3
-  displayText: 11-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 19
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &911065953
 Prefab:
   m_ObjectHideFlags: 0
@@ -12275,59 +10154,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 407102, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
   m_PrefabInternal: {fileID: 1818617650}
---- !u!1 &920851717
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 161664, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 920851718}
-  - 114: {fileID: 920851719}
-  m_Layer: 0
-  m_Name: Pack2_Portals
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &920851718
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 484238, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 920851717}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 160910559}
-  - {fileID: 102122968}
-  - {fileID: 806348423}
-  - {fileID: 445544663}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 1
---- !u!114 &920851719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11459894, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 920851717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: Portals
-  levels:
-  - {fileID: 160910560}
-  - {fileID: 102122969}
-  - {fileID: 806348424}
-  - {fileID: 445544664}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 0
 --- !u!1001 &921065603
 Prefab:
   m_ObjectHideFlags: 0
@@ -12398,59 +10224,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
   m_PrefabInternal: {fileID: 1904389540}
---- !u!1 &934458967
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 177730, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 934458968}
-  - 114: {fileID: 934458969}
-  m_Layer: 0
-  m_Name: Pack9_Spikes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &934458968
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 496342, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 934458967}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1125114837}
-  - {fileID: 1801574504}
-  - {fileID: 572787047}
-  - {fileID: 558905196}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 8
---- !u!114 &934458969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11419880, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 934458967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: Spikes
-  levels:
-  - {fileID: 1125114838}
-  - {fileID: 1801574505}
-  - {fileID: 572787048}
-  - {fileID: 558905197}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 60
 --- !u!4 &938123399
 Transform:
   m_PrefabParentObject: {fileID: 498790, guid: b5bf92dd577541d4c9fc928fe2300ff7, type: 2}
@@ -12529,67 +10302,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 483756, guid: 4e915a4f37989ba45acf4495bb0bd7a0, type: 2}
   m_PrefabInternal: {fileID: 763494038}
---- !u!1 &944362090
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 194216, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 944362091}
-  - 114: {fileID: 944362092}
-  m_Layer: 0
-  m_Name: Level_Ghost4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &944362091
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 475186, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 944362090}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1621570463}
-  m_RootOrder: 3
---- !u!114 &944362092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11443888, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 944362090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Ghost4
-  displayText: 10-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 33
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 33
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 29
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &947708469
 Prefab:
   m_ObjectHideFlags: 0
@@ -12656,63 +10368,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &947986093
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 123956, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 947986094}
-  - 114: {fileID: 947986095}
-  m_Layer: 0
-  m_Name: Level_PackA1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &947986094
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 428488, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 947986093}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 530629578}
-  m_RootOrder: 0
---- !u!114 &947986095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11443394, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 947986093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackA1
-  displayText: 11-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 16
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 16
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 12
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
 --- !u!1001 &948700928
 Prefab:
   m_ObjectHideFlags: 0
@@ -12765,6 +10420,7 @@ GameObject:
   - 4: {fileID: 951999070}
   - 114: {fileID: 951999071}
   - 114: {fileID: 951999072}
+  - 114: {fileID: 951999073}
   m_Layer: 0
   m_Name: GameLevel
   m_TagString: Untagged
@@ -12787,7 +10443,7 @@ Transform:
   - {fileID: 864054844}
   - {fileID: 890757889}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!114 &951999071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12816,67 +10472,23 @@ MonoBehaviour:
   uiResults: {fileID: 0}
   state: 1
   pyramids: []
+--- !u!114 &951999073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951999069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b6f98df5f6b574984fc73b024a348b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: 10
+  type: 1
 --- !u!4 &955251679
 Transform:
   m_PrefabParentObject: {fileID: 463270, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_PrefabInternal: {fileID: 1743450208}
---- !u!1 &962685015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 171296, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 962685016}
-  - 114: {fileID: 962685017}
-  m_Layer: 0
-  m_Name: Level_StrongBoxes1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &962685016
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 431304, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 962685015}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 690538210}
-  m_RootOrder: 0
---- !u!114 &962685017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11440426, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 962685015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: StrongBoxes1
-  displayText: 4-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 20
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 20
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 17
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
 --- !u!4 &965548292
 Transform:
   m_PrefabParentObject: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
@@ -12885,67 +10497,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 463270, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_PrefabInternal: {fileID: 660376475}
---- !u!1 &976828927
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 102552, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 976828928}
-  - 114: {fileID: 976828929}
-  m_Layer: 0
-  m_Name: Level_PackA4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &976828928
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 445626, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 976828927}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 530629578}
-  m_RootOrder: 3
---- !u!114 &976828929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11456906, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 976828927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackA4
-  displayText: 11-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 29
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 29
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &977286227
 Prefab:
   m_ObjectHideFlags: 0
@@ -13016,63 +10567,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &977664922
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 131118, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 977664923}
-  - 114: {fileID: 977664924}
-  m_Layer: 0
-  m_Name: Level_Ghost2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &977664923
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 477702, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 977664922}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1621570463}
-  m_RootOrder: 1
---- !u!114 &977664924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11452176, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 977664922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Ghost2
-  displayText: 10-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 14
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 14
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 12
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &978029327
 Transform:
   m_PrefabParentObject: {fileID: 417378, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
@@ -13345,63 +10839,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &998243156
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 140880, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 998243157}
-  - 114: {fileID: 998243158}
-  m_Layer: 0
-  m_Name: Level_Intro1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &998243157
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 410428, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 998243156}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1383552800}
-  m_RootOrder: 0
---- !u!114 &998243158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11494942, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 998243156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Intro1
-  displayText: 1-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 11
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 11
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 9
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
 --- !u!1001 &1005483256
 Prefab:
   m_ObjectHideFlags: 0
@@ -13608,63 +11045,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1024058882
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 170336, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1024058883}
-  - 114: {fileID: 1024058884}
-  m_Layer: 0
-  m_Name: Level_StrongBoxes2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1024058883
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 480286, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1024058882}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 690538210}
-  m_RootOrder: 1
---- !u!114 &1024058884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11499194, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1024058882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: StrongBoxes2
-  displayText: 4-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 19
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 19
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 16
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &1030525554
 Prefab:
   m_ObjectHideFlags: 0
@@ -13751,63 +11131,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 417378, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
   m_PrefabInternal: {fileID: 23979166}
---- !u!1 &1048058222
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 104218, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1048058223}
-  - 114: {fileID: 1048058224}
-  m_Layer: 0
-  m_Name: Level_PackE1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1048058223
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 450430, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1048058222}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 120626531}
-  m_RootOrder: 0
---- !u!114 &1048058224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11498050, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1048058222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackE1
-  displayText: 15-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 38
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 38
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 34
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
 --- !u!4 &1048231858
 Transform:
   m_PrefabParentObject: {fileID: 483756, guid: 4e915a4f37989ba45acf4495bb0bd7a0, type: 2}
@@ -13849,7 +11172,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 460492, guid: 36e1b20116fb81a448dbf2af8f094b8f, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36e1b20116fb81a448dbf2af8f094b8f, type: 2}
@@ -13916,63 +11239,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 411702, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_PrefabInternal: {fileID: 1644538568}
---- !u!1 &1053008692
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 105170, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1053008693}
-  - 114: {fileID: 1053008694}
-  m_Layer: 0
-  m_Name: Level_Switches4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1053008693
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 449904, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1053008692}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1220831657}
-  m_RootOrder: 3
---- !u!114 &1053008694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11422488, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1053008692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Switches4
-  displayText: 5-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 30
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 30
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 27
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &1055108288
 Prefab:
   m_ObjectHideFlags: 0
@@ -14428,6 +11694,48 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 463718, guid: c0155a6ba90ff7d4cb6db89b4755a2ca, type: 2}
   m_PrefabInternal: {fileID: 1960759208}
+--- !u!1001 &1088443730
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 459058, guid: d65a803d3d430934a8253ffe494e88de, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459058, guid: d65a803d3d430934a8253ffe494e88de, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459058, guid: d65a803d3d430934a8253ffe494e88de, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459058, guid: d65a803d3d430934a8253ffe494e88de, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459058, guid: d65a803d3d430934a8253ffe494e88de, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459058, guid: d65a803d3d430934a8253ffe494e88de, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459058, guid: d65a803d3d430934a8253ffe494e88de, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 459058, guid: d65a803d3d430934a8253ffe494e88de, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d65a803d3d430934a8253ffe494e88de, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1092155309
 Prefab:
   m_ObjectHideFlags: 0
@@ -14644,7 +11952,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1001 &1099462196
 Prefab:
   m_ObjectHideFlags: 0
@@ -14917,63 +12225,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1125114836
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 158224, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1125114837}
-  - 114: {fileID: 1125114838}
-  m_Layer: 0
-  m_Name: Level_Spikes1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1125114837
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 468008, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1125114836}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 934458968}
-  m_RootOrder: 0
---- !u!114 &1125114838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11444904, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1125114836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Spikes1
-  displayText: 9-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 17
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 17
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 15
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
 --- !u!1001 &1126869140
 Prefab:
   m_ObjectHideFlags: 0
@@ -15192,67 +12443,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 463270, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_PrefabInternal: {fileID: 372677398}
---- !u!1 &1156570947
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 173850, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1156570948}
-  - 114: {fileID: 1156570949}
-  m_Layer: 0
-  m_Name: Level_PackE3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1156570948
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 472556, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1156570947}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 120626531}
-  m_RootOrder: 2
---- !u!114 &1156570949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11495490, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1156570947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackE3
-  displayText: 15-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 33
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 33
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 27
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &1161639079
 Transform:
   m_PrefabParentObject: {fileID: 488384, guid: 75bedbefb0ba160409ef184a3943b66b, type: 2}
@@ -15839,59 +13029,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 407102, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
   m_PrefabInternal: {fileID: 415187286}
---- !u!1 &1220831656
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 127134, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1220831657}
-  - 114: {fileID: 1220831658}
-  m_Layer: 0
-  m_Name: Pack5_Switches
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1220831657
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 486294, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1220831656}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 335801424}
-  - {fileID: 660343214}
-  - {fileID: 711884965}
-  - {fileID: 1053008693}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 4
---- !u!114 &1220831658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11434154, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1220831656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: Switches
-  levels:
-  - {fileID: 335801425}
-  - {fileID: 660343215}
-  - {fileID: 711884966}
-  - {fileID: 1053008694}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 30
 --- !u!4 &1230994683
 Transform:
   m_PrefabParentObject: {fileID: 417378, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
@@ -16044,67 +13181,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 417378, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
   m_PrefabInternal: {fileID: 1520311053}
---- !u!1 &1233547091
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 148140, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1233547092}
-  - 114: {fileID: 1233547093}
-  m_Layer: 0
-  m_Name: Level_Effectors3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1233547092
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 458726, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1233547091}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 412820662}
-  m_RootOrder: 2
---- !u!114 &1233547093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11407332, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1233547091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Effectors3
-  displayText: 6-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 25
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 23
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 23
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &1233666018
 Transform:
   m_PrefabParentObject: {fileID: 463270, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
@@ -16879,120 +13955,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 483756, guid: 4e915a4f37989ba45acf4495bb0bd7a0, type: 2}
   m_PrefabInternal: {fileID: 199857389}
---- !u!1 &1303625852
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 113166, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1303625853}
-  - 114: {fileID: 1303625854}
-  m_Layer: 0
-  m_Name: Level_Boxes2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1303625853
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 484124, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1303625852}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1735122193}
-  m_RootOrder: 1
---- !u!114 &1303625854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11458808, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1303625852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Boxes2
-  displayText: 3-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 23
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 23
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 20
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
---- !u!1 &1305788915
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 151632, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1305788916}
-  - 114: {fileID: 1305788917}
-  m_Layer: 0
-  m_Name: Level_Ghost3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1305788916
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 437842, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1305788915}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1621570463}
-  m_RootOrder: 2
---- !u!114 &1305788917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11487750, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1305788915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Ghost3
-  displayText: 10-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 16
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 16
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 13
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &1312843832
 Transform:
   m_PrefabParentObject: {fileID: 411702, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
@@ -17207,63 +14169,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1322724976
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 166106, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1322724977}
-  - 114: {fileID: 1322724978}
-  m_Layer: 0
-  m_Name: Level_PackD1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1322724977
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 452182, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1322724976}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1822107424}
-  m_RootOrder: 0
---- !u!114 &1322724978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11454590, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1322724976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackD1
-  displayText: 14-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 23
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 23
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 20
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
 --- !u!4 &1324047030
 Transform:
   m_PrefabParentObject: {fileID: 486136, guid: b7c16b8cf8c512f4cb50a8e962ba61c9, type: 2}
@@ -17516,63 +14421,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1354131483
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 162104, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1354131484}
-  - 114: {fileID: 1354131485}
-  m_Layer: 0
-  m_Name: Level_Boxes1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1354131484
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 433206, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1354131483}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1735122193}
-  m_RootOrder: 0
---- !u!114 &1354131485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11441992, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1354131483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Boxes1
-  displayText: 3-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 10
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 10
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 8
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
 --- !u!1001 &1355452495
 Prefab:
   m_ObjectHideFlags: 0
@@ -18312,59 +15160,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1383552799
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 103552, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1383552800}
-  - 114: {fileID: 1383552801}
-  m_Layer: 0
-  m_Name: Pack1_Intro
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1383552800
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 466152, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1383552799}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 998243157}
-  - {fileID: 611195392}
-  - {fileID: 154986411}
-  - {fileID: 1446808045}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 0
---- !u!114 &1383552801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11423442, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1383552799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: Intro
-  levels:
-  - {fileID: 998243158}
-  - {fileID: 611195393}
-  - {fileID: 154986412}
-  - {fileID: 1446808046}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 0
 --- !u!4 &1390931145
 Transform:
   m_PrefabParentObject: {fileID: 417378, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
@@ -18975,67 +15770,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1446808044
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 173462, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1446808045}
-  - 114: {fileID: 1446808046}
-  m_Layer: 0
-  m_Name: Level_Intro4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1446808045
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 473750, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1446808044}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1383552800}
-  m_RootOrder: 3
---- !u!114 &1446808046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11468760, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1446808044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Intro4
-  displayText: 1-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 18
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 18
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 16
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &1450634369
 Prefab:
   m_ObjectHideFlags: 0
@@ -20026,63 +16760,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 407102, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
   m_PrefabInternal: {fileID: 1293358473}
---- !u!1 &1537589704
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 179448, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1537589705}
-  - 114: {fileID: 1537589706}
-  m_Layer: 0
-  m_Name: Level_Jumps4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1537589705
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 499460, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537589704}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2132042425}
-  m_RootOrder: 3
---- !u!114 &1537589706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11408596, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537589704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Jumps4
-  displayText: 8-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 36
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 36
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 30
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &1537929574
 Transform:
   m_PrefabParentObject: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
@@ -20161,63 +16838,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1542977959
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 152448, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1542977960}
-  - 114: {fileID: 1542977961}
-  m_Layer: 0
-  m_Name: Level_Jumps1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1542977960
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 409838, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1542977959}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2132042425}
-  m_RootOrder: 0
---- !u!114 &1542977961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11433590, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1542977959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Jumps1
-  displayText: 8-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 8
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 8
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 6
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
 --- !u!1001 &1543751766
 Prefab:
   m_ObjectHideFlags: 0
@@ -20665,63 +17285,6 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 407102, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
   m_PrefabInternal: {fileID: 499422982}
---- !u!1 &1589931629
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 164582, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1589931630}
-  - 114: {fileID: 1589931631}
-  m_Layer: 0
-  m_Name: Level_Doors3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1589931630
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 472736, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1589931629}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1954338598}
-  m_RootOrder: 2
---- !u!114 &1589931631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11447242, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1589931629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Doors3
-  displayText: 7-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 46
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 46
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 40
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &1590067012
 Prefab:
   m_ObjectHideFlags: 0
@@ -20800,63 +17363,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 407102, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
   m_PrefabInternal: {fileID: 1616463423}
---- !u!1 &1612540855
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 155918, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1612540856}
-  - 114: {fileID: 1612540857}
-  m_Layer: 0
-  m_Name: Level_Doors2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1612540856
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 454556, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1612540855}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1954338598}
-  m_RootOrder: 1
---- !u!114 &1612540857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11436648, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1612540855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Doors2
-  displayText: 7-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 25
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 25
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 22
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &1616463423
 Prefab:
   m_ObjectHideFlags: 0
@@ -20927,59 +17433,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 463270, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_PrefabInternal: {fileID: 264132600}
---- !u!1 &1621570462
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 107008, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1621570463}
-  - 114: {fileID: 1621570464}
-  m_Layer: 0
-  m_Name: Pack10_Ghost
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1621570463
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 460346, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1621570462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 25905912}
-  - {fileID: 977664923}
-  - {fileID: 1305788916}
-  - {fileID: 944362091}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 9
---- !u!114 &1621570464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11463996, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1621570462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: Ghost
-  levels:
-  - {fileID: 25905913}
-  - {fileID: 977664924}
-  - {fileID: 1305788917}
-  - {fileID: 944362092}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 90
 --- !u!4 &1627627456
 Transform:
   m_PrefabParentObject: {fileID: 463270, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
@@ -21120,67 +17573,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1646140525
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 159726, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1646140526}
-  - 114: {fileID: 1646140527}
-  m_Layer: 0
-  m_Name: Level_PackC2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1646140526
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 406850, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1646140525}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 650273995}
-  m_RootOrder: 1
---- !u!114 &1646140527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11443064, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1646140525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackC2
-  displayText: 13-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 22
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 22
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 19
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &1646738261
 Prefab:
   m_ObjectHideFlags: 0
@@ -21371,68 +17763,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 403970, guid: 3d2d5e0b3c69704428d995b83e3bafa6, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d2d5e0b3c69704428d995b83e3bafa6, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1669741784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 119072, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1669741785}
-  - 114: {fileID: 1669741786}
-  m_Layer: 0
-  m_Name: Level_PackC1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1669741785
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 495148, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1669741784}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 650273995}
-  m_RootOrder: 0
---- !u!114 &1669741786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11431480, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1669741784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackC1
-  displayText: 13-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 24
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 20
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
 --- !u!4 &1674745270
 Transform:
   m_PrefabParentObject: {fileID: 463270, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
@@ -21585,63 +17920,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 407102, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
   m_PrefabInternal: {fileID: 318546111}
---- !u!1 &1694737939
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 151978, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1694737940}
-  - 114: {fileID: 1694737941}
-  m_Layer: 0
-  m_Name: Level_StrongBoxes4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1694737940
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 433224, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1694737939}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 690538210}
-  m_RootOrder: 3
---- !u!114 &1694737941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11459948, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1694737939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: StrongBoxes4
-  displayText: 4-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 26
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 26
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 22
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &1698685066
 Transform:
   m_PrefabParentObject: {fileID: 417378, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
@@ -22282,59 +18560,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1735122192
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 196116, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1735122193}
-  - 114: {fileID: 1735122194}
-  m_Layer: 0
-  m_Name: Pack3_Boxes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1735122193
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 476596, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1735122192}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1354131484}
-  - {fileID: 1303625853}
-  - {fileID: 31284559}
-  - {fileID: 691813678}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 2
---- !u!114 &1735122194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11446822, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1735122192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: Boxes
-  levels:
-  - {fileID: 1354131485}
-  - {fileID: 1303625854}
-  - {fileID: 31284560}
-  - {fileID: 691813679}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 0
 --- !u!1001 &1743450208
 Prefab:
   m_ObjectHideFlags: 0
@@ -22401,63 +18626,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1749888149
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 196038, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1749888150}
-  - 114: {fileID: 1749888151}
-  m_Layer: 0
-  m_Name: Level_Effectors4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1749888150
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 489494, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1749888149}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 412820662}
-  m_RootOrder: 3
---- !u!114 &1749888151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11404440, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1749888149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Effectors4
-  displayText: 6-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 15
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 15
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 13
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!114 &1756353734
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11430272, guid: 4ef8dade6f2536247afa3be717e1acb4,
@@ -22946,63 +19114,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 468724, guid: 005cae2368e5d334f8d5db2a95982bdd, type: 2}
   m_PrefabInternal: {fileID: 389119791}
---- !u!1 &1801574503
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 117176, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1801574504}
-  - 114: {fileID: 1801574505}
-  m_Layer: 0
-  m_Name: Level_Spikes2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1801574504
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 475654, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1801574503}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 934458968}
-  m_RootOrder: 1
---- !u!114 &1801574505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11410460, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1801574503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Spikes2
-  displayText: 9-2
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 12
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 11
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 10
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &1804689256
 Prefab:
   m_ObjectHideFlags: 0
@@ -23419,59 +19530,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1822107423
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 156236, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1822107424}
-  - 114: {fileID: 1822107425}
-  m_Layer: 0
-  m_Name: Pack14_PackD
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1822107424
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 447824, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1822107423}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1322724977}
-  - {fileID: 769678761}
-  - {fileID: 378483635}
-  - {fileID: 1972492213}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 13
---- !u!114 &1822107425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11441184, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1822107423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: PackD
-  levels:
-  - {fileID: 1322724978}
-  - {fileID: 769678762}
-  - {fileID: 378483636}
-  - {fileID: 1972492214}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 120
 --- !u!1001 &1826541071
 Prefab:
   m_ObjectHideFlags: 0
@@ -23670,63 +19728,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1834016882
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 180584, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1834016883}
-  - 114: {fileID: 1834016884}
-  m_Layer: 0
-  m_Name: Level_PackE4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1834016883
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 446476, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1834016882}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 120626531}
-  m_RootOrder: 3
---- !u!114 &1834016884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11488726, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1834016882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackE4
-  displayText: 15-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 41
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 36
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 36
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!4 &1835970840
 Transform:
   m_PrefabParentObject: {fileID: 407102, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
@@ -24823,63 +20824,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1934131036
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 170340, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1934131037}
-  - 114: {fileID: 1934131038}
-  m_Layer: 0
-  m_Name: Level_Doors1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1934131037
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 407690, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1934131036}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1954338598}
-  m_RootOrder: 0
---- !u!114 &1934131038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11432388, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1934131036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Doors1
-  displayText: 7-1
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 11
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 11
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 9
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 0
 --- !u!4 &1935485481
 Transform:
   m_PrefabParentObject: {fileID: 417378, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
@@ -25173,59 +21117,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19f59cdc17718494cad46116c1d72c71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1954338597
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 148806, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1954338598}
-  - 114: {fileID: 1954338599}
-  m_Layer: 0
-  m_Name: Pack7_Doors
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1954338598
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 417824, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1954338597}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1934131037}
-  - {fileID: 1612540856}
-  - {fileID: 1589931630}
-  - {fileID: 637754209}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 6
---- !u!114 &1954338599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11441334, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1954338597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: Doors
-  levels:
-  - {fileID: 1934131038}
-  - {fileID: 1612540857}
-  - {fileID: 1589931631}
-  - {fileID: 637754210}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 60
 --- !u!1001 &1955225168
 Prefab:
   m_ObjectHideFlags: 0
@@ -25458,185 +21349,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1965384543
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 126230, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1965384544}
-  - 114: {fileID: 1965384545}
-  m_Layer: 0
-  m_Name: Level_PackB3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1965384544
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 416168, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1965384543}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2088401125}
-  m_RootOrder: 2
---- !u!114 &1965384545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11477028, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1965384543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackB3
-  displayText: 12-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 25
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 25
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 21
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
---- !u!1 &1972492212
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 133052, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1972492213}
-  - 114: {fileID: 1972492214}
-  m_Layer: 0
-  m_Name: Level_PackD4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1972492213
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 458836, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1972492212}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1822107424}
-  m_RootOrder: 3
---- !u!114 &1972492214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11489560, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1972492212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackD4
-  displayText: 14-4
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 31
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 31
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 27
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
---- !u!1 &1972535597
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 126846, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1972535598}
-  - 114: {fileID: 1972535599}
-  m_Layer: 0
-  m_Name: Level_PackC3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1972535598
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 486472, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1972535597}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 650273995}
-  m_RootOrder: 2
---- !u!114 &1972535599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11458298, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1972535597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: PackC3
-  displayText: 13-3
-  stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 20
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 20
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 15
-    IsCollected: 0
-  IsPassed: 0
-  IsClosed: 1
 --- !u!1001 &1982100187
 Prefab:
   m_ObjectHideFlags: 0
@@ -26058,7 +21770,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 467368, guid: de3452fa71cd2bc47a511bf50b5f2f15, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de3452fa71cd2bc47a511bf50b5f2f15, type: 2}
@@ -26389,7 +22101,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 472920, guid: e7192db457d543f47866a94239ae0a46, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7192db457d543f47866a94239ae0a46, type: 2}
@@ -27181,59 +22893,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 463270, guid: 177e42fe8d6002d4fb691dbffff48d71, type: 2}
   m_PrefabInternal: {fileID: 1543855784}
---- !u!1 &2088401124
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 168484, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2088401125}
-  - 114: {fileID: 2088401126}
-  m_Layer: 0
-  m_Name: Pack12_PackB
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2088401125
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 418914, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2088401124}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 578465405}
-  - {fileID: 765344460}
-  - {fileID: 1965384544}
-  - {fileID: 874324149}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 11
---- !u!114 &2088401126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11405736, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2088401124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: PackB
-  levels:
-  - {fileID: 578465404}
-  - {fileID: 765344461}
-  - {fileID: 1965384545}
-  - {fileID: 874324150}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 90
 --- !u!1001 &2089665766
 Prefab:
   m_ObjectHideFlags: 0
@@ -27844,59 +23503,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2132042424
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 140034, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2132042425}
-  - 114: {fileID: 2132042426}
-  m_Layer: 0
-  m_Name: Pack8_Jumps
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2132042425
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 417428, guid: a7d1ee57701997945be17abc0ce1e53e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2132042424}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1542977960}
-  - {fileID: 300608286}
-  - {fileID: 148382046}
-  - {fileID: 1537589705}
-  m_Father: {fileID: 856896522}
-  m_RootOrder: 7
---- !u!114 &2132042426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11458318, guid: a7d1ee57701997945be17abc0ce1e53e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2132042424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packName: Jumps
-  levels:
-  - {fileID: 1542977961}
-  - {fileID: 300608287}
-  - {fileID: 148382047}
-  - {fileID: 1537589706}
-  StarsCount: 0
-  StarsRecived: 0
-  StarsRequired: 60
 --- !u!1001 &2133795444
 Prefab:
   m_ObjectHideFlags: 0

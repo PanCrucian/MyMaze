@@ -6,7 +6,7 @@ public class GameLevelDesign : MonoBehaviour {
     /// <summary>
     /// Диапазон значение из события инпута drag delta при котором не учитывается событие drag
     /// </summary>
-    public float dragTreshold = 15f;
+    public float scrollTreshold = 50f;
 
     /// <summary>
     /// Запрос на движение не чаще времени в этой переменной

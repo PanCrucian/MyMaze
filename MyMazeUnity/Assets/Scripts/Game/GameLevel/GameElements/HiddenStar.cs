@@ -38,6 +38,7 @@ public class HiddenStar : GameLevelObject {
             hiddenStarUI.Show();
 
         animator.SetTrigger("PickUp");
+        GetComponent<SoundsPlayer>().PlayOneShootSound();
         transform.localPosition = new Vector3(
             transform.localPosition.x,
             transform.localPosition.y,

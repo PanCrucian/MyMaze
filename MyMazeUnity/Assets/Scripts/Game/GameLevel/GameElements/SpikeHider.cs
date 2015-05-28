@@ -53,6 +53,7 @@ public class SpikeHider : GameLevelObject {
     {
         foreach (Spike spike in spikes)
             spike.FadeOut(hideTime);
+        GetComponent<SoundsPlayer>().PlayOneShootSound(SoundNames.SpikeHide);
     }
 
     /// <summary>
@@ -62,6 +63,7 @@ public class SpikeHider : GameLevelObject {
     {
         foreach (Spike spike in spikes)
             spike.FadeIn(hideTime);
+        GetComponent<SoundsPlayer>().PlayOneShootSound(SoundNames.SpikeShow);
     }
 
     public override void Restart()

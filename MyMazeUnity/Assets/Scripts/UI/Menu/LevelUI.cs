@@ -40,13 +40,12 @@ public class LevelUI : MonoBehaviour {
         color.a = 1f;
         levelsui.loadingText.color = color;*/
         ScreenOverlayUI.Instance.FadeIn();
-
+        GetComponent<SoundsPlayer>().PlayOneShootSound();
         yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
         
         MyMaze.Instance.LastSelectedLevel = level;
-        MyMaze.Instance.LevelLoader.levelName = level.name;
         Debug.Log("Загружаю уровень " + level.name);
-        MyMaze.Instance.LevelLoader.Load();
+        MyMaze.Instance.LevelLoadAction(level);
     }
 
     void Update()

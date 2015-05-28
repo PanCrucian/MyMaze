@@ -36,9 +36,15 @@ public class Box : GameLevelObject
         boxCollider.enabled = false;
         switch (color)
         {
-            case BoxColors.White: animator.SetTrigger("FadeWhite"); break;
-            case BoxColors.Yellow: animator.SetTrigger("FadeYellow"); break;
+            case BoxColors.White: 
+                animator.SetTrigger("FadeWhite");
+                break;
+            case BoxColors.Yellow: 
+                animator.SetTrigger("FadeYellow");
+                break;
         }
+
+        GetComponent<SoundsPlayer>().PlayOneShootSound();
     }
 
     /// <summary>

@@ -1,0 +1,4482 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &101850
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 412002}
+  - 114: {fileID: 11475282}
+  m_Layer: 0
+  m_Name: Level_PackD4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &102472
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 497016}
+  - 114: {fileID: 11450646}
+  m_Layer: 0
+  m_Name: Level_PackE1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &104570
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 449602}
+  - 114: {fileID: 11463244}
+  m_Layer: 0
+  m_Name: Level_Portals1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &106616
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 402540}
+  - 114: {fileID: 11422282}
+  m_Layer: 0
+  m_Name: Level_Ghost2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &109178
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 464096}
+  - 114: {fileID: 11439810}
+  m_Layer: 0
+  m_Name: Level_PackB2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &109704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 459200}
+  - 114: {fileID: 11440360}
+  m_Layer: 0
+  m_Name: Pack7_Doors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &111430
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 419082}
+  - 114: {fileID: 11444548}
+  m_Layer: 0
+  m_Name: Level_Portals4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &112888
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 450634}
+  - 114: {fileID: 11427090}
+  m_Layer: 0
+  m_Name: Level_Switches1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &113804
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 412932}
+  - 114: {fileID: 11407468}
+  m_Layer: 0
+  m_Name: Level_Portals2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &115606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 482036}
+  - 114: {fileID: 11443264}
+  m_Layer: 0
+  m_Name: Pack3_Boxes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &118664
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 490458}
+  - 114: {fileID: 11421912}
+  m_Layer: 0
+  m_Name: Level_Jumps1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &119308
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 467378}
+  - 114: {fileID: 11481206}
+  m_Layer: 0
+  m_Name: Level_Effectors1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &119964
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 446698}
+  - 114: {fileID: 11469502}
+  m_Layer: 0
+  m_Name: Level_Doors4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &122876
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 425142}
+  - 114: {fileID: 11442570}
+  m_Layer: 0
+  m_Name: Level_Doors3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &123312
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 449326}
+  - 114: {fileID: 11478106}
+  m_Layer: 0
+  m_Name: Level_Jumps4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &124818
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 464112}
+  - 114: {fileID: 11435834}
+  m_Layer: 0
+  m_Name: Level_Boxes1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &126382
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 413594}
+  - 114: {fileID: 11461898}
+  m_Layer: 0
+  m_Name: Level_PackC1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &126878
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 446666}
+  - 114: {fileID: 11414428}
+  m_Layer: 0
+  m_Name: Level_Intro1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &128332
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 407422}
+  - 114: {fileID: 11419840}
+  m_Layer: 0
+  m_Name: Level_Effectors2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &129590
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 427334}
+  - 114: {fileID: 11485582}
+  m_Layer: 0
+  m_Name: Level_PackA3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &131644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 452152}
+  - 114: {fileID: 11404178}
+  m_Layer: 0
+  m_Name: Pack8_Jumps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &131688
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400870}
+  - 114: {fileID: 11478390}
+  m_Layer: 0
+  m_Name: Level_PackA4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &132406
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 457562}
+  - 114: {fileID: 11487444}
+  m_Layer: 0
+  m_Name: Level_Boxes2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &133242
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 471864}
+  - 114: {fileID: 11424270}
+  m_Layer: 0
+  m_Name: Level_StrongBoxes1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &134290
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 431498}
+  - 114: {fileID: 11426906}
+  m_Layer: 0
+  m_Name: Level_PackD1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &134502
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 442196}
+  - 114: {fileID: 11422160}
+  m_Layer: 0
+  m_Name: Level_Doors2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &134758
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 427990}
+  - 114: {fileID: 11463022}
+  m_Layer: 0
+  m_Name: Level_PackB4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &138774
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 430028}
+  - 114: {fileID: 11483380}
+  m_Layer: 0
+  m_Name: Level_Spikes2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &142000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 499636}
+  - 114: {fileID: 11420774}
+  m_Layer: 0
+  m_Name: Pack13_PackC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &144588
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 428882}
+  - 114: {fileID: 11439452}
+  m_Layer: 0
+  m_Name: Level_PackC2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &144920
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 491962}
+  - 114: {fileID: 11425116}
+  m_Layer: 0
+  m_Name: Level_Ghost3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &145068
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 411836}
+  - 114: {fileID: 11446106}
+  m_Layer: 0
+  m_Name: Level_Effectors4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &146126
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 456436}
+  - 114: {fileID: 11401912}
+  m_Layer: 0
+  m_Name: Level_Switches4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &147722
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 404366}
+  - 114: {fileID: 11443138}
+  m_Layer: 0
+  m_Name: Level_Spikes3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &148190
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 452756}
+  - 114: {fileID: 11401238}
+  m_Layer: 0
+  m_Name: Level_StrongBoxes4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &148514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 403090}
+  - 114: {fileID: 11432342}
+  m_Layer: 0
+  m_Name: Pack1_Intro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &148714
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 409106}
+  - 114: {fileID: 11405748}
+  m_Layer: 0
+  m_Name: Level_Intro3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &149422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 459174}
+  - 114: {fileID: 11418366}
+  m_Layer: 0
+  m_Name: Pack2_Portals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &151056
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 495908}
+  - 114: {fileID: 11423440}
+  m_Layer: 0
+  m_Name: Level_Spikes4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &151144
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 453382}
+  - 114: {fileID: 11444546}
+  m_Layer: 0
+  m_Name: Level_PackC3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &151306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 406104}
+  - 114: {fileID: 11406396}
+  m_Layer: 0
+  m_Name: Pack9_Spikes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &153648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 491498}
+  - 114: {fileID: 11423436}
+  m_Layer: 0
+  m_Name: Pack6_Effectors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &153870
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 412684}
+  - 114: {fileID: 11456422}
+  m_Layer: 0
+  m_Name: Level_Switches2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &154498
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 409818}
+  - 114: {fileID: 11484010}
+  m_Layer: 0
+  m_Name: Level_Jumps3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &154572
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 474018}
+  - 114: {fileID: 11473348}
+  m_Layer: 0
+  m_Name: Level_PackB1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &155944
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 491274}
+  - 114: {fileID: 11473034}
+  m_Layer: 0
+  m_Name: Level_Doors1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &158932
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 460930}
+  - 114: {fileID: 11423764}
+  m_Layer: 0
+  m_Name: Level_Boxes3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &162742
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 475292}
+  - 114: {fileID: 11406262}
+  m_Layer: 0
+  m_Name: Level_PackC4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &163782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 461702}
+  - 114: {fileID: 11477842}
+  m_Layer: 0
+  m_Name: Pack14_PackD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &163814
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 498814}
+  - 114: {fileID: 11468760}
+  m_Layer: 0
+  m_Name: Level_Intro4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &163840
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 448720}
+  - 114: {fileID: 11428694}
+  m_Layer: 0
+  m_Name: Level_PackA2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &164566
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 495600}
+  - 114: {fileID: 11439834}
+  m_Layer: 0
+  m_Name: Level_Portals3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &165568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 407862}
+  - 114: {fileID: 11473060}
+  m_Layer: 0
+  m_Name: Pack4_StrongBoxes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &169886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 455956}
+  - 114: {fileID: 11474378}
+  m_Layer: 0
+  m_Name: Pack5_Switches
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &170544
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 418848}
+  - 114: {fileID: 11434664}
+  m_Layer: 0
+  m_Name: Level_PackB3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &170656
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 443150}
+  - 114: {fileID: 11452810}
+  m_Layer: 0
+  m_Name: Level_Boxes4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &171122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 497364}
+  - 114: {fileID: 11433856}
+  m_Layer: 0
+  m_Name: Pack10_Ghost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &171568
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 467118}
+  - 114: {fileID: 11411964}
+  m_Layer: 0
+  m_Name: Level_Intro2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &172074
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 412828}
+  - 114: {fileID: 11468266}
+  m_Layer: 0
+  m_Name: Level_Jumps2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &172168
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 474252}
+  - 114: {fileID: 11455192}
+  m_Layer: 0
+  m_Name: Level_Effectors3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &174324
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 440726}
+  - 114: {fileID: 11482120}
+  m_Layer: 0
+  m_Name: Level_Switches3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &176762
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 492046}
+  - 114: {fileID: 11491992}
+  m_Layer: 0
+  m_Name: Level_Spikes1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &177674
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 414460}
+  - 114: {fileID: 11491822}
+  m_Layer: 0
+  m_Name: Level_PackD2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &179018
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 431100}
+  - 114: {fileID: 11487514}
+  m_Layer: 0
+  m_Name: Level_PackE4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &179436
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 428364}
+  - 114: {fileID: 11405422}
+  m_Layer: 0
+  m_Name: Level_PackE3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &181816
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 473650}
+  - 114: {fileID: 11434296}
+  m_Layer: 0
+  m_Name: Level_PackA1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &184402
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 412786}
+  - 114: {fileID: 11477808}
+  m_Layer: 0
+  m_Name: Level_PackD3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &188512
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 421970}
+  - 114: {fileID: 11432178}
+  m_Layer: 0
+  m_Name: Level_Ghost1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &190428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 432668}
+  - 114: {fileID: 11478642}
+  m_Layer: 0
+  m_Name: Pack12_PackB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &193792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 483648}
+  - 114: {fileID: 11468558}
+  m_Layer: 0
+  m_Name: Pack11_PackA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &193854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 499050}
+  - 114: {fileID: 11462024}
+  m_Layer: 0
+  m_Name: Pack15_PackE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &193990
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 420848}
+  - 114: {fileID: 11419836}
+  m_Layer: 0
+  m_Name: Level_StrongBoxes3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &195238
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 496594}
+  - 114: {fileID: 11462434}
+  m_Layer: 0
+  m_Name: Level_StrongBoxes2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &196390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 459058}
+  - 114: {fileID: 11423730}
+  - 114: {fileID: 11403472}
+  - 114: {fileID: 11429132}
+  - 114: {fileID: 11430942}
+  - 114: {fileID: 11454028}
+  - 114: {fileID: 11422392}
+  - 114: {fileID: 11498388}
+  m_Layer: 0
+  m_Name: MyMazeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &197304
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 428292}
+  - 114: {fileID: 11419146}
+  m_Layer: 0
+  m_Name: Level_PackE2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &197978
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 417332}
+  - 114: {fileID: 11467328}
+  m_Layer: 0
+  m_Name: Level_Ghost4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400870
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131688}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 483648}
+  m_RootOrder: 3
+--- !u!4 &402540
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 497364}
+  m_RootOrder: 1
+--- !u!4 &403090
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 446666}
+  - {fileID: 467118}
+  - {fileID: 409106}
+  - {fileID: 498814}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 0
+--- !u!4 &404366
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147722}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406104}
+  m_RootOrder: 2
+--- !u!4 &406104
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 492046}
+  - {fileID: 430028}
+  - {fileID: 404366}
+  - {fileID: 495908}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 8
+--- !u!4 &407422
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 491498}
+  m_RootOrder: 1
+--- !u!4 &407862
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 471864}
+  - {fileID: 496594}
+  - {fileID: 420848}
+  - {fileID: 452756}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 3
+--- !u!4 &409106
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403090}
+  m_RootOrder: 2
+--- !u!4 &409818
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154498}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 452152}
+  m_RootOrder: 2
+--- !u!4 &411836
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 491498}
+  m_RootOrder: 3
+--- !u!4 &412002
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101850}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 461702}
+  m_RootOrder: 3
+--- !u!4 &412684
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 455956}
+  m_RootOrder: 1
+--- !u!4 &412786
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 461702}
+  m_RootOrder: 2
+--- !u!4 &412828
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172074}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 452152}
+  m_RootOrder: 1
+--- !u!4 &412932
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 459174}
+  m_RootOrder: 1
+--- !u!4 &413594
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499636}
+  m_RootOrder: 0
+--- !u!4 &414460
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 461702}
+  m_RootOrder: 1
+--- !u!4 &417332
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 497364}
+  m_RootOrder: 3
+--- !u!4 &418848
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 432668}
+  m_RootOrder: 2
+--- !u!4 &419082
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 459174}
+  m_RootOrder: 3
+--- !u!4 &420848
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 407862}
+  m_RootOrder: 2
+--- !u!4 &421970
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 497364}
+  m_RootOrder: 0
+--- !u!4 &425142
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 459200}
+  m_RootOrder: 2
+--- !u!4 &427334
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129590}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 483648}
+  m_RootOrder: 2
+--- !u!4 &427990
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 432668}
+  m_RootOrder: 3
+--- !u!4 &428292
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499050}
+  m_RootOrder: 1
+--- !u!4 &428364
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499050}
+  m_RootOrder: 2
+--- !u!4 &428882
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499636}
+  m_RootOrder: 1
+--- !u!4 &430028
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406104}
+  m_RootOrder: 1
+--- !u!4 &431100
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499050}
+  m_RootOrder: 3
+--- !u!4 &431498
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 461702}
+  m_RootOrder: 0
+--- !u!4 &432668
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 474018}
+  - {fileID: 464096}
+  - {fileID: 418848}
+  - {fileID: 427990}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 11
+--- !u!4 &440726
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174324}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 455956}
+  m_RootOrder: 2
+--- !u!4 &442196
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 459200}
+  m_RootOrder: 1
+--- !u!4 &443150
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 482036}
+  m_RootOrder: 3
+--- !u!4 &446666
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403090}
+  m_RootOrder: 0
+--- !u!4 &446698
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 459200}
+  m_RootOrder: 3
+--- !u!4 &448720
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 483648}
+  m_RootOrder: 1
+--- !u!4 &449326
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 452152}
+  m_RootOrder: 3
+--- !u!4 &449602
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104570}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 459174}
+  m_RootOrder: 0
+--- !u!4 &450634
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 455956}
+  m_RootOrder: 0
+--- !u!4 &452152
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131644}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 490458}
+  - {fileID: 412828}
+  - {fileID: 409818}
+  - {fileID: 449326}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 7
+--- !u!4 &452756
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 407862}
+  m_RootOrder: 3
+--- !u!4 &453382
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151144}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499636}
+  m_RootOrder: 2
+--- !u!4 &455956
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 450634}
+  - {fileID: 412684}
+  - {fileID: 440726}
+  - {fileID: 456436}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 4
+--- !u!4 &456436
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 455956}
+  m_RootOrder: 3
+--- !u!4 &457562
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 482036}
+  m_RootOrder: 1
+--- !u!4 &459058
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 403090}
+  - {fileID: 459174}
+  - {fileID: 482036}
+  - {fileID: 407862}
+  - {fileID: 455956}
+  - {fileID: 491498}
+  - {fileID: 459200}
+  - {fileID: 452152}
+  - {fileID: 406104}
+  - {fileID: 497364}
+  - {fileID: 483648}
+  - {fileID: 432668}
+  - {fileID: 499636}
+  - {fileID: 461702}
+  - {fileID: 499050}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &459174
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 449602}
+  - {fileID: 412932}
+  - {fileID: 495600}
+  - {fileID: 419082}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 1
+--- !u!4 &459200
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 491274}
+  - {fileID: 442196}
+  - {fileID: 425142}
+  - {fileID: 446698}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 6
+--- !u!4 &460930
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 482036}
+  m_RootOrder: 2
+--- !u!4 &461702
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 431498}
+  - {fileID: 414460}
+  - {fileID: 412786}
+  - {fileID: 412002}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 13
+--- !u!4 &464096
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 432668}
+  m_RootOrder: 1
+--- !u!4 &464112
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 482036}
+  m_RootOrder: 0
+--- !u!4 &467118
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403090}
+  m_RootOrder: 1
+--- !u!4 &467378
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 491498}
+  m_RootOrder: 0
+--- !u!4 &471864
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 407862}
+  m_RootOrder: 0
+--- !u!4 &473650
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181816}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 483648}
+  m_RootOrder: 0
+--- !u!4 &474018
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 432668}
+  m_RootOrder: 0
+--- !u!4 &474252
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 491498}
+  m_RootOrder: 2
+--- !u!4 &475292
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499636}
+  m_RootOrder: 3
+--- !u!4 &482036
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 464112}
+  - {fileID: 457562}
+  - {fileID: 460930}
+  - {fileID: 443150}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 2
+--- !u!4 &483648
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 473650}
+  - {fileID: 448720}
+  - {fileID: 427334}
+  - {fileID: 400870}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 10
+--- !u!4 &490458
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 452152}
+  m_RootOrder: 0
+--- !u!4 &491274
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 459200}
+  m_RootOrder: 0
+--- !u!4 &491498
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 467378}
+  - {fileID: 407422}
+  - {fileID: 474252}
+  - {fileID: 411836}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 5
+--- !u!4 &491962
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144920}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 497364}
+  m_RootOrder: 2
+--- !u!4 &492046
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406104}
+  m_RootOrder: 0
+--- !u!4 &495600
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 459174}
+  m_RootOrder: 2
+--- !u!4 &495908
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406104}
+  m_RootOrder: 3
+--- !u!4 &496594
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 407862}
+  m_RootOrder: 1
+--- !u!4 &497016
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499050}
+  m_RootOrder: 0
+--- !u!4 &497364
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171122}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 421970}
+  - {fileID: 402540}
+  - {fileID: 491962}
+  - {fileID: 417332}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 9
+--- !u!4 &498814
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403090}
+  m_RootOrder: 3
+--- !u!4 &499050
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193854}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 497016}
+  - {fileID: 428292}
+  - {fileID: 428364}
+  - {fileID: 431100}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 14
+--- !u!4 &499636
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 413594}
+  - {fileID: 428882}
+  - {fileID: 453382}
+  - {fileID: 475292}
+  m_Father: {fileID: 459058}
+  m_RootOrder: 12
+--- !u!114 &11401238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: StrongBoxes4
+  displayText: 4-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 26
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 26
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 22
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11401912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Switches4
+  displayText: 5-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 30
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 30
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 27
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11403472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a4700266804ba243aa96ef3c2ecddaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steps:
+  - stepName: HowToMove
+    phase: 0
+    IsComplete: 0
+    IsStarted: 1
+  - stepName: Teleport
+    phase: 1
+    IsComplete: 0
+    IsStarted: 0
+  - stepName: TimeMachine
+    phase: 2
+    IsComplete: 0
+    IsStarted: 0
+  - stepName: NotTeach
+    phase: 3
+    IsComplete: 0
+    IsStarted: 0
+--- !u!114 &11404178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: Jumps
+  levels:
+  - {fileID: 11421912}
+  - {fileID: 11468266}
+  - {fileID: 11484010}
+  - {fileID: 11478106}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 60
+--- !u!114 &11405422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackE3
+  displayText: 15-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 33
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 33
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 27
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11405748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Intro3
+  displayText: 1-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 12
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 12
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 10
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11406262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackC4
+  displayText: 13-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 33
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 33
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 30
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11406396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: Spikes
+  levels:
+  - {fileID: 11491992}
+  - {fileID: 11483380}
+  - {fileID: 11443138}
+  - {fileID: 11423440}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 60
+--- !u!114 &11407468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Portals2
+  displayText: 2-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 13
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 13
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 10
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11411964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Intro2
+  displayText: 1-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 7
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 7
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 5
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11414428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Intro1
+  displayText: 1-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 11
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 11
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 9
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11418366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: Portals
+  levels:
+  - {fileID: 11463244}
+  - {fileID: 11407468}
+  - {fileID: 11439834}
+  - {fileID: 11444548}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 0
+--- !u!114 &11419146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackE2
+  displayText: 15-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 45
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 45
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 38
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11419836
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: StrongBoxes3
+  displayText: 4-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 25
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 25
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 22
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11419840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Effectors2
+  displayText: 6-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 16
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 16
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 13
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11420774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: PackC
+  levels:
+  - {fileID: 11461898}
+  - {fileID: 11439452}
+  - {fileID: 11444546}
+  - {fileID: 11406262}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 120
+--- !u!114 &11421912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Jumps1
+  displayText: 8-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 8
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 8
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 6
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11422160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Doors2
+  displayText: 7-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 25
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 25
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 22
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11422282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Ghost2
+  displayText: 10-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 14
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 14
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 12
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11422392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6ecd278d96dde4e8a8cae18ff1d436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facebook: https://www.facebook.com/whiteroomgames
+  vk: http://vk.com/white_room_games
+  itunes: 
+--- !u!114 &11423436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: Effectors
+  levels:
+  - {fileID: 11481206}
+  - {fileID: 11419840}
+  - {fileID: 11455192}
+  - {fileID: 11446106}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 30
+--- !u!114 &11423440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Spikes4
+  displayText: 9-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 21
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11423730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af425aeb4e0add540b30deba43add696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StarsRecived: 0
+  StarsCount: 0
+  LastSelectedPack: {fileID: 0}
+  LastSelectedLevel: {fileID: 0}
+  LastSelectedPageNumber: 0
+  MovesCounter: 0
+  packs: []
+  levels: []
+--- !u!114 &11423764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Boxes3
+  displayText: 3-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 28
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 28
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 25
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11424270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: StrongBoxes1
+  displayText: 4-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 20
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 20
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 17
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11425116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Ghost3
+  displayText: 10-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 16
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 16
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 13
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11426906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackD1
+  displayText: 14-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 23
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 23
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 20
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11427090
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Switches1
+  displayText: 5-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 27
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 27
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 21
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11428694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackA2
+  displayText: 11-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 21
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11429132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772d3a258e2bce045a0da2808e81aae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: 
+  loadOnStart: 0
+--- !u!114 &11430942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68e7baedbfcfd24f9011fedeff0c6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  theme: 1
+  sounds: 1
+  volume: 1
+  soundsMap:
+  - name: MenuBtnBack
+    nameEnum: 1
+    clip: {fileID: 8300000, guid: 242dd13427b55094998099408cfad4a7, type: 3}
+  - name: MenuBtnFwdA
+    nameEnum: 2
+    clip: {fileID: 8300000, guid: 64bc780c14572e246b8d4fe022cf94fe, type: 3}
+  - name: MenuBtnFwdE
+    nameEnum: 3
+    clip: {fileID: 8300000, guid: 68f05b7edce01c641add16b4e58c617c, type: 3}
+  - name: MenuBtnFwdF
+    nameEnum: 4
+    clip: {fileID: 8300000, guid: 3437e46d75ae7a14aa4a2eec76a163a4, type: 3}
+  - name: MenuBtnFwdG
+    nameEnum: 5
+    clip: {fileID: 8300000, guid: 111c5f84b11e9f8469897862d2d9ffdc, type: 3}
+  - name: MenuTheme01
+    nameEnum: 7
+    clip: {fileID: 8300000, guid: 1baf7e16eac143b4e8d9ea6aca1aee22, type: 3}
+  - name: MenuPyramid
+    nameEnum: 6
+    clip: {fileID: 8300000, guid: a4ff437e383dd4944a4f340539a814bd, type: 3}
+  - name: MenuPackLocked
+    nameEnum: 8
+    clip: {fileID: 8300000, guid: de41b788b7ac81d4c90f2c2c23b33369, type: 3}
+  - name: GameTheme01
+    nameEnum: 9
+    clip: {fileID: 8300000, guid: c0da46dae4d3ea34b9235cab77958cb1, type: 3}
+  - name: GameTheme02
+    nameEnum: 10
+    clip: {fileID: 8300000, guid: d7813234329bc0a459180de5c741a16a, type: 3}
+  - name: UIGameButton
+    nameEnum: 11
+    clip: {fileID: 8300000, guid: 7c6502469cc8daf42ade5c4935973918, type: 3}
+  - name: PlayerFadeIn
+    nameEnum: 12
+    clip: {fileID: 8300000, guid: 0f12d4c50987efd45a7347a61394043a, type: 3}
+  - name: PlayerFadeOut
+    nameEnum: 13
+    clip: {fileID: 8300000, guid: 04244a52da33c064d93c6b5f4aab6764, type: 3}
+  - name: Pyramid01
+    nameEnum: 14
+    clip: {fileID: 8300000, guid: bd0c2f65805ff9e4abc5afc2421a68b1, type: 3}
+  - name: Pyramid02
+    nameEnum: 15
+    clip: {fileID: 8300000, guid: f458e90ea11fbc642b1573966e5fd4a5, type: 3}
+  - name: Pyramid03
+    nameEnum: 16
+    clip: {fileID: 8300000, guid: d7e51b68843d3564ca53824e68dca826, type: 3}
+  - name: Star01
+    nameEnum: 17
+    clip: {fileID: 8300000, guid: d26b1239807aea34d88ef66a87ddb4a8, type: 3}
+  - name: Star02
+    nameEnum: 18
+    clip: {fileID: 8300000, guid: 0ba9e00c03a8a9546a422446509a8aa7, type: 3}
+  - name: Star03
+    nameEnum: 19
+    clip: {fileID: 8300000, guid: c14626fb11e12eb44af5bc5eda0e74d8, type: 3}
+  - name: Portal
+    nameEnum: 20
+    clip: {fileID: 8300000, guid: ea304e40c45cee64aa65abdacc868c5e, type: 3}
+  - name: BoxWhite
+    nameEnum: 21
+    clip: {fileID: 8300000, guid: 726973877e672054baf0986b9b2fea29, type: 3}
+  - name: BoxYellow
+    nameEnum: 22
+    clip: {fileID: 8300000, guid: dfd793fcc31c93142af408524aedfb91, type: 3}
+  - name: SwitcherOnOff
+    nameEnum: 23
+    clip: {fileID: 8300000, guid: 479a68a751116374db4795f96bb6dc6e, type: 3}
+  - name: SwitcherAlert
+    nameEnum: 24
+    clip: {fileID: 8300000, guid: accf2a1f7f6ef6a4d8785039de605c2c, type: 3}
+  - name: MoveEffector
+    nameEnum: 25
+    clip: {fileID: 8300000, guid: a69b76484dcf0d1408489be09ce182f6, type: 3}
+  - name: GateClose
+    nameEnum: 26
+    clip: {fileID: 8300000, guid: 2624e6875a81c5b46ae75a2aab8018a0, type: 3}
+  - name: Trampoline
+    nameEnum: 27
+    clip: {fileID: 8300000, guid: 37a9cf0475c904646b4b82ef006cfbb8, type: 3}
+  - name: PlayerDeath
+    nameEnum: 28
+    clip: {fileID: 8300000, guid: 2d3ae2473decdbd4a96a9002e0ec6bd9, type: 3}
+  - name: SpikeHide
+    nameEnum: 29
+    clip: {fileID: 8300000, guid: a9a30c5713491d64d87fba80adc2fd81, type: 3}
+  - name: SpikeShow
+    nameEnum: 30
+    clip: {fileID: 8300000, guid: 159d10a7e7ed9874aa26a0c2fd312a22, type: 3}
+  - name: HiddenWall01
+    nameEnum: 31
+    clip: {fileID: 8300000, guid: d88e4e39188516d47ad72fb8d0f8e37a, type: 3}
+  - name: HiddenWall02
+    nameEnum: 32
+    clip: {fileID: 8300000, guid: 2645d6a3d4f70df4883a6e9fe868ac95, type: 3}
+  - name: HiddenStar
+    nameEnum: 33
+    clip: {fileID: 8300000, guid: cad7873798a68374abb46a88cfb7bc63, type: 3}
+--- !u!114 &11432178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Ghost1
+  displayText: 10-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 18
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 17
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 16
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11432342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: Intro
+  levels:
+  - {fileID: 11414428}
+  - {fileID: 11411964}
+  - {fileID: 11405748}
+  - {fileID: 11468760}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 0
+--- !u!114 &11433856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: Ghost
+  levels:
+  - {fileID: 11432178}
+  - {fileID: 11422282}
+  - {fileID: 11425116}
+  - {fileID: 11467328}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 90
+--- !u!114 &11434296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackA1
+  displayText: 11-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 16
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 16
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 12
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11434664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackB3
+  displayText: 12-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 25
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 25
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 21
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11435834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Boxes1
+  displayText: 3-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 10
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 10
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 8
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11439452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackC2
+  displayText: 13-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 22
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 22
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 19
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11439810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackB2
+  displayText: 12-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 23
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 23
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 18
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11439834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Portals3
+  displayText: 2-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 18
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11440360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: Doors
+  levels:
+  - {fileID: 11473034}
+  - {fileID: 11422160}
+  - {fileID: 11442570}
+  - {fileID: 11469502}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 60
+--- !u!114 &11442570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Doors3
+  displayText: 7-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 46
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 46
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 40
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11443138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Spikes3
+  displayText: 9-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 33
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 33
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 29
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11443264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: Boxes
+  levels:
+  - {fileID: 11435834}
+  - {fileID: 11487444}
+  - {fileID: 11423764}
+  - {fileID: 11452810}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 0
+--- !u!114 &11444546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackC3
+  displayText: 13-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 20
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 20
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 15
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11444548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Portals4
+  displayText: 2-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 36
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 36
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 30
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11446106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Effectors4
+  displayText: 6-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 15
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 15
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 13
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11450646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackE1
+  displayText: 15-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 38
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 38
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 34
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11452810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Boxes4
+  displayText: 3-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 20
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 20
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 17
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11454028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37591dfef82a89240bb6142cca15f0b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  language: 10
+  viaSystemLanguage: 0
+--- !u!114 &11455192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Effectors3
+  displayText: 6-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 25
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 23
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 23
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11456422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Switches2
+  displayText: 5-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 28
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 28
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 22
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11461898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackC1
+  displayText: 13-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 20
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11462024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: PackE
+  levels:
+  - {fileID: 11450646}
+  - {fileID: 11419146}
+  - {fileID: 11405422}
+  - {fileID: 11487514}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 120
+--- !u!114 &11462434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: StrongBoxes2
+  displayText: 4-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 19
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 19
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 16
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11463022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackB4
+  displayText: 12-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 25
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 25
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 22
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11463244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Portals1
+  displayText: 2-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 4
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 4
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 2
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11467328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Ghost4
+  displayText: 10-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 33
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 33
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 29
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11468266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Jumps2
+  displayText: 8-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 20
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11468558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: PackA
+  levels:
+  - {fileID: 11434296}
+  - {fileID: 11428694}
+  - {fileID: 11485582}
+  - {fileID: 11478390}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 90
+--- !u!114 &11468760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Intro4
+  displayText: 1-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 18
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 18
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 16
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11469502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Doors4
+  displayText: 7-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 17
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 17
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 15
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11473034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Doors1
+  displayText: 7-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 11
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 11
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 9
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11473060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: StrongBoxes
+  levels:
+  - {fileID: 11424270}
+  - {fileID: 11462434}
+  - {fileID: 11419836}
+  - {fileID: 11401238}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 30
+--- !u!114 &11473348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackB1
+  displayText: 12-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 19
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 19
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 16
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11474378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: Switches
+  levels:
+  - {fileID: 11427090}
+  - {fileID: 11456422}
+  - {fileID: 11482120}
+  - {fileID: 11401912}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 30
+--- !u!114 &11475282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackD4
+  displayText: 14-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 31
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 31
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 27
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11477808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackD3
+  displayText: 14-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 23
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 23
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 20
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11477842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: PackD
+  levels:
+  - {fileID: 11426906}
+  - {fileID: 11491822}
+  - {fileID: 11477808}
+  - {fileID: 11475282}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 120
+--- !u!114 &11478106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Jumps4
+  displayText: 8-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 36
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 36
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 30
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11478390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackA4
+  displayText: 11-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 29
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 29
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11478642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3472151568ad41b4c5319aabe9631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packName: PackB
+  levels:
+  - {fileID: 11473348}
+  - {fileID: 11439810}
+  - {fileID: 11434664}
+  - {fileID: 11463022}
+  StarsCount: 0
+  StarsRecived: 0
+  StarsRequired: 90
+--- !u!114 &11481206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Effectors1
+  displayText: 6-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 9
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 9
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 7
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11482120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Switches3
+  displayText: 5-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 39
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 39
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 35
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11483380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Spikes2
+  displayText: 9-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 12
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 11
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 10
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11484010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Jumps3
+  displayText: 8-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 46
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 46
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 40
+    IsCollected: 0
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11485582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackA3
+  displayText: 11-3
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 24
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 19
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11487444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Boxes2
+  displayText: 3-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 23
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 23
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 20
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11487514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackE4
+  displayText: 15-4
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 41
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 36
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 36
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11491822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: PackD2
+  displayText: 14-2
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 25
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 25
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 22
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 1
+--- !u!114 &11491992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb37fffd9f7a6f5459917f068f26d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Spikes1
+  displayText: 9-1
+  stars:
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 17
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 17
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 15
+    IsCollected: 0
+  IsPassed: 0
+  IsClosed: 0
+--- !u!114 &11498388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a92feacb5fbb649a8fd4a8731ef606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boosters:
+  - name: Teleport
+    type: 0
+    avaliableAtLevel: {fileID: 11414428}
+  - name: TimeMachine
+    type: 1
+    avaliableAtLevel: {fileID: 11414428}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 196390}
+  m_IsPrefabParent: 1

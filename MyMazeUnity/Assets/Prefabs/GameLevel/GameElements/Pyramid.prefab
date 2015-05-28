@@ -13,6 +13,7 @@ GameObject:
   - 212: {fileID: 21238844}
   - 95: {fileID: 9538520}
   - 61: {fileID: 6164660}
+  - 114: {fileID: 11408412}
   m_Layer: 0
   m_Name: Pyramid
   m_TagString: Untagged
@@ -62,6 +63,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11408412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b6f98df5f6b574984fc73b024a348b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: 8
+  type: 0
 --- !u!114 &11441006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,6 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e7bdc3d9f019f49af23e4b7b972993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveCPUResources: 1
   position:
     xCell: 0
     yRow: 0

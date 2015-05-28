@@ -31,6 +31,7 @@ public class Gate : GameLevelObject {
     void Close()
     {
         animator.SetTrigger("Close");
+        GetComponent<SoundsPlayer>().PlayOneShootSound();
     }
 
     /// <summary>

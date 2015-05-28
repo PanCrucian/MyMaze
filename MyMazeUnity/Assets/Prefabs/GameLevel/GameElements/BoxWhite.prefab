@@ -13,6 +13,7 @@ GameObject:
   - 95: {fileID: 9520794}
   - 61: {fileID: 6107630}
   - 114: {fileID: 11438464}
+  - 114: {fileID: 11413098}
   m_Layer: 0
   m_Name: BoxWhite
   m_TagString: Untagged
@@ -62,6 +63,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11413098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b6f98df5f6b574984fc73b024a348b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: 21
+  type: 0
 --- !u!114 &11415310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,6 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e7bdc3d9f019f49af23e4b7b972993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveCPUResources: 1
   position:
     xCell: 0
     yRow: 1

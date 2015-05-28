@@ -1,0 +1,40 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public enum SoundNames
+{
+    ScriptSolves,
+    MenuBtnBack,
+    MenuBtnFwdA,
+    MenuBtnFwdE,
+    MenuBtnFwdF,
+    MenuBtnFwdG,
+    MenuPyramid,
+    MenuTheme01,
+    MenuPackLocked,
+    GameTheme01,
+    GameTheme02,
+    UIGameButton,
+    PlayerFadeIn,
+    PlayerFadeOut,
+    Pyramid01,
+    Pyramid02,
+    Pyramid03,
+    Star01,
+    Star02,
+    Star03,
+    Portal,
+    BoxWhite,
+    BoxYellow,
+    SwitcherOnOff,
+    SwitcherAlert,
+    MoveEffector,
+    GateClose,
+    Trampoline,
+    PlayerDeath,
+    SpikeHide,
+    SpikeShow,
+    HiddenWall01,
+    HiddenWall02,
+    HiddenStar
+}

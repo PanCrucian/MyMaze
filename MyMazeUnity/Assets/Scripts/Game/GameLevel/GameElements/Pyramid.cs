@@ -37,9 +37,28 @@ public class Pyramid : GameLevelObject
         _isUsed = true;
         boxCollider.enabled = false;
         animator.SetBool("PickUp", true);
+        PlayPickUpSound();
 
         if (OnPyramidPickUp != null)
             OnPyramidPickUp(this);
+    }
+
+    /// <summary>
+    /// Играет звук подбора
+    /// </summary>
+    void PlayPickUpSound()
+    {
+        SoundNames playableSoundName;
+        int random = Random.Range(1, 3);
+        if (random == 1)
+            playableSoundName = SoundNames.Pyramid01;
+        else if (random == 2)
+            playableSoundName = SoundNames.Pyramid02;
+        else
+            playableSoundName = SoundNames.Pyramid03;
+
+        SoundsPlayer soundsPlayer = GetComponent<SoundsPlayer>();
+        soundsPlayer.PlayOneShootSound(playableSoundName);
     }
 
     /// <summary>

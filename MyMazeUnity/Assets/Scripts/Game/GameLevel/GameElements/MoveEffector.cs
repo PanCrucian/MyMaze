@@ -22,6 +22,7 @@ public class MoveEffector : GameLevelObject {
             Player.Instance.StopMoving(true);
             Player.Instance.MoveImpulse(direction, true);
             animator.SetTrigger("Action");
+            GetComponent<SoundsPlayer>().PlayOneShootSound();
         }
     }
 }

@@ -45,6 +45,9 @@ public class BoxStrong : GameLevelObject {
         }
     }
 
+    /// <summary>
+    /// Уровень перезапустился
+    /// </summary>
     public override void Restart()
     {
         StartCoroutine(RestartNumerator());
@@ -69,18 +72,6 @@ public class BoxStrong : GameLevelObject {
         boxYellow.ToDefaultState();
         boxWhite.ToDefaultState();
         boxWhite.boxCollider.enabled = false;
-    }
-
-    void ToDamagedState()
-    {
-        boxWhite.boxCollider.enabled = true;
-        boxYellow.boxCollider.enabled = false;
-    }
-
-    void ToDestroyedState()
-    {
-        boxWhite.boxCollider.enabled = false;
-        boxYellow.boxCollider.enabled = false;
     }
     
     /// <summary>

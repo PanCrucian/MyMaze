@@ -20,6 +20,7 @@ public class HiddenFill : GameLevelObject {
     public void CrackEasy()
     {
         animator.SetTrigger("Crack");
+        GetComponent<SoundsPlayer>().PlayOneShootSound(SoundNames.HiddenWall01);
     }
 
     /// <summary>
@@ -28,6 +29,7 @@ public class HiddenFill : GameLevelObject {
     public void CrackHard()
     {
         animator.SetTrigger("Destroy");
+        GetComponent<SoundsPlayer>().PlayOneShootSound(SoundNames.HiddenWall02);
     }
 
     public override void Restart()

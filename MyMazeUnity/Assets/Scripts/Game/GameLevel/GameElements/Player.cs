@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CircleCollider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(SoundsPlayer))]
 public class Player : GameLevelObject
 {
     public Deligates.IntegerEvent OnMoveEnd;
@@ -138,6 +139,7 @@ public class Player : GameLevelObject
     public void EnableControl()
     {
         animator.SetTrigger("FadeIn");
+        GetComponent<SoundsPlayer>().PlayOneShootSound(SoundNames.PlayerFadeIn);
     }
 
     /// <summary>
@@ -146,6 +148,7 @@ public class Player : GameLevelObject
     public void DisableControl()
     {
         animator.SetTrigger("FadeOut");
+        GetComponent<SoundsPlayer>().PlayOneShootSound(SoundNames.PlayerFadeOut);
     }
     
     /// <summary>
@@ -318,6 +321,7 @@ public class Player : GameLevelObject
         StopMoving();
         state = PlayerStates.Die;
         animator.SetTrigger("Death");
+        GetComponent<SoundsPlayer>().PlayOneShootSound(SoundNames.PlayerDeath);
     }
 
     /// <summary>
@@ -376,6 +380,40 @@ public class Player : GameLevelObject
         DisableControl();
         isTeleport = true;
     }
+    
+    /// <summary>
+    /// Наметить место для телепортации
+    /// </summary>
+    /// <param name="gridPosition">Координаты MyMaze</param>
+    void TeleportPlace(GridObject.Position gridPosition)
+    {
+        if (!CheckOntheLegalPositionForTeleport(gridPosition))
+            return;
+        DestroyTempTeleportGO();
+        tempTeleportPosition = gridPosition.Clone();
+        tempTeleportPointerGO = (GameObject)Instantiate(teleportPointerPrefab, transform.position, transform.rotation);
+        tempTeleportPointerGO.transform.parent = transform.parent;
+        tempTeleportPointerGO.GetComponent<GridDraggableObject>().ForceUpdatePosition(tempTeleportPosition);
+    }
+
+    /// <summary>
+    /// Проверяет можно ли телепортироваться в желаемое место. Бустер "Телепорт"
+    /// </summary>
+    /// <param name="gridPosition"></param>
+    /// <returns></returns>
+    bool CheckOntheLegalPositionForTeleport(GridObject.Position gridPosition)
+    {
+        GridObject[] gridObjects = GameObject.FindObjectsOfType<GridObject>();
+        foreach (GridObject go in gridObjects)
+        {
+            if (go.position.Equals(gridPosition))
+                if (go.tag.Equals("WallFill"))
+                    return false;
+                else if (go.tag.Equals("Spike"))
+                    return false;
+        }
+        return true;
+    }
 
     /// <summary>
     /// Телепортироваться в намеченное место
@@ -392,9 +430,17 @@ public class Player : GameLevelObject
             OnMoveEnd(MovesCount);
     }
 
+    /// <summary>
+    /// Уничтожить временный силует игрока, используется в цикле телепортации
+    /// </summary>
+    void DestroyTempTeleportGO()
+    {
+        if (tempTeleportPointerGO != null)
+            Destroy(tempTeleportPointerGO);
+    }
 
     /// <summary>
-    /// Телпортация игрока
+    /// Телпортация игрока используя игровой портал
     /// </summary>
     /// <param name="portal">Портал в который нужно телепортироваться</param>
     public void Teleport(Portal portal)
@@ -407,28 +453,6 @@ public class Player : GameLevelObject
         };
         draggable.SetPositionVars(newPosition);
         draggable.UpdatePosition();
-    }
-
-    /// <summary>
-    /// Наметить место для телепортации
-    /// </summary>
-    /// <param name="gridPosition">Координаты MyMaze</param>
-    void TeleportPlace(GridObject.Position gridPosition)
-    {
-        DestroyTempTeleportGO();
-        tempTeleportPosition = gridPosition.Clone();
-        tempTeleportPointerGO = (GameObject)Instantiate(teleportPointerPrefab, transform.position, transform.rotation);
-        tempTeleportPointerGO.transform.parent = transform.parent;
-        tempTeleportPointerGO.GetComponent<GridDraggableObject>().ForceUpdatePosition(tempTeleportPosition);
-    }
-
-    /// <summary>
-    /// Уничтожить временный силует игрока, используется в цикле телепортации
-    /// </summary>
-    void DestroyTempTeleportGO()
-    {
-        if (tempTeleportPointerGO != null)
-            Destroy(tempTeleportPointerGO);
     }
 
     void ResetTempTeleportPosition()

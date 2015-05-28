@@ -45,7 +45,8 @@ public class CGSwitcher : MonoBehaviour {
 
     IEnumerator SwitchAfterDelay()
     {
-        yield return new WaitForSeconds(delay);
+        if (delay > 0)
+            yield return new WaitForSeconds(delay);
         if (animatorForHide != null)
             animatorForHide.SetTrigger("FadeOut");
         if (animatorForShow != null)

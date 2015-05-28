@@ -43,6 +43,7 @@ public class Switcher : ButtonLevel
     {
         switchState = SwitcherStates.TurnsOn;
         animator.SetTrigger("TurnsOn");
+        GetComponent<SoundsPlayer>().PlayOneShootSound(SoundNames.SwitcherOnOff);
         if (OnPress != null)
             OnPress(this);
     }
@@ -63,6 +64,7 @@ public class Switcher : ButtonLevel
     {
         switchState = SwitcherStates.NowTurnOff;
         animator.SetTrigger("NowTurnOff");
+        GetComponent<SoundsPlayer>().PlayOneShootSound(SoundNames.SwitcherAlert);
     }
 
     /// <summary>
@@ -72,6 +74,7 @@ public class Switcher : ButtonLevel
     {
         switchState = SwitcherStates.TurnsOff;
         animator.SetTrigger("TurnsOff");
+        GetComponent<SoundsPlayer>().PlayOneShootSound(SoundNames.SwitcherOnOff);
         if (OnRelease != null)
             OnRelease(this);
     }

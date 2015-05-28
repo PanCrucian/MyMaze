@@ -13,6 +13,7 @@ GameObject:
   - 95: {fileID: 9509962}
   - 61: {fileID: 6180104}
   - 114: {fileID: 11432054}
+  - 114: {fileID: 11495768}
   m_Layer: 0
   m_Name: BoxYellow
   m_TagString: Untagged
@@ -51,6 +52,7 @@ GameObject:
   - 95: {fileID: 9540842}
   - 61: {fileID: 6130264}
   - 114: {fileID: 11458732}
+  - 114: {fileID: 11442248}
   m_Layer: 0
   m_Name: BoxWhite
   m_TagString: Untagged
@@ -233,6 +235,19 @@ MonoBehaviour:
   draggable: {fileID: 0}
   color: 1
   boxCollider: {fileID: 0}
+--- !u!114 &11442248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b6f98df5f6b574984fc73b024a348b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: 21
+  type: 0
 --- !u!114 &11458732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -261,6 +276,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   draggable: {fileID: 0}
+--- !u!114 &11495768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b6f98df5f6b574984fc73b024a348b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: 22
+  type: 0
 --- !u!212 &21202164
 SpriteRenderer:
   m_ObjectHideFlags: 1

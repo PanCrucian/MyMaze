@@ -13,4 +13,9 @@ public class DragZoneActor : MonoBehaviour {
     {
         GameLevel.Instance.PointerDownRequest(data);
     }
+
+    public void PointerUpRequest(BaseEventData data)
+    {
+        GameLevel.Instance.PointerUpRequest(data);
+    }
 }

@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11438214}
   - 95: {fileID: 9512458}
   - 114: {fileID: 11413156}
+  - 114: {fileID: 11419318}
   m_Layer: 0
   m_Name: HiddenStar
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   draggable: {fileID: 0}
+--- !u!114 &11419318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b6f98df5f6b574984fc73b024a348b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: 33
+  type: 0
 --- !u!114 &11438214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e7bdc3d9f019f49af23e4b7b972993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveCPUResources: 1
   position:
     xCell: 0
     yRow: 2

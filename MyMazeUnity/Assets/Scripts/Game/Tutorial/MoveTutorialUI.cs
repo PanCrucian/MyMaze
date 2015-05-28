@@ -26,7 +26,7 @@ public class MoveTutorialUI : MonoBehaviour {
     {
         animator.SetTrigger("FadeOut");
         MyMaze.Instance.Tutorial.GetStep(TutorialPhase.HowToMove).Complete();
-        MyMaze.Instance.Tutorial.StartStep(TutorialPhase.NotTeach);
+        //MyMaze.Instance.Tutorial.StartStep(TutorialPhase.NotTeach);
         GameLevel.Instance.OnPlayerMoveRequest -= OnPlayerMoveRequest;
     }
 }

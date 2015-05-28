@@ -74,6 +74,7 @@ public class PackUI : MonoBehaviour {
             lockCG.alpha = 1f;
             Animator animator = GetComponent<Animator>();
             animator.SetTrigger("Lock");
+            GetComponent<SoundsPlayer>().PlayOneShootSound(SoundNames.MenuPackLocked);
         }
         else
         {
@@ -86,6 +87,7 @@ public class PackUI : MonoBehaviour {
                 );
             CGSwitcher.Instance.Switch();
             MyMaze.Instance.LastSelectedPack = pack;
+            GetComponent<SoundsPlayer>().PlayOneShootSound(SoundNames.MenuBtnFwdE);
         }
     }
 }

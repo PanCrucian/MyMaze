@@ -15,6 +15,9 @@ public class GameLevel : MonoBehaviour {
     public List<Pyramid> pyramids;
 
     private Level nextLevel;
+    private SoundsPlayer soundsPlayer;
+    private Vector2[] pointerDownUpVector = new Vector2[2];
+    private bool isReturnToMove = false;
     
     public static GameLevel Instance
     {
@@ -38,6 +41,44 @@ public class GameLevel : MonoBehaviour {
         uiGame = GameObject.FindGameObjectWithTag("uiGame").GetComponent<Animator>();
         uiResults = GameObject.FindGameObjectWithTag("uiResults").GetComponent<Animator>();
         pyramids = transform.GetComponentsInChildren<Pyramid>().ToList<Pyramid>();
+        soundsPlayer = GetComponent<SoundsPlayer>();
+        if (soundsPlayer == null)
+            Debug.LogWarning("SoundsPlayer не найден");
+        else
+            PlayLevelTheme();
+        MyMaze.Instance.OnMenuLoad += OnMenuLoad;
+    }
+
+    void OnMenuLoad()
+    {
+        Theme theme = GameObject.FindObjectOfType<Theme>();
+        if (theme != null)
+        {
+            Destroy(theme.gameObject);
+        }
+    }
+
+    /// <summary>
+    /// Играть музыку уровня
+    /// </summary>
+    void PlayLevelTheme()
+    {
+        //найдем играющую тему
+        Theme theme = GameObject.FindObjectOfType<Theme>();
+        if (theme == null) // если ничего не играет
+        {
+            soundsPlayer.PlayLooped(); //играем то что настроено
+        }
+        else //если что-то играет
+        {
+            AudioSource themeAudio = theme.GetComponent<AudioSource>();
+            //если играющая музыка это НЕ то же самое что и хочет сейчас играть
+            if (themeAudio.clip != MyMaze.Instance.Sounds.GetAudioClip(soundsPlayer.soundName))
+            {
+                Destroy(themeAudio.gameObject); // то выключим то что играет
+                soundsPlayer.PlayLooped(); //включим новый трек
+            }
+        }
     }
 
     void Update()
@@ -64,23 +105,51 @@ public class GameLevel : MonoBehaviour {
     /// </summary>
     public void Drag(BaseEventData data)
     {
-        PointerEventData pointer = (PointerEventData)data;
-        Vector2 delta = pointer.delta;
-        float threshold = GameLevelDesign.Instance.dragTreshold;
-        if (Mathf.Abs(delta.x) >= threshold)
-        {
-            if (delta.x < 0)
-                CallMoveRequest(Directions.Left);
-            else
-                CallMoveRequest(Directions.Right);
+        
+    }
 
-        }
-        else if (Mathf.Abs(delta.y) >= threshold)
+    /// <summary>
+    /// Когда человек нажал на экран
+    /// </summary>
+    /// <param name="data"></param>
+    public void PointerDownRequest(BaseEventData data)
+    {
+        PointerEventData pointerData = (PointerEventData)data;
+        pointerDownUpVector[0] = pointerData.pressPosition;
+        if (OnPointerDown != null)
+            OnPointerDown(pointerData.position);
+    }
+
+    /// <summary>
+    /// Когда человек отпустил палец от экрана
+    /// </summary>
+    /// <param name="data"></param>
+    public void PointerUpRequest(BaseEventData data)
+    {
+        PointerEventData pointerData = (PointerEventData)data;
+        pointerDownUpVector[1] = pointerData.position;
+
+        float fingerDistance = Vector2.Distance(pointerDownUpVector[1], pointerDownUpVector[0]);
+        float xDist = pointerDownUpVector[1].x - pointerDownUpVector[0].x;
+        float yDist = pointerDownUpVector[1].y - pointerDownUpVector[0].y;
+        //Debug.Log("Distance:" + fingerDistance.ToString() + ", X:" + xDist.ToString() + ", Y:" + yDist.ToString());
+
+        if (fingerDistance >= GameLevelDesign.Instance.scrollTreshold)
         {
-            if (delta.y < 0)
-                CallMoveRequest(Directions.Down);
-            else
-                CallMoveRequest(Directions.Up);
+            if (Mathf.Abs(xDist) > Mathf.Abs(yDist))
+            {
+                if(xDist > 0)
+                    CallMoveRequest(Directions.Right);
+                else
+                    CallMoveRequest(Directions.Left);
+            }
+            else if (Mathf.Abs(xDist) < Mathf.Abs(yDist))
+            {
+                if (yDist > 0)
+                    CallMoveRequest(Directions.Up);
+                else
+                    CallMoveRequest(Directions.Down);
+            }
         }
     }
 
@@ -153,7 +222,8 @@ public class GameLevel : MonoBehaviour {
                 lastSelectedLevel.MinMovesRecord = Player.Instance.MovesCount;  
 
         //проверим какие звезды мы должны получить и получим их
-        List<Star> stars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();  
+        List<Star> stars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();
+        int i = 1;
         foreach (Star star in stars)
         {
             if (Player.Instance.MovesCount <= star.movesToGet)
@@ -163,9 +233,16 @@ public class GameLevel : MonoBehaviour {
                 if (starAnimator != null)
                 {
                     starAnimator.SetBool("IsCollected", true);
+                    if(i == 1)
+                        soundsPlayer.PlayOneShootSound(SoundNames.Star01);
+                    else if(i == 2)
+                        soundsPlayer.PlayOneShootSound(SoundNames.Star02);
+                    else
+                        soundsPlayer.PlayOneShootSound(SoundNames.Star03);
                     yield return new WaitForSeconds(GameLevelDesign.Instance.starsCollectingDelay);
                 }
             }
+            i++;
         }
 
         //пройдем текущий уровень
@@ -272,15 +349,28 @@ public class GameLevel : MonoBehaviour {
             return;
         if (Player.Instance.state != PlayerStates.Idle)
             return;
+        if (isReturnToMove)
+            return;
 
-        if(OnReturnToMove != null)
-            OnReturnToMove(move);
+        isReturnToMove = true;
+        Player.Instance.DisableControl();
+        StartCoroutine(ReturnToMoveNumerator(move));
     }
 
-    public void PointerDownRequest(BaseEventData data)
+    IEnumerator ReturnToMoveNumerator(int move)
     {
-        PointerEventData pointerData = (PointerEventData) data;
-        if (OnPointerDown != null)
-            OnPointerDown(pointerData.position);
+        float playerFadeAnimationTime = 1f; // вермя исчезания и появления игрока
+        yield return new WaitForSeconds(playerFadeAnimationTime);
+        Player.Instance.EnableControl();
+        if (OnReturnToMove != null)
+            OnReturnToMove(move);
+        yield return new WaitForSeconds(playerFadeAnimationTime);
+        isReturnToMove = false;
+    }
+    
+    void OnDestroy()
+    {
+        if (MyMaze.Instance != null)
+            MyMaze.Instance.OnMenuLoad -= OnMenuLoad;
     }
 }

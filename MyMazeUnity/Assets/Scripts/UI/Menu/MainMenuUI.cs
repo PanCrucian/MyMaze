@@ -12,6 +12,8 @@ public class MainMenuUI : MonoBehaviour {
             CGSwitcher.Instance.SetShowObject(levelsMenuUi.GetComponent<Animator>());
             CGSwitcher.Instance.Switch();
         }
+        GetComponent<SoundsPlayer>().PlayLooped();
+        MyMaze.Instance.OnLevelLoad += OnLevelLoad;
 	}
 
     /// <summary>
@@ -20,5 +22,16 @@ public class MainMenuUI : MonoBehaviour {
     public void ResetSaves()
     {
         MyMaze.Instance.ResetSaves();
+    }
+
+    void OnLevelLoad(Level level)
+    {
+        GetComponent<SoundsPlayer>().StopSound();
+    }
+
+    void OnDestroy()
+    {
+        if (MyMaze.Instance != null)
+            MyMaze.Instance.OnLevelLoad -= OnLevelLoad;
     }
 }

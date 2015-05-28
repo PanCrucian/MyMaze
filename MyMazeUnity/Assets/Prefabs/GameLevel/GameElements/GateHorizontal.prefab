@@ -13,6 +13,7 @@ GameObject:
   - 95: {fileID: 9543662}
   - 114: {fileID: 11427718}
   - 114: {fileID: 11403870}
+  - 114: {fileID: 11442454}
   m_Layer: 0
   m_Name: GateHorizontal
   m_TagString: Untagged
@@ -86,9 +87,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e7bdc3d9f019f49af23e4b7b972993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveCPUResources: 1
   position:
     xCell: 0
     yRow: 1
+--- !u!114 &11442454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b6f98df5f6b574984fc73b024a348b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: 26
+  type: 0
 --- !u!212 &21268018
 SpriteRenderer:
   m_ObjectHideFlags: 1

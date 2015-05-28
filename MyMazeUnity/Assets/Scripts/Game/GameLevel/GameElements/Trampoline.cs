@@ -12,6 +12,7 @@ public class Trampoline : GameLevelObject {
         {
             Player.Instance.Jump(this);
             animator.SetTrigger("Action");
+            GetComponent<SoundsPlayer>().PlayOneShootSound();
         }
     }
 }

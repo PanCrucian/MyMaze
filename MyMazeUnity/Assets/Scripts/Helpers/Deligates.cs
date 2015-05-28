@@ -9,4 +9,5 @@ public static class Deligates
     public delegate void ButtonEvent(ButtonLevel button);
     public delegate void IntegerEvent(int value);
     public delegate void Vector2Event(Vector2 vector2);
+    public delegate void LevelLoadEvent(Level level);
 }

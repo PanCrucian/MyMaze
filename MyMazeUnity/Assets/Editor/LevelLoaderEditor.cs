@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections;
 
-[CustomEditor(typeof(LevelLoader))]
+[CustomEditor(typeof(SceneLoader))]
 [CanEditMultipleObjects]
 public class LevelLoaderEditor : Editor
 {  
@@ -10,7 +10,7 @@ public class LevelLoaderEditor : Editor
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
-        LevelLoader loader = (LevelLoader)target;
+        SceneLoader loader = (SceneLoader)target;
         if (GUILayout.Button("Загрузить выбранный уровень"))
         {
             loader.Load();

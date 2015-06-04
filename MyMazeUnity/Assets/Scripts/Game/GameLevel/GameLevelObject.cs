@@ -14,6 +14,7 @@ public class GameLevelObject : MonoBehaviour, IRecordingElement, IPauseable, IRe
 
     private Dictionary<int, PositionRecordData> moveHistory = new Dictionary<int, PositionRecordData>();
 
+
     public virtual void Start()
     {
         animator = GetComponent<Animator>();
@@ -22,6 +23,7 @@ public class GameLevelObject : MonoBehaviour, IRecordingElement, IPauseable, IRe
         Player.Instance.OnMoveEnd += Record;
         GameLevel.Instance.OnReturnToMove += ReturnToMove;
         StartCoroutine(FirstRecord());
+
     }
 
     IEnumerator FirstRecord()
@@ -45,7 +47,7 @@ public class GameLevelObject : MonoBehaviour, IRecordingElement, IPauseable, IRe
     public virtual void TogglePause(bool pause)
     {
         if (pause) {
-            animator.speed = 0f;
+            animator.speed = 0f;            
         }
         else 
         { 

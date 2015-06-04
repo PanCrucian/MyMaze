@@ -5,6 +5,7 @@ using System.Collections;
 public class LevelsUI : MonoBehaviour {
 
     public LevelUI[] levelsui;
+    public EnergyUI energyUI;
     public Text loadingText;
 
     void Start()

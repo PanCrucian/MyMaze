@@ -67,6 +67,22 @@ public class MovingWall : GameLevelObject {
         moveToPosition = draggable.GetWorldPosition(toPosition);
         moveStartPosition = transform.localPosition;
         movedTime = 0f;
+        ColliderControl();
+    }
+
+    /// <summary>
+    /// Заставляем колайдер стены выключиться на время
+    /// </summary>
+    void ColliderControl()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        StartCoroutine(ActivateColliderNumerator());
+    }
+
+    IEnumerator ActivateColliderNumerator()
+    {
+        yield return new WaitForSeconds(0.033f);
+        GetComponent<Collider2D>().enabled = true;
     }
 
     /// <summary>
@@ -78,6 +94,7 @@ public class MovingWall : GameLevelObject {
         moveToPosition = draggable.GetWorldPosition(draggable.StartPosition);
         moveStartPosition = transform.localPosition;
         movedTime = 0f;
+        ColliderControl();
     }
 
     /// <summary>

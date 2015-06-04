@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 [RequireComponent(typeof(MyMaze))]
-public class Sounds : MonoBehaviour{
+public class Sounds : MonoBehaviour, ISavingElement {
 
     [System.Serializable]
     public class SoundMap
@@ -128,5 +128,10 @@ public class Sounds : MonoBehaviour{
         if (PlayerPrefs.HasKey("Sounds#volume"))
             this.volume = PlayerPrefs.GetFloat("Sounds#volume");
         SetupVolume();
+    }
+    
+    public void ResetSaves()
+    {
+        throw new NotImplementedException();
     }
 }

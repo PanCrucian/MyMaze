@@ -28,6 +28,8 @@ public class Player : GameLevelObject
     {
         public float movePower = 4.75f;
         public float stopMovingDelay = 0.055f;
+        public float jumpStopDelay = 0.075f;
+        public float jumpOutDelay = 0.25f;
     }
 	public static Player Instance {
         get
@@ -42,17 +44,13 @@ public class Player : GameLevelObject
     private Rigidbody2D rigidbody2d;
     private Directions moveDirection;
     private int _movesCount;
+    private Vector2 jumpVelocity;
 
     /// <summary>
     /// Прыгаем?
     /// </summary>
     private bool isJump;
-
-    /// <summary>
-    /// Позиция в которой должна начать играть анимация приземления
-    /// </summary>
-    private GridObject.Position jumpEndAnimationPosition;
-
+    
     /// <summary>
     /// Позиция в которой игрок должен остановиться после прыжка
     /// </summary>
@@ -88,15 +86,10 @@ public class Player : GameLevelObject
 
         //Обрабатываем прыжок
         if (!isJump)
-            return;
-        if (draggable.position.Equals(jumpEndAnimationPosition))
-        {
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpOut"))
-                animator.SetTrigger("JumpOut");
-        }
+            return;        
         if (draggable.position.Equals(jumpEndPosition))
         {
-            StopMovingDelay();
+            StopMovingAfterJump();
             isJump = false;
         }
     }
@@ -184,6 +177,18 @@ public class Player : GameLevelObject
         StartCoroutine(StopMovingDelayEnumerator());
     }
 
+    public void StopMovingAfterJump()
+    {
+        StartCoroutine(StopMovingAfterJumpNumerator());
+    }
+
+    IEnumerator StopMovingAfterJumpNumerator()
+    {
+        yield return new WaitForSeconds(designSettings.jumpStopDelay);
+        if(!isJump)
+            StopMoving();
+    }
+
     IEnumerator StopMovingDelayEnumerator()
     {
         yield return new WaitForSeconds(designSettings.stopMovingDelay);
@@ -223,6 +228,7 @@ public class Player : GameLevelObject
     public void MoveImpulse(Directions direction)
     {
         MoveImpulse(direction, false);
+        jumpVelocity = new Vector2(rigidbody2d.velocity.x / 2f, rigidbody2d.velocity.y / 2f);
     }
 
     /// <summary>
@@ -252,8 +258,7 @@ public class Player : GameLevelObject
             Vector3 worldPosition = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ScreenToWorldPoint(new Vector3(position.x, position.y, 0f));
             GridObject.Position gridPosition = draggable.GetGridPosition(
                 worldPosition - 
-                GameLevel.Instance.transform.localPosition - 
-                (GameLevel.Instance.transform.localPosition - (GameLevel.Instance.transform.localPosition * GameLevel.Instance.transform.localScale.x)) - 
+                GameLevel.Instance.transform.localPosition -  
                 transform.parent.localPosition);
             if (gridPosition.Equals(tempTeleportPosition))
             {
@@ -281,36 +286,38 @@ public class Player : GameLevelObject
             xCell = trampoline.draggable.position.xCell,
             yRow = trampoline.draggable.position.yRow
         };
-        jumpEndAnimationPosition = jumpEndPosition.Clone();
 
         if (state != PlayerStates.Move)
         {
             MoveImpulse(moveDirection);
         }
 
+        rigidbody2d.velocity = jumpVelocity;
+
         switch (moveDirection)
         {
             case Directions.Up:
-                jumpEndAnimationPosition.yRow += jumpCellDistance - 1;
                 jumpEndPosition.yRow += jumpCellDistance; 
                 break;
             case Directions.Right:
-                jumpEndAnimationPosition.xCell += jumpCellDistance - 1;
                 jumpEndPosition.xCell += jumpCellDistance; 
                 break;
             case Directions.Down:
-                jumpEndAnimationPosition.yRow -= jumpCellDistance - 1;
                 jumpEndPosition.yRow -= jumpCellDistance; 
                 break;
             case Directions.Left:
-                jumpEndAnimationPosition.xCell -= jumpCellDistance - 1;
                 jumpEndPosition.xCell -= jumpCellDistance; 
                 break;
             default: break;
         }
-        //Если прыжок короткий, то конец приземления и будет анимацией
-        if (jumpCellDistance < 2)
-            jumpEndAnimationPosition = jumpEndPosition.Clone();
+
+        StartCoroutine(JumpOutNumerator());
+    }
+
+    IEnumerator JumpOutNumerator()
+    {
+        yield return new WaitForSeconds(designSettings.jumpOutDelay);
+        animator.SetTrigger("JumpOut");
     }
 
     /// <summary>

@@ -2,9 +2,9 @@
 using System.Collections;
 
 [RequireComponent(typeof(MyMaze))]
-public class LevelLoader : MonoBehaviour {
+public class SceneLoader : MonoBehaviour {
 
-    public string levelName;
+    public string sceneName;
     public bool loadOnStart;
 
     void Start()
@@ -15,17 +15,17 @@ public class LevelLoader : MonoBehaviour {
 
     public void SetName(string levelName)
     {
-        this.levelName = levelName;
+        this.sceneName = levelName;
     }
 
     public void Load()
     {
-        Application.LoadLevel(this.levelName);
+        Application.LoadLevel(this.sceneName);
     }
 
     public void Load(string levelName)
     {
-        this.levelName = levelName;
+        this.sceneName = levelName;
         Load();
     }
 

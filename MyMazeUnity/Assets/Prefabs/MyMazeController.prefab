@@ -1183,6 +1183,7 @@ GameObject:
   - 114: {fileID: 11454028}
   - 114: {fileID: 11422392}
   - 114: {fileID: 11498388}
+  - 114: {fileID: 11434950}
   m_Layer: 0
   m_Name: MyMazeController
   m_TagString: Untagged
@@ -3033,7 +3034,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 0f12d4c50987efd45a7347a61394043a, type: 3}
   - name: PlayerFadeOut
     nameEnum: 13
-    clip: {fileID: 8300000, guid: 04244a52da33c064d93c6b5f4aab6764, type: 3}
+    clip: {fileID: 8300000, guid: 8b698ea960640134e8b513d9fe5e8797, type: 3}
   - name: Pyramid01
     nameEnum: 14
     clip: {fileID: 8300000, guid: bd0c2f65805ff9e4abc5afc2421a68b1, type: 3}
@@ -3081,7 +3082,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 2d3ae2473decdbd4a96a9002e0ec6bd9, type: 3}
   - name: SpikeHide
     nameEnum: 29
-    clip: {fileID: 8300000, guid: a9a30c5713491d64d87fba80adc2fd81, type: 3}
+    clip: {fileID: 8300000, guid: 159d10a7e7ed9874aa26a0c2fd312a22, type: 3}
   - name: SpikeShow
     nameEnum: 30
     clip: {fileID: 8300000, guid: 159d10a7e7ed9874aa26a0c2fd312a22, type: 3}
@@ -3222,6 +3223,19 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+--- !u!114 &11434950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810ec1f5b97dd8f49b4e18a05a5fe61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restoreTime: 300
+  levelCost: 1
 --- !u!114 &11435834
 MonoBehaviour:
   m_ObjectHideFlags: 1

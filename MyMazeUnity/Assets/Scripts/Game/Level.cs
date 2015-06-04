@@ -7,7 +7,7 @@ using System;
 /// Игровой уровень
 /// </summary>
 [Serializable]
-public class Level : MonoBehaviour, ILevel, IComparable
+public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
 {
     /// <summary>
     /// Имя
@@ -193,5 +193,10 @@ public class Level : MonoBehaviour, ILevel, IComparable
             if (PlayerPrefs.HasKey(levelName + "#Star" + i.ToString() + "#IsCollected"))
                 star.IsCollected = Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#Star" + i.ToString() + "#IsCollected"));
         }
+    }
+    
+    public void ResetSaves()
+    {
+        throw new NotImplementedException();
     }
 }

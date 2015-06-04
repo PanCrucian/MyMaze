@@ -3,30 +3,21 @@ using System.Collections;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CanvasGroup))]
-public class MoveTutorialUI : MonoBehaviour {
+public class MoveTutorialUI : TutorialUI {
 
-    private Animator animator;
-
-    void Start()
+    public override void Start()
     {
-        animator = GetComponent<Animator>();
+        base.Start();
         if (!MyMaze.Instance.Tutorial.GetStep(TutorialPhase.HowToMove).IsTeach())
-        {
             gameObject.SetActive(false);
-            return;
-        }
         else
-        {
-            animator.SetTrigger("FadeIn");
-        }
-        GameLevel.Instance.OnPlayerMoveRequest += OnPlayerMoveRequest;
+            FadeIn();
     }
 
-    void OnPlayerMoveRequest(Directions direction)
+    public override void OnCloseRequest()
     {
-        animator.SetTrigger("FadeOut");
+        base.OnCloseRequest();
         MyMaze.Instance.Tutorial.GetStep(TutorialPhase.HowToMove).Complete();
         //MyMaze.Instance.Tutorial.StartStep(TutorialPhase.NotTeach);
-        GameLevel.Instance.OnPlayerMoveRequest -= OnPlayerMoveRequest;
     }
 }

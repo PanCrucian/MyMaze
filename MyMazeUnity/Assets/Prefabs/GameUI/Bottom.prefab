@@ -28,7 +28,7 @@ GameObject:
   - 224: {fileID: 22454842}
   m_Layer: 5
   m_Name: Bottom
-  m_TagString: Untagged
+  m_TagString: BottomGameUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .53725493}
+  m_Color: {r: 1, g: 1, b: 1, a: .278431386}
   m_FontData:
     m_Font: {fileID: 12800000, guid: eb5ce1fb09809644aaa0ac8028da8ea1, type: 3}
     m_FontSize: 14
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .53725493}
+  m_Color: {r: 1, g: 1, b: 1, a: .278431386}
   m_FontData:
     m_Font: {fileID: 12800000, guid: eb5ce1fb09809644aaa0ac8028da8ea1, type: 3}
     m_FontSize: 14

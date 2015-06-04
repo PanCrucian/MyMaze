@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class MyMaze : MonoBehaviour
+public class MyMaze : MonoBehaviour, ISavingElement
 {
     public Deligates.LevelLoadEvent OnLevelLoad;
     public Deligates.SimpleEvent OnMenuLoad;
@@ -90,13 +90,24 @@ public class MyMaze : MonoBehaviour
     }
 
     /// <summary>
-    /// Ссылка на загрузчик уровней
+    /// Ссылка на загрузчик сцен
     /// </summary>
-    public LevelLoader LevelLoader
+    public SceneLoader SceneLoader
     {
         get
         {
-            return GetComponent<LevelLoader>();
+            return GetComponent<SceneLoader>();
+        }
+    }
+
+    /// <summary>
+    /// Ссылка на контроллер энергии
+    /// </summary>
+    public Energy Energy
+    {
+        get
+        {
+            return GetComponent<Energy>();
         }
     }
 
@@ -314,7 +325,7 @@ public class MyMaze : MonoBehaviour
     /// </summary>
     bool IsExist()
     {
-        InputSimulator[] objects = GameObject.FindObjectsOfType<InputSimulator>();
+        MyMaze[] objects = GameObject.FindObjectsOfType<MyMaze>();
         if (objects.Length > 1) { 
             return true;
         }
@@ -392,15 +403,15 @@ public class MyMaze : MonoBehaviour
     {
         if (OnLevelLoad != null)
             OnLevelLoad(level);
-        LevelLoader.levelName = level.name;
-        LevelLoader.Load();
+        SceneLoader.sceneName = level.name;
+        SceneLoader.Load();
     }
 
     public void MenuLoadAction()
     {
         if (OnMenuLoad != null)
             OnMenuLoad();
-        LevelLoader.LoadMenu();
+        SceneLoader.LoadMenu();
     }
 
     #region "Методы Сохранения"

@@ -2,7 +2,8 @@
 using System.Collections;
 
 [RequireComponent(typeof(MyMaze))]
-public class Tutorial : MonoBehaviour, ITutorial {
+public class Tutorial : MonoBehaviour, ITutorial, ISavingElement
+{
 
     public TutorialStep[] steps;
 
@@ -113,5 +114,10 @@ public class Tutorial : MonoBehaviour, ITutorial {
             if (PlayerPrefs.HasKey("TutorialPhase#" + step.stepName + "#complete"))
                 step.IsComplete = System.Convert.ToBoolean(PlayerPrefs.GetInt("TutorialPhase#" + step.stepName + "#complete"));
         }
+    }
+    
+    public void ResetSaves()
+    {
+        throw new System.NotImplementedException();
     }
 }

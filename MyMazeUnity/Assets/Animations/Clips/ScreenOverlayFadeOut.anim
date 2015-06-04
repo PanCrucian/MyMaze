@@ -21,11 +21,11 @@ AnimationClip:
       - time: 0
         value: 1
         inSlope: 0
-        outSlope: -1
+        outSlope: -1.5
         tangentMode: 21
-      - time: 1
+      - time: .666666687
         value: 0
-        inSlope: -1
+        inSlope: -1.5
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
@@ -42,7 +42,7 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
-      - time: 1
+      - time: .666666687
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -61,7 +61,7 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
-      - time: 1
+      - time: .666666687
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -73,7 +73,7 @@ AnimationClip:
     classID: 225
     script: {fileID: 0}
   m_PPtrCurves: []
-  m_SampleRate: 30
+  m_SampleRate: 45
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -102,7 +102,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: .666666687
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -123,11 +123,11 @@ AnimationClip:
       - time: 0
         value: 1
         inSlope: 0
-        outSlope: -1
+        outSlope: -1.5
         tangentMode: 21
-      - time: 1
+      - time: .666666687
         value: 0
-        inSlope: -1
+        inSlope: -1.5
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
@@ -144,7 +144,7 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
-      - time: 1
+      - time: .666666687
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -163,7 +163,7 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
-      - time: 1
+      - time: .666666687
         value: 0
         inSlope: Infinity
         outSlope: Infinity

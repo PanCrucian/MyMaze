@@ -9,9 +9,23 @@ public class MovesCounterResultsUI : MonoBehaviour
 
     void Update()
     {
+        int movesCount = 0;
         if (MyMaze.Instance.LastSelectedLevel != null)
-            movesRecordText.text = MyMaze.Instance.LastSelectedLevel.MinMovesRecord.ToString();
+        {
+            movesCount = MyMaze.Instance.LastSelectedLevel.MinMovesRecord;
+            movesCount = LimitationMovesCountView(movesCount);
+            movesRecordText.text = movesCount.ToString();
+        }
 
-        movesText.text = Player.Instance.MovesCount.ToString();
+        movesCount = Player.Instance.MovesCount;
+        movesCount = LimitationMovesCountView(movesCount);
+        movesText.text = movesCount.ToString();
+    }
+
+    int LimitationMovesCountView(int movesCount)
+    {
+        if (movesCount > 99)
+            return 99;
+        return movesCount;
     }
 }

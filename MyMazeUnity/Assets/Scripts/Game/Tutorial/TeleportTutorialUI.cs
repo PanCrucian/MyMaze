@@ -3,30 +3,21 @@ using System.Collections;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CanvasGroup))]
-public class TeleportTutorialUI : MonoBehaviour {
+public class TeleportTutorialUI : TutorialUI {
 
-    private Animator animator;
-
-    void Start()
+    public override void Start()
     {
-        animator = GetComponent<Animator>();
+        base.Start();
         if (!MyMaze.Instance.Tutorial.GetStep(TutorialPhase.Teleport).IsTeach())
-        {
             gameObject.SetActive(false);
-            return;
-        }
         else
-        {
-            animator.SetTrigger("FadeIn");
-        }
-        GameLevel.Instance.OnPointerDown += OnPointerDown;
+            FadeIn();
     }
 
-    void OnPointerDown(Vector2 position)
+    public override void OnCloseRequest()
     {
-        animator.SetTrigger("FadeOut");
+        base.OnCloseRequest();
         MyMaze.Instance.Tutorial.GetStep(TutorialPhase.Teleport).Complete();
-        MyMaze.Instance.Tutorial.StartStep(TutorialPhase.NotTeach);
-        GameLevel.Instance.OnPointerDown -= OnPointerDown;
+        //MyMaze.Instance.Tutorial.StartStep(TutorialPhase.NotTeach);
     }
 }

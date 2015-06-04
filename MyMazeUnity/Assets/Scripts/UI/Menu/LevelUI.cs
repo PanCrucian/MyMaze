@@ -11,7 +11,7 @@ public class LevelUI : MonoBehaviour {
         public float closedAlpha = 0.35f;
         public float openedAlpha = 1f;
     }
-
+    [HideInInspector]
     public Level level;
 
     public Text numberText;
@@ -29,8 +29,17 @@ public class LevelUI : MonoBehaviour {
     /// <summary>
     /// Кликнули на кнопку уровня, попробуем загрузить уровень
     /// </summary>
-    public void LevelLoadRequest() {
-        StartCoroutine(LevelLoadNumerator());
+    public void LevelLoadRequest(GameObject button) {
+        if (MyMaze.Instance.Energy.Use())
+        {
+            button.GetComponent<Button>().interactable = false;
+            StartCoroutine(LevelLoadNumerator());
+        }
+        else
+        {
+            LevelsUI levelsUI = GetComponentInParent<LevelsUI>();
+            levelsUI.energyUI.AnimateBad();
+        }
     }
 
     IEnumerator LevelLoadNumerator()
@@ -39,8 +48,12 @@ public class LevelUI : MonoBehaviour {
         Color color = levelsui.loadingText.color;
         color.a = 1f;
         levelsui.loadingText.color = color;*/
-        ScreenOverlayUI.Instance.FadeIn();
         GetComponent<SoundsPlayer>().PlayOneShootSound();
+        LevelsUI levelsUI = GetComponentInParent<LevelsUI>();
+        levelsUI.energyUI.AnimateNormal();
+        yield return new WaitForSeconds(levelsUI.energyUI.animationTime);
+        yield return new WaitForSeconds(0.25f);
+        ScreenOverlayUI.Instance.FadeIn();
         yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
         
         MyMaze.Instance.LastSelectedLevel = level;

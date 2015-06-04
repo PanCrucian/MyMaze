@@ -9,6 +9,8 @@ public class GridDraggableObjectEditor : Editor {
     public GridDraggableObject draggable;
     bool mouseHook;
 
+
+
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();

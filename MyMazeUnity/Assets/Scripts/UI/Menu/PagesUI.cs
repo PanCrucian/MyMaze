@@ -38,7 +38,7 @@ public class PagesUI : MonoBehaviour {
     {
         SetupPages();
         PageNumber = __data.pages[0].transform.GetSiblingIndex();
-
+        pageNumber = MyMaze.Instance.LastSelectedPageNumber;
         SetlastSelectedPageVisability();
     }
 
@@ -57,7 +57,7 @@ public class PagesUI : MonoBehaviour {
             else
             {
                 animator.SetTrigger("FadeOut");
-                StartCoroutine(OffPage(page.transform.GetSiblingIndex()));
+                //StartCoroutine(OffPage(page.transform.GetSiblingIndex()));
             }
         }
     }
@@ -127,13 +127,13 @@ public class PagesUI : MonoBehaviour {
         lastSwipe = Time.time;
 
         PageNumber++;
-        __data.pages[PageNumber].gameObject.SetActive(true);
+        //__data.pages[PageNumber].gameObject.SetActive(true);
         CGSwitcher.Instance.SetHideObject(__data.pages[PageNumber - 1].GetComponent<Animator>());
         CGSwitcher.Instance.SetShowObject(__data.pages[PageNumber].GetComponent<Animator>());        
         //CGSwitcher.Instance.SetDelayTime(0.35f);
         CGSwitcher.Instance.Switch();
         MyMaze.Instance.LastSelectedPageNumber = PageNumber;
-        StartCoroutine(OffPage(PageNumber - 1));
+        //StartCoroutine(OffPage(PageNumber - 1));
     }
 
     /// <summary>
@@ -146,13 +146,13 @@ public class PagesUI : MonoBehaviour {
         lastSwipe = Time.time;
 
         PageNumber--;
-        __data.pages[PageNumber].gameObject.SetActive(true);
+        //__data.pages[PageNumber].gameObject.SetActive(true);
         CGSwitcher.Instance.SetHideObject(__data.pages[PageNumber + 1].GetComponent<Animator>());
         CGSwitcher.Instance.SetShowObject(__data.pages[PageNumber].GetComponent<Animator>());
         //CGSwitcher.Instance.SetDelayTime(0.35f);
         CGSwitcher.Instance.Switch();
         MyMaze.Instance.LastSelectedPageNumber = PageNumber;
-        StartCoroutine(OffPage(PageNumber + 1));
+        //StartCoroutine(OffPage(PageNumber + 1));
     }
 
     IEnumerator OffPage(int number)
@@ -162,12 +162,12 @@ public class PagesUI : MonoBehaviour {
     }
 
     public void Drag(BaseEventData data) {
-        PointerEventData pointer = (PointerEventData)data;
+        /*PointerEventData pointer = (PointerEventData)data;
         if (Mathf.Abs(pointer.delta.x) >= 7.5f) {
             if (pointer.delta.x < 0f)
                 InputSimulator.Instance.SimulatePressThenClick(__data.pages[PageNumber].buttons.nextButton.gameObject);
             else
                 InputSimulator.Instance.SimulatePressThenClick(__data.pages[PageNumber].buttons.prevButton.gameObject);
-        }
+        }*/
     }
 }

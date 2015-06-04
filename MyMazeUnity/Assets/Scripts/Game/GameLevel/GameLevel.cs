@@ -105,40 +105,22 @@ public class GameLevel : MonoBehaviour {
     /// </summary>
     public void Drag(BaseEventData data)
     {
-        
-    }
+        if (Player.Instance.state != PlayerStates.Idle)
+            return;
 
-    /// <summary>
-    /// Когда человек нажал на экран
-    /// </summary>
-    /// <param name="data"></param>
-    public void PointerDownRequest(BaseEventData data)
-    {
         PointerEventData pointerData = (PointerEventData)data;
         pointerDownUpVector[0] = pointerData.pressPosition;
-        if (OnPointerDown != null)
-            OnPointerDown(pointerData.position);
-    }
-
-    /// <summary>
-    /// Когда человек отпустил палец от экрана
-    /// </summary>
-    /// <param name="data"></param>
-    public void PointerUpRequest(BaseEventData data)
-    {
-        PointerEventData pointerData = (PointerEventData)data;
         pointerDownUpVector[1] = pointerData.position;
 
         float fingerDistance = Vector2.Distance(pointerDownUpVector[1], pointerDownUpVector[0]);
         float xDist = pointerDownUpVector[1].x - pointerDownUpVector[0].x;
         float yDist = pointerDownUpVector[1].y - pointerDownUpVector[0].y;
-        //Debug.Log("Distance:" + fingerDistance.ToString() + ", X:" + xDist.ToString() + ", Y:" + yDist.ToString());
 
         if (fingerDistance >= GameLevelDesign.Instance.scrollTreshold)
         {
             if (Mathf.Abs(xDist) > Mathf.Abs(yDist))
             {
-                if(xDist > 0)
+                if (xDist > 0)
                     CallMoveRequest(Directions.Right);
                 else
                     CallMoveRequest(Directions.Left);
@@ -151,6 +133,26 @@ public class GameLevel : MonoBehaviour {
                     CallMoveRequest(Directions.Down);
             }
         }
+    }
+
+    /// <summary>
+    /// Когда человек нажал на экран
+    /// </summary>
+    /// <param name="data"></param>
+    public void PointerDownRequest(BaseEventData data)
+    {
+        PointerEventData pointerData = (PointerEventData)data;
+        if (OnPointerDown != null)
+            OnPointerDown(pointerData.position);
+    }
+
+    /// <summary>
+    /// Когда человек отпустил палец от экрана
+    /// </summary>
+    /// <param name="data"></param>
+    public void PointerUpRequest(BaseEventData data)
+    {
+        //PointerEventData pointerData = (PointerEventData)data;
     }
 
     /// <summary>
@@ -221,6 +223,9 @@ public class GameLevel : MonoBehaviour {
             if (Player.Instance.MovesCount <= lastSelectedLevel.MinMovesRecord)
                 lastSelectedLevel.MinMovesRecord = Player.Instance.MovesCount;  
 
+        //Переключим режим воспроизведения звуков из музыки в звуки
+        soundsPlayer.type = SoundTypes.sounds;
+
         //проверим какие звезды мы должны получить и получим их
         List<Star> stars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();
         int i = 1;
@@ -284,15 +289,28 @@ public class GameLevel : MonoBehaviour {
     IEnumerator NextLevelNumerator()
     {
         state = GameLevelStates.NextLevelLoading;
+
+        //спишем энергию
+        Energy energy = MyMaze.Instance.Energy;
+        bool energyUsingFlag = energy.Use();
+        EnergyUI energyUI = GameObject.FindObjectOfType<EnergyUI>();
+        if (energyUsingFlag)
+            energyUI.AnimateNormal();
+        else
+            energyUI.AnimateBad();
+
         yield return new WaitForSeconds(GameLevelDesign.Instance.nextLevelDelay);
         ScreenOverlayUI.Instance.FadeIn();
         yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
 
-        //загружаем меню
-        if (nextLevel == null)
+        if (!energyUsingFlag) //не хватило энергии
+        {
+            MyMaze.Instance.SceneLoader.LoadMenu();
+        }
+        else if (nextLevel == null)
         {
             Debug.Log("Уровни кончились, загружаю меню");
-            MyMaze.Instance.LevelLoader.LoadMenu();
+            MyMaze.Instance.SceneLoader.LoadMenu();
         }
         else
         {
@@ -300,7 +318,7 @@ public class GameLevel : MonoBehaviour {
             if (pack.IsClosed)
             {
                 Debug.Log("Пак " + pack.packName + " закрыт, загружаю меню");
-                MyMaze.Instance.LevelLoader.LoadMenu();
+                MyMaze.Instance.SceneLoader.LoadMenu();
             }
             else
             {
@@ -317,10 +335,10 @@ public class GameLevel : MonoBehaviour {
                 catch
                 {
                     Debug.LogWarning("Не найдень уровень " + nextLevel.name + " в BuildSettings. Вместо уровня загружаю меню");
-                    MyMaze.Instance.LevelLoader.LoadMenu();
+                    MyMaze.Instance.SceneLoader.LoadMenu();
                 }
             }
-        }
+            }
     }
 
     /// <summary>

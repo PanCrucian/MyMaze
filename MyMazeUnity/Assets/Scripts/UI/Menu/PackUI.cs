@@ -12,6 +12,9 @@ public class PackUI : MonoBehaviour {
     public Text requiredStarsText;
     public float contentLockAlpha = 0.5f;
 
+    private int saveCPURate = 6; //пересчитывать тяжелую логику раз в 6 кадров
+    private int frames;
+
     void Start()
     {
         GetComponentInParent<PageUI>().containers.levelsContainer.gameObject.SetActive(false);
@@ -19,7 +22,14 @@ public class PackUI : MonoBehaviour {
 
     void Update()
     {
+        if (frames % saveCPURate == 0)
+            GentleUpdate();
+        
+        frames++;
+    }
 
+    void GentleUpdate()
+    {
         FindMissingPacks();
         if (pack == null)
         {
@@ -31,15 +41,21 @@ public class PackUI : MonoBehaviour {
         starsText.text = System.String.Format("{0:0}", pack.StarsRecived);
         numberText.text = (pack.transform.GetSiblingIndex() + 1).ToString();
 
+        Transform content = transform.FindChild("Content");
+        Animator[] animators = content.GetComponentsInChildren<Animator>();
         if (pack.IsClosed)
         {
             if (contentCG.alpha != contentLockAlpha)
                 contentCG.alpha = contentLockAlpha;
+            foreach (Animator anim in animators)
+                anim.speed = 0f;
         }
         else
         {
             if (contentCG.alpha != 1f)
                 contentCG.alpha = 1f;
+            foreach (Animator anim in animators)
+                anim.speed = 1f;
         }
 
         requiredStarsText.text = System.String.Format("{0:00}", pack.StarsRequired);

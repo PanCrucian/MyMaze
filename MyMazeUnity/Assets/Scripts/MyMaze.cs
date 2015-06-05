@@ -92,7 +92,7 @@ public class MyMaze : MonoBehaviour, ISavingElement
     /// <summary>
     /// Ссылка на загрузчик сцен
     /// </summary>
-    public SceneLoader SceneLoader
+    private SceneLoader SceneLoader
     {
         get
         {

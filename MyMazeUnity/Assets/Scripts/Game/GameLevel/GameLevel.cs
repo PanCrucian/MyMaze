@@ -310,12 +310,12 @@ public class GameLevel : MonoBehaviour {
 
         if (!energyUsingFlag) //не хватило энергии
         {
-            MyMaze.Instance.SceneLoader.LoadMenu();
+            MyMaze.Instance.MenuLoadAction();
         }
         else if (nextLevel == null)
         {
             Debug.Log("Уровни кончились, загружаю меню");
-            MyMaze.Instance.SceneLoader.LoadMenu();
+            MyMaze.Instance.MenuLoadAction();
         }
         else
         {
@@ -323,7 +323,7 @@ public class GameLevel : MonoBehaviour {
             if (pack.IsClosed)
             {
                 Debug.Log("Пак " + pack.packName + " закрыт, загружаю меню");
-                MyMaze.Instance.SceneLoader.LoadMenu();
+                MyMaze.Instance.MenuLoadAction();
             }
             else
             {

@@ -15,9 +15,16 @@ public class PackUI : MonoBehaviour {
     private int saveCPURate = 6; //пересчитывать тяжелую логику раз в 6 кадров
     private int frames;
 
+    void OnPageSwitch()
+    {
+        Animator animator = GetComponent<Animator>();
+        animator.SetTrigger("UnLock");
+    }
+
     void Start()
     {
         GetComponentInParent<PageUI>().containers.levelsContainer.gameObject.SetActive(false);
+        GetComponentInParent<PagesUI>().OnPageSwitch += OnPageSwitch;
     }
 
     void Update()

@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PagesUI : MonoBehaviour {
+    public Deligates.SimpleEvent OnPageSwitch;
+
     [System.Serializable]
     public class Local_data
     {
@@ -135,6 +137,8 @@ public class PagesUI : MonoBehaviour {
         //CGSwitcher.Instance.SetDelayTime(0.35f);
         CGSwitcher.Instance.Switch();
         MyMaze.Instance.LastSelectedPageNumber = PageNumber;
+        if (OnPageSwitch != null)
+            OnPageSwitch();
         //StartCoroutine(OffPage(PageNumber - 1));
     }
 
@@ -154,6 +158,8 @@ public class PagesUI : MonoBehaviour {
         //CGSwitcher.Instance.SetDelayTime(0.35f);
         CGSwitcher.Instance.Switch();
         MyMaze.Instance.LastSelectedPageNumber = PageNumber;
+        if (OnPageSwitch != null)
+            OnPageSwitch();
         //StartCoroutine(OffPage(PageNumber + 1));
     }
 

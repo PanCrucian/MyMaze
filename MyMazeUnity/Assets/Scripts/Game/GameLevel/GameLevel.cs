@@ -18,6 +18,7 @@ public class GameLevel : MonoBehaviour {
     private SoundsPlayer soundsPlayer;
     private Vector2[] pointerDownUpVector = new Vector2[2];
     private bool isReturnToMove = false;
+    private bool allowMoveRequest = true;
     
     public static GameLevel Instance
     {
@@ -117,7 +118,7 @@ public class GameLevel : MonoBehaviour {
         float xDist = pointerDownUpVector[1].x - pointerDownUpVector[0].x;
         float yDist = pointerDownUpVector[1].y - pointerDownUpVector[0].y;
 
-        if (fingerDistance >= GameLevelDesign.Instance.scrollTreshold)
+        if (fingerDistance >= GameLevelDesign.Instance.scrollTreshold && allowMoveRequest)
         {
             if (Mathf.Abs(xDist) > Mathf.Abs(yDist))
             {
@@ -133,6 +134,7 @@ public class GameLevel : MonoBehaviour {
                 else
                     CallMoveRequest(Directions.Down);
             }
+            allowMoveRequest = false;
         }
     }
 
@@ -154,6 +156,7 @@ public class GameLevel : MonoBehaviour {
     public void PointerUpRequest(BaseEventData data)
     {
         //PointerEventData pointerData = (PointerEventData)data;
+        allowMoveRequest = true;
     }
 
     /// <summary>

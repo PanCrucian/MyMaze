@@ -5,6 +5,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Pyramid : GameLevelObject
 {
+    public float zDepth = -9f;
     public Deligates.PyramidEvent OnPyramidPickUp;
 
     /// <summary>
@@ -26,6 +27,7 @@ public class Pyramid : GameLevelObject
     public override void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, zDepth);
         base.Start();
     }
 

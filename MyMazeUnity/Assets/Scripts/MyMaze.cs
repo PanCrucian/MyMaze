@@ -112,6 +112,39 @@ public class MyMaze : MonoBehaviour, ISavingElement
     }
 
     /// <summary>
+    /// Ссылка на контроллер внутриигровых платежей
+    /// </summary>
+    public InApps InApps
+    {
+        get
+        {
+            return GetComponent<InApps>();
+        }
+    }
+
+    /// <summary>
+    /// Ссылка на бустер "Машина времени"
+    /// </summary>
+    public TimeMachineBooster TimeMachineBooster
+    {
+        get
+        {
+            return GetComponent<TimeMachineBooster>();
+        }
+    }
+
+    /// <summary>
+    /// Ссылка на бустер "Телепорт"
+    /// </summary>
+    public TeleportBooster TeleportBooster
+    {
+        get
+        {
+            return GetComponent<TeleportBooster>();
+        }
+    }
+
+    /// <summary>
     /// Ссылка на геймобъект
     /// </summary>
     public static MyMaze Instance 
@@ -436,6 +469,21 @@ public class MyMaze : MonoBehaviour, ISavingElement
         //туториал
         this.Tutorial.Save();
 
+        //Энергия
+        this.Energy.Save();
+
+        //Покупки
+        this.InApps.Save();
+
+        //Бустер "Машина времени"
+        this.TimeMachineBooster.Save();
+
+        //Бустер "Телепорт"
+        this.TeleportBooster.Save();
+
+        //Локализация
+        this.Localization.Save();
+
         //Сбросим на диск
         PlayerPrefs.Save();
     }
@@ -470,6 +518,21 @@ public class MyMaze : MonoBehaviour, ISavingElement
 
         //туториал
         this.Tutorial.Load();
+
+        //Энергия
+        this.Energy.Load();
+
+        //Покупки
+        this.InApps.Load();
+
+        //Бустер "Машина времени"
+        this.TimeMachineBooster.Load();
+
+        //Бустер "Телепорт"
+        this.TeleportBooster.Load();
+
+        //Локализация
+        this.Localization.Load();
     }
 
     /// <summary>
@@ -487,6 +550,6 @@ public class MyMaze : MonoBehaviour, ISavingElement
     /// </summary>
     void OnApplicationQuit()
     {
-        
+        //TODO Обязательно добавить сюда сохраниние всего прогресса
     }
 }

@@ -30,24 +30,28 @@ public class LevelUI : MonoBehaviour {
     /// Кликнули на кнопку уровня, попробуем загрузить уровень
     /// </summary>
     public void LevelLoadRequest(GameObject button) {
-        if (MyMaze.Instance.Energy.Use())
+        if (MyMaze.Instance.InApps.IsPremium)
         {
             button.GetComponent<Button>().interactable = false;
             StartCoroutine(LevelLoadNumerator());
         }
         else
         {
-            LevelsUI levelsUI = GetComponentInParent<LevelsUI>();
-            levelsUI.energyUI.AnimateBad();
+            if (MyMaze.Instance.Energy.Use())
+            {
+                button.GetComponent<Button>().interactable = false;
+                StartCoroutine(LevelLoadNumerator());
+            }
+            else
+            {
+                LevelsUI levelsUI = GetComponentInParent<LevelsUI>();
+                levelsUI.energyUI.AnimateBad();
+            }
         }
     }
 
     IEnumerator LevelLoadNumerator()
     {
-        /*LevelsUI levelsui = GetComponentInParent<LevelsUI>();
-        Color color = levelsui.loadingText.color;
-        color.a = 1f;
-        levelsui.loadingText.color = color;*/
         GetComponent<SoundsPlayer>().PlayOneShootSound();
         LevelsUI levelsUI = GetComponentInParent<LevelsUI>();
         levelsUI.energyUI.AnimateNormal();

@@ -435,6 +435,7 @@ public class Player : GameLevelObject
         EnableControl();
         isTeleport = false;
         CountMove();
+        MyMaze.Instance.TeleportBooster.Use();
         if (OnMoveEnd != null)
             OnMoveEnd(MovesCount);
     }

@@ -11,16 +11,24 @@ public class EnergyUI : MonoBehaviour {
     public GameObject premiumContainer;
 
     private Energy energy;
+    private InApps inApps;
     private bool animate = false;
     private float iterationTime = 0.1f;
 
     void Start()
     {
         energy = MyMaze.Instance.Energy;
+        inApps = MyMaze.Instance.InApps;
     }
 
     void Update()
     {
+        if (inApps.IsPremium)
+        {
+            if (gameObject.activeSelf)
+                gameObject.SetActive(false);
+            return;
+        }
         if (!isGameUI)
         {
             timerText.text = GetTimerString();
@@ -61,6 +69,8 @@ public class EnergyUI : MonoBehaviour {
     /// </summary>
     public void AnimateNormal()
     {
+        if (!gameObject.activeSelf)
+            return;
         animate = true;
         StartCoroutine(AnimateNormalNumerator());
     }

@@ -33,8 +33,6 @@ public class Tutorial : MonoBehaviour, ITutorial, ISavingElement
 
         if (startedStepsCount == 0)
             Debug.LogWarning("Отсутсвуют запущенные шаги в обучении");
-        if(startedStepsCount > 1)
-            Debug.LogWarning("Обнаружены шаги в обучении которые стартовали дважды, но так и не закончились");
         if(damagedStepsCount > 0)
             Debug.LogWarning("Обнаружены шаги в обучении которые помечены как законченные, но они никогда не стартовали");
 

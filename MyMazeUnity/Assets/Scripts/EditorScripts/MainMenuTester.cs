@@ -9,6 +9,7 @@ public class MainMenuTester : MonoBehaviour {
         public CanvasGroup[] menus;
         public CanvasGroup pages;
         public CanvasGroup mainMenuContent;
+        public ScreenOverlayUI screenOverlay;
     }
 
     public LocalData __data;
@@ -33,13 +34,16 @@ public class MainMenuTester : MonoBehaviour {
             CanvasGroup pagecg = t.GetComponent<CanvasGroup>();
             if (!pagecg)
                 continue;
+
             ToggleCG(pagecg, false);
+            pagecg.gameObject.SetActive(true);
 
             ToggleCG(page.containers.packsContainer, true);
             ToggleCG(page.containers.levelsContainer, false);
             index++;
         }
         __data.mainMenuContent.alpha = 0f;
+        __data.screenOverlay.gameObject.SetActive(true);
     }
 
     public void PrepareForWork(CanvasGroup workMenu, int workPage, bool isPackWork)
@@ -81,6 +85,7 @@ public class MainMenuTester : MonoBehaviour {
                 ToggleCG(pagecg, false);
             index++;
         }
+        __data.screenOverlay.gameObject.SetActive(false);
     }
 
     bool CheckPlayData()
@@ -106,12 +111,14 @@ public class MainMenuTester : MonoBehaviour {
             cg.alpha = 1f;
             cg.interactable = true;
             cg.blocksRaycasts = true;
+            cg.gameObject.SetActive(true);
         }
         else
         {
             cg.alpha = 0f;
             cg.interactable = false;
             cg.blocksRaycasts = false;
+            cg.gameObject.SetActive(false);
         }
     }
 

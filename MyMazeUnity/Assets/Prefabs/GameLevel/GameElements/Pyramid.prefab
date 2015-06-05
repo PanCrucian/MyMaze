@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   draggable: {fileID: 0}
+  zDepth: -9
 --- !u!212 &21238844
 SpriteRenderer:
   m_ObjectHideFlags: 1

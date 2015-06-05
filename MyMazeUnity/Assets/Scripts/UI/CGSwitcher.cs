@@ -50,7 +50,10 @@ public class CGSwitcher : MonoBehaviour {
         if (animatorForHide != null)
             animatorForHide.SetTrigger("FadeOut");
         if (animatorForShow != null)
+        {
+            animatorForShow.gameObject.SetActive(true);
             animatorForShow.SetTrigger("FadeIn");
+        }
         delay = 0f;
     }
 }

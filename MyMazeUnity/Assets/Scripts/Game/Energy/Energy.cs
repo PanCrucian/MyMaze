@@ -126,9 +126,11 @@ public class Energy : MonoBehaviour, ISavingElement
                 blocks[i].regenerationTime = Timers.Instance.UnixTimestamp + restoreTime * j;
                 j++;
             }
+            Save();
             return true;
         }
         Debug.Log("Энергия закончилась");
+        Save();
         return false;
     }
 

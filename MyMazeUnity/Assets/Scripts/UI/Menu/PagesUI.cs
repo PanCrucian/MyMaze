@@ -37,7 +37,6 @@ public class PagesUI : MonoBehaviour {
     void Start()
     {
         SetupPages();
-        PageNumber = __data.pages[0].transform.GetSiblingIndex();
         pageNumber = MyMaze.Instance.LastSelectedPageNumber;
         SetlastSelectedPageVisability();
     }
@@ -49,15 +48,18 @@ public class PagesUI : MonoBehaviour {
     {
         foreach (PageUI page in __data.pages)
         {
-            Animator animator = page.GetComponent<Animator>();
             if (MyMaze.Instance.LastSelectedPageNumber == page.transform.GetSiblingIndex())
             {
-                animator.SetTrigger("FadeIn");
+                page.GetComponent<Animator>().SetTrigger("FadeIn");
             }
             else
             {
-                animator.SetTrigger("FadeOut");
-                //StartCoroutine(OffPage(page.transform.GetSiblingIndex()));
+                CanvasGroup cg = page.GetComponent<CanvasGroup>();
+                cg.alpha = 0;
+                cg.blocksRaycasts = false;
+                cg.interactable = false;
+                page.SetupButtons();
+                page.gameObject.SetActive(false);
             }
         }
     }

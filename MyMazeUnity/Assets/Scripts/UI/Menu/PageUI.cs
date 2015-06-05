@@ -27,6 +27,11 @@ public class PageUI : MonoBehaviour {
             Debug.LogError("Page может находиться только внутри Pages!");
             return;
         }
+        SetupButtons();
+    }
+
+    public void SetupButtons()
+    {
         if (!buttons.nextButton || !buttons.prevButton)
         {
             buttons.nextButton = GetComponentInChildren<PageNextButtonUI>().GetComponent<Button>();

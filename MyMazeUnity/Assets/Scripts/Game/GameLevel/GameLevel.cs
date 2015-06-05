@@ -40,6 +40,7 @@ public class GameLevel : MonoBehaviour {
     {
         uiGame = GameObject.FindGameObjectWithTag("uiGame").GetComponent<Animator>();
         uiResults = GameObject.FindGameObjectWithTag("uiResults").GetComponent<Animator>();
+        uiResults.gameObject.SetActive(false);
         pyramids = transform.GetComponentsInChildren<Pyramid>().ToList<Pyramid>();
         soundsPlayer = GetComponent<SoundsPlayer>();
         if (soundsPlayer == null)
@@ -289,15 +290,19 @@ public class GameLevel : MonoBehaviour {
     IEnumerator NextLevelNumerator()
     {
         state = GameLevelStates.NextLevelLoading;
+        bool energyUsingFlag = true;
 
-        //спишем энергию
-        Energy energy = MyMaze.Instance.Energy;
-        bool energyUsingFlag = energy.Use();
-        EnergyUI energyUI = GameObject.FindObjectOfType<EnergyUI>();
-        if (energyUsingFlag)
-            energyUI.AnimateNormal();
-        else
-            energyUI.AnimateBad();
+        if (!MyMaze.Instance.InApps.IsPremium)
+        {
+            //спишем энергию
+            Energy energy = MyMaze.Instance.Energy;
+            energyUsingFlag = energy.Use();
+            EnergyUI energyUI = GameObject.FindObjectOfType<EnergyUI>();
+            if (energyUsingFlag)
+                energyUI.AnimateNormal();
+            else
+                energyUI.AnimateBad();
+        }
 
         yield return new WaitForSeconds(GameLevelDesign.Instance.nextLevelDelay);
         ScreenOverlayUI.Instance.FadeIn();
@@ -328,17 +333,9 @@ public class GameLevel : MonoBehaviour {
 
                 //загружаем следующий уровень
                 Debug.Log("Загружаю следующий уровень " + nextLevel.name);
-                try
-                {
-                    Application.LoadLevel(nextLevel.name);
-                }
-                catch
-                {
-                    Debug.LogWarning("Не найдень уровень " + nextLevel.name + " в BuildSettings. Вместо уровня загружаю меню");
-                    MyMaze.Instance.SceneLoader.LoadMenu();
-                }
+                MyMaze.Instance.LevelLoadAction(nextLevel);
             }
-            }
+        }
     }
 
     /// <summary>

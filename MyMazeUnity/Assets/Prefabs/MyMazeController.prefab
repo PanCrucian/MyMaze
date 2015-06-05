@@ -1182,8 +1182,10 @@ GameObject:
   - 114: {fileID: 11430942}
   - 114: {fileID: 11454028}
   - 114: {fileID: 11422392}
-  - 114: {fileID: 11498388}
   - 114: {fileID: 11434950}
+  - 114: {fileID: 11432260}
+  - 114: {fileID: 11402642}
+  - 114: {fileID: 11455244}
   m_Layer: 0
   m_Name: MyMazeController
   m_TagString: Untagged
@@ -2266,6 +2268,23 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+--- !u!114 &11402642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695b3a330f9ba4d4e95ae52dd67c9fe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avaliableAtLevel: {fileID: 11435834}
+  levelsWithoutPremium:
+  - {fileID: 11435834}
+  - {fileID: 11487444}
+  - {fileID: 11423764}
+  - {fileID: 11452810}
 --- !u!114 &11403472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2293,7 +2312,7 @@ MonoBehaviour:
   - stepName: NotTeach
     phase: 3
     IsComplete: 0
-    IsStarted: 0
+    IsStarted: 1
 --- !u!114 &11404178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2978,7 +2997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772d3a258e2bce045a0da2808e81aae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 
+  sceneName: 
   loadOnStart: 0
 --- !u!114 &11430942
 MonoBehaviour:
@@ -3123,6 +3142,18 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+--- !u!114 &11432260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5a61c711662484692a2dee481527cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPremium: 0
 --- !u!114 &11432342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3645,6 +3676,19 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+--- !u!114 &11455244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 680a4ab281af60a40b63a2b4eb36db42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avaliableAtLevel: {fileID: 11452810}
+  usingInterval: 3600
 --- !u!114 &11456422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4465,24 +4509,6 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
---- !u!114 &11498388
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a92feacb5fbb649a8fd4a8731ef606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boosters:
-  - name: Teleport
-    type: 0
-    avaliableAtLevel: {fileID: 11414428}
-  - name: TimeMachine
-    type: 1
-    avaliableAtLevel: {fileID: 11414428}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

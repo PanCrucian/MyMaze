@@ -2345,7 +2345,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 563816801}
   m_PlaneDistance: 100
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -13989,6 +13989,7 @@ GameObject:
   - 224: {fileID: 1069894445}
   - 225: {fileID: 1069894447}
   - 95: {fileID: 1069894446}
+  - 114: {fileID: 1069894448}
   m_Layer: 5
   m_Name: cg_Results
   m_TagString: uiResults
@@ -14044,6 +14045,17 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1069894448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1069894444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39dd6571e78b2c49a1037a7fadc8b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1071869344
 Transform:
   m_PrefabParentObject: {fileID: 411702, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
@@ -17079,6 +17091,21 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 407102, guid: 489db2e69d93d504c9f6826fac4a64f2, type: 2}
   m_PrefabInternal: {fileID: 34976244}
+--- !u!1 &1386311684
+GameObject:
+  m_PrefabParentObject: {fileID: 140744, guid: c80212e13a346984a87151b1b5984a72, type: 2}
+  m_PrefabInternal: {fileID: 1579243045}
+--- !u!114 &1386311685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1386311684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39dd6571e78b2c49a1037a7fadc8b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1387450136
 Prefab:
   m_ObjectHideFlags: 0
@@ -19516,6 +19543,18 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: -54.6480103
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
       value: -54.6480103
       objectReference: {fileID: 0}
@@ -23470,7 +23509,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 563816801}
   m_PlaneDistance: 100
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0

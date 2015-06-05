@@ -6,7 +6,7 @@ using System.Xml.Linq;
 using System.IO;
 
 [RequireComponent(typeof(MyMaze))]
-public class Localization : MonoBehaviour
+public class Localization : MonoBehaviour, ISavingElement
 {
     public const string MISSING_KEY = "missing_key";
     public Deligates.SimpleEvent OnRefreshTextMeshes;
@@ -108,5 +108,24 @@ public class Localization : MonoBehaviour
         {
             Debug.LogWarning("Файл локализации " + region + " не найден" + "\n" + e.Message);
         }
+    }
+
+    public void Save()
+    {
+        PlayerPrefs.SetInt("Language", (int)language);
+    }
+
+    public void Load()
+    {
+        if (PlayerPrefs.HasKey("Language"))
+        {
+            language = (SystemLanguage)PlayerPrefs.GetInt("Language");
+            Setup();
+        }
+    }
+
+    public void ResetSaves()
+    {
+        throw new System.NotImplementedException();
     }
 }

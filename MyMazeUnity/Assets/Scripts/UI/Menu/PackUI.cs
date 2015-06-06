@@ -18,7 +18,8 @@ public class PackUI : MonoBehaviour {
     void OnPageSwitch()
     {
         Animator animator = GetComponent<Animator>();
-        animator.SetTrigger("UnLock");
+        if (animator.isActiveAndEnabled)
+            animator.SetTrigger("UnLock");
     }
 
     void Start()

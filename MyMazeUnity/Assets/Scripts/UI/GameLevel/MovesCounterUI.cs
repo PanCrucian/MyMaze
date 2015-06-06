@@ -13,9 +13,15 @@ public class MovesCounterUI : MonoBehaviour {
             Debug.LogWarning("Не могу найти ссылку на компоненту текст");
             return;
         }
+        int movesCount = Player.Instance.MovesCount;
+        if (movesCount > 99)
+            movesCount = 99;
+        int movesRecord = MyMaze.Instance.LastSelectedLevel.MinMovesRecord;
+        if (movesRecord > 99)
+            movesRecord = 99;
         if (MyMaze.Instance.LastSelectedLevel != null)
-            counterText.text = Player.Instance.MovesCount.ToString() + "/" + MyMaze.Instance.LastSelectedLevel.MinMovesRecord.ToString();
+            counterText.text = movesCount.ToString() + "/" + movesRecord.ToString();
         else
-            counterText.text = Player.Instance.MovesCount.ToString() + "/N";
+            counterText.text = movesCount.ToString() + "/N";
     }
 }

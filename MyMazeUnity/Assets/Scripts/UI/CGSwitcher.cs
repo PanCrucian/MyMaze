@@ -48,11 +48,16 @@ public class CGSwitcher : MonoBehaviour {
         if (delay > 0)
             yield return new WaitForSeconds(delay);
         if (animatorForHide != null)
+        {
             animatorForHide.SetTrigger("FadeOut");
+            animatorForHide = null;
+        }
+
         if (animatorForShow != null)
         {
             animatorForShow.gameObject.SetActive(true);
             animatorForShow.SetTrigger("FadeIn");
+            animatorForShow = null;
         }
         delay = 0f;
     }

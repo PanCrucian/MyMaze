@@ -447,6 +447,11 @@ public class MyMaze : MonoBehaviour, ISavingElement
         SceneLoader.LoadMenu();
     }
 
+    public void GoToMarket()
+    {
+        Debug.Log("Идем в магазин приложений");
+    }
+
     #region "Методы Сохранения"
 
     /// <summary>

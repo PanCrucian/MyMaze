@@ -14,12 +14,14 @@ public class TimeMachineUI : MonoBehaviour {
     public ColorsSettings colorsSettings;
 
     private Button button;
-    private bool allowReturn;
     private int returnToMove;
     private TimeMachineBooster timeMachine;
+    private int allowReturnCounter;
+    private int maxReturns = 3;
 
     void Start()
     {
+        allowReturnCounter = maxReturns;
         timeMachine = MyMaze.Instance.TimeMachineBooster;
         if (timeMachine.IsClosed) // && timeMachine.avaliableAtLevel != MyMaze.Instance.LastSelectedLevel для тестов
         {
@@ -28,11 +30,16 @@ public class TimeMachineUI : MonoBehaviour {
         }
         button = GetComponent<Button>();
         Player.Instance.OnMoveEnd += OnPlayerMoveEnd;
+        GameLevel.Instance.OnReturnToMove += OnReturnToMove;
     }
 
     void Update()
     {
         if (Player.Instance.MovesCount <= 0)
+            button.interactable = false;
+        else if (allowReturnCounter > 0)
+            button.interactable = true;
+        else
             button.interactable = false;
 
         if (MyMaze.Instance.TimeMachineBooster.IsAvaliable(MyMaze.Instance.LastSelectedLevel))
@@ -45,9 +52,18 @@ public class TimeMachineUI : MonoBehaviour {
     /// Игрок закончил перемещение
     /// </summary>
     /// <param name="move"></param>
-    public void OnPlayerMoveEnd(int move)
+    void OnPlayerMoveEnd(int move)
     {
-        button.interactable = true;
+        allowReturnCounter = maxReturns;
+    }
+
+    /// <summary>
+    /// Игрок вернулся на ход
+    /// </summary>
+    /// <param name="move"></param>
+    void OnReturnToMove(int move)
+    {
+        DecrimentAllowReturnCounter();
     }
 
     /// <summary>
@@ -58,11 +74,17 @@ public class TimeMachineUI : MonoBehaviour {
         if (timeMachine.IsAvaliable(MyMaze.Instance.LastSelectedLevel))
         {
             GameLevel.Instance.ReturnToMoveRequest(Player.Instance.MovesCount - 1);
-            button.interactable = false;
+            //button.interactable = false;
         }
         else
         {
             MyMaze.Instance.InApps.BuyPremium();
         }
+    }
+
+    void DecrimentAllowReturnCounter()
+    {
+        if (allowReturnCounter - 1 >= 0)
+            allowReturnCounter -= 1;
     }
 }

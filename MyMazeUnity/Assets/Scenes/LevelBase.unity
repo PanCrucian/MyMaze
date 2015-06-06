@@ -1366,11 +1366,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 430592, guid: a89e2d02fc784d549bc948853b1789e9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.48000002
+      value: .0120000001
       objectReference: {fileID: 0}
     - target: {fileID: 430592, guid: a89e2d02fc784d549bc948853b1789e9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.24000001
+      value: .0160000008
       objectReference: {fileID: 0}
     - target: {fileID: 430592, guid: a89e2d02fc784d549bc948853b1789e9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1398,11 +1398,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11477578, guid: a89e2d02fc784d549bc948853b1789e9, type: 2}
       propertyPath: position.xCell
-      value: -4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11477578, guid: a89e2d02fc784d549bc948853b1789e9, type: 2}
       propertyPath: position.yRow
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11462418, guid: a89e2d02fc784d549bc948853b1789e9, type: 2}
       propertyPath: designSettings.jumpOutDelay

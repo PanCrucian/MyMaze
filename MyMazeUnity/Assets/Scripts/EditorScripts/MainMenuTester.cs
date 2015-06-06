@@ -73,11 +73,15 @@ public class MainMenuTester : MonoBehaviour {
                 if (isPackWork)
                 {
                     ToggleCG(page.containers.packsContainer, true);
+                    if (page.containers.levelsContainer == null)
+                        Debug.LogWarning("Потерян контейнер с уровнями на странице " + index.ToString());
                     ToggleCG(page.containers.levelsContainer, false);
                 }
                 else
                 {
                     ToggleCG(page.containers.packsContainer, false);
+                    if (page.containers.levelsContainer == null)
+                        Debug.LogWarning("Потерян контейнер с уровнями на странице " + index.ToString());
                     ToggleCG(page.containers.levelsContainer, true);
                 }
             }

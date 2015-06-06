@@ -13,6 +13,10 @@ TextureImporter:
     21300012: i_GameBg07
     21300014: i_GameBg08
     21300016: i_GameBg09
+    21300018: i_SunDownBg
+    21300020: i_PyramidSunDown
+    21300022: b_CloseRating
+    21300024: i_StarRating
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -58,13 +62,23 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
+    - name: b_CloseRating
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 1384
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_GameBg01
       rect:
         serializedVersion: 2
         x: 2
-        y: 1366
-        width: 555
-        height: 680
+        y: 628
+        width: 509
+        height: 624
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -72,79 +86,109 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 684
-        width: 555
-        height: 680
+        y: 2
+        width: 509
+        height: 624
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_GameBg03
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 555
-        height: 680
+        x: 513
+        y: 628
+        width: 509
+        height: 624
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_GameBg04
       rect:
         serializedVersion: 2
-        x: 559
-        y: 1366
-        width: 555
-        height: 680
+        x: 513
+        y: 2
+        width: 509
+        height: 624
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_GameBg05
       rect:
         serializedVersion: 2
-        x: 1116
-        y: 1366
-        width: 555
-        height: 680
+        x: 598
+        y: 1422
+        width: 509
+        height: 624
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_GameBg06
       rect:
         serializedVersion: 2
-        x: 559
-        y: 684
-        width: 555
-        height: 680
+        x: 1109
+        y: 1422
+        width: 509
+        height: 624
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_GameBg07
       rect:
         serializedVersion: 2
-        x: 559
-        y: 2
-        width: 555
-        height: 680
+        x: 1024
+        y: 796
+        width: 509
+        height: 624
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_GameBg08
       rect:
         serializedVersion: 2
-        x: 1116
-        y: 684
-        width: 555
-        height: 680
+        x: 1535
+        y: 796
+        width: 509
+        height: 624
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_GameBg09
       rect:
         serializedVersion: 2
-        x: 1116
-        y: 2
-        width: 555
-        height: 680
+        x: 1024
+        y: 170
+        width: 509
+        height: 624
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_PyramidSunDown
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 1754
+        width: 319
+        height: 292
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_StarRating
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 1468
+        width: 298
+        height: 284
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_SunDownBg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1254
+        width: 594
+        height: 792
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

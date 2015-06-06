@@ -1273,7 +1273,6 @@ GameObject:
   - 224: {fileID: 120359792}
   - 222: {fileID: 120359794}
   - 114: {fileID: 120359793}
-  - 114: {fileID: 120359795}
   m_Layer: 5
   m_Name: i_GameBg
   m_TagString: Untagged
@@ -1293,8 +1292,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 200384060}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: .120825805}
-  m_AnchorMax: {x: 1, y: .880818605}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
@@ -1311,9 +1310,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300258, guid: 425dafc30817a104d9a57e8cca356bec, type: 3}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: bf7da548a6723ad41bf0f12c622a5280, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1325,22 +1324,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 120359791}
---- !u!114 &120359795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 120359791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b352cafc8cc2841b3a2178fb61b2d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gradientMode: 1
-  gradientDir: 3
-  overwriteAllColor: 0
-  vertex1: {r: 0, g: .53725493, b: .709803939, a: 1}
-  vertex2: {r: .427451015, g: .433509141, b: .733333349, a: 1}
 --- !u!1001 &124009550
 Prefab:
   m_ObjectHideFlags: 0
@@ -19521,11 +19504,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
@@ -19533,11 +19516,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y

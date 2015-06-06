@@ -5,12 +5,12 @@ PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
   AndroidProfiler: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 0
   targetDevice: 2
   targetGlesGraphics: 1
   targetIOSGraphics: -1
   targetResolution: 0
-  accelerometerFrequency: 60
+  accelerometerFrequency: 0
   companyName: DefaultCompany
   productName: MyMazeUnity
   cloudProjectId: 
@@ -32,10 +32,10 @@ PlayerSettings:
   iosAppInBackgroundBehavior: 0
   displayResolutionDialog: 2
   allowedAutorotateToPortrait: 1
-  allowedAutorotateToPortraitUpsideDown: 1
+  allowedAutorotateToPortraitUpsideDown: 0
   allowedAutorotateToLandscapeRight: 0
   allowedAutorotateToLandscapeLeft: 0
-  useOSAutorotation: 1
+  useOSAutorotation: 0
   use32BitDisplayBuffer: 1
   disableDepthAndStencilBuffers: 0
   defaultIsFullScreen: 0
@@ -81,7 +81,7 @@ PlayerSettings:
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   productGUID: 209b67f8ba7a2f4408868cc6bbffa64e
-  AndroidBundleVersionCode: 2
+  AndroidBundleVersionCode: 3
   AndroidMinSdkVersion: 10
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -96,7 +96,7 @@ PlayerSettings:
   StripUnusedMeshComponents: 0
   iPhoneSdkVersion: 988
   iPhoneTargetOSVersion: 22
-  uIPrerenderedIcon: 0
+  uIPrerenderedIcon: 1
   uIRequiresPersistentWiFi: 0
   uIStatusBarHidden: 1
   uIExitOnSuspend: 0
@@ -129,13 +129,45 @@ PlayerSettings:
   m_AndroidBanners:
   - width: 320
     height: 180
-    banner: {fileID: 0}
+    banner: {fileID: 2800000, guid: 84b413a9b2e268f4482e753cb7339045, type: 3}
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 0}
+    - m_Icon: {fileID: 2800000, guid: ea7e63666a761c240afdd450a1bc70fa, type: 3}
       m_Size: 128
+  - m_BuildTarget: Android
+    m_Icons:
+    - m_Icon: {fileID: 2800000, guid: fee3877b381a38246917c1f58a267cc4, type: 3}
+      m_Size: 192
+    - m_Icon: {fileID: 2800000, guid: 073240d2cbdb6544cbec049917c3eb63, type: 3}
+      m_Size: 144
+    - m_Icon: {fileID: 2800000, guid: 56600b6d302741c4685e4a8d116a59f8, type: 3}
+      m_Size: 96
+    - m_Icon: {fileID: 2800000, guid: 76e8f65c95906724095f2c1581daebf7, type: 3}
+      m_Size: 72
+    - m_Icon: {fileID: 2800000, guid: 62b7860d737660f479da4c67a10b6934, type: 3}
+      m_Size: 48
+    - m_Icon: {fileID: 2800000, guid: 0dda51ff117065047bac4982337ee28f, type: 3}
+      m_Size: 36
+  - m_BuildTarget: iPhone
+    m_Icons:
+    - m_Icon: {fileID: 2800000, guid: 867c730448c5b2d429bc397c4f93c18c, type: 3}
+      m_Size: 180
+    - m_Icon: {fileID: 2800000, guid: 78127c98543e96e48a16e0e1c9977f6c, type: 3}
+      m_Size: 152
+    - m_Icon: {fileID: 2800000, guid: e029698704c74d64bbdad77ae95a5bfa, type: 3}
+      m_Size: 144
+    - m_Icon: {fileID: 2800000, guid: d9e4dfb3c9b79b949b7b89158ac7634b, type: 3}
+      m_Size: 120
+    - m_Icon: {fileID: 2800000, guid: e6afa916c5d5727498daa2a6615b9f46, type: 3}
+      m_Size: 114
+    - m_Icon: {fileID: 2800000, guid: 85374f9c9ea2eb74586b324bdba64625, type: 3}
+      m_Size: 76
+    - m_Icon: {fileID: 2800000, guid: 89d586fadc6891b4ebd51469244ff0d8, type: 3}
+      m_Size: 72
+    - m_Icon: {fileID: 2800000, guid: 0434a8db72ee1ec40af82ad54955b511, type: 3}
+      m_Size: 57
   m_BuildTargetBatching:
   - m_BuildTarget: Android
     m_StaticBatching: 1

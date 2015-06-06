@@ -27,9 +27,11 @@ public class Player : GameLevelObject
     public class DesignSettings
     {
         public float movePower = 4.75f;
+        public float jumpPower = 2.2f;
         public float stopMovingDelay = 0.055f;
-        public float jumpStopDelay = 0.075f;
-        public float jumpOutDelay = 0.25f;
+        public float jumpOutDelay = 0.425f; //время когда прыжок будет уходить вниз
+        public float jumpStopDelay = 0.13f; //время когда прыжок остановится
+        public float jumpSeriesDelayOffset = 0.08f; //время когда в прыжках есть сразу же еще 1 прыжок
     }
 	public static Player Instance {
         get
@@ -44,7 +46,7 @@ public class Player : GameLevelObject
     private Rigidbody2D rigidbody2d;
     private Directions moveDirection;
     private int _movesCount;
-    private Vector2 jumpVelocity;
+    private float jumpSeriesOffset = 0f; //либо 0f либо jumpSeriesDelayOffset, это эффектор к jumpOutDelay
 
     /// <summary>
     /// Прыгаем?
@@ -228,7 +230,6 @@ public class Player : GameLevelObject
     public void MoveImpulse(Directions direction)
     {
         MoveImpulse(direction, false);
-        jumpVelocity = new Vector2(rigidbody2d.velocity.x / 2f, rigidbody2d.velocity.y / 2f);
     }
 
     /// <summary>
@@ -278,7 +279,7 @@ public class Player : GameLevelObject
     /// <param name="jumpCellDistance">На сколько клеток прыгать</param>
     public void Jump(Trampoline trampoline)
     {
-        int jumpCellDistance = trampoline.jumpCellDistance;        
+        int jumpCellDistance = trampoline.jumpCellDistance;      
         isJump = true;
         animator.SetTrigger("JumpIn");
         jumpEndPosition = new GridObject.Position()
@@ -290,6 +291,27 @@ public class Player : GameLevelObject
         if (state != PlayerStates.Move)
         {
             MoveImpulse(moveDirection);
+            jumpSeriesOffset = designSettings.jumpSeriesDelayOffset;
+        }
+        else
+        {
+            jumpSeriesOffset = 0f;
+        }
+
+        Vector2 jumpVelocity = Vector2.zero;
+        if (rigidbody2d.velocity.x != 0)
+        {
+            if (rigidbody2d.velocity.x > 0)
+                jumpVelocity.x = designSettings.jumpPower;
+            else
+                jumpVelocity.x = designSettings.jumpPower * -1f;
+        }
+        if (rigidbody2d.velocity.y != 0)
+        {
+            if (rigidbody2d.velocity.y > 0)
+                jumpVelocity.y = designSettings.jumpPower;
+            else
+                jumpVelocity.y = designSettings.jumpPower * -1f;
         }
 
         rigidbody2d.velocity = jumpVelocity;
@@ -316,7 +338,7 @@ public class Player : GameLevelObject
 
     IEnumerator JumpOutNumerator()
     {
-        yield return new WaitForSeconds(designSettings.jumpOutDelay);
+        yield return new WaitForSeconds(designSettings.jumpOutDelay - jumpSeriesOffset);
         animator.SetTrigger("JumpOut");
     }
 

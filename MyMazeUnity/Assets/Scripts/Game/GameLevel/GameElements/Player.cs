@@ -28,7 +28,7 @@ public class Player : GameLevelObject
     {
         public float movePower = 4.75f;
         public float jumpPower = 2.2f;
-        public float stopMovingDelay = 0.055f;
+        public float stopMovingDelay = 0.095f;
         public float jumpOutDelay = 0.425f; //время когда прыжок будет уходить вниз
         public float jumpStopDelay = 0.13f; //время когда прыжок остановится
         public float jumpSeriesDelayOffset = 0.08f; //время когда в прыжках есть сразу же еще 1 прыжок

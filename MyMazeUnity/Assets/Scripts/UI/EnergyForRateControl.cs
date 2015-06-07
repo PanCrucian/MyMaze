@@ -12,8 +12,7 @@ public class EnergyForRateControl : MonoBehaviour {
 
     void OnEnergyEmpty()
     {
-        Debug.Log(1);
-        if (!MyMaze.Instance.Energy.WasEnergyEmptyBefore())
+        if (!MyMaze.Instance.Energy.WasEnergyEmptyBeforeInMenu())
         {
             CGSwitcher.Instance.SetShowObject(RateUI);
             CGSwitcher.Instance.Switch();

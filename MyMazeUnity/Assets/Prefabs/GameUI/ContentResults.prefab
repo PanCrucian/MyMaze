@@ -280,6 +280,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22469632}
   - 114: {fileID: 11435376}
+  - 114: {fileID: 11408998}
   m_Layer: 5
   m_Name: EnergyUI
   m_TagString: Untagged
@@ -543,6 +544,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11408998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b6f98df5f6b574984fc73b024a348b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: 8
+  type: 0
 --- !u!114 &11410394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -666,7 +680,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: .694999993
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!114 &11424310
@@ -700,7 +714,7 @@ MonoBehaviour:
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!114 &11435376
@@ -715,7 +729,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGameUI: 1
-  animationTime: .5
+  emptyAnimationTime: .75
+  smoothTime: 14.75
   energyImage: {fileID: 11424694}
   timerText: {fileID: 0}
   premiumContainer: {fileID: 0}

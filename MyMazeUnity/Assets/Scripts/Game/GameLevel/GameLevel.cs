@@ -24,8 +24,6 @@ public class GameLevel : MonoBehaviour {
     {
         get
         {
-            if (_instance == null)
-                Debug.LogError("Не могу найти экземпляр класса GameLevel");
             return _instance;
         }
     }
@@ -301,9 +299,7 @@ public class GameLevel : MonoBehaviour {
             Energy energy = MyMaze.Instance.Energy;
             energyUsingFlag = energy.Use();
             EnergyUI energyUI = GameObject.FindObjectOfType<EnergyUI>();
-            if (energyUsingFlag)
-                energyUI.AnimateNormal();
-            else
+            if (!energyUsingFlag)
                 energyUI.AnimateBad();
         }
 

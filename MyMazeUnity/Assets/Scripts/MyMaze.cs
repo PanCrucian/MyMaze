@@ -150,10 +150,6 @@ public class MyMaze : MonoBehaviour, ISavingElement
     public static MyMaze Instance 
     { 
         get {
-            if (!_instance) {
-                Debug.LogWarning("Не могу найти экземляр класса MyMaze");
-                return null;
-            }
             return _instance; 
         }
     }
@@ -210,8 +206,6 @@ public class MyMaze : MonoBehaviour, ISavingElement
 
     void Update()
     {
-        if (_isFirstLoad)
-            _isFirstLoad = false;
         CalculateTotalStars();
         CalculateStarsRecived();
     }
@@ -436,6 +430,7 @@ public class MyMaze : MonoBehaviour, ISavingElement
     {
         if (OnLevelLoad != null)
             OnLevelLoad(level);
+        _isFirstLoad = false;
         SceneLoader.sceneName = level.name;
         SceneLoader.Load();
     }

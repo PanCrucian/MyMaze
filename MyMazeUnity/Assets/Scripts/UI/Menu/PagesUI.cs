@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PagesUI : MonoBehaviour {
-    public Deligates.SimpleEvent OnPageSwitch;
+    public Deligates.IntegerEvent OnPageSwitch;
 
     [System.Serializable]
     public class Local_data
@@ -40,6 +40,8 @@ public class PagesUI : MonoBehaviour {
     {
         SetupPages();
         pageNumber = MyMaze.Instance.LastSelectedPageNumber;
+        if (OnPageSwitch != null)
+            OnPageSwitch(pageNumber);
         SetlastSelectedPageVisability();
     }
 
@@ -138,7 +140,7 @@ public class PagesUI : MonoBehaviour {
         CGSwitcher.Instance.Switch();
         MyMaze.Instance.LastSelectedPageNumber = PageNumber;
         if (OnPageSwitch != null)
-            OnPageSwitch();
+            OnPageSwitch(pageNumber);
         //StartCoroutine(OffPage(PageNumber - 1));
     }
 
@@ -159,7 +161,7 @@ public class PagesUI : MonoBehaviour {
         CGSwitcher.Instance.Switch();
         MyMaze.Instance.LastSelectedPageNumber = PageNumber;
         if (OnPageSwitch != null)
-            OnPageSwitch();
+            OnPageSwitch(pageNumber);
         //StartCoroutine(OffPage(PageNumber + 1));
     }
 

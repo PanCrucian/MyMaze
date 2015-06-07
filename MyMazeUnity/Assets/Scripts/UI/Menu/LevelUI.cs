@@ -54,8 +54,8 @@ public class LevelUI : MonoBehaviour {
     {
         GetComponent<SoundsPlayer>().PlayOneShootSound();
         LevelsUI levelsUI = GetComponentInParent<LevelsUI>();
-        levelsUI.energyUI.AnimateNormal();
-        yield return new WaitForSeconds(levelsUI.energyUI.animationTime);
+        if (!MyMaze.Instance.InApps.IsPremium)
+            yield return new WaitForSeconds(levelsUI.energyUI.emptyAnimationTime);
         yield return new WaitForSeconds(0.25f);
         ScreenOverlayUI.Instance.FadeIn();
         yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);

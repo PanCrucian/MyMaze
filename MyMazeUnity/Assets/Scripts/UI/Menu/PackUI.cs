@@ -15,7 +15,7 @@ public class PackUI : MonoBehaviour {
     private int saveCPURate = 6; //пересчитывать тяжелую логику раз в 6 кадров
     private int frames;
 
-    void OnPageSwitch()
+    void OnPageSwitch(int pageNumber)
     {
         Animator animator = GetComponent<Animator>();
         if (animator.isActiveAndEnabled)
@@ -26,6 +26,20 @@ public class PackUI : MonoBehaviour {
     {
         GetComponentInParent<PageUI>().containers.levelsContainer.gameObject.SetActive(false);
         GetComponentInParent<PagesUI>().OnPageSwitch += OnPageSwitch;
+        StartCoroutine(OpenLevelsNumerator());
+    }
+
+    IEnumerator OpenLevelsNumerator()
+    {
+        yield return new WaitForEndOfFrame();
+        if (!MyMaze.Instance.IsFirstLoad)
+            if (pack.IsYourLevel(MyMaze.Instance.LastSelectedLevel))
+            { //переключим на экран уровней, когда вышли из игры
+                GetComponentInParent<PageUI>().containers.levelsContainer.gameObject.SetActive(true);
+                GetComponentInParent<PageUI>().containers.levelsContainer.GetComponent<Animator>().SetTrigger("FadeIn");
+                GetComponentInParent<PageUI>().containers.packsContainer.GetComponent<Animator>().SetTrigger("FadeOut");
+                GetComponentInParent<PageUI>().containers.packsContainer.gameObject.SetActive(false);
+            }
     }
 
     void Update()

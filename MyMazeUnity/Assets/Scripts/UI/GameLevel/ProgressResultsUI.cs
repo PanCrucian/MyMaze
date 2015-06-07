@@ -10,20 +10,25 @@ public class ProgressResultsUI : MonoBehaviour {
 
     private Pack pack;
     private float velo;
+
+    void Start()
+    {
+        pack = MyMaze.Instance.LastSelectedPack;
+        barImage.fillAmount = (float)pack.StarsRecived / (float)pack.StarsCount;
+    }
+
     void Update()
     {
         if (pack == null)
         {
             pack = MyMaze.Instance.LastSelectedPack;
+            return;
         }
-        else
-        {
-            starsCountText.text = pack.StarsRecived.ToString();
-            barImage.fillAmount = Mathf.SmoothDamp(
-                barImage.fillAmount, 
-                (float)pack.StarsRecived * 100f / (float)pack.StarsCount / 100f, 
-                ref velo,
-                animationSpeed * Time.deltaTime);
-        }
+        starsCountText.text = pack.StarsRecived.ToString();
+        barImage.fillAmount = Mathf.SmoothDamp(
+            barImage.fillAmount,
+            (float)pack.StarsRecived / (float)pack.StarsCount,
+            ref velo,
+            animationSpeed * Time.deltaTime);
     }
 }

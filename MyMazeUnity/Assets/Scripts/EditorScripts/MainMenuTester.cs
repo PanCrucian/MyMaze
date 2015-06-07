@@ -39,6 +39,8 @@ public class MainMenuTester : MonoBehaviour {
             pagecg.gameObject.SetActive(true);
 
             ToggleCG(page.containers.packsContainer, true);
+            if (page.containers.levelsContainer == null)
+                Debug.LogWarning("Потерян контейнер с уровнями на странице " + index.ToString());
             ToggleCG(page.containers.levelsContainer, false);
             index++;
         }

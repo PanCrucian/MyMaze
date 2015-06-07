@@ -15,10 +15,10 @@ public class RateUI : MonoBehaviour {
             Hide();
             return;
         }
+        MyMaze.Instance.Energy.RestoreAllUnits();
         if (rate >= toMarketStarsGreatherOrEqual)
         {
-            Debug.Log("Игра оценена на хорошое количество звезд. Идем в маркет и восстановим энергию");
-            MyMaze.Instance.Energy.RestoreAllUnits();
+            Debug.Log("Игра оценена на хорошое количество звезд. Идем в маркет");
             MyMaze.Instance.GoToMarket();
         }
         Hide();

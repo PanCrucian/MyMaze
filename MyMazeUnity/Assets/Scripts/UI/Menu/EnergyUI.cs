@@ -5,7 +5,8 @@ using System.Collections;
 public class EnergyUI : MonoBehaviour {
 
     public bool isGameUI = false;
-    public float animationTime = 0.5f;
+    public float emptyAnimationTime = 0.75f;
+    public float smoothTime = 14.75f;
     public Image energyImage;
     public Text timerText;
     public GameObject premiumContainer;
@@ -13,12 +14,13 @@ public class EnergyUI : MonoBehaviour {
     private Energy energy;
     private InApps inApps;
     private bool animate = false;
-    private float iterationTime = 0.1f;
+    private float barSmoothVelocity;
 
     void Start()
     {
         energy = MyMaze.Instance.Energy;
         inApps = MyMaze.Instance.InApps;
+        CalculateImageFillSlice(false);
     }
 
     void Update()
@@ -35,7 +37,7 @@ public class EnergyUI : MonoBehaviour {
             ControlPremiumContainer();
         }
         if (!animate)
-            CalculateImageFillSlice();
+            CalculateImageFillSlice(true);
     }
 
     /// <summary>
@@ -65,80 +67,68 @@ public class EnergyUI : MonoBehaviour {
     }
 
     /// <summary>
-    /// Запускаем процессы анимации блока, когда успешное использование
-    /// </summary>
-    public void AnimateNormal()
-    {
-        if (!gameObject.activeSelf)
-            return;
-        animate = true;
-        StartCoroutine(AnimateNormalNumerator());
-    }
-
-    /// <summary>
     /// Запускаем процессы анимации блока, когда плохое использование
     /// </summary>
     public void AnimateBad()
     {
+        if (animate)
+            return;
         animate = true;
+        GetComponent<SoundsPlayer>().PlayOneShootSound();
         StartCoroutine(AnimateBadNumerator());
     }
 
     IEnumerator AnimateBadNumerator()
     {
-        bool flag = false;
-        for (float t = 0; t <= animationTime; t += iterationTime)
-        {            
-            float fillAmount = 0f;
-            if (flag)
-                fillAmount = 1f / (float)energy.MaxUnits;
-            energyImage.fillAmount = fillAmount;
-
-            flag = !flag;
-            yield return new WaitForSeconds(iterationTime);
+        Color color = energyImage.color;
+        energyImage.fillAmount = 1f;
+        for (float t = 0; t <= emptyAnimationTime; t += Time.deltaTime)
+        {
+            color.a = Mathf.Lerp(0f, 1f, t / emptyAnimationTime);
+            ApplyImageColor(color);
+            yield return new WaitForEndOfFrame();
         }
+        color.a = 1f;
+        ApplyImageColor(color);
+        yield return new WaitForEndOfFrame();
+        for (float t = 0; t <= emptyAnimationTime; t += Time.deltaTime)
+        {
+            color.a = Mathf.Lerp(1f, 0f, t / emptyAnimationTime);
+            ApplyImageColor(color);
+            yield return new WaitForEndOfFrame();
+        }
+        color.a = 1f;
+        ApplyImageColor(color);
+        energyImage.fillAmount = 0f;
         animate = false;
     }
 
-    IEnumerator AnimateNormalNumerator()
+    void ApplyImageColor(Color color)
     {
-        bool flag = false;        
-        for (float t = 0; t <= animationTime; t += iterationTime)
-        {
-            EnergyBlock avaliableBlock = energy.GetFirstAvaliableBlock();
-            EnergyBlock notAvaliableBlock = energy.GetFirstNotAvaliableBlock();
-            float fillAmount = 0f;
-            if (flag)
-            {
-                if (avaliableBlock != null)
-                    fillAmount = ((float)avaliableBlock.index + 1f) / (float)energy.MaxUnits;
-                else
-                    fillAmount = 0f;
-            }
-            else
-            {
-                if (notAvaliableBlock != null)
-                    fillAmount = ((float)notAvaliableBlock.index + 1f) / (float)energy.MaxUnits;
-                else
-                    fillAmount = 1f;
-            }
-            energyImage.fillAmount = fillAmount;
-
-            flag = !flag;
-            yield return new WaitForSeconds(iterationTime);
-        }
-        animate = false;
+        energyImage.color = color;
     }
 
     /// <summary>
     /// Считаем обрезку изображения
     /// </summary>
-    void CalculateImageFillSlice()
+    void CalculateImageFillSlice(bool smooth)
     {
         EnergyBlock block = energy.GetFirstAvaliableBlock();
-        float fillAmount = 0f;
+        float fillAmount = energyImage.fillAmount;
         if (block != null)
-            fillAmount = ((float)block.index + 1f) / (float)energy.MaxUnits;
+        {
+            if (smooth)
+                fillAmount = Mathf.SmoothDamp(fillAmount, ((float)block.index + 1f) / (float)energy.MaxUnits, ref barSmoothVelocity, smoothTime * Time.deltaTime);
+            else
+                fillAmount = ((float)block.index + 1f) / (float)energy.MaxUnits;
+        }
+        else
+        {
+            if (smooth)
+                fillAmount = Mathf.SmoothDamp(fillAmount, 0f, ref barSmoothVelocity, smoothTime * Time.deltaTime);
+            else
+                fillAmount = 0f;
+        }
 
         energyImage.fillAmount = fillAmount;
     }

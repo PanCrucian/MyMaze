@@ -3,6 +3,7 @@ using System.Collections;
 
 public class InApps : MonoBehaviour, ISavingElement {
 
+    public Deligates.SimpleEvent OnPremiumBuyed;
     public bool IsPremium;
 
     public void BuyPremium()
@@ -11,6 +12,8 @@ public class InApps : MonoBehaviour, ISavingElement {
         {
             Debug.Log("Купили премиум");
             IsPremium = true;
+            if (OnPremiumBuyed != null)
+                OnPremiumBuyed();
         }
         else
         {

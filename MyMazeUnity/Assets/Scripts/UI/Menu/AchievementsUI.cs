@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class AchievementsUI : MonoBehaviour {
+public class AchievementsUI : MonoBehaviour, IPointerClickHandler {
     private Button button;
     private ColorBlock tempColorBlock;
 
@@ -39,5 +40,10 @@ public class AchievementsUI : MonoBehaviour {
         tempColorBlock.disabledColor = tempColorBlock.pressedColor;
         button.interactable = false;
         button.colors = tempColorBlock;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        GameCenterManager.ShowAchievements();
     }
 }

@@ -16,6 +16,5 @@ public class TimeMachineTutorialUI : TutorialUI {
     {
         base.OnCloseRequest();
         MyMaze.Instance.Tutorial.GetStep(TutorialPhase.TimeMachine).Complete();
-        //MyMaze.Instance.Tutorial.StartStep(TutorialPhase.NotTeach);
     }
 }

@@ -7,7 +7,7 @@ public class MainMenuUI : MonoBehaviour {
     public LevelsMenuUI levelsMenuUi;
 
 	void Start () {
-        if (!MyMaze.Instance.IsFirstLoad)
+        if (!MyMaze.Instance.IsFirstSceneLoad)
         {
             CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());
             CGSwitcher.Instance.SetShowObject(levelsMenuUi.GetComponent<Animator>());

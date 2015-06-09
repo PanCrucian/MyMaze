@@ -1186,6 +1186,8 @@ GameObject:
   - 114: {fileID: 11432260}
   - 114: {fileID: 11402642}
   - 114: {fileID: 11455244}
+  - 114: {fileID: 11404412}
+  - 114: {fileID: 11487576}
   m_Layer: 0
   m_Name: MyMazeController
   m_TagString: Untagged
@@ -2309,10 +2311,6 @@ MonoBehaviour:
     phase: 2
     IsComplete: 0
     IsStarted: 0
-  - stepName: NotTeach
-    phase: 3
-    IsComplete: 0
-    IsStarted: 1
 --- !u!114 &11404178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2333,6 +2331,64 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 60
+  group: 2
+--- !u!114 &11404412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e404b9b8f1ef72647a1bdf7d02ba01fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iOSMatching:
+  - achId: A1
+    type: 1
+  - achId: A2
+    type: 2
+  - achId: A3
+    type: 3
+  - achId: A4
+    type: 0
+  - achId: A5
+    type: 4
+  - achId: A6
+    type: 5
+  - achId: A7
+    type: 6
+  - achId: A8
+    type: 7
+  - achId: A9
+    type: 8
+  - achId: A10
+    type: 9
+  - achId: A11
+    type: 10
+  elements:
+  - name: Page00Opened
+    type: 0
+  - name: Page01Opened
+    type: 1
+  - name: Page02Opened
+    type: 2
+  - name: Page03Opened
+    type: 3
+  - name: Page04Opened
+    type: 4
+  - name: TreasureHunter
+    type: 5
+  - name: FirstSteps
+    type: 6
+  - name: Experienced
+    type: 7
+  - name: Master
+    type: 8
+  - name: God
+    type: 9
+  - name: Congratulations
+    type: 10
 --- !u!114 &11405422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2441,6 +2497,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 60
+  group: 2
 --- !u!114 &11407468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2545,6 +2602,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 0
+  group: 0
 --- !u!114 &11419146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2653,6 +2711,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 120
+  group: 4
 --- !u!114 &11421912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2771,6 +2830,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 30
+  group: 1
 --- !u!114 &11423440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2815,7 +2875,6 @@ MonoBehaviour:
   LastSelectedPack: {fileID: 0}
   LastSelectedLevel: {fileID: 0}
   LastSelectedPageNumber: 0
-  MovesCounter: 0
   packs: []
   levels: []
 --- !u!114 &11423764
@@ -3174,6 +3233,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 0
+  group: 0
 --- !u!114 &11433856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3194,6 +3254,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 90
+  group: 3
 --- !u!114 &11434296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3403,6 +3464,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 60
+  group: 2
 --- !u!114 &11442570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3483,6 +3545,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 0
+  group: 0
 --- !u!114 &11444546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3765,6 +3828,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 120
+  group: 4
 --- !u!114 &11462434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3929,6 +3993,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 90
+  group: 3
 --- !u!114 &11468760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4041,6 +4106,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 30
+  group: 1
 --- !u!114 &11473348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4089,6 +4155,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 30
+  group: 1
 --- !u!114 &11475282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4169,6 +4236,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 120
+  group: 4
 --- !u!114 &11478106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4249,6 +4317,7 @@ MonoBehaviour:
   StarsCount: 0
   StarsRecived: 0
   StarsRequired: 90
+  group: 3
 --- !u!114 &11481206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4453,6 +4522,17 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+--- !u!114 &11487576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da7b66d56f73ae4aa1e007635b99ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11491822
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class MyMaze : MonoBehaviour, ISavingElement
 {
-    public Deligates.LevelLoadEvent OnLevelLoad;
+    public Deligates.LevelEvent OnLevelLoad;
     public Deligates.SimpleEvent OnMenuLoad;
 
     /// <summary>
@@ -34,12 +34,6 @@ public class MyMaze : MonoBehaviour, ISavingElement
     public int LastSelectedPageNumber;
 
     /// <summary>
-    /// Общий счет ходов игрока
-    /// </summary>
-    [HideInInspector]
-    public int MovesCounter;
-
-    /// <summary>
     /// Ссылки на все паки
     /// </summary>
     public List<Pack> packs;
@@ -55,17 +49,19 @@ public class MyMaze : MonoBehaviour, ISavingElement
     public Sounds Sounds {
         get
         {
-            return GetComponent<Sounds>();
+            return _sounds;
         }   
     }
+    private Sounds _sounds;
 
     public WebLinks WebLinks
     {
         get
         {
-            return GetComponent<WebLinks>();
+            return _webLinks;
         }
     }
+    private WebLinks _webLinks;
 
     /// <summary>
     /// Компонента обучения
@@ -74,9 +70,10 @@ public class MyMaze : MonoBehaviour, ISavingElement
     {
         get
         {
-           return GetComponent<Tutorial>();
+            return _tutorial;
         }
     }
+    private Tutorial _tutorial;
 
     /// <summary>
     /// Компонента переводов текста
@@ -85,9 +82,10 @@ public class MyMaze : MonoBehaviour, ISavingElement
     {
         get
         {
-            return GetComponent<Localization>();
+            return _localization;
         }
     }
+    private Localization _localization;
 
     /// <summary>
     /// Ссылка на загрузчик сцен
@@ -96,9 +94,10 @@ public class MyMaze : MonoBehaviour, ISavingElement
     {
         get
         {
-            return GetComponent<SceneLoader>();
+            return _sceneLoader;
         }
     }
+    private SceneLoader _sceneLoader;
 
     /// <summary>
     /// Ссылка на контроллер энергии
@@ -107,9 +106,10 @@ public class MyMaze : MonoBehaviour, ISavingElement
     {
         get
         {
-            return GetComponent<Energy>();
+            return _energy;
         }
     }
+    private Energy _energy;
 
     /// <summary>
     /// Ссылка на контроллер внутриигровых платежей
@@ -118,9 +118,10 @@ public class MyMaze : MonoBehaviour, ISavingElement
     {
         get
         {
-            return GetComponent<InApps>();
+            return _inApps;
         }
     }
+    private InApps _inApps;
 
     /// <summary>
     /// Ссылка на бустер "Машина времени"
@@ -129,9 +130,10 @@ public class MyMaze : MonoBehaviour, ISavingElement
     {
         get
         {
-            return GetComponent<TimeMachineBooster>();
+            return _timeMachineBooster;
         }
     }
+    private TimeMachineBooster _timeMachineBooster;
 
     /// <summary>
     /// Ссылка на бустер "Телепорт"
@@ -140,9 +142,36 @@ public class MyMaze : MonoBehaviour, ISavingElement
     {
         get
         {
-            return GetComponent<TeleportBooster>();
+            return _teleportBooster;
         }
     }
+    private TeleportBooster _teleportBooster;
+
+    /// <summary>
+    /// Ссылка на достижения
+    /// </summary>
+    public Achievements Achievements
+    {
+        get
+        {
+            return _achievements;
+        }
+    }
+    private Achievements _achievements;
+
+#if UNITY_IPHONE
+    /// <summary>
+    /// Ссылка на Геймцентр
+    /// </summary>
+    public GameCenter GameCenter
+    {
+        get
+        {
+            return _gameCenter;
+        }
+    }
+    private GameCenter _gameCenter;
+#endif
 
     /// <summary>
     /// Ссылка на геймобъект
@@ -155,18 +184,23 @@ public class MyMaze : MonoBehaviour, ISavingElement
     }
 
     /// <summary>
-    /// Первый запуск приложения?
+    /// Первый запуск сцены?
     /// </summary>
-    public bool IsFirstLoad
+    public bool IsFirstSceneLoad
     {
         get
         {
-            return _isFirstLoad;
+            return _isFirstSceneLoad;
         }
     }
 
     private static MyMaze _instance;
-    private bool _isFirstLoad = true;
+    private bool _isFirstSceneLoad = true;
+
+    /// <summary>
+    /// Общий счет ходов игрока
+    /// </summary>
+    private int _movesCounter;
 
     void Awake()
     {
@@ -344,7 +378,20 @@ public class MyMaze : MonoBehaviour, ISavingElement
     /// </summary>
     void SetupApplicationPreferences()
     {
-        
+        _sounds = GetComponent<Sounds>();
+        _webLinks = GetComponent<WebLinks>();
+        _tutorial = GetComponent<Tutorial>();
+        _localization = GetComponent<Localization>();
+        _sceneLoader = GetComponent<SceneLoader>();
+        _energy = GetComponent<Energy>();
+        _inApps = GetComponent<InApps>();
+        _timeMachineBooster = GetComponent<TimeMachineBooster>();
+        _teleportBooster = GetComponent<TeleportBooster>();
+        _achievements = GetComponent<Achievements>();
+#if UNITY_IPHONE
+        _gameCenter = GetComponent<GameCenter>();
+#endif
+
     }
 
     /// <summary>
@@ -430,7 +477,7 @@ public class MyMaze : MonoBehaviour, ISavingElement
     {
         if (OnLevelLoad != null)
             OnLevelLoad(level);
-        _isFirstLoad = false;
+        _isFirstSceneLoad = false;
         SceneLoader.sceneName = level.name;
         SceneLoader.Load();
     }
@@ -445,6 +492,15 @@ public class MyMaze : MonoBehaviour, ISavingElement
     public void GoToMarket()
     {
         Debug.Log("Идем в магазин приложений");
+    }
+
+    /// <summary>
+    /// Увеличим счетчик ходов игрока
+    /// </summary>
+    public void IncrementMovesCounter()
+    {
+        _movesCounter++;
+        Achievements.MovesAchievement(_movesCounter);      
     }
 
     #region "Методы Сохранения"
@@ -462,6 +518,9 @@ public class MyMaze : MonoBehaviour, ISavingElement
         PlayerPrefs.SetInt("LastSelectedPageNumber", LastSelectedPageNumber);
         PlayerPrefs.SetString("LastSelectedPack", LastSelectedPack.packName);
         PlayerPrefs.SetString("LastSelectedLevel", LastSelectedLevel.levelName);
+
+        //счетчик ходов игрока
+        PlayerPrefs.SetInt("MovesCounter", _movesCounter);
 
         //звуки
         this.Sounds.Save();
@@ -483,6 +542,9 @@ public class MyMaze : MonoBehaviour, ISavingElement
 
         //Локализация
         this.Localization.Save();
+
+        //Достижения
+        this.Achievements.Save();
 
         //Сбросим на диск
         PlayerPrefs.Save();
@@ -513,6 +575,10 @@ public class MyMaze : MonoBehaviour, ISavingElement
                 LastSelectedLevel = level;
         }
 
+        //счетчик ходов игрока
+        if (PlayerPrefs.HasKey("MovesCounter"))
+            _movesCounter = PlayerPrefs.GetInt("MovesCounter");
+
         //звуки
         this.Sounds.Load();
 
@@ -533,6 +599,9 @@ public class MyMaze : MonoBehaviour, ISavingElement
 
         //Локализация
         this.Localization.Load();
+
+        //Достижения
+        this.Achievements.Load();
     }
 
     /// <summary>
@@ -551,5 +620,8 @@ public class MyMaze : MonoBehaviour, ISavingElement
     void OnApplicationQuit()
     {
         //TODO Обязательно добавить сюда сохраниние всего прогресса
+#if !UNITY_EDITOR
+        Save();
+#endif
     }
 }

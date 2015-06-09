@@ -224,7 +224,7 @@ public class Player : GameLevelObject
     void CountMove()
     {
         _movesCount++;
-        MyMaze.Instance.MovesCounter++;
+        MyMaze.Instance.IncrementMovesCounter();
     }
 
     public void MoveImpulse(Directions direction)

@@ -5,6 +5,7 @@ using UnityEngine;
 /// </summary>
 [System.Serializable]
 public class Pack : MonoBehaviour, IPack {
+    public Deligates.PackEvent OnPackOpened;
     /// <summary>
     /// Имя набора
     /// </summary>
@@ -30,7 +31,10 @@ public class Pack : MonoBehaviour, IPack {
     /// </summary>
     public int StarsRequired;
 
+    public PackGroupTypes group = PackGroupTypes.Custom;
+
     private float oldUpdateTime = 0f;
+    private bool packOpenEventFired = false;
 
     /// <summary>
     /// Закрыт ли пак? Считает все приобретенные звезды, сравнивает с необходимым количеством и говорит да или нет
@@ -62,8 +66,21 @@ public class Pack : MonoBehaviour, IPack {
         if (Mathf.Abs(oldUpdateTime - Time.time) >= 0.5f)
         {
             SetRecivedStars();
+            if(MyMaze.Instance.StarsRecived >= StarsRequired)
+                if (!packOpenEventFired)
+                    PackOpened();
             oldUpdateTime = Time.time;
         }
+    }
+
+    void PackOpened()
+    {
+        if(group != PackGroupTypes.Page00)
+            MyMaze.Instance.Achievements.PageOpenedAchievement(this);
+
+        if (OnPackOpened != null)
+            OnPackOpened(this);
+        packOpenEventFired = true;
     }
 
     /// <summary>

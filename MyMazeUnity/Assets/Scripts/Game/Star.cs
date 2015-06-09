@@ -32,6 +32,14 @@ public class Star : IStar, IComparable {
         if (this.IsCollected)
             Debug.Log("Монета уже была собрана, но вы снова подбираете её");
         this.IsCollected = true;
+
+        if (MyMaze.Instance != null)
+        {
+            if(IsHidden)
+                MyMaze.Instance.Achievements.HiddenStarsAchievement();
+
+            MyMaze.Instance.Achievements.AllStarsAchievement();
+        }
     }
 
     /// <summary>

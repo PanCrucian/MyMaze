@@ -18,6 +18,5 @@ public class MoveTutorialUI : TutorialUI {
     {
         base.OnCloseRequest();
         MyMaze.Instance.Tutorial.GetStep(TutorialPhase.HowToMove).Complete();
-        //MyMaze.Instance.Tutorial.StartStep(TutorialPhase.NotTeach);
     }
 }

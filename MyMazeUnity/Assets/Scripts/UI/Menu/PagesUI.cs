@@ -52,9 +52,13 @@ public class PagesUI : MonoBehaviour {
     {
         foreach (PageUI page in __data.pages)
         {
-            if (MyMaze.Instance.LastSelectedPageNumber == page.transform.GetSiblingIndex())
+            if (pageNumber == page.transform.GetSiblingIndex())
             {
                 page.GetComponent<Animator>().SetTrigger("FadeIn");
+
+                if (pageNumber == 0)
+                    if (!MyMaze.Instance.Achievements.GetElement(AchievementsTypes.Page00Opened).IsAchieved)
+                        MyMaze.Instance.Achievements.Achieve(AchievementsTypes.Page00Opened);
             }
             else
             {

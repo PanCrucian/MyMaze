@@ -11,11 +11,6 @@ public class TutorialStep {
 
     public void Complete()
     {
-        if (phase == TutorialPhase.NotTeach)
-        {
-            Debug.Log("Обучение завершено");
-            return;
-        }
         if (!IsStarted)
         {
             Debug.LogWarning("Вы пытаетесь закончить шаг с фазой " + phase.ToString("g") + ", но он еще не стратовал");

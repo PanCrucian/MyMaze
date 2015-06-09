@@ -18,6 +18,5 @@ public class TeleportTutorialUI : TutorialUI {
     {
         base.OnCloseRequest();
         MyMaze.Instance.Tutorial.GetStep(TutorialPhase.Teleport).Complete();
-        //MyMaze.Instance.Tutorial.StartStep(TutorialPhase.NotTeach);
     }
 }

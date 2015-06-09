@@ -39,14 +39,14 @@ public class ScreenOverlayUI : MonoBehaviour {
         canvasGroup = GetComponent<CanvasGroup>();
         animator = GetComponent<Animator>();
         //кастыль, увы, не нужно засвечивать при старте
-        if (!MyMaze.Instance.IsFirstLoad)
+        if (!MyMaze.Instance.IsFirstSceneLoad)
         {
             canvasGroup.alpha = 1f;
             FadeOut();
         }
         else
         {
-            Debug.Log("Первый запуск игры");
+            Debug.Log("Первый запуск сцены");
         }
     }
 

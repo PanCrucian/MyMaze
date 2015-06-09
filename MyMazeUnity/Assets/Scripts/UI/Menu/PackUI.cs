@@ -32,7 +32,7 @@ public class PackUI : MonoBehaviour {
     IEnumerator OpenLevelsNumerator()
     {
         yield return new WaitForEndOfFrame();
-        if (!MyMaze.Instance.IsFirstLoad)
+        if (!MyMaze.Instance.IsFirstSceneLoad)
             if (pack.IsYourLevel(MyMaze.Instance.LastSelectedLevel))
             { //переключим на экран уровней, когда вышли из игры
                 GetComponentInParent<PageUI>().containers.levelsContainer.gameObject.SetActive(true);

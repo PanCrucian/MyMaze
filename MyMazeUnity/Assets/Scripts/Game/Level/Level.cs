@@ -183,9 +183,13 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
         if (PlayerPrefs.HasKey(levelName + "#IsPassed"))
             if (Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#IsPassed")))
                 Pass();
-        if (PlayerPrefs.HasKey(levelName + "#IsClosed"))
-            if (Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#IsClosed")))
-                Close();
+        if (PlayerPrefs.HasKey (levelName + "#IsClosed")) {
+			
+			if (Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#IsClosed")))
+				Close();
+			else
+				Open();
+		}
 
         for (int i = 0; i < stars.Count; i++)
         {

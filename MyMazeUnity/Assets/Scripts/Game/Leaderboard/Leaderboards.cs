@@ -60,7 +60,7 @@ public class Leaderboards : MonoBehaviour, ISavingElement {
     void GameCenterLeaderboard(Leaderboard leaderboard)
     {
         if(MyMaze.Instance.GameCenter.IsAuth)
-            GameCenterManager.ReportScore((double)leaderboard.score, GetGameCenterId(leaderboard.type));
+            GameCenterManager.ReportScore((double)leaderboard.score / 100.00d, GetGameCenterId(leaderboard.type));
     }
 #endif
     #endregion

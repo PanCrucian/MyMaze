@@ -16,11 +16,8 @@ public class MovesCounterUI : MonoBehaviour {
         int movesCount = Player.Instance.MovesCount;
         if (movesCount > 99)
             movesCount = 99;
-        int movesRecord = MyMaze.Instance.LastSelectedLevel.MinMovesRecord;
-        if (movesRecord > 99)
-            movesRecord = 99;
         if (MyMaze.Instance.LastSelectedLevel != null)
-            counterText.text = movesCount.ToString() + "/" + movesRecord.ToString();
+            counterText.text = movesCount.ToString() + "/" + MyMaze.Instance.LastSelectedLevel.GetSimpleStars()[2].movesToGet.ToString();
         else
             counterText.text = movesCount.ToString() + "/N";
     }

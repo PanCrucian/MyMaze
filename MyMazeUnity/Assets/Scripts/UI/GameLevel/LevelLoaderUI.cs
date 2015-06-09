@@ -12,6 +12,8 @@ public class LevelLoaderUI : MonoBehaviour {
     {
         ScreenOverlayUI.Instance.FadeIn();
         yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
+        if (GameLevel.Instance.state != GameLevelStates.Game && GameLevel.Instance.state != GameLevelStates.Pause)
+            MyMaze.Instance.Save();
         MyMaze.Instance.MenuLoadAction();
     }
 }

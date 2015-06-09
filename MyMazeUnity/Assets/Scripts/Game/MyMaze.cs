@@ -159,6 +159,15 @@ public class MyMaze : MonoBehaviour, ISavingElement
     }
     private Achievements _achievements;
 
+    public Leaderboards Leaderboards
+    {
+        get
+        {
+            return _leaderboards;
+        }
+    }
+    private Leaderboards _leaderboards;
+
 #if UNITY_IPHONE
     /// <summary>
     /// Ссылка на Геймцентр
@@ -218,12 +227,28 @@ public class MyMaze : MonoBehaviour, ISavingElement
         }
     }
 
-    void Start()
+    IEnumerator Start()
     {
         SetupData();
         CheckNames();
         CheckLastSelectedForNull();
         Load();
+        yield return new WaitForEndOfFrame();
+        CalculateTotalStars();
+        //CalculateStarsRecived();
+    }
+
+    /// <summary>
+    /// Подобрали звезду
+    /// </summary>
+    /// <param name="star"></param>
+    void OnStarCollected(Star star)
+    {
+        StarsRecived++;
+        if (star.IsHidden)
+            Achievements.HiddenStarsAchievement();
+        Achievements.AllStarsAchievement();
+        Leaderboards.SetStarsLeaderboard();
     }
 
     /// <summary>
@@ -236,12 +261,6 @@ public class MyMaze : MonoBehaviour, ISavingElement
         if (LastSelectedLevel == null)
             LastSelectedLevel = levels[0];
         //LastSelectedPage не проверяем, он устанавливается в меню
-    }
-
-    void Update()
-    {
-        CalculateTotalStars();
-        CalculateStarsRecived();
     }
 
     /// <summary>
@@ -273,6 +292,9 @@ public class MyMaze : MonoBehaviour, ISavingElement
     {
         SetupPacks();
         SetupLevels();
+        foreach (Level level in levels)
+            foreach (Star star in level.stars)
+                star.OnCollected += OnStarCollected;
     }
 
     /// <summary>
@@ -388,6 +410,7 @@ public class MyMaze : MonoBehaviour, ISavingElement
         _timeMachineBooster = GetComponent<TimeMachineBooster>();
         _teleportBooster = GetComponent<TeleportBooster>();
         _achievements = GetComponent<Achievements>();
+        _leaderboards = GetComponent<Leaderboards>();
 #if UNITY_IPHONE
         _gameCenter = GetComponent<GameCenter>();
 #endif
@@ -546,6 +569,9 @@ public class MyMaze : MonoBehaviour, ISavingElement
         //Достижения
         this.Achievements.Save();
 
+        //Рекорды
+        this.Leaderboards.Save();
+
         //Сбросим на диск
         PlayerPrefs.Save();
     }
@@ -602,6 +628,9 @@ public class MyMaze : MonoBehaviour, ISavingElement
 
         //Достижения
         this.Achievements.Load();
+
+        //Рекорды
+        this.Leaderboards.Load();
     }
 
     /// <summary>

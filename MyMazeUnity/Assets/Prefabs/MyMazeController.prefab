@@ -1188,6 +1188,7 @@ GameObject:
   - 114: {fileID: 11455244}
   - 114: {fileID: 11404412}
   - 114: {fileID: 11487576}
+  - 114: {fileID: 11447982}
   m_Layer: 0
   m_Name: MyMazeController
   m_TagString: Untagged
@@ -3634,6 +3635,24 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+--- !u!114 &11447982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ac0fb622095df4db4b869dc2227fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iOSMatching:
+  - boardId: L1
+    type: 0
+  elements:
+  - name: Stars
+    type: 0
+    score: 0
 --- !u!114 &11450646
 MonoBehaviour:
   m_ObjectHideFlags: 1

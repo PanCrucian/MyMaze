@@ -10,7 +10,7 @@ public class Achievements : MonoBehaviour, ISavingElement {
     }
     public GameCenterTypeMatching[] iOSMatching;
     public Achievement[] elements;
-
+    
     /// <summary>
     /// Получить ID ачивки для геймцентра
     /// </summary>
@@ -25,7 +25,7 @@ public class Achievements : MonoBehaviour, ISavingElement {
     }
 
     /// <summary>
-    /// Получить достижение
+    /// Установить достижение
     /// </summary>
     /// <param name="type"></param>
     public void Achieve(AchievementsTypes type)

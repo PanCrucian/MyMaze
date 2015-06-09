@@ -38,7 +38,7 @@ public class Achievement : ISavingElement {
     public void GameCenterAchieve()
     {
         GameCenter gameCenter = MyMaze.Instance.GameCenter;
-        if (gameCenter.GcIsAuth && gameCenter.GcAchievementsLoaded)
+        if (gameCenter.IsAuth && gameCenter.IsAchievementsLoaded)
             GameCenterManager.SubmitAchievement(100f, MyMaze.Instance.Achievements.GetGameCenterId(type));
     }
 #endif

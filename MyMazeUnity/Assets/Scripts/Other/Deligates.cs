@@ -11,4 +11,5 @@ public static class Deligates
     public delegate void Vector2Event(Vector2 vector2);
     public delegate void LevelEvent(Level level);
     public delegate void PackEvent(Pack pack);
+    public delegate void StarEvent(Star star);
 }

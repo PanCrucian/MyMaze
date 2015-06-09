@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class AchievementsUI : MonoBehaviour, IPointerClickHandler {
+public class LeaderboardUI : MonoBehaviour, IPointerClickHandler
+{
     private Button button;
     private ColorBlock tempColorBlock;
 
@@ -16,7 +17,7 @@ public class AchievementsUI : MonoBehaviour, IPointerClickHandler {
 #if UNITY_IPHONE
     void Update()
     {
-        if (MyMaze.Instance.GameCenter.IsAuth && MyMaze.Instance.GameCenter.IsAchievementsLoaded)
+        if (MyMaze.Instance.GameCenter.IsAuth)
             EnableButton();
         else
             DisableButton();
@@ -44,6 +45,6 @@ public class AchievementsUI : MonoBehaviour, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        GameCenterManager.ShowAchievements();
+        GameCenterManager.ShowLeaderboard(MyMaze.Instance.Leaderboards.GetGameCenterId(LeaderboardTypes.Stars));
     }
 }

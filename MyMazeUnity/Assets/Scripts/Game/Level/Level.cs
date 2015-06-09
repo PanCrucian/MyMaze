@@ -70,8 +70,6 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
     /// </summary>
     public void Close()
     {
-        if (this.IsClosed)
-            Debug.Log("Уровень " + levelName + " уже был закрыт");
         this.IsClosed = true;
     }
 
@@ -183,15 +181,18 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
     public void Load()
     {
         if (PlayerPrefs.HasKey(levelName + "#IsPassed"))
-            this.IsPassed = Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#IsPassed"));
+            if (Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#IsPassed")))
+                Pass();
         if (PlayerPrefs.HasKey(levelName + "#IsClosed"))
-            this.IsClosed = Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#IsClosed"));
+            if (Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#IsClosed")))
+                Close();
 
         for (int i = 0; i < stars.Count; i++)
         {
             Star star = stars[i];
             if (PlayerPrefs.HasKey(levelName + "#Star" + i.ToString() + "#IsCollected"))
-                star.IsCollected = Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#Star" + i.ToString() + "#IsCollected"));
+                if (Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#Star" + i.ToString() + "#IsCollected")))
+                    star.Collect();
         }
     }
     

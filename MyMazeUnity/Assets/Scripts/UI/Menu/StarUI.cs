@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class StarUI : MonoBehaviour {
-
+    
     [System.Serializable]
     public struct StarsStruct
     {

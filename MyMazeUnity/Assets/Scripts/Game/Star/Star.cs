@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 [Serializable]
 public class Star : IStar, IComparable {
-
+    public Deligates.StarEvent OnCollected;
     public string starName = "Star";
 
     /// <summary>
@@ -30,16 +30,13 @@ public class Star : IStar, IComparable {
     public void Collect()
     {
         if (this.IsCollected)
-            Debug.Log("Монета уже была собрана, но вы снова подбираете её");
-        this.IsCollected = true;
-
-        if (MyMaze.Instance != null)
         {
-            if(IsHidden)
-                MyMaze.Instance.Achievements.HiddenStarsAchievement();
-
-            MyMaze.Instance.Achievements.AllStarsAchievement();
+            Debug.Log("Монета уже была собрана");
+            return;
         }
+        this.IsCollected = true;
+        if (OnCollected != null)
+            OnCollected(this);
     }
 
     /// <summary>

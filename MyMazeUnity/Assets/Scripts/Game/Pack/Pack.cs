@@ -53,6 +53,9 @@ public class Pack : MonoBehaviour, IPack {
     void Awake()
     {
         SetupLevels();
+        foreach (Level level in levels)
+            foreach (Star star in level.stars)
+                star.OnCollected += OnStarCollected;
     }
 
     void Start()
@@ -61,14 +64,22 @@ public class Pack : MonoBehaviour, IPack {
         oldUpdateTime = Time.time;
     }
 
+    /// <summary>
+    /// Получена звезда
+    /// </summary>
+    /// <param name="star"></param>
+    void OnStarCollected(Star star)
+    {
+        StarsRecived++;
+        if (MyMaze.Instance.StarsRecived >= StarsRequired)
+            if (!packOpenEventFired)
+                PackOpened();
+    }
+
     void Update()
     {
         if (Mathf.Abs(oldUpdateTime - Time.time) >= 0.5f)
-        {
-            SetRecivedStars();
-            if(MyMaze.Instance.StarsRecived >= StarsRequired)
-                if (!packOpenEventFired)
-                    PackOpened();
+        {            
             oldUpdateTime = Time.time;
         }
     }
@@ -81,22 +92,6 @@ public class Pack : MonoBehaviour, IPack {
         if (OnPackOpened != null)
             OnPackOpened(this);
         packOpenEventFired = true;
-    }
-
-    /// <summary>
-    /// Считаем сколько звезд уже получено
-    /// </summary>
-    void SetRecivedStars()
-    {
-        StarsRecived = 0;
-        foreach (Level level in levels)
-        {
-            foreach (Star star in level.stars)
-            {
-                if(star.IsCollected)
-                    StarsRecived++;
-            }
-        }
     }
 
     /// <summary>

@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class PremiumPageUI : MonoBehaviour, IPointerClickHandler {
+public class PremiumPageUI : MonoBehaviour {
 
     private Button button;
     private ColorBlock tempColorBlock;
@@ -25,11 +24,6 @@ public class PremiumPageUI : MonoBehaviour, IPointerClickHandler {
         tempColorBlock.disabledColor = tempColorBlock.pressedColor;
         button.interactable = false;
         button.colors = tempColorBlock;
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        GameCenterManager.ShowLeaderboard(MyMaze.Instance.Leaderboards.GetGameCenterId(LeaderboardTypes.Stars));
     }
 
     /// <summary>

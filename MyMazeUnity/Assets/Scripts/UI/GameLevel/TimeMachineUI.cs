@@ -78,7 +78,7 @@ public class TimeMachineUI : MonoBehaviour {
         }
         else
         {
-            MyMaze.Instance.InApps.BuyPremium();
+            MyMaze.Instance.InApps.BuyPremiumRequest();
         }
     }
 

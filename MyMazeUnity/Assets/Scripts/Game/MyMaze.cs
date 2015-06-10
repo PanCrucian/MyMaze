@@ -180,6 +180,18 @@ public class MyMaze : MonoBehaviour, ISavingElement
         }
     }
     private GameCenter _gameCenter;
+
+    /// <summary>
+    /// Ссылка на AppStore
+    /// </summary>
+    public AppStore AppStore
+    {
+        get
+        {
+            return _appStore;
+        }
+    }
+    private AppStore _appStore;
 #endif
 
     /// <summary>
@@ -413,6 +425,7 @@ public class MyMaze : MonoBehaviour, ISavingElement
         _leaderboards = GetComponent<Leaderboards>();
 #if UNITY_IPHONE
         _gameCenter = GetComponent<GameCenter>();
+        _appStore = GetComponent<AppStore>();
 #endif
 
     }

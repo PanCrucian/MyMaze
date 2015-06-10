@@ -30,7 +30,7 @@ public class BuyPremiumUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     void Buy()
     {
         if (!inApps.IsPremium)
-            inApps.BuyPremium();
+            inApps.BuyPremiumRequest();
     }
 
     public void OnPointerClick(PointerEventData eventData)

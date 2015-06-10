@@ -1,18 +1,60 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class PremiumPageUI : MonoBehaviour {
+public class PremiumPageUI : MonoBehaviour, IPointerClickHandler {
 
-    private InApps inApps;
+    private Button button;
+    private ColorBlock tempColorBlock;
 
     void Start()
     {
-        inApps = MyMaze.Instance.InApps;
+        tempColorBlock = new ColorBlock();
+        button = GetComponent<Button>();
+        tempColorBlock = button.colors;
+    }
+    void EnableButton()
+    {
+        tempColorBlock.disabledColor = tempColorBlock.normalColor;
+        button.interactable = true;
+        button.colors = tempColorBlock;
     }
 
-	void Update () {
-        if (inApps.IsPremium)
-            if (gameObject.activeSelf)
+    void DisableButton()
+    {
+        tempColorBlock.disabledColor = tempColorBlock.pressedColor;
+        button.interactable = false;
+        button.colors = tempColorBlock;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        GameCenterManager.ShowLeaderboard(MyMaze.Instance.Leaderboards.GetGameCenterId(LeaderboardTypes.Stars));
+    }
+
+    /// <summary>
+    /// Выключим объект если купили премиум
+    /// </summary>
+    void DeactivateIfPremium() {
+        if(MyMaze.Instance.InApps.IsPremium)
+            if(gameObject.activeSelf)
                 gameObject.SetActive(false);
-	}
+    }
+
+#if UNITY_IPHONE
+    void Update()
+    {
+        DeactivateIfPremium();
+        if (MyMaze.Instance.AppStore.IsInitalized)
+            EnableButton();
+        else
+            DisableButton();
+    }
+#else
+    void Update()
+    {
+        DeactivateIfPremium();
+        DisableButton();
+    }
+#endif
 }

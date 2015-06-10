@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Energy : MonoBehaviour, ISavingElement
 {
-    public Deligates.SimpleEvent OnEnergyEmpty;
+    public Deligates.SimpleEvent NotEnoughEnergy;
 
     /// <summary>
     /// Время в секундах за которое восстановится 1 блок энергии
@@ -14,15 +14,6 @@ public class Energy : MonoBehaviour, ISavingElement
     /// Количество блоков энергии, необходимое для запуска уровня
     /// </summary>
     public int levelCost = 1;
-
-    /// <summary>
-    /// Счетчик, сколько раз энергия опустилась до нуля в меню
-    /// </summary>
-    private int toEmptyMenuCounter = 0;
-    /// <summary>
-    /// Счетчик, сколько раз энергия опустилась до нуля в buht
-    /// </summary>
-    private int toEmptyGameCounter = 0;
 
     /// <summary>
     /// Максимальное число энергоблоков
@@ -155,38 +146,9 @@ public class Energy : MonoBehaviour, ISavingElement
             Save();
             return true;
         }
-        if (OnEnergyEmpty != null)
-            OnEnergyEmpty();
-        if (GameLevel.Instance == null) //считаем счетчики когда энергия уходила в ноль
-            toEmptyMenuCounter++;
-        else
-            toEmptyGameCounter++;
-        Save();
+        if (NotEnoughEnergy != null)
+            NotEnoughEnergy();
         Debug.Log("Энергия закончилась");
-        return false;
-    }
-
-    /// <summary>
-    /// Заканчивалась ли раньше энергия в меню
-    /// </summary>
-    /// <returns></returns>
-    public bool WasEnergyEmptyBeforeInMenu()
-    {
-        if (toEmptyMenuCounter > 0)
-            return true;
-
-        return false;
-    }
-
-    /// <summary>
-    /// Заканчивалась ли раньше энергия в игре
-    /// </summary>
-    /// <returns></returns>
-    public bool WasEnergyEmptyBeforeInGame()
-    {
-        if (toEmptyGameCounter > 0)
-            return true;
-
         return false;
     }
 
@@ -256,8 +218,6 @@ public class Energy : MonoBehaviour, ISavingElement
             PlayerPrefs.SetInt("Energy#" + block.index.ToString() + "#IsAvaliable", System.Convert.ToInt32(block.IsAvaliable));
             PlayerPrefs.SetInt("Energy#" + block.index.ToString() + "#regenerationTime", block.regenerationTime);
         }
-        PlayerPrefs.SetInt("Energy#toEmptyMenuCounter", toEmptyMenuCounter);
-        PlayerPrefs.SetInt("Energy#toEmptyGameCounter", toEmptyGameCounter);
     }
 
     /// <summary>
@@ -272,10 +232,6 @@ public class Energy : MonoBehaviour, ISavingElement
             if (PlayerPrefs.HasKey("Energy#" + block.index.ToString() + "#regenerationTime"))
                 block.regenerationTime = PlayerPrefs.GetInt("Energy#" + block.index.ToString() + "#regenerationTime");
         }
-        if (PlayerPrefs.HasKey("Energy#toEmptyMenuCounter"))
-            toEmptyMenuCounter = PlayerPrefs.GetInt("Energy#toEmptyMenuCounter");
-        if (PlayerPrefs.HasKey("Energy#toEmptyGameCounter"))
-            toEmptyGameCounter = PlayerPrefs.GetInt("Energy#toEmptyGameCounter");
     }
 
     /// <summary>

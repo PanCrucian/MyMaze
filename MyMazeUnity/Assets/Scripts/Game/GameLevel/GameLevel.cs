@@ -229,6 +229,7 @@ public class GameLevel : MonoBehaviour {
         soundsPlayer.type = SoundTypes.sounds;
 
         //проверим какие звезды мы должны получить и получим их
+        yield return new WaitForEndOfFrame();
         List<Star> stars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();
         int i = 1;
         foreach (Star star in stars)
@@ -240,9 +241,9 @@ public class GameLevel : MonoBehaviour {
                 if (starAnimator != null)
                 {
                     starAnimator.SetBool("IsCollected", true);
-                    if(i == 1)
+                    if (i == 1)
                         soundsPlayer.PlayOneShootSound(SoundNames.Star01);
-                    else if(i == 2)
+                    else if (i == 2)
                         soundsPlayer.PlayOneShootSound(SoundNames.Star02);
                     else
                         soundsPlayer.PlayOneShootSound(SoundNames.Star03);
@@ -307,6 +308,13 @@ public class GameLevel : MonoBehaviour {
         ScreenOverlayUI.Instance.FadeIn();
         yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
 
+        //обновляем курсоры на пак и последнюю страницу
+        if (nextLevel != null)
+        {
+            MyMaze.Instance.LastSelectedPack = MyMaze.Instance.GetPackViaLevel(nextLevel);
+            MyMaze.Instance.LastSelectedPageNumber = (int)MyMaze.Instance.LastSelectedPack.group;
+        }
+
         if (!energyUsingFlag) //не хватило энергии
         {
             MyMaze.Instance.MenuLoadAction();
@@ -326,8 +334,7 @@ public class GameLevel : MonoBehaviour {
             }
             else
             {
-                //обновляем курсоры на паки и уровни
-                MyMaze.Instance.LastSelectedPack = MyMaze.Instance.GetPackViaLevel(nextLevel);
+                //обновляем курсоры на уровень
                 MyMaze.Instance.LastSelectedLevel = nextLevel;
 
                 //загружаем следующий уровень

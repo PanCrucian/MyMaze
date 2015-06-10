@@ -125,6 +125,15 @@ public class Pack : MonoBehaviour, IPack {
         return false;
     }
 
+    public bool IsLastLevelForPack(Level level)
+    {
+        for (int i = levels.Length - 1; i == 0; i--)
+            if (levels[i].Equals(level))
+                return true;
+
+        return false;
+    }
+
     /// <summary>
     /// Возвращает следующий уровень исходя из аргумента
     /// </summary>

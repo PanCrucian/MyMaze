@@ -39,12 +39,4 @@ public class StarsResultsUI : MonoBehaviour {
         }
         return null;
     }
-
-    public void Reset()
-    {
-        foreach (Animator star in stars)
-        {
-            star.SetBool("IsCollected", false);
-        }
-    }
 }

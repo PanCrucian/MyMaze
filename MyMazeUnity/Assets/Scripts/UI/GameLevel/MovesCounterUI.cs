@@ -4,21 +4,54 @@ using System.Collections;
 
 public class MovesCounterUI : MonoBehaviour {
 
-    public Text counterText;
+    public Text withStarsCounterText;
+    public Text withCupCounterText;
+
+    public GameObject starsContainer;
+    public GameObject cupContainer;
 
     void Update()
     {
-        if (counterText == null)
+        if (withStarsCounterText == null)
         {
             Debug.LogWarning("Не могу найти ссылку на компоненту текст");
             return;
         }
-        int movesCount = Player.Instance.MovesCount;
-        if (movesCount > 99)
-            movesCount = 99;
+        int movesCount = GetTruncatedCount(Player.Instance.MovesCount);
+        int recordMovesCount = GetTruncatedCount(MyMaze.Instance.LastSelectedLevel.MinMovesRecord);
         if (MyMaze.Instance.LastSelectedLevel != null)
-            counterText.text = movesCount.ToString() + "/" + MyMaze.Instance.LastSelectedLevel.GetSimpleStars()[2].movesToGet.ToString();
+        {
+            int lastStarMovesToGet = MyMaze.Instance.LastSelectedLevel.GetSimpleStars()[2].movesToGet;
+            withStarsCounterText.text = movesCount.ToString() + "/" + lastStarMovesToGet.ToString();
+            withCupCounterText.text = movesCount.ToString() + "/" + recordMovesCount.ToString();
+            if (lastStarMovesToGet < recordMovesCount)
+                ActivateStarsContainer();
+            else
+                ActivateCupContainer();
+        }
         else
-            counterText.text = movesCount.ToString() + "/N";
+            withStarsCounterText.text = movesCount.ToString() + "/N";
     }
+
+    void ActivateStarsContainer()
+    {
+        if (!starsContainer.activeSelf)
+            starsContainer.SetActive(true);
+        if (cupContainer.activeSelf)
+            cupContainer.SetActive(false);
+    }
+    void ActivateCupContainer()
+    {
+        if (!cupContainer.activeSelf)
+            cupContainer.SetActive(true);
+        if (starsContainer.activeSelf)
+            starsContainer.SetActive(false);
+    }
+
+    int GetTruncatedCount(int value)
+    {
+        if (value > 99)
+            return 99;
+        return value;
+    } 
 }

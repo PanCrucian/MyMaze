@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class SoundsUI : MonoBehaviour {
@@ -7,28 +8,63 @@ public class SoundsUI : MonoBehaviour {
     public Animator soundsOff;
     public Animator soundsOn;
 
-    IEnumerator Start()
+    void OnEnable()
+    {
+        StartCoroutine(OnEnableNumerator());
+    }
+
+    IEnumerator OnEnableNumerator()
     {
         yield return new WaitForEndOfFrame();
         Sounds sounds = MyMaze.Instance.Sounds;
         if (!sounds.sounds && !sounds.theme)
-        {
-            soundsOn.SetTrigger("FadeIn");
-            soundsOff.SetTrigger("FadeOut");
-            soundsOnly.SetTrigger("FadeOut");
-        }
+            SwitchSoindsOn();
         else if (sounds.sounds && sounds.theme)
-        {
-            soundsOn.SetTrigger("FadeOut");
-            soundsOff.SetTrigger("FadeOut");
-            soundsOnly.SetTrigger("FadeIn");
-        }
+            SwitchSoundsOnly();
         else
-        {
-            soundsOn.SetTrigger("FadeOut");
-            soundsOff.SetTrigger("FadeIn");
+            SwitchSoundsOff();
+    }
+
+    void SwitchSoindsOn()
+    {
+        if (soundsOn.isActiveAndEnabled)
+            soundsOn.SetTrigger("FadeIn");
+        if (soundsOff.isActiveAndEnabled)
+            soundsOff.SetTrigger("FadeOut");
+        if (soundsOnly.isActiveAndEnabled)
             soundsOnly.SetTrigger("FadeOut");
-        }
+    }
+
+    void SwitchSoundsOnly()
+    {
+        if (soundsOn.isActiveAndEnabled)
+            soundsOn.SetTrigger("FadeOut");
+        if (soundsOff.isActiveAndEnabled)
+            soundsOff.SetTrigger("FadeOut");
+        if (soundsOnly.isActiveAndEnabled)
+            soundsOnly.SetTrigger("FadeIn");
+    }
+
+    void SwitchSoundsOff()
+    {
+        if (soundsOn.isActiveAndEnabled)
+            soundsOn.SetTrigger("FadeOut");
+        if (soundsOff.isActiveAndEnabled)
+            soundsOff.SetTrigger("FadeIn");
+        if (soundsOnly.isActiveAndEnabled)
+            soundsOnly.SetTrigger("FadeOut");
+    }
+
+    public void OnClick(GameObject buttonObject)
+    {
+        buttonObject.GetComponent<Button>().interactable = false;
+        StartCoroutine(OnClickNumerator(buttonObject));
+    }
+
+    IEnumerator OnClickNumerator(GameObject buttonObject)
+    {
+        yield return new WaitForSeconds(1f);
+        buttonObject.GetComponent<Button>().interactable = true;
     }
 
     public void EnableAllSounds()

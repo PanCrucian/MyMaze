@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class RateUI : MonoBehaviour {
+    public Deligates.IntegerEvent OnRate;
 
     public int toMarketStarsGreatherOrEqual = 4;
 
@@ -11,6 +12,8 @@ public class RateUI : MonoBehaviour {
     /// <param name="rate">От 1 до 5</param>
     public void OnRateRequest(int rate)
     {
+        if (OnRate != null)
+            OnRate(rate);
         if(rate == 0) {
             Hide();
             return;

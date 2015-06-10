@@ -53,7 +53,7 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
     /// </summary>
     public bool IsClosed;
 
-    private int minMovesRecord;
+    private int minMovesRecord = 999999;
     
     /// <summary>
     /// Открыть уровень
@@ -171,6 +171,8 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
             Star star = stars[i];
             PlayerPrefs.SetInt(levelName + "#Star" + i.ToString() + "#IsCollected", Convert.ToInt32(star.IsCollected));
         }
+
+        PlayerPrefs.SetInt(levelName + "#minMovesRecord", MinMovesRecord);
     }
 
     /// <summary>
@@ -198,6 +200,8 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
                 if (Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#Star" + i.ToString() + "#IsCollected")))
                     star.Collect();
         }
+        if (PlayerPrefs.HasKey(levelName + "#minMovesRecord"))
+            MinMovesRecord = PlayerPrefs.GetInt(levelName + "#minMovesRecord");
     }
     
     public void ResetSaves()

@@ -311,8 +311,12 @@ public class GameLevel : MonoBehaviour {
         //обновляем курсоры на пак и последнюю страницу
         if (nextLevel != null)
         {
-            MyMaze.Instance.LastSelectedPack = MyMaze.Instance.GetPackViaLevel(nextLevel);
-            MyMaze.Instance.LastSelectedPageNumber = (int)MyMaze.Instance.LastSelectedPack.group;
+            Pack nextPack = MyMaze.Instance.GetPackViaLevel(nextLevel);
+            if (nextPack.StarsRequired <= MyMaze.Instance.StarsRecived)
+            {
+                MyMaze.Instance.LastSelectedPack = nextPack;
+                MyMaze.Instance.LastSelectedPageNumber = (int)MyMaze.Instance.LastSelectedPack.group;
+            }
         }
 
         if (!energyUsingFlag) //не хватило энергии

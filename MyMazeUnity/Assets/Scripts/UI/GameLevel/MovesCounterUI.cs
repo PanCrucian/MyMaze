@@ -21,10 +21,16 @@ public class MovesCounterUI : MonoBehaviour {
         int recordMovesCount = GetTruncatedCount(MyMaze.Instance.LastSelectedLevel.MinMovesRecord);
         if (MyMaze.Instance.LastSelectedLevel != null)
         {
-            int lastStarMovesToGet = MyMaze.Instance.LastSelectedLevel.GetSimpleStars()[2].movesToGet;
-            withStarsCounterText.text = movesCount.ToString() + "/" + lastStarMovesToGet.ToString();
+            int starMovesToGet = MyMaze.Instance.LastSelectedLevel.GetSimpleStars()[2].movesToGet; // 3 зевзды
+            if (movesCount > starMovesToGet)
+                starMovesToGet = MyMaze.Instance.LastSelectedLevel.GetSimpleStars()[1].movesToGet; // 2 зевзды
+            if (movesCount > starMovesToGet)
+                starMovesToGet = GetTruncatedCount(MyMaze.Instance.LastSelectedLevel.GetSimpleStars()[0].movesToGet); // 1 зевзда
+
+            withStarsCounterText.text = movesCount.ToString() + "/" + starMovesToGet.ToString();
             withCupCounterText.text = movesCount.ToString() + "/" + recordMovesCount.ToString();
-            if (lastStarMovesToGet < recordMovesCount)
+
+            if (MyMaze.Instance.LastSelectedLevel.GetSimpleStars()[2].movesToGet < recordMovesCount)
                 ActivateStarsContainer();
             else
                 ActivateCupContainer();

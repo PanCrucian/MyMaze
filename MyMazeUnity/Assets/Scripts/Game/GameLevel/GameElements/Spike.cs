@@ -27,6 +27,12 @@ public class Spike : GameLevelObject {
             Player.Instance.Die();
     }
 
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (CheckForPlayer(coll.gameObject))
+            Player.Instance.Die();
+    }
+
     /// <summary>
     /// Спрятать шипы
     /// </summary>

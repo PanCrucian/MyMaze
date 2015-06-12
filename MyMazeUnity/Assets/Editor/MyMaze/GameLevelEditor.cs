@@ -10,6 +10,8 @@ public class GameLevelEditor : Editor {
     private Transform drawParent;
     private Color color = Color.white;
 
+    private bool helpFoldout;
+
 	public override void OnInspectorGUI()
     {
  	    DrawDefaultInspector();
@@ -48,9 +50,14 @@ public class GameLevelEditor : Editor {
             }
         }
         if (color == Color.white)
-        {
             if (GameObject.FindGameObjectWithTag("WallFill") != null)
                 color = GameObject.FindGameObjectWithTag("WallFill").GetComponent<SpriteRenderer>().color;
+        helpFoldout = EditorGUILayout.Foldout(helpFoldout, "Подсказки");
+        if (helpFoldout)
+        {
+            GUILayout.Label("CapsLock - включить режим рисования");
+            GUILayout.Label("Зажимайте левую кнопку и рисуйте");
+            GUILayout.Label("Space - Объекты к сетке");
         }
     }
 
@@ -62,7 +69,7 @@ public class GameLevelEditor : Editor {
         Event evt = Event.current;
         if (evt.type == EventType.keyDown)
         {
-            if (evt.keyCode == KeyCode.LeftAlt)
+            if (evt.keyCode == KeyCode.CapsLock)
             {
                 draw = !draw;
                 EditorUtility.SetDirty(target);

@@ -17,7 +17,7 @@ public class InApps : MonoBehaviour, ISavingElement {
         public ProductTypes type;
     }
     public AppStoreMatching[] appStoreProducts;
-
+    /*
     [HideInInspector]
     public bool IsPremium;
     
@@ -63,7 +63,7 @@ public class InApps : MonoBehaviour, ISavingElement {
         else
             Debug.Log("Премиум уже приобретен");
     }
-
+    */
     /// <summary>
     /// Получить ссылку на описание продукта
     /// </summary>
@@ -84,7 +84,7 @@ public class InApps : MonoBehaviour, ISavingElement {
     /// </summary>
     public void Save()
     {
-        PlayerPrefs.SetInt("IsPremium", System.Convert.ToInt32(IsPremium));
+        //PlayerPrefs.SetInt("IsPremium", System.Convert.ToInt32(IsPremium));
     }
 
     /// <summary>
@@ -92,8 +92,8 @@ public class InApps : MonoBehaviour, ISavingElement {
     /// </summary>
     public void Load()
     {
-        if (PlayerPrefs.HasKey("IsPremium"))
-            IsPremium = System.Convert.ToBoolean(PlayerPrefs.GetInt("IsPremium"));
+        /*if (PlayerPrefs.HasKey("IsPremium"))
+            IsPremium = System.Convert.ToBoolean(PlayerPrefs.GetInt("IsPremium"));*/
     }
 
     /// <summary>

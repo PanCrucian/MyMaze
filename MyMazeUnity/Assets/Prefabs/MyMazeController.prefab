@@ -1182,7 +1182,6 @@ GameObject:
   - 114: {fileID: 11430942}
   - 114: {fileID: 11454028}
   - 114: {fileID: 11422392}
-  - 114: {fileID: 11434950}
   - 114: {fileID: 11402642}
   - 114: {fileID: 11455244}
   - 114: {fileID: 11432260}
@@ -2232,11 +2231,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 26
+    movesToGet: 3
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2260,11 +2259,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 30
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2416,21 +2415,21 @@ MonoBehaviour:
   levelName: PackE3
   displayText: 15-3
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 33
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 5
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 27
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -2450,11 +2449,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 12
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2478,11 +2477,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 33
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2527,11 +2526,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 13
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2555,15 +2554,15 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 7
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 5
+    movesToGet: 2
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -2583,11 +2582,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 11
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2632,11 +2631,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 45
+    movesToGet: 6
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2658,21 +2657,21 @@ MonoBehaviour:
   levelName: StrongBoxes3
   displayText: 4-3
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 25
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 22
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -2692,11 +2691,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 16
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2741,11 +2740,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 8
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2769,11 +2768,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 25
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2797,11 +2796,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 14
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2860,11 +2859,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 24
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2906,11 +2905,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 28
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2934,11 +2933,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 20
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2962,11 +2961,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 16
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -2990,15 +2989,15 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 27
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 24
+    movesToGet: 20
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
@@ -3018,11 +3017,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 27
+    movesToGet: 5
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3046,11 +3045,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 24
+    movesToGet: 3
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3202,11 +3201,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 17
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3225,10 +3224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5a61c711662484692a2dee481527cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appStoreProducts:
-  - productId: IAP2
-    type: 0
-  IsPremium: 0
+  appStoreProducts: []
 --- !u!114 &11432342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3287,11 +3283,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 16
+    movesToGet: 3
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3313,37 +3309,24 @@ MonoBehaviour:
   levelName: PackB3
   displayText: 12-3
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 25
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 4
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 21
     IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
-    IsCollected: 0
   IsPassed: 0
   IsClosed: 1
---- !u!114 &11434950
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810ec1f5b97dd8f49b4e18a05a5fe61c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restoreTime: 300
-  levelCost: 1
 --- !u!114 &11435834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3360,11 +3343,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 10
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3386,21 +3369,21 @@ MonoBehaviour:
   levelName: PackC2
   displayText: 13-2
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 22
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 19
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -3420,15 +3403,15 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 23
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 18
+    movesToGet: 20
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -3448,11 +3431,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 24
+    movesToGet: 5
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3497,11 +3480,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 46
+    movesToGet: 5
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3523,21 +3506,21 @@ MonoBehaviour:
   levelName: Spikes3
   displayText: 9-3
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 33
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 3
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 29
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -3578,11 +3561,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 20
+    movesToGet: 5
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3604,21 +3587,21 @@ MonoBehaviour:
   levelName: Portals4
   displayText: 2-4
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 36
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 6
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 30
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -3638,11 +3621,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 15
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3684,11 +3667,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 38
+    movesToGet: 3
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3710,21 +3693,21 @@ MonoBehaviour:
   levelName: Boxes4
   displayText: 3-4
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 20
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 17
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -3755,21 +3738,21 @@ MonoBehaviour:
   levelName: Effectors3
   displayText: 6-3
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 26
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 23
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -3802,11 +3785,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 28
+    movesToGet: 5
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3830,11 +3813,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 24
+    movesToGet: 3
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3879,11 +3862,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 19
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3907,11 +3890,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 25
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3935,11 +3918,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 4
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -3961,21 +3944,21 @@ MonoBehaviour:
   levelName: Ghost4
   displayText: 10-4
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 33
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 3
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 29
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -3995,11 +3978,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 24
+    movesToGet: 3
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -4042,21 +4025,21 @@ MonoBehaviour:
   levelName: Intro4
   displayText: 1-4
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 18
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 16
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -4074,21 +4057,21 @@ MonoBehaviour:
   levelName: Doors4
   displayText: 7-4
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 17
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 15
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -4108,11 +4091,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 11
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -4157,11 +4140,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 19
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -4204,21 +4187,21 @@ MonoBehaviour:
   levelName: PackD4
   displayText: 14-4
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 32
-    IsCollected: 0
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 28
-    IsCollected: 0
   - starName: HiddenStar
     IsHidden: 1
     movesToGet: 0
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 3
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 27
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -4238,11 +4221,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 23
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -4287,11 +4270,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 36
+    movesToGet: 5
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -4313,21 +4296,21 @@ MonoBehaviour:
   levelName: PackA4
   displayText: 11-4
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 29
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 4
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 24
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -4368,11 +4351,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 9
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -4394,21 +4377,21 @@ MonoBehaviour:
   levelName: Switches3
   displayText: 5-3
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 39
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 3
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 35
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -4428,11 +4411,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 11
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -4454,21 +4437,21 @@ MonoBehaviour:
   levelName: Jumps3
   displayText: 8-3
   stars:
-  - starName: Star
-    IsHidden: 0
-    movesToGet: 999999
+  - starName: HiddenStar
+    IsHidden: 1
+    movesToGet: 0
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 46
+    movesToGet: 1
+    IsCollected: 0
+  - starName: Star
+    IsHidden: 0
+    movesToGet: 5
     IsCollected: 0
   - starName: Star
     IsHidden: 0
     movesToGet: 40
-    IsCollected: 0
-  - starName: HiddenStar
-    IsHidden: 1
-    movesToGet: 0
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -4488,11 +4471,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 24
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -4516,11 +4499,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 23
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -4544,11 +4527,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 36
+    movesToGet: 4
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -4583,11 +4566,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 26
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0
@@ -4611,11 +4594,11 @@ MonoBehaviour:
   stars:
   - starName: Star
     IsHidden: 0
-    movesToGet: 999999
+    movesToGet: 1
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 17
+    movesToGet: 2
     IsCollected: 0
   - starName: Star
     IsHidden: 0

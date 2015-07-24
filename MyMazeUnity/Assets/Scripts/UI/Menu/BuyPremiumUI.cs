@@ -8,10 +8,10 @@ public class BuyPremiumUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     public Animator menuUI;
     public Animator textBuy;
 
-    private Button button;
+    /*private Button button;
     private InApps inApps;
     private Animator premiumUI;
-
+    
     void Start()
     {
         button = GetComponent<Button>();
@@ -32,23 +32,23 @@ public class BuyPremiumUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         if (!inApps.IsPremium)
             inApps.BuyPremiumRequest();
     }
-
+    */
     public void OnPointerClick(PointerEventData eventData)
     {
-        Buy();
+        //Buy();
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (!button.interactable)
+        /*if (!button.interactable)
             return;
-        textBuy.SetTrigger("Up");
+        textBuy.SetTrigger("Up");*/
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!button.interactable)
+        /*if (!button.interactable)
             return;
-        textBuy.SetTrigger("Down");
+        textBuy.SetTrigger("Down");*/
     }
 }

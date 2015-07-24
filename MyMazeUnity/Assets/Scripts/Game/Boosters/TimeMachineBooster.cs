@@ -10,8 +10,8 @@ public class TimeMachineBooster : Booster, ISavingElement {
     /// <returns></returns>
     public bool IsAvaliable(Level level)
     {
-        if (MyMaze.Instance.InApps.IsPremium)
-            return true;
+        /*if (MyMaze.Instance.InApps.IsPremium)
+            return true;*/
 
         foreach (Level l in levelsWithoutPremium)
         {

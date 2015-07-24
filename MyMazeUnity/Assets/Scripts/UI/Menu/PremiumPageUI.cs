@@ -30,9 +30,8 @@ public class PremiumPageUI : MonoBehaviour {
     /// Выключим объект если купили премиум
     /// </summary>
     void DeactivateIfPremium() {
-        if(MyMaze.Instance.InApps.IsPremium)
-            if(gameObject.activeSelf)
-                gameObject.SetActive(false);
+        //премиума больше нет так что всегда выключено
+        gameObject.SetActive(false);
     }
 
 #if UNITY_IPHONE

@@ -102,14 +102,14 @@ public class MyMaze : MonoBehaviour, ISavingElement
     /// <summary>
     /// Ссылка на контроллер энергии
     /// </summary>
-    public Energy Energy
+    /*public Energy Energy
     {
         get
         {
             return _energy;
         }
     }
-    private Energy _energy;
+    private Energy _energy*/
 
     /// <summary>
     /// Ссылка на контроллер внутриигровых платежей
@@ -417,7 +417,7 @@ public class MyMaze : MonoBehaviour, ISavingElement
         _tutorial = GetComponent<Tutorial>();
         _localization = GetComponent<Localization>();
         _sceneLoader = GetComponent<SceneLoader>();
-        _energy = GetComponent<Energy>();
+        //_energy = GetComponent<Energy>();
         _inApps = GetComponent<InApps>();
         _timeMachineBooster = GetComponent<TimeMachineBooster>();
         _teleportBooster = GetComponent<TeleportBooster>();
@@ -565,7 +565,7 @@ public class MyMaze : MonoBehaviour, ISavingElement
         this.Tutorial.Save();
 
         //Энергия
-        this.Energy.Save();
+        //this.Energy.Save();
 
         //Покупки
         this.InApps.Save();
@@ -625,7 +625,7 @@ public class MyMaze : MonoBehaviour, ISavingElement
         this.Tutorial.Load();
 
         //Энергия
-        this.Energy.Load();
+        //this.Energy.Load();
 
         //Покупки
         this.InApps.Load();

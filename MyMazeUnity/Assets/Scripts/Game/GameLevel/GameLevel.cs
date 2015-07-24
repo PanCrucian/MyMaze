@@ -232,10 +232,15 @@ public class GameLevel : MonoBehaviour {
         yield return new WaitForEndOfFrame();
         List<Star> stars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();
         int i = 1;
+        if (Player.Instance.MovesCount <= stars[2].movesToGet)
+            stars[2].Collect();
+        if (Player.Instance.MovesCount - stars[2].movesToGet <= stars[1].movesToGet)
+            stars[1].Collect();
+        stars[0].Collect();
+        Debug.Log(Player.Instance.MovesCount);
+        Debug.Log(Player.Instance.MovesCount - stars[2].movesToGet);
         foreach (Star star in stars)
         {
-            if (Player.Instance.MovesCount <= star.movesToGet)
-                star.Collect();
             if (star.IsCollected) {
                 Animator starAnimator = StarsResultsUI.Instance.GetNotCollectedStar();
                 if (starAnimator != null)
@@ -292,17 +297,17 @@ public class GameLevel : MonoBehaviour {
     IEnumerator NextLevelNumerator()
     {
         state = GameLevelStates.NextLevelLoading;
-        bool energyUsingFlag = true;
+        /*bool energyUsingFlag = true;
 
         if (!MyMaze.Instance.InApps.IsPremium)
         {
-            //спишем энергию
+            спишем энергию
             Energy energy = MyMaze.Instance.Energy;
             energyUsingFlag = energy.Use();
             EnergyUI energyUI = GameObject.FindObjectOfType<EnergyUI>();
             if (!energyUsingFlag)
                 energyUI.AnimateBad();
-        }
+        }*/
 
         yield return new WaitForSeconds(GameLevelDesign.Instance.nextLevelDelay);
         ScreenOverlayUI.Instance.FadeIn();
@@ -319,11 +324,13 @@ public class GameLevel : MonoBehaviour {
             }
         }
 
-        if (!energyUsingFlag) //не хватило энергии
+        /*if (!energyUsingFlag) //не хватило энергии
         {
             MyMaze.Instance.MenuLoadAction();
         }
-        else if (nextLevel == null)
+        else if (nextLevel == null)...
+         */
+        if (nextLevel == null)
         {
             Debug.Log("Уровни кончились, загружаю меню");
             MyMaze.Instance.MenuLoadAction();

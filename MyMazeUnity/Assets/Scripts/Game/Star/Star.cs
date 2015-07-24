@@ -53,8 +53,8 @@ public class Star : IStar, IComparable {
     {
         Star star = (Star) obj;
 
-        if (this.movesToGet > star.movesToGet) return -1;
-        if (this.movesToGet < star.movesToGet) return 1;
+        if (this.movesToGet > star.movesToGet) return 1;
+        if (this.movesToGet < star.movesToGet) return -1;
         
         return 0;
     }

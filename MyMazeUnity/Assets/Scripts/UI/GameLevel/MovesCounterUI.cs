@@ -4,60 +4,49 @@ using System.Collections;
 
 public class MovesCounterUI : MonoBehaviour {
 
-    public Text withStarsCounterText;
-    public Text withCupCounterText;
-
-    public GameObject starsContainer;
-    public GameObject cupContainer;
+    public Text movesText;
+    public MovesCounterStarsUI starsUI;
 
     void Update()
     {
-        if (withStarsCounterText == null)
-        {
-            Debug.LogWarning("Не могу найти ссылку на компоненту текст");
-            return;
-        }
-        int movesCount = GetTruncatedCount(Player.Instance.MovesCount);
-        int recordMovesCount = GetTruncatedCount(MyMaze.Instance.LastSelectedLevel.MinMovesRecord);
-        if (MyMaze.Instance.LastSelectedLevel != null)
-        {
-            int starMovesToGet = MyMaze.Instance.LastSelectedLevel.GetSimpleStars()[2].movesToGet; // 3 зевзды
-            if (movesCount > starMovesToGet)
-                starMovesToGet = MyMaze.Instance.LastSelectedLevel.GetSimpleStars()[1].movesToGet; // 2 зевзды
-            if (movesCount > starMovesToGet)
-                starMovesToGet = GetTruncatedCount(MyMaze.Instance.LastSelectedLevel.GetSimpleStars()[0].movesToGet); // 1 зевзда
+        //посчитаем ходы
+        int movesCount = Player.Instance.MovesCount;
+        int movesToTheLeft_3s = starsUI.levelStars[2].movesToGet - movesCount;
+        int movesToTheLeft_2s = starsUI.levelStars[2].movesToGet +
+                                starsUI.levelStars[1].movesToGet - movesCount;
+        int movesToTheLeft_1s = starsUI.levelStars[2].movesToGet +
+                                starsUI.levelStars[1].movesToGet +
+                                starsUI.levelStars[0].movesToGet - movesCount;
+        int displayMoves = movesToTheLeft_3s > 0 ? movesToTheLeft_3s : movesToTheLeft_2s > 0 ? movesToTheLeft_2s : movesToTheLeft_1s;
+        displayMoves = GetTruncatedCount(displayMoves);
 
-            withStarsCounterText.text = movesCount.ToString() + "/" + starMovesToGet.ToString();
-            withCupCounterText.text = movesCount.ToString() + "/" + recordMovesCount.ToString();
+        //покажем ходы в тексте
+        movesText.text = displayMoves.ToString();
 
-            if (MyMaze.Instance.LastSelectedLevel.GetSimpleStars()[2].movesToGet < recordMovesCount)
-                ActivateStarsContainer();
-            else
-                ActivateCupContainer();
-        }
+        //контролируем 3-ю звезду
+        if (movesToTheLeft_3s >= 0)
+            starsUI.uiStars[2].Collect();
         else
-            withStarsCounterText.text = movesCount.ToString() + "/N";
+            starsUI.uiStars[2].Lose();
+
+        //контролируем 2-ю звезду
+        if (movesToTheLeft_2s >= 0)
+            starsUI.uiStars[1].Collect();
+        else
+            starsUI.uiStars[1].Lose();
     }
 
-    void ActivateStarsContainer()
-    {
-        if (!starsContainer.activeSelf)
-            starsContainer.SetActive(true);
-        if (cupContainer.activeSelf)
-            cupContainer.SetActive(false);
-    }
-    void ActivateCupContainer()
-    {
-        if (!cupContainer.activeSelf)
-            cupContainer.SetActive(true);
-        if (starsContainer.activeSelf)
-            starsContainer.SetActive(false);
-    }
-
+    /// <summary>
+    /// Усечем значение для отображаемых ходов
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
     int GetTruncatedCount(int value)
     {
         if (value > 99)
             return 99;
+        if (value < 0)
+            return 0;
         return value;
     } 
 }

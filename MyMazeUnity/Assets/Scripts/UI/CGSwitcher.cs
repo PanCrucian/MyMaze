@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CGSwitcher : MonoBehaviour {
 
     public Deligates.SimpleEvent OnSwitched;
 
-    private Animator animatorForHide;
-    private Animator animatorForShow;
+    private List<Animator> animatorForHide = new List<Animator>();
+    private List<Animator> animatorForShow = new List<Animator>();
     private float delay = 0f;
 
     public static CGSwitcher Instance
@@ -25,12 +26,12 @@ public class CGSwitcher : MonoBehaviour {
 
     public void SetHideObject(Animator animator)
     {
-        animatorForHide = animator;
+        animatorForHide.Add(animator);
     }
 
     public void SetShowObject(Animator animator)
     {
-        animatorForShow = animator;
+        animatorForShow.Add(animator);
     }
 
     public void SetDelayTime(float value)
@@ -47,17 +48,18 @@ public class CGSwitcher : MonoBehaviour {
     {
         if (delay > 0)
             yield return new WaitForSeconds(delay);
-        if (animatorForHide != null)
+        while (animatorForHide.Count > 0)
         {
-            animatorForHide.SetTrigger("FadeOut");
-            animatorForHide = null;
+            int index = animatorForHide.Count - 1;
+            animatorForHide[index].SetTrigger("FadeOut");
+            animatorForHide.Remove(animatorForHide[index]);
         }
-
-        if (animatorForShow != null)
+        while (animatorForShow.Count > 0)
         {
-            animatorForShow.gameObject.SetActive(true);
-            animatorForShow.SetTrigger("FadeIn");
-            animatorForShow = null;
+            int index = animatorForShow.Count - 1;
+            animatorForShow[index].gameObject.SetActive(true);
+            animatorForShow[index].SetTrigger("FadeIn");
+            animatorForShow.Remove(animatorForShow[index]);
         }
         delay = 0f;
     }

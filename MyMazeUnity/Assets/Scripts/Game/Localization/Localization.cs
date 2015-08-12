@@ -31,7 +31,7 @@ public class Localization : MonoBehaviour, ISavingElement
     /// </summary>
     /// <param name="key"></param>
     /// <returns></returns>
-    public string GetLocalezed(string key)
+    public string GetLocalized(string key)
     {
         LocalizationData word;
         if (words.TryGetValue(key, out word))

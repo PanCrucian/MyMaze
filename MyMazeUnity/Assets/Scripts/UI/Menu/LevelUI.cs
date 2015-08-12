@@ -30,8 +30,11 @@ public class LevelUI : MonoBehaviour {
     /// Кликнули на кнопку уровня, попробуем загрузить уровень
     /// </summary>
     public void LevelLoadRequest(GameObject button) {
-        button.GetComponent<Button>().interactable = false;
-        StartCoroutine(LevelLoadNumerator());
+        if (MyMaze.Instance.Life.Use())
+        {
+            button.GetComponent<Button>().interactable = false;
+            StartCoroutine(LevelLoadNumerator());
+        }
         /*if (MyMaze.Instance.InApps.IsPremium)
         {
             button.GetComponent<Button>().interactable = false;

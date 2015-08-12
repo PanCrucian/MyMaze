@@ -1189,6 +1189,7 @@ GameObject:
   - 114: {fileID: 11402342}
   - 114: {fileID: 11404412}
   - 114: {fileID: 11447982}
+  - 114: {fileID: 11455596}
   m_Layer: 0
   m_Name: MyMazeController
   m_TagString: Untagged
@@ -3769,6 +3770,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avaliableAtLevel: {fileID: 11452810}
   usingInterval: 3600
+--- !u!114 &11455596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f28da5d4490f749a8dc64495776a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restoreTime: 600
 --- !u!114 &11456422
 MonoBehaviour:
   m_ObjectHideFlags: 1

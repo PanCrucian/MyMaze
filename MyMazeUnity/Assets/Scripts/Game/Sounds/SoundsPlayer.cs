@@ -16,7 +16,10 @@ public class SoundsPlayer : MonoBehaviour {
         AudioSource audio = CreateAudio();
         lastCreatedAudio = audio;
         audio.Play();
-        StartCoroutine(DestroyAfterPlay(audio));
+        if (gameObject.activeInHierarchy)
+            StartCoroutine(DestroyAfterPlay(audio));
+        else
+            Debug.LogWarning("Объект не активен в иерархии. Звук не будет уничтожен");
     }
 
     /// <summary>
@@ -29,7 +32,10 @@ public class SoundsPlayer : MonoBehaviour {
         lastCreatedAudio = audio;
         audio.clip = MyMaze.Instance.Sounds.GetAudioClip(sN);
         audio.Play();
-        StartCoroutine(DestroyAfterPlay(audio));
+        if (gameObject.activeInHierarchy)
+            StartCoroutine(DestroyAfterPlay(audio));
+        else
+            Debug.LogWarning("Оюъект не активен в иерархии. Звук не будет уничтожен");
     }
 
     /// <summary>

@@ -18,21 +18,16 @@ public class Tutorial : MonoBehaviour, ITutorial, ISavingElement
     void CheckTheIntegrity()
     {
         int endedStepsCount = 0;
-        int startedStepsCount = 0;
         int damagedStepsCount = 0;
 
         foreach (TutorialStep step in steps)
         {
             if (step.IsStarted && step.IsComplete)
                 endedStepsCount++;
-            if (step.IsStarted && !step.IsComplete)
-                startedStepsCount++;
             if (!step.IsStarted && step.IsComplete)
                 damagedStepsCount++;
         }
 
-        if (startedStepsCount == 0)
-            Debug.LogWarning("Отсутсвуют запущенные шаги в обучении");
         if(damagedStepsCount > 0)
             Debug.LogWarning("Обнаружены шаги в обучении которые помечены как законченные, но они никогда не стартовали");
 

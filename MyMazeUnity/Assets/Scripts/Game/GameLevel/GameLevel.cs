@@ -11,6 +11,8 @@ public class GameLevel : MonoBehaviour {
     public Deligates.Vector2Event OnPointerDown;
     public Animator uiGame;
     public Animator uiResults;
+    public AdsLifeUI uiAdsLife;
+    public AdsMovesUI uiAdsMoves;
     public GameLevelStates state;
     public List<Pyramid> pyramids;
 
@@ -19,6 +21,12 @@ public class GameLevel : MonoBehaviour {
     private Vector2[] pointerDownUpVector = new Vector2[2];
     private bool isReturnToMove = false;
     private bool allowMoveRequest = true;
+
+    public int addMoves;
+    [HideInInspector]
+    public int MovesLeft;
+    [HideInInspector]
+    public List<Star> CurrentLevelStars;
     
     public static GameLevel Instance
     {
@@ -37,6 +45,9 @@ public class GameLevel : MonoBehaviour {
 
     void Start()
     {
+        CurrentLevelStars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();
+        uiAdsMoves = GameObject.FindObjectOfType<AdsMovesUI>();
+        uiAdsLife = GameObject.FindObjectOfType<AdsLifeUI>();
         uiGame = GameObject.FindGameObjectWithTag("uiGame").GetComponent<Animator>();
         uiResults = GameObject.FindGameObjectWithTag("uiResults").GetComponent<Animator>();
         uiResults.gameObject.SetActive(false);
@@ -47,6 +58,7 @@ public class GameLevel : MonoBehaviour {
         else
             PlayLevelTheme();
         MyMaze.Instance.OnMenuLoad += OnMenuLoad;
+        Player.Instance.OnMoveEnd += OnPlayerMoveEnd;
     }
 
     void OnMenuLoad()
@@ -98,6 +110,16 @@ public class GameLevel : MonoBehaviour {
             OnRestartRequest();
         if (Input.GetKeyDown(KeyCode.Space))
             InputSimulator.Instance.SimulateClick(ButtonPlayNextUI.Instance.gameObject);
+
+        MovesLeft = addMoves + CurrentLevelStars[2].movesToGet + CurrentLevelStars[1].movesToGet + CurrentLevelStars[0].movesToGet - Player.Instance.MovesCount;
+    }
+
+    /// <summary>
+    /// Добавляет 5 ходов игроку
+    /// </summary>
+    public void AddFiveMoves()
+    {
+        addMoves += 5;
     }
 
     /// <summary>
@@ -177,6 +199,29 @@ public class GameLevel : MonoBehaviour {
     }
 
     /// <summary>
+    /// Поставить игру на паузу
+    /// </summary>
+    public void Pause()
+    {
+        if (state == GameLevelStates.Game)
+            state = GameLevelStates.Pause;
+        else
+            Debug.LogWarning("Не могу поставить паузу");
+    }
+
+    /// <summary>
+    /// Снять игру с паузы
+    /// </summary>
+    /// <returns></returns>
+    public void UnPause()
+    {
+        if(state == GameLevelStates.Pause)
+            state = GameLevelStates.Game;
+        else
+            Debug.LogWarning("Не могу снять с паузы. Уже не пауза");
+    }
+
+    /// <summary>
     /// Проверяет, выполнены ли условия конца игры
     /// </summary>
     /// <returns></returns>
@@ -232,13 +277,12 @@ public class GameLevel : MonoBehaviour {
         yield return new WaitForEndOfFrame();
         List<Star> stars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();
         int i = 1;
-        if (Player.Instance.MovesCount <= stars[2].movesToGet)
+        if (Player.Instance.MovesCount - addMoves <= stars[2].movesToGet)
             stars[2].Collect();
-        if (Player.Instance.MovesCount - stars[2].movesToGet <= stars[1].movesToGet)
+        if (Player.Instance.MovesCount - addMoves - stars[2].movesToGet <= stars[1].movesToGet)
             stars[1].Collect();
         stars[0].Collect();
-        Debug.Log(Player.Instance.MovesCount);
-        Debug.Log(Player.Instance.MovesCount - stars[2].movesToGet);
+        
         foreach (Star star in stars)
         {
             if (star.IsCollected) {
@@ -360,15 +404,47 @@ public class GameLevel : MonoBehaviour {
     /// </summary>
     public void OnRestartRequest()
     {
-        if (state == GameLevelStates.GameOver)
+        //Потратим жизнь
+        if (MyMaze.Instance.Life.Use())
         {
-            CGSwitcher.Instance.SetHideObject(uiResults);
-            CGSwitcher.Instance.SetShowObject(uiGame);
-            CGSwitcher.Instance.Switch();
+            if (state == GameLevelStates.GameOver)
+            {
+                CGSwitcher.Instance.SetHideObject(uiResults);
+                CGSwitcher.Instance.SetShowObject(uiGame);
+                CGSwitcher.Instance.Switch();
+            }
+            addMoves = 0;
+            state = GameLevelStates.Game;
+
+            if (OnRestart != null)
+                OnRestart();
         }
-        state = GameLevelStates.Game;
-        if (OnRestart != null)
-            OnRestart();
+        else
+        {
+            uiAdsLife.Show();
+        }
+    }
+
+    /// <summary>
+    /// Симулируем нажатие кнопки выхода в меню
+    /// </summary>
+    void ExitToMenu()
+    {
+        InputSimulator.Instance.SimulateClick(GameObject.FindObjectOfType<LevelLoaderUI>().gameObject);
+    }
+
+    /// <summary>
+    /// Игрок закончил ход
+    /// </summary>
+    /// <param name="move"></param>
+    void OnPlayerMoveEnd(int move)
+    {
+        if (MovesLeft > 0)
+            return;
+
+        //ходы закончились
+        if (!uiAdsMoves.TryForShow())
+            OnRestartRequest();
     }
 
     /// <summary>

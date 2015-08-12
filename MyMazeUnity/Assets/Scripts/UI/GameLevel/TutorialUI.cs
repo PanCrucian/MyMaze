@@ -41,6 +41,6 @@ public class TutorialUI : MonoBehaviour {
         CanvasGroup cg = GetComponent<CanvasGroup>();
         cg.blocksRaycasts = false;
         cg.interactable = false;
-        GameLevel.Instance.OnRestartRequest();
+        //GameLevel.Instance.OnRestartRequest();
     }
 }

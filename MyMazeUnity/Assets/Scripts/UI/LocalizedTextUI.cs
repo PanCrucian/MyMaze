@@ -38,7 +38,7 @@ public class LocalizedTextUI : MonoBehaviour {
 
     void Refresh()
     {
-        string text = localization.GetLocalezed(key);
+        string text = localization.GetLocalized(key);
         if (upperCase)
             text = text.ToUpper();
         textMesh.text = text;

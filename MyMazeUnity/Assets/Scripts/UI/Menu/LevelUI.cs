@@ -19,9 +19,11 @@ public class LevelUI : MonoBehaviour {
     public VisualSettings visualSettings;
 
     private CanvasGroup canvasGroup;
+    private AdsLifeUI adsCG;
 
     void Start()
     {
+        adsCG = GameObject.FindObjectOfType<AdsLifeUI>();
         canvasGroup = GetComponent<CanvasGroup>();
         //ссылку на level устанавливает LevelsUI исходя из последнего выбранного пака
     }
@@ -30,37 +32,18 @@ public class LevelUI : MonoBehaviour {
     /// Кликнули на кнопку уровня, попробуем загрузить уровень
     /// </summary>
     public void LevelLoadRequest(GameObject button) {
-        if (MyMaze.Instance.Life.Use())
-        {
-            button.GetComponent<Button>().interactable = false;
-            StartCoroutine(LevelLoadNumerator());
-        }
-        /*if (MyMaze.Instance.InApps.IsPremium)
-        {
-            button.GetComponent<Button>().interactable = false;
-            StartCoroutine(LevelLoadNumerator());
-        }
+        if (MyMaze.Instance.Life.Units <= 0)
+            adsCG.Show();
         else
         {
-            if (MyMaze.Instance.Energy.Use())
-            {
-                button.GetComponent<Button>().interactable = false;
-                StartCoroutine(LevelLoadNumerator());
-            }
-            else
-            {
-                LevelsUI levelsUI = GetComponentInParent<LevelsUI>();
-                levelsUI.energyUI.AnimateBad();
-            }
-        }*/
+            button.GetComponent<Button>().interactable = false;
+            StartCoroutine(LevelLoadNumerator());
+        }        
     }
 
     IEnumerator LevelLoadNumerator()
     {
         GetComponent<SoundsPlayer>().PlayOneShootSound();
-        /*LevelsUI levelsUI = GetComponentInParent<LevelsUI>();
-        if (!MyMaze.Instance.InApps.IsPremium)
-            yield return new WaitForSeconds(levelsUI.energyUI.emptyAnimationTime);*/
         yield return new WaitForSeconds(0.25f);
         ScreenOverlayUI.Instance.FadeIn();
         yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);

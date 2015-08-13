@@ -1190,6 +1190,7 @@ GameObject:
   - 114: {fileID: 11404412}
   - 114: {fileID: 11447982}
   - 114: {fileID: 11455596}
+  - 114: {fileID: 11429882}
   m_Layer: 0
   m_Name: MyMazeController
   m_TagString: Untagged
@@ -2563,7 +2564,7 @@ MonoBehaviour:
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 2
+    movesToGet: 5
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
@@ -3071,6 +3072,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: 
   loadOnStart: 0
+--- !u!114 &11429882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4170de813b9af4e94356a49bc00eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11430942
 MonoBehaviour:
   m_ObjectHideFlags: 1

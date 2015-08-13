@@ -195,6 +195,32 @@ public class MyMaze : MonoBehaviour, ISavingElement
 #endif
 
     /// <summary>
+    /// Ссылка на рекламу
+    /// </summary>
+    public Ads Ads
+    {
+        get
+        {
+            return _ads;
+        }
+    }
+    private Ads _ads;
+
+    /// <summary>
+    /// Это игровой уровень?
+    /// </summary>
+    public bool IsGameLevel
+    {
+        get
+        {
+            if (GameLevel.Instance != null)
+                return true;
+            else
+                return false;
+        }
+    }
+
+    /// <summary>
     /// Ссылка на геймобъект
     /// </summary>
     public static MyMaze Instance 
@@ -423,6 +449,7 @@ public class MyMaze : MonoBehaviour, ISavingElement
         _teleportBooster = GetComponent<TeleportBooster>();
         _achievements = GetComponent<Achievements>();
         _leaderboards = GetComponent<Leaderboards>();
+        _ads = GetComponent<Ads>();
 #if UNITY_IPHONE
         _gameCenter = GetComponent<GameCenter>();
         _appStore = GetComponent<AppStore>();

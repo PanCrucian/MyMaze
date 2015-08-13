@@ -54,7 +54,8 @@ public class TimeMachineUI : MonoBehaviour {
     /// <param name="move"></param>
     void OnPlayerMoveEnd(int move)
     {
-        allowReturnCounter = maxReturns;
+        if (allowReturnCounter + 1 <= maxReturns)
+            allowReturnCounter += 1;
     }
 
     /// <summary>

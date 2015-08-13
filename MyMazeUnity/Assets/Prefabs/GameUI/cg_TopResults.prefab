@@ -28,6 +28,7 @@ GameObject:
   - 114: {fileID: 11485692}
   - 114: {fileID: 11427458}
   - 114: {fileID: 11454254}
+  - 114: {fileID: 11468492}
   m_Layer: 5
   m_Name: b_Menu
   m_TagString: Untagged
@@ -573,6 +574,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 9
+--- !u!114 &11468492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6bcb74fc096aaf44a050cd511e98326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11475614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -704,6 +716,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11427458}
         m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11468492}
+        m_MethodName: UseLife
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -984,10 +1008,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22466580}
   m_RootOrder: 4
-  m_AnchorMin: {x: .352000028, y: .345323116}
-  m_AnchorMax: {x: .648148179, y: .654541552}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: .339000016, y: .320864648}
+  m_AnchorMax: {x: .663000047, y: .67900002}
+  m_AnchoredPosition: {x: -.5, y: 0}
+  m_SizeDelta: {x: -.100000381, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22448098
 RectTransform:

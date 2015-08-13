@@ -277,9 +277,9 @@ public class GameLevel : MonoBehaviour {
         yield return new WaitForEndOfFrame();
         List<Star> stars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();
         int i = 1;
-        if (Player.Instance.MovesCount - addMoves <= stars[2].movesToGet)
+        if (Player.Instance.MovesCount <= stars[2].movesToGet)
             stars[2].Collect();
-        if (Player.Instance.MovesCount - addMoves - stars[2].movesToGet <= stars[1].movesToGet)
+        if (Player.Instance.MovesCount - stars[2].movesToGet <= stars[1].movesToGet)
             stars[1].Collect();
         stars[0].Collect();
         
@@ -341,17 +341,6 @@ public class GameLevel : MonoBehaviour {
     IEnumerator NextLevelNumerator()
     {
         state = GameLevelStates.NextLevelLoading;
-        /*bool energyUsingFlag = true;
-
-        if (!MyMaze.Instance.InApps.IsPremium)
-        {
-            спишем энергию
-            Energy energy = MyMaze.Instance.Energy;
-            energyUsingFlag = energy.Use();
-            EnergyUI energyUI = GameObject.FindObjectOfType<EnergyUI>();
-            if (!energyUsingFlag)
-                energyUI.AnimateBad();
-        }*/
 
         yield return new WaitForSeconds(GameLevelDesign.Instance.nextLevelDelay);
         ScreenOverlayUI.Instance.FadeIn();

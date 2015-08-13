@@ -11,12 +11,10 @@ public class MovesCounterUI : MonoBehaviour {
     {
         //посчитаем ходы
         int movesCount = Player.Instance.MovesCount;
-        int movesToTheLeft_3s = GameLevel.Instance.addMoves + GameLevel.Instance.CurrentLevelStars[2].movesToGet - movesCount;
-        int movesToTheLeft_2s = GameLevel.Instance.addMoves + 
-                                GameLevel.Instance.CurrentLevelStars[2].movesToGet +
+        int movesToTheLeft_3s = GameLevel.Instance.CurrentLevelStars[2].movesToGet - movesCount;
+        int movesToTheLeft_2s = GameLevel.Instance.CurrentLevelStars[2].movesToGet +
                                 GameLevel.Instance.CurrentLevelStars[1].movesToGet - movesCount;
-        /*int movesToTheLeft_1s = GameLevel.Instance.addMoves + 
-                                  starsUI.levelStars[2].movesToGet +
+        /*int movesToTheLeft_1s = starsUI.levelStars[2].movesToGet +
                                   starsUI.levelStars[1].movesToGet +
                                   starsUI.levelStars[0].movesToGet - movesCount;
         int displayMoves = movesToTheLeft_3s > 0 ? movesToTheLeft_3s : movesToTheLeft_2s > 0 ? movesToTheLeft_2s : movesToTheLeft_1s;*/

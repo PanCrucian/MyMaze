@@ -9,6 +9,17 @@ public class LifeTimerUI : MonoBehaviour {
     void Start()
     {
         timerText = GetComponent<Text>();
+        MyMaze.Instance.Life.OnUseLife += OnUseLife;
+    }
+
+    void OnDestroy()
+    {
+        MyMaze.Instance.Life.OnUseLife -= OnUseLife;
+    }
+    
+    void OnUseLife(int units)
+    {
+        ActiveTimer();
     }
 
     void Update()
@@ -17,10 +28,13 @@ public class LifeTimerUI : MonoBehaviour {
         if (MyMaze.Instance.Life.Units == MyMaze.Instance.Life.MaxUnits)
             timerText.gameObject.SetActive(false);
         else
-        {
-            timerText.gameObject.SetActive(true);
-            timerText.text = GetTimerString();
-        }
+            ActiveTimer();
+    }
+
+    void ActiveTimer()
+    {
+        timerText.gameObject.SetActive(true);
+        timerText.text = GetTimerString();
     }
 
     /// <summary>

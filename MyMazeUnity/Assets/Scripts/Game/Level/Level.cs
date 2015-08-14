@@ -9,6 +9,9 @@ using System;
 [Serializable]
 public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
 {
+    public Deligates.LevelEvent OnPassed;
+    public Deligates.LevelEvent OnFirstTimePassed;
+
     /// <summary>
     /// Имя
     /// </summary>
@@ -54,7 +57,13 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
     public bool IsClosed;
 
     private int minMovesRecord = 999999;
-    
+
+    /// <summary>
+    /// Этот уровень пройден в первый раз?
+    /// </summary>
+    [HideInInspector]
+    public bool IsAllreadyPassed = false;
+
     /// <summary>
     /// Открыть уровень
     /// </summary>
@@ -82,6 +91,16 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
             return;
         }
         this.IsPassed = true;
+
+        if (OnPassed != null)
+            OnPassed(this);
+
+        if (!IsAllreadyPassed)
+        {
+            IsAllreadyPassed = true;
+            if (OnFirstTimePassed != null)
+                OnFirstTimePassed(this);
+        }
     }
 
     public int CompareTo(object obj)
@@ -173,6 +192,7 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
         }
 
         PlayerPrefs.SetInt(levelName + "#minMovesRecord", MinMovesRecord);
+        PlayerPrefs.SetInt(levelName + "#IsAllreadyPassed", Convert.ToInt32(this.IsAllreadyPassed));
     }
 
     /// <summary>
@@ -200,8 +220,12 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
                 if (Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#Star" + i.ToString() + "#IsCollected")))
                     star.Collect();
         }
+
         if (PlayerPrefs.HasKey(levelName + "#minMovesRecord"))
             MinMovesRecord = PlayerPrefs.GetInt(levelName + "#minMovesRecord");
+
+        if (PlayerPrefs.HasKey(levelName + "#IsAllreadyPassed"))
+            IsAllreadyPassed = Convert.ToBoolean(PlayerPrefs.GetInt(levelName + "#IsAllreadyPassed"));
     }
     
     public void ResetSaves()

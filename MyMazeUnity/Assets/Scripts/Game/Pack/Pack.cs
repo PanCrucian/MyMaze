@@ -1,11 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 /// <summary>
 /// Набор уровней
 /// </summary>
 [System.Serializable]
-public class Pack : MonoBehaviour, IPack {
-    public Deligates.PackEvent OnPackOpened;
+public class Pack : MonoBehaviour, IPack, ISavingElement {
+    public Deligates.PackEvent OnOpened;
+    public Deligates.PackEvent OnPassed;
+    public Deligates.PackEvent OnFirstTimePassed;
+
     /// <summary>
     /// Имя набора
     /// </summary>
@@ -50,6 +55,12 @@ public class Pack : MonoBehaviour, IPack {
         }
     }
 
+    /// <summary>
+    /// Этот пак пройден в первый раз?
+    /// </summary>
+    [HideInInspector]
+    public bool IsAllreadyPassed = false;
+
     void Awake()
     {
         SetupLevels();
@@ -62,6 +73,28 @@ public class Pack : MonoBehaviour, IPack {
     {
         SetMaximumStars();
         oldUpdateTime = Time.time;
+        foreach (Level level in levels)
+            level.OnPassed += OnLevelPassed;
+    }
+
+    /// <summary>
+    /// Событие когда уровень был пройден
+    /// </summary>
+    /// <param name="level"></param>
+    void OnLevelPassed(Level level)
+    {
+        if (LevelsHaveBeenPassed())
+        {
+            if (OnPassed != null)
+                OnPassed(this);
+
+            if (!IsAllreadyPassed)
+            {
+                IsAllreadyPassed = true;
+                if (OnFirstTimePassed != null)
+                    OnFirstTimePassed(this);
+            }
+        }
     }
 
     /// <summary>
@@ -89,8 +122,8 @@ public class Pack : MonoBehaviour, IPack {
         if(group != PackGroupTypes.Page00)
             MyMaze.Instance.Achievements.PageOpenedAchievement(this);
 
-        if (OnPackOpened != null)
-            OnPackOpened(this);
+        if (OnOpened != null)
+            OnOpened(this);
         packOpenEventFired = true;
     }
 
@@ -150,5 +183,35 @@ public class Pack : MonoBehaviour, IPack {
                 returnFlag = true;
         }
         return null;
+    }
+
+    /// <summary>
+    /// Все уровни пройдены в паке?
+    /// </summary>
+    /// <returns></returns>
+    public bool LevelsHaveBeenPassed()
+    {
+        foreach (Level level in levels)
+        {
+            if (!level.IsPassed)
+                return false;
+        }
+        return true;
+    }
+
+    public void Save()
+    {
+        PlayerPrefs.SetInt(packName + "#IsAllreadyPassed", Convert.ToInt32(this.IsAllreadyPassed));
+    }
+
+    public void Load()
+    {
+        if (PlayerPrefs.HasKey(packName + "#IsAllreadyPassed"))
+            IsAllreadyPassed = Convert.ToBoolean(PlayerPrefs.GetInt(packName + "#IsAllreadyPassed"));
+    }
+
+    public void ResetSaves()
+    {
+        throw new System.NotImplementedException();
     }
 }

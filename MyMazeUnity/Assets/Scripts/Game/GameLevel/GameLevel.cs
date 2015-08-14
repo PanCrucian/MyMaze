@@ -37,10 +37,12 @@ public class GameLevel : MonoBehaviour {
     }
 
     private static GameLevel _instance;
+    private bool packGroupFirstTimePassed = false;
 
     void Awake()
     {
         _instance = this;
+        MyMaze.Instance.Save();
     }
 
     void Start()
@@ -59,8 +61,25 @@ public class GameLevel : MonoBehaviour {
             PlayLevelTheme();
         MyMaze.Instance.OnMenuLoad += OnMenuLoad;
         Player.Instance.OnMoveEnd += OnPlayerMoveEnd;
+        MyMaze.Instance.OnPackGroupFirstTimePassed += OnPackGroupFirstTimePassed;
     }
 
+    /// <summary>
+    /// Первый раз прошли все уровни в группе
+    /// </summary>
+    /// <param name="group"></param>
+    void OnPackGroupFirstTimePassed(PackGroupTypes group)
+    {
+        //выйдем в меню
+        //InputSimulator.Instance.SimulateClick(GameObject.FindObjectOfType<LevelLoaderUI>().gameObject);
+        //восстановим 1 еденицу энергии, т.к. выход в меню тратит её
+        //MyMaze.Instance.Life.RestoreOneUnit();
+        packGroupFirstTimePassed = true;
+    } 
+
+    /// <summary>
+    /// Событие когда Загружается меню
+    /// </summary>
     void OnMenuLoad()
     {
         Theme theme = GameObject.FindObjectOfType<Theme>();
@@ -357,12 +376,6 @@ public class GameLevel : MonoBehaviour {
             }
         }
 
-        /*if (!energyUsingFlag) //не хватило энергии
-        {
-            MyMaze.Instance.MenuLoadAction();
-        }
-        else if (nextLevel == null)...
-         */
         if (nextLevel == null)
         {
             Debug.Log("Уровни кончились, загружаю меню");
@@ -381,9 +394,16 @@ public class GameLevel : MonoBehaviour {
                 //обновляем курсоры на уровень
                 MyMaze.Instance.LastSelectedLevel = nextLevel;
 
-                //загружаем следующий уровень
-                Debug.Log("Загружаю следующий уровень " + nextLevel.name);
-                MyMaze.Instance.LevelLoadAction(nextLevel);
+                if (!packGroupFirstTimePassed)
+                {
+                    //загружаем следующий уровень
+                    Debug.Log("Загружаю следующий уровень " + nextLevel.name);
+                    MyMaze.Instance.LevelLoadAction(nextLevel);
+                }
+                else
+                {
+                    MyMaze.Instance.MenuLoadAction();
+                }
             }
         }
     }
@@ -468,6 +488,9 @@ public class GameLevel : MonoBehaviour {
     void OnDestroy()
     {
         if (MyMaze.Instance != null)
+        {
             MyMaze.Instance.OnMenuLoad -= OnMenuLoad;
+            MyMaze.Instance.OnPackGroupFirstTimePassed -= OnPackGroupFirstTimePassed;
+        }
     }
 }

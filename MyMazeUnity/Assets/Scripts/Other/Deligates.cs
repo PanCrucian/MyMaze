@@ -12,4 +12,5 @@ public static class Deligates
     public delegate void LevelEvent(Level level);
     public delegate void PackEvent(Pack pack);
     public delegate void StarEvent(Star star);
+    public delegate void PackGroupEvent(PackGroupTypes group);
 }

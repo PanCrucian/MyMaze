@@ -7,7 +7,8 @@ public class MyMaze : MonoBehaviour, ISavingElement
 {
     public Deligates.LevelEvent OnLevelLoad;
     public Deligates.SimpleEvent OnMenuLoad;
-
+    public Deligates.PackGroupEvent OnPackGroupFirstTimePassed;
+    
     /// <summary>
     /// Сколько всего звезд получено
     /// </summary>
@@ -249,6 +250,11 @@ public class MyMaze : MonoBehaviour, ISavingElement
     /// </summary>
     private int _movesCounter;
 
+    /// <summary>
+    /// События которые нужно выполнить когда-то
+    /// </summary>
+    private List<DelayedEvent> delayedEvents = new List<DelayedEvent>();
+
     void Awake()
     {
         if (!IsExist()) { 
@@ -271,9 +277,75 @@ public class MyMaze : MonoBehaviour, ISavingElement
         CheckNames();
         CheckLastSelectedForNull();
         Load();
+        SetupListeners();
         yield return new WaitForEndOfFrame();
         CalculateTotalStars();
         //CalculateStarsRecived();
+    }
+
+    /// <summary>
+    /// Добавляет отложенное событие в список отложенных событий
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="customData"></param>
+    public void AddDelayedEvent(DelayedEventTypes type, System.Object customData)
+    {
+        DelayedEvent nEvent = new DelayedEvent() { type = type, customData = customData };
+        delayedEvents.Add(nEvent);
+    }
+    public void AddDelayedEvent(DelayedEventTypes type)
+    {
+        AddDelayedEvent(type, new System.Object());
+    }
+
+    /// <summary>
+    /// Получить отложенное событие через тип и удалить его из списка отложенных событий
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    public DelayedEvent GetDelayedEventViaType(DelayedEventTypes type)
+    {
+        DelayedEvent rEvent = null;
+        foreach(DelayedEvent evt in delayedEvents)
+            if (evt.type == type)
+            {
+                rEvent = evt;
+                break;
+            }
+        if (rEvent != null)
+            delayedEvents.Remove(rEvent);
+        return rEvent;
+    }
+
+    /// <summary>
+    /// Устанавливает какието слушатели на события
+    /// </summary>
+    void SetupListeners()
+    {
+        foreach (Pack pack in packs)
+            pack.OnFirstTimePassed += OnPackFirstTimePassed;
+    }
+
+    /// <summary>
+    /// Событие когда пак пройден в первый раз
+    /// </summary>
+    /// <param name="pack"></param>
+    void OnPackFirstTimePassed(Pack pack)
+    {
+        List<Pack> packsInGroup = GetPacksViaGroup(pack.group);
+
+        bool passedFlag = true;
+        foreach (Pack p in packsInGroup)
+            passedFlag = p.LevelsHaveBeenPassed();
+
+        if (passedFlag)
+        {
+            Debug.Log("Группа " + pack.group.ToString("g") + " пройдена в первый раз");
+            if (OnPackGroupFirstTimePassed != null)
+                OnPackGroupFirstTimePassed(pack.group);
+
+            AddDelayedEvent(DelayedEventTypes.RateGame);
+        }
     }
 
     /// <summary>
@@ -470,6 +542,22 @@ public class MyMaze : MonoBehaviour, ISavingElement
     }
 
     /// <summary>
+    /// Возвращает список паков в группе group
+    /// </summary>
+    /// <param name="group"></param>
+    /// <returns></returns>
+    public List<Pack> GetPacksViaGroup(PackGroupTypes group)
+    {
+        List<Pack> newPacks = new List<Pack>();
+
+        foreach (Pack pack in packs)
+            if (pack.group == group)
+                newPacks.Add(pack);
+
+        return newPacks;
+    }
+
+    /// <summary>
     /// Возвращает следующий пак исходя из аргумента
     /// </summary>
     /// <param name="currentPack">Пак после которого нужно получить следующий пак</param>
@@ -573,6 +661,10 @@ public class MyMaze : MonoBehaviour, ISavingElement
     /// </summary>
     public void Save()
     {
+        //паки
+        foreach (Pack pack in packs)
+            pack.Save();
+
         //уровни
         foreach (Level level in levels)
             level.Save();
@@ -621,6 +713,10 @@ public class MyMaze : MonoBehaviour, ISavingElement
     /// </summary>
     public void Load()
     {
+        //паки
+        foreach (Pack pack in packs)
+            pack.Load();
+
         //уровни
         foreach (Level level in levels)
             level.Load();

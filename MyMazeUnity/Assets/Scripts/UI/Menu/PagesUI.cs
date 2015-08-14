@@ -176,12 +176,12 @@ public class PagesUI : MonoBehaviour {
     }
 
     public void Drag(BaseEventData data) {
-        /*PointerEventData pointer = (PointerEventData)data;
+        PointerEventData pointer = (PointerEventData)data;
         if (Mathf.Abs(pointer.delta.x) >= 7.5f) {
             if (pointer.delta.x < 0f)
                 InputSimulator.Instance.SimulatePressThenClick(__data.pages[PageNumber].buttons.nextButton.gameObject);
             else
                 InputSimulator.Instance.SimulatePressThenClick(__data.pages[PageNumber].buttons.prevButton.gameObject);
-        }*/
+        }
     }
 }

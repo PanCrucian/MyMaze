@@ -9,12 +9,26 @@ public class AdsMovesUI : MonoBehaviour {
     void Start()
     {
         MyMaze.Instance.Ads.OnLifeWindowAds += OnLifeWindowAds;
+        GameLevel.Instance.OnRestart += OnGameRestart;
     }
 
     void OnDestroy()
     {
         MyMaze.Instance.Ads.OnLifeWindowAds -= OnLifeWindowAds;
     }
+
+    /// <summary>
+    /// Спрячем окно если рестарт уровня
+    /// </summary>
+    void OnGameRestart()
+    {
+        CanvasGroup cg = GetComponent<CanvasGroup>();
+        if (cg.alpha >= 0.99f)
+        {
+            CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());
+            CGSwitcher.Instance.Switch();
+        }
+    } 
 
     void OnLifeWindowAds()
     {

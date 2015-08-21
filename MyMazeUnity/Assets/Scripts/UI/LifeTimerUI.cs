@@ -5,9 +5,18 @@ using System.Collections;
 public class LifeTimerUI : MonoBehaviour {
 
     private Text timerText;
+    private int saveCPURate = 6; //пересчитывать тяжелую логику раз в 6 кадров
+    private int frames;
 
     void Start()
     {
+        /*//если купили бесконечные жизни, то не показываем этот объект
+        if (MyMaze.Instance.InApps.IsOwned(ProductTypes.UnlimitedLives))
+        {
+            gameObject.SetActive(false);
+            return;
+        }*/
+
         timerText = GetComponent<Text>();
         MyMaze.Instance.Life.OnUseLife += OnUseLife;
     }
@@ -25,6 +34,14 @@ public class LifeTimerUI : MonoBehaviour {
     void Update()
     {
 
+        if (frames % saveCPURate == 0)
+            GentleUpdate();
+
+        frames++;
+    }
+
+    void GentleUpdate()
+    {
         if (MyMaze.Instance.Life.Units == MyMaze.Instance.Life.MaxUnits)
             timerText.gameObject.SetActive(false);
         else

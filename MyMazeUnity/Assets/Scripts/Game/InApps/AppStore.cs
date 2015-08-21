@@ -4,7 +4,7 @@ using System.Collections;
 public class AppStore : MonoBehaviour {
     #region Apple AppStore methods and variables
 #if UNITY_IPHONE
-    public Deligates.SimpleEvent OnPremiumTransactionSuccess;
+    public Deligates.TransactionEvent OnTransactionSuccess;
     public Deligates.SimpleEvent OnRestoreCompleteSuccess;
 
     /// <summary>
@@ -57,10 +57,11 @@ public class AppStore : MonoBehaviour {
         {
             case InAppPurchaseState.Purchased:
             case InAppPurchaseState.Restored:
-                //Успешно или купили или восстановили покупку
-                if (response.productIdentifier.Equals(MyMaze.Instance.InApps.GetProduct<InApps.AppStoreMatching>(ProductTypes.Premium).productId))
-                    if (OnPremiumTransactionSuccess != null)
-                        OnPremiumTransactionSuccess();
+                //Успешно или купили или восстановили покупку                    
+                InApps.AppStoreMatching product = MyMaze.Instance.InApps.GetProduct<InApps.AppStoreMatching>(response.productIdentifier);
+                if(product != null)
+                    if (OnTransactionSuccess != null)
+                        OnTransactionSuccess(product.type);
                 break;
             case InAppPurchaseState.Deferred:
                 //iOS 8 introduces Ask to Buy, which lets parents approve any purchases initiated by children

@@ -2,6 +2,7 @@
 [System.Serializable]
 public class Booster : MonoBehaviour
 {
+    public Deligates.SimpleEvent OnOpen;
     public Level avaliableAtLevel;
 
     /// <summary>
@@ -37,5 +38,8 @@ public class Booster : MonoBehaviour
     public virtual void Open()
     {
         _isClosed = false;
+
+        if (OnOpen != null)
+            OnOpen();
     }
 }

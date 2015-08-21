@@ -16,7 +16,7 @@ public class MoveTutorialUI : TutorialUI {
 
     public override void OnCloseRequest()
     {
-        base.OnCloseRequest();
         MyMaze.Instance.Tutorial.GetStep(TutorialPhase.HowToMove).Complete();
+        base.OnCloseRequest();
     }
 }

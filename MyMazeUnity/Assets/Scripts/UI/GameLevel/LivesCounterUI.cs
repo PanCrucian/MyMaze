@@ -7,6 +7,13 @@ public class LivesCounterUI : MonoBehaviour {
 
     void Start()
     {
+        /*//если купили бесконечные жизни, то не показываем этот объект
+        if (MyMaze.Instance.InApps.IsOwned(ProductTypes.UnlimitedLives))
+        {
+            gameObject.SetActive(false);
+            return;
+        }*/
+
         StartCoroutine(StartNumerator());
         MyMaze.Instance.Life.OnUseLife += OnUseLife;
         MyMaze.Instance.Life.OnRestoreLife += OnRestoreLife;
@@ -54,6 +61,13 @@ public class LivesCounterUI : MonoBehaviour {
     /// </summary>
     void SetupLifeUI()
     {
+        /*//если купили бесконечные жизни, то не показываем этот объект
+        if (MyMaze.Instance.InApps.IsOwned(ProductTypes.UnlimitedLives))
+        {
+            gameObject.SetActive(false);
+            return;
+        }*/
+
         if (MyMaze.Instance == null)
             return;
 

@@ -42,5 +42,6 @@ public class TutorialUI : MonoBehaviour {
         cg.blocksRaycasts = false;
         cg.interactable = false;
         //GameLevel.Instance.OnRestartRequest();
+        MyMaze.Instance.Tutorial.Save();
     }
 }

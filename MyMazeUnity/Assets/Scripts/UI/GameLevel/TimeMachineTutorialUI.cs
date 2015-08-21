@@ -14,7 +14,7 @@ public class TimeMachineTutorialUI : TutorialUI {
 
     public override void OnCloseRequest()
     {
-        base.OnCloseRequest();
         MyMaze.Instance.Tutorial.GetStep(TutorialPhase.TimeMachine).Complete();
+        base.OnCloseRequest();
     }
 }

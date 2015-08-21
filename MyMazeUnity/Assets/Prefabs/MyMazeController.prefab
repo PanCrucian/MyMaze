@@ -2245,6 +2245,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11401912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2273,6 +2274,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11402342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2346,6 +2348,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 65
   group: 2
+  IsAllreadyPassed: 0
 --- !u!114 &11404412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2435,6 +2438,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11405748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2463,6 +2467,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11406262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2491,6 +2496,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11406396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2512,6 +2518,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 65
   group: 2
+  IsAllreadyPassed: 0
 --- !u!114 &11407468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2540,6 +2547,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11411964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2568,6 +2576,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11414428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2596,6 +2605,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11418366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2617,6 +2627,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 0
   group: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11419146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2645,6 +2656,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11419836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2677,6 +2689,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11419840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2705,6 +2718,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11420774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2726,6 +2740,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 145
   group: 4
+  IsAllreadyPassed: 0
 --- !u!114 &11421912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2754,6 +2769,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11422160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2782,6 +2798,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11422282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2810,6 +2827,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11422392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2845,6 +2863,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 30
   group: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11423440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2873,6 +2892,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11423730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2919,6 +2939,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11424270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2947,6 +2968,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11425116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2975,6 +2997,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11426906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3003,6 +3026,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11427090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3031,6 +3055,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11428694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3059,6 +3084,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11429132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3226,6 +3252,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11432260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3237,7 +3264,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5a61c711662484692a2dee481527cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appStoreProducts: []
+  appStoreProducts:
+  - productId: NotSetYet01
+    type: 0
+  - productId: NotSetYet02
+    type: 1
+  - productId: NotSetYet03
+    type: 2
+  basket:
+  - isOwned: 0
+    type: 0
+  - isOwned: 0
+    type: 1
+  - isOwned: 0
+    type: 2
 --- !u!114 &11432342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3259,6 +3299,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 0
   group: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11433856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3280,6 +3321,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 100
   group: 3
+  IsAllreadyPassed: 0
 --- !u!114 &11434296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3308,6 +3350,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11434664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3340,6 +3383,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11435834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3368,6 +3412,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11439452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3400,6 +3445,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11439810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3428,6 +3474,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11439834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3456,6 +3503,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11440360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3477,6 +3525,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 65
   group: 2
+  IsAllreadyPassed: 0
 --- !u!114 &11442570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3505,6 +3554,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11443138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3537,6 +3587,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11443264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3558,6 +3609,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 0
   group: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11444546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3586,6 +3638,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11444548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3618,6 +3671,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11446106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3646,6 +3700,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11447982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3692,6 +3747,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11452810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3724,6 +3780,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11454028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3769,6 +3826,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11455244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3822,6 +3880,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11461898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3850,6 +3909,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11462024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3871,6 +3931,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 175
   group: 4
+  IsAllreadyPassed: 0
 --- !u!114 &11462434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3899,6 +3960,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11463022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3927,6 +3989,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11463244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3955,6 +4018,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11467328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3987,6 +4051,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11468266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4015,6 +4080,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11468558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4036,6 +4102,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 100
   group: 3
+  IsAllreadyPassed: 0
 --- !u!114 &11468760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4068,6 +4135,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11469502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4100,6 +4168,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11473034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4128,6 +4197,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11473060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4149,6 +4219,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 30
   group: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11473348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4177,6 +4248,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11474378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4198,6 +4270,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 30
   group: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11475282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4230,6 +4303,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11477808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4258,6 +4332,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11477842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4279,6 +4354,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 145
   group: 4
+  IsAllreadyPassed: 0
 --- !u!114 &11478106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4307,6 +4383,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11478390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4339,6 +4416,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11478642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4360,6 +4438,7 @@ MonoBehaviour:
   StarsRecived: 0
   StarsRequired: 100
   group: 3
+  IsAllreadyPassed: 0
 --- !u!114 &11481206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4388,6 +4467,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!114 &11482120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4420,6 +4500,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11483380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4448,6 +4529,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11484010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4480,6 +4562,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11485582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4508,6 +4591,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11487444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4536,6 +4620,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11487514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4564,6 +4649,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11487576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4603,6 +4689,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1
+  IsAllreadyPassed: 0
 --- !u!114 &11491992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4631,6 +4718,7 @@ MonoBehaviour:
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
+  IsAllreadyPassed: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

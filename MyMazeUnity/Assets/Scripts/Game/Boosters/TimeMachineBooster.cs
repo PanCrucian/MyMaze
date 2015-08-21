@@ -3,15 +3,30 @@ using System.Collections;
 
 public class TimeMachineBooster : Booster, ISavingElement {
     public Level[] levelsWithoutPremium;
-    
+
+    public override void Start()
+    {
+        base.Start();
+        MyMaze.Instance.InApps.OnTimeMachineBuyed += OnTimeMachineBuyed;
+    }
+
+    /// <summary>
+    /// Купили бустер машина времени
+    /// </summary>
+    void OnTimeMachineBuyed()
+    {
+        if (IsClosed)
+            this.Open();
+    }
+
     /// <summary>
     /// Доступен ли бустер для использования
     /// </summary>
     /// <returns></returns>
     public bool IsAvaliable(Level level)
     {
-        /*if (MyMaze.Instance.InApps.IsPremium)
-            return true;*/
+        if (MyMaze.Instance.InApps.IsOwned(ProductTypes.BoosterTimeMachine))
+            return true;
 
         foreach (Level l in levelsWithoutPremium)
         {

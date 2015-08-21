@@ -2,5 +2,7 @@
 /// Типы продуктов для покупки в магазине приложений
 /// </summary>
 public enum ProductTypes {
-    Premium
+    NoAds,
+    BoosterTimeMachine,
+    UnlimitedLives
 }

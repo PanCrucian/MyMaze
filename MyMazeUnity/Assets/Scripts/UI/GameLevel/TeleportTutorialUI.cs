@@ -16,7 +16,7 @@ public class TeleportTutorialUI : TutorialUI {
 
     public override void OnCloseRequest()
     {
-        base.OnCloseRequest();
         MyMaze.Instance.Tutorial.GetStep(TutorialPhase.Teleport).Complete();
+        base.OnCloseRequest();
     }
 }

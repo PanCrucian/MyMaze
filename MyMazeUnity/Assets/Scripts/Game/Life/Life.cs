@@ -54,6 +54,19 @@ public class Life : MonoBehaviour, ISavingElement {
         SetDefaultValues();
     }
 
+    void Start()
+    {
+        MyMaze.Instance.InApps.OnUnlimitedLivesBuyed += OnUnlimitedLivesBuyed;
+    }
+
+    /// <summary>
+    /// Купили бесконечные жизни
+    /// </summary>
+    void OnUnlimitedLivesBuyed()
+    {
+        RestoreAllUnits();
+    }
+
     /// <summary>
     /// Устанавливает значения по умолчанию, для первого запуска
     /// </summary>
@@ -92,6 +105,10 @@ public class Life : MonoBehaviour, ISavingElement {
     /// <returns>true если можно, false если нельзя</returns>
     public bool Use()
     {
+        //если купили бесконечные жизни, то не тратим их
+        if (MyMaze.Instance.InApps.IsOwned(ProductTypes.UnlimitedLives))
+            return true;
+
         LifeBlock block = GetFirstAvaliableBlock();
         if (block != null)
         {

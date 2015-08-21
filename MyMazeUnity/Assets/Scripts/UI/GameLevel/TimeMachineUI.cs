@@ -23,14 +23,31 @@ public class TimeMachineUI : MonoBehaviour {
     {
         allowReturnCounter = maxReturns;
         timeMachine = MyMaze.Instance.TimeMachineBooster;
+        timeMachine.OnOpen += OnBoosterOpen;
         if (timeMachine.IsClosed) // && timeMachine.avaliableAtLevel != MyMaze.Instance.LastSelectedLevel для тестов
         {
             gameObject.SetActive(false);
             return;
         }
+        SetupIfBoosterOpened();
+    }
+
+    void OnDestroy()
+    {
+        timeMachine.OnOpen -= OnBoosterOpen;
+    }
+
+    void SetupIfBoosterOpened()
+    {
         button = GetComponent<Button>();
         Player.Instance.OnMoveEnd += OnPlayerMoveEnd;
         GameLevel.Instance.OnReturnToMove += OnReturnToMove;
+    }
+
+    void OnBoosterOpen()
+    {
+        gameObject.SetActive(true);
+        SetupIfBoosterOpened();
     }
 
     void Update()
@@ -79,7 +96,7 @@ public class TimeMachineUI : MonoBehaviour {
         }
         else
         {
-            //MyMaze.Instance.InApps.BuyPremiumRequest();
+            MyMaze.Instance.InApps.BuyRequest(ProductTypes.BoosterTimeMachine);
         }
     }
 

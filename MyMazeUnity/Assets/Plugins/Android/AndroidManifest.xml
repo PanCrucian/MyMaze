@@ -34,10 +34,7 @@
     </activity>
 
     <activity android:name="com.appsflyer.AppsFlyerOverrideActivity" android:launchMode="singleTask" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:screenOrientation="portrait">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
+      
     </activity>    
     
     <receiver android:name="com.appsflyer.MultipleInstallBroadcastReceiver" android:exported="true">

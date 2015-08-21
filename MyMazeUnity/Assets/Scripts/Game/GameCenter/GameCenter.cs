@@ -40,7 +40,7 @@ public class GameCenter : MonoBehaviour {
         GameCenterManager.OnAuthFinished += OnAuthFinished;
         GameCenterManager.OnAchievementsLoaded += OnAchievementsLoaded;
         GameCenterManager.OnPlayerScoreLoaded += OnPlayerScoreLoaded;
-
+        
         GameCenterManager.Dispatcher.addEventListener(GameCenterManager.GAME_CENTER_ACHIEVEMENT_PROGRESS, OnAchievementProgress);
         //GameCenterManager.Dispatcher.addEventListener(GameCenterManager.GAME_CENTER_LEADERBOARD_SCORE_LOADED, OnLeaderboardScoreLoaded);
 

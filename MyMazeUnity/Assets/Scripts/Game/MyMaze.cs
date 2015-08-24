@@ -769,12 +769,16 @@ public class MyMaze : MonoBehaviour, ISavingElement
         this.Leaderboards.Load();
     }
 
+    bool isResetSaves = false;
+
     /// <summary>
     /// Удалить все сохраниения
     /// </summary>
     public void ResetSaves()
     {
+        isResetSaves = true;
         PlayerPrefs.DeleteAll();
+        Application.Quit();
     }
 
     #endregion
@@ -785,8 +789,7 @@ public class MyMaze : MonoBehaviour, ISavingElement
     void OnApplicationQuit()
     {
         //TODO Обязательно добавить сюда сохраниние всего прогресса
-#if !UNITY_EDITOR
-        Save();
-#endif
+        if (!isResetSaves)
+            Save();
     }
 }

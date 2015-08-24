@@ -6,6 +6,7 @@ public class InApps : MonoBehaviour, ISavingElement {
     public Deligates.SimpleEvent OnNoAdsBuyed;
     public Deligates.SimpleEvent OnTimeMachineBuyed;
     public Deligates.SimpleEvent OnUnlimitedLivesBuyed;
+    public Deligates.SimpleEvent OnFiveLivesBuyed;
 
     public interface IStoreMatch
     {
@@ -56,15 +57,18 @@ public class InApps : MonoBehaviour, ISavingElement {
         else
             Debug.Log("AppStore не инициализирован");
 #endif
+#if UNITY_ANDROID
+        OnTransactionSuccess(type);
+#endif
     }
 
     /// <summary>
     /// Какаято транзакция была успешно проведена
     /// </summary>
-    /// <param name="pType"></param>
-    void OnTransactionSuccess(ProductTypes pType)
+    /// <param name="type">Тип продукта</param>
+    void OnTransactionSuccess(ProductTypes type)
     {
-        switch (pType)
+        switch (type)
         {
             case ProductTypes.NoAds:
                 OnNoAdsTransactionSuccess();
@@ -74,6 +78,9 @@ public class InApps : MonoBehaviour, ISavingElement {
                 break;
             case ProductTypes.UnlimitedLives:
                 OnUnlimitedLivesSuccess();
+                break;
+            case ProductTypes.FiveLives:
+                OnFiveLivesSuccess();
                 break;
         }
         Save();
@@ -128,6 +135,40 @@ public class InApps : MonoBehaviour, ISavingElement {
         }
         else
             Debug.Log("Вы уже покупали бесконечные жизни");
+    }
+
+    /// <summary>
+    /// Успешно проведена покупка 5 жизней
+    /// </summary>
+    void OnFiveLivesSuccess()
+    {
+        BasketItem item = GetBasketItem(ProductTypes.FiveLives);
+        if (!item.isOwned)
+        {
+            Debug.Log("Купили 5 жизней");
+            item.isOwned = true;
+            if (OnFiveLivesBuyed != null)
+                OnFiveLivesBuyed();
+        }
+        else
+            Debug.Log("Вы уже покупали 5 жизней");
+    }
+
+    /// <summary>
+    /// Потребить покупку в 5 жизней
+    /// </summary>
+    /// <returns></returns>
+    public bool ConsumeFiveLives()
+    {
+        BasketItem item = GetBasketItem(ProductTypes.FiveLives);
+        if (item.isOwned)
+        {
+            item.isOwned = false;
+            Debug.Log("Успешно потребили покупку: 5 жизней");
+            return true;
+        }
+        Debug.Log("Не могу потребить покупку в 5 жизней, т.к. она не была куплена");
+        return false;
     }
 
     /// <summary>

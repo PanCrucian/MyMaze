@@ -12,4 +12,9 @@ public class InfoUI : MonoBehaviour {
     {
         MyMaze.Instance.WebLinks.OpenVk();
     }
+
+    public void ResetSaves()
+    {
+        MyMaze.Instance.ResetSaves();
+    }
 }

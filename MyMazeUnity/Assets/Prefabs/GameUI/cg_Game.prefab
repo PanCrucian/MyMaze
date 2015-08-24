@@ -559,12 +559,9 @@ GameObject:
   - 222: {fileID: 22210968}
   - 114: {fileID: 11435888}
   - 114: {fileID: 11471860}
-  - 114: {fileID: 11423476}
   - 114: {fileID: 11441482}
-  - 114: {fileID: 11485068}
-  - 114: {fileID: 11405970}
   m_Layer: 5
-  m_Name: b_FreeLives
+  m_Name: b_FreeMoves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -858,10 +855,7 @@ GameObject:
   - 222: {fileID: 22244342}
   - 114: {fileID: 11408734}
   - 114: {fileID: 11428424}
-  - 114: {fileID: 11423236}
   - 114: {fileID: 11415440}
-  - 114: {fileID: 11427264}
-  - 114: {fileID: 11414682}
   m_Layer: 5
   m_Name: b_5Lives
   m_TagString: Untagged
@@ -1236,10 +1230,7 @@ GameObject:
   - 222: {fileID: 22223782}
   - 114: {fileID: 11408536}
   - 114: {fileID: 11466818}
-  - 114: {fileID: 11404628}
   - 114: {fileID: 11446796}
-  - 114: {fileID: 11419116}
-  - 114: {fileID: 11472146}
   m_Layer: 5
   m_Name: b_FreeLives
   m_TagString: Untagged
@@ -1808,10 +1799,7 @@ GameObject:
   - 222: {fileID: 22281752}
   - 114: {fileID: 11477296}
   - 114: {fileID: 11422176}
-  - 114: {fileID: 11486436}
   - 114: {fileID: 11485136}
-  - 114: {fileID: 11462432}
-  - 114: {fileID: 11427934}
   m_Layer: 5
   m_Name: b_UnlmLives
   m_TagString: Untagged
@@ -2133,17 +2121,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11404628
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109fc84187b7f2e4caa10b944d04fd7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11405030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2167,19 +2144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundName: 1
-  type: 0
---- !u!114 &11405970
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 134460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f33a01e2408cf84c8da51c7178f2ee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundName: 11
   type: 0
 --- !u!114 &11406378
 MonoBehaviour:
@@ -2481,19 +2445,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11414682
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 147228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f33a01e2408cf84c8da51c7178f2ee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundName: 11
-  type: 0
 --- !u!114 &11415440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2631,19 +2582,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11419116
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f33a01e2408cf84c8da51c7178f2ee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundName: 11
-  type: 0
 --- !u!114 &11419118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2751,8 +2689,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11486436}
-        m_MethodName: Restore
+      - m_Target: {fileID: 11436454}
+        m_MethodName: OnUnlimitedLivesButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2765,17 +2703,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &11423236
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 147228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109fc84187b7f2e4caa10b944d04fd7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11423238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2790,17 +2717,6 @@ MonoBehaviour:
   hideTime: .5
   fillStar: {fileID: 11479300}
   outlineStar: {fileID: 11465220}
---- !u!114 &11423476
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 134460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17bdd7b2340a6843a370993df5ecc1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11424334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2833,32 +2749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3140f1517e312ae47814bb121ced8139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11427264
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 147228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f33a01e2408cf84c8da51c7178f2ee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundName: 11
-  type: 0
---- !u!114 &11427934
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f33a01e2408cf84c8da51c7178f2ee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundName: 11
-  type: 0
 --- !u!114 &11428424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2898,8 +2788,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11423236}
-        m_MethodName: Restore
+      - m_Target: {fileID: 11436454}
+        m_MethodName: OnFiveLivesButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3830,19 +3720,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11462432
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f33a01e2408cf84c8da51c7178f2ee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundName: 11
-  type: 0
 --- !u!114 &11463026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4021,8 +3898,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11404628}
-        m_MethodName: Restore
+      - m_Target: {fileID: 11436454}
+        m_MethodName: OnFreeLifeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4246,8 +4123,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11423476}
-        m_MethodName: Restore
+      - m_Target: {fileID: 11445072}
+        m_MethodName: OnFiveMovesButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4260,19 +4137,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &11472146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f33a01e2408cf84c8da51c7178f2ee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundName: 11
-  type: 0
 --- !u!114 &11473056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4654,19 +4518,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11485068
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 134460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f33a01e2408cf84c8da51c7178f2ee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundName: 11
-  type: 0
 --- !u!114 &11485136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4701,17 +4552,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11486436
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109fc84187b7f2e4caa10b944d04fd7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11486552
 MonoBehaviour:
   m_ObjectHideFlags: 1

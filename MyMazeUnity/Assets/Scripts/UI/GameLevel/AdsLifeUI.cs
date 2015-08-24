@@ -14,19 +14,27 @@ public class AdsLifeUI : MonoBehaviour {
         MyMaze.Instance.Life.OnRestoreLife -= OnRestoreLife;
     }
 
+    /// <summary>
+    /// Отрегенерировалась ячейка жизней, закроем экран с рекламой
+    /// </summary>
+    /// <param name="units"></param>
     void OnRestoreLife(int units)
     {
-        CanvasGroup cg = GetComponent<CanvasGroup>();
-        if (cg.alpha >= 0.99f)
-        {
-            CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());
-            CGSwitcher.Instance.Switch();
-        }
+        if (GetComponent<CanvasGroup>().alpha >= 0.99f)
+            Hide();
+    }
+
+    /// <summary>
+    /// Спрячем экран с предложением рекламы
+    /// </summary>
+    public void Hide()
+    {
+        CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());
+        CGSwitcher.Instance.Switch();
     }
 
     /// <summary>
     /// Покажем экран с просмотром рекламы для восстановления сердец
-    /// Напоминаю что этот метод вызывать только в главном меню
     /// </summary>
     public void Show()
     {
@@ -39,7 +47,40 @@ public class AdsLifeUI : MonoBehaviour {
         
         CGSwitcher.Instance.SetShowObject(GetComponent<Animator>());
         CGSwitcher.Instance.Switch();
+
         GetComponent<SoundsPlayer>().PlayOneShootSound();
-        MyMaze.Instance.Ads.CallLifeWindowAds();
+
+        MyMaze.Instance.Ads.CallMyMazeUILifeAdsShowEvent();
+    }
+
+    /// <summary>
+    /// нажали кнопку просмотра рекламы
+    /// </summary>
+    public void OnFreeLifeButton()
+    {
+        MyMaze.Instance.Ads.ShowRewardVideoForLife();
+#if UNITY_EDITOR
+        MyMaze.Instance.Life.RestoreOneUnit();
+#endif
+    }
+
+    /// <summary>
+    /// Нажали кнопку покупки 5 жизней
+    /// </summary>
+    public void OnFiveLivesButton()
+    {
+        ProductTypes productType = ProductTypes.FiveLives;
+        if (!MyMaze.Instance.InApps.IsOwned(productType))
+            MyMaze.Instance.InApps.BuyRequest(productType);
+    }
+
+    /// <summary>
+    /// Нажали кнопку покупки бесконечных жизней
+    /// </summary>
+    public void OnUnlimitedLivesButton()
+    {
+        ProductTypes productType = ProductTypes.UnlimitedLives;
+        if (!MyMaze.Instance.InApps.IsOwned(productType))
+            MyMaze.Instance.InApps.BuyRequest(productType);
     }
 }

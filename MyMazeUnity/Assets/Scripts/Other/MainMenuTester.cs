@@ -13,23 +13,7 @@ public class MainMenuTester : MonoBehaviour {
     }
 
     public LocalData __data;
-
-    void Start()
-    {
-        //HZInterstitialAd.chartboostShowForLocation("mymaze.onLaunch");
-        HZInterstitialAd.setDisplayListener(hzAdListener);
-        HZInterstitialAd.show();
-    }
-
-    HZInterstitialAd.AdDisplayListener hzAdListener = delegate(string adState, string adTag)
-    {
-        Debug.Log("\n"+
-            "Interstitial ADS listener..." + "\n" +
-            "adState: " + adState + "\n" +
-            "adTag: " + adTag + "\n" + 
-            "CBT avaliable: " + HZInterstitialAd.chartboostIsAvailableForLocation("onLaunch").ToString());
-    };
-
+    
     public void PrepareForPlay()
     {
         if (!CheckPlayData())

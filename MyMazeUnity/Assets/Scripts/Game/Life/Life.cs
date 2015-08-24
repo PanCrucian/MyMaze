@@ -57,6 +57,16 @@ public class Life : MonoBehaviour, ISavingElement {
     void Start()
     {
         MyMaze.Instance.InApps.OnUnlimitedLivesBuyed += OnUnlimitedLivesBuyed;
+        MyMaze.Instance.InApps.OnFiveLivesBuyed += OnFiveLivesBuyed;
+    }
+
+    /// <summary>
+    /// Купили 5 жизней
+    /// </summary>
+    void OnFiveLivesBuyed()
+    {
+        if (MyMaze.Instance.InApps.ConsumeFiveLives())
+            RestoreAllUnits();
     }
 
     /// <summary>
@@ -211,7 +221,6 @@ public class Life : MonoBehaviour, ISavingElement {
         {
             RestoreOneUnit();
         }
-        Save();
     }
 
     /// <summary>
@@ -237,6 +246,26 @@ public class Life : MonoBehaviour, ISavingElement {
                 block.IsAvaliable = System.Convert.ToBoolean(PlayerPrefs.GetInt("Life#" + block.index.ToString() + "#IsAvaliable"));
             if (PlayerPrefs.HasKey("Life#" + block.index.ToString() + "#regenerationTime"))
                 block.regenerationTime = PlayerPrefs.GetInt("Life#" + block.index.ToString() + "#regenerationTime");
+        }
+
+        RestoreLivesAfterLoad();
+    }
+
+    /// <summary>
+    /// Восстанавливаем жизни после загрузки сохранений
+    /// Используем этот метод вместо Regeneration() потому что метод RestoreOneUnit(),
+    /// Перезаписывает следующие блоки в линейке жизней и может возникнуть ситуация что мы были оффлайн 1 час,
+    /// Но восстановится только 1 ячейка жизней
+    /// Короче юзаем этот метод после загрузки и все будет ОК
+    /// </summary>
+    void RestoreLivesAfterLoad()
+    {
+        int unixTimestamp = Timers.Instance.UnixTimestamp;
+        for (int i = _maxUnits - 1; i >= 0; i--)
+        {
+            LifeBlock block = blocks[i];
+            if (!block.IsAvaliable && block.regenerationTime <= unixTimestamp)
+                block.Restore();
         }
     }
 

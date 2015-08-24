@@ -8,13 +8,13 @@ public class AdsMovesUI : MonoBehaviour {
 
     void Start()
     {
-        MyMaze.Instance.Ads.OnLifeWindowAds += OnLifeWindowAds;
+        MyMaze.Instance.Ads.OnMyMazeUILifeAds += OnLifeWindowAds;
         GameLevel.Instance.OnRestart += OnGameRestart;
     }
 
     void OnDestroy()
     {
-        MyMaze.Instance.Ads.OnLifeWindowAds -= OnLifeWindowAds;
+        MyMaze.Instance.Ads.OnMyMazeUILifeAds -= OnLifeWindowAds;
     }
 
     /// <summary>
@@ -25,10 +25,18 @@ public class AdsMovesUI : MonoBehaviour {
         CanvasGroup cg = GetComponent<CanvasGroup>();
         if (cg.alpha >= 0.99f)
         {
-            CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());
-            CGSwitcher.Instance.Switch();
+            Hide();
         }
-    } 
+    }
+
+    /// <summary>
+    /// Спрячем это окно
+    /// </summary>
+    void Hide()
+    {
+        CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());
+        CGSwitcher.Instance.Switch();
+    }
 
     void OnLifeWindowAds()
     {
@@ -61,5 +69,37 @@ public class AdsMovesUI : MonoBehaviour {
     void Reset()
     {
         isFirstShowUp = true;
+    }
+
+    /// <summary>
+    /// нажали кнопку для просмотра рекламы и получения 5 ходов
+    /// </summary>
+    public void OnFiveMovesButton()
+    {
+        Ads.OnIncentivizedEnd += OnIncentivizedEnd;
+        MyMaze.Instance.Ads.ShowRewardVideo();
+#if UNITY_EDITOR
+        OnIncentivizedEnd();
+#endif
+    }
+
+    /// <summary>
+    /// Открылось или закрылос окно с рекламой
+    /// </summary>
+    /// <param name="flag"></param>
+    void OnIncentivizedEnd()
+    {
+        Ads.OnIncentivizedEnd -= OnIncentivizedEnd;
+        AddMovesAndClose();
+    }
+
+    /// <summary>
+    /// Добавляет ходы игроку и закрывает окно
+    /// </summary>
+    void AddMovesAndClose()
+    {
+        GameLevel.Instance.AddFiveMoves();
+        GameLevel.Instance.UnPause();
+        Hide();
     }
 }

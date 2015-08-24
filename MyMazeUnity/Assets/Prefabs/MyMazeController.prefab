@@ -3271,6 +3271,8 @@ MonoBehaviour:
     type: 1
   - productId: NotSetYet03
     type: 2
+  - productId: NotSetYet04
+    type: 3
   basket:
   - isOwned: 0
     type: 0
@@ -3278,6 +3280,8 @@ MonoBehaviour:
     type: 1
   - isOwned: 0
     type: 2
+  - isOwned: 0
+    type: 3
 --- !u!114 &11432342
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,17 +4,14 @@ using System.Collections;
 public class Ads : MonoBehaviour {
 
     public Deligates.SimpleEvent OnMyMazeUILifeAds;
-    public static Deligates.SimpleEvent OnIncentivizedEnd; //это же статик а у меня получется 2 копии ADS будет изза этого
 
     /// <summary>
-    /// Флаг который отслеживает нужно ли давать жизнь после просмотра видео рекламы
+    /// Частота показа рекламы между уровнями
+    /// example: 4 значит что через 4 сыграных или перезапущенных уровня покажется реклама
     /// </summary>
-    private bool oneLifeReward = false;
+    public int levelFrequency = 4;
 
-    /// <summary>
-    /// Показана ли сейчас реклама
-    /// </summary>
-    private static bool isAdsShowed = false;
+    private int levelFrequencyCounter = 0;
 
     /// <summary>
     /// Время последнего показа рекламы, штамп на закрытие
@@ -24,57 +21,52 @@ public class Ads : MonoBehaviour {
     /// <summary>
     /// Время в секундах как минимальный интервал времени перед показом следующей рекламы
     /// </summary>
-    public int adsShowTrashhold = 3;
+    public int adsShowTrashhold = 5;
     
     /// <summary>
     /// Слушатель состояния интерстишалов
     /// </summary>
     HZInterstitialAd.AdDisplayListener HZInterstitialListener = delegate(string adState, string adTag)
     {
-        Debug.Log("\n" +
-            "HZInterstitialAd..." + "\n" +
-            "adState: " + adState + "\n" +
-            "adTag: " + adTag + "\n");
         if (adState.Equals("show"))
         {
-            isAdsShowed = true;
+            
         }
         else if (adState.Equals("hide"))
         {
-            isAdsShowed = false;
             lastAdsHideTime = Timers.Instance.UnixTimestamp;
         }
     };
 
     /// <summary>
-    /// Слушатель состояния Reward видео
+    /// Слушатель состояния Reward видео для жизней
     /// </summary>
-    HZIncentivizedAd.AdDisplayListener HZIncentivizedListener = delegate(string adState, string adTag)
+    HZIncentivizedAd.AdDisplayListener HZIncentivizedLifeListener = delegate(string adState, string adTag)
     {
-        Debug.Log("\n" +
-            "HZIncentivizedAd..." + "\n" +
-            "adState: " + adState + "\n" +
-            "adTag: " + adTag + "\n");
-
-        if (adState.Equals("show"))
+        if (adState.Equals("hide"))
         {
-            isAdsShowed = true;
-        }
-        else if (adState.Equals("hide"))
-        {
-            isAdsShowed = false;
             lastAdsHideTime = Timers.Instance.UnixTimestamp;
+            MyMaze.Instance.Life.RestoreOneUnit();
+            HZIncentivizedAd.fetch();
+        }
+    };
 
-            if (OnIncentivizedEnd != null)
-                OnIncentivizedEnd();
+    /// <summary>
+    /// Слушатель состояния Reward видео для ходов
+    /// </summary>
+    HZIncentivizedAd.AdDisplayListener HZIncentivizedMovesListener = delegate(string adState, string adTag)
+    {
+        if (adState.Equals("hide"))
+        {
+            lastAdsHideTime = Timers.Instance.UnixTimestamp;
+            GameObject.FindObjectOfType<AdsMovesUI>().AddMovesAndClose();
+            HZIncentivizedAd.fetch();
         }
     };
     
     void Awake()
-    {
-        //HZInterstitialAd.chartboostShowForLocation("mymaze.onLaunch");
+    {        
         HZInterstitialAd.setDisplayListener(HZInterstitialListener);
-        HZIncentivizedAd.setDisplayListener(HZIncentivizedListener);
     }
 
     void Start()
@@ -82,28 +74,23 @@ public class Ads : MonoBehaviour {
         if (MyMaze.Instance.IsFirstSceneLoad)
             StartCoroutine(ShowOnLaunchInterstitial());
 
-        OnIncentivizedEnd += RestoreLifeWhenIncentivizedAdEnd;
-        OnIncentivizedEnd += FetchHZIncentivizedAdWhenEnd;
+        MyMaze.Instance.OnLevelLoad += OnLevelLoadOrRestarted;
+        MyMaze.Instance.OnLevelRestarted += OnLevelLoadOrRestarted;
     }
 
     /// <summary>
-    /// проверить и добавить 1 жизнь когда кончилось ревард видео
+    /// Игровой уровень был загружен или перезапущен
     /// </summary>
-    void RestoreLifeWhenIncentivizedAdEnd()
+    /// <param name="level"></param>
+    void OnLevelLoadOrRestarted(Level level)
     {
-        if (oneLifeReward)
+        levelFrequencyCounter++;
+
+        if (levelFrequencyCounter >= levelFrequency)
         {
-            oneLifeReward = false;
-            MyMaze.Instance.Life.RestoreOneUnit();
+            levelFrequencyCounter = 0;
+            StartCoroutine(ShowOnGameEndInterstitial());
         }
-    }
-
-    /// <summary>
-    /// Кешируем видео по окончании просмотра
-    /// </summary>
-    void FetchHZIncentivizedAdWhenEnd()
-    {
-        HZIncentivizedAd.fetch();
     }
 
     /// <summary>
@@ -114,9 +101,20 @@ public class Ads : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
 
         if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
-            if (!isAdsShowed)
-                if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-                    HZInterstitialAd.show();
+            if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
+                HZInterstitialAd.show(); //HZInterstitialAd.chartboostShowForLocation("mymaze.onLaunch");
+    }
+
+    /// <summary>
+    /// Показать интерстишал для onEndOfGame
+    /// </summary>
+    IEnumerator ShowOnGameEndInterstitial()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
+            if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
+                HZInterstitialAd.show(); //HZInterstitialAd.chartboostShowForLocation("mymaze.onEndOfGame");
     }
 
     /// <summary>
@@ -133,17 +131,19 @@ public class Ads : MonoBehaviour {
     /// </summary>
     public void ShowRewardVideoForLife()
     {
-        HZIncentivizedAd.show();
-        oneLifeReward = true;
+        HZIncentivizedAd.setDisplayListener(HZIncentivizedLifeListener);
+        HZIncentivizedAd.show();        
     }
 
     /// <summary>
     /// Показываем Reward видео
     /// </summary>
-    public void ShowRewardVideo()
+    public void ShowRewardVideoForMoves()
     {
+        HZIncentivizedAd.setDisplayListener(HZIncentivizedMovesListener);
         HZIncentivizedAd.show();
     }
+
 
     void OnApplicationPause(bool pause)
     {

@@ -5,8 +5,24 @@ using System.Collections.Generic;
 
 public class MyMaze : MonoBehaviour, ISavingElement
 {
+    /// <summary>
+    /// Событие загружается уровень
+    /// </summary>
     public Deligates.LevelEvent OnLevelLoad;
+
+    /// <summary>
+    /// Событие уровень перезапускается
+    /// </summary>
+    public Deligates.LevelEvent OnLevelRestarted;
+
+    /// <summary>
+    /// Событие загружается меню
+    /// </summary>
     public Deligates.SimpleEvent OnMenuLoad;
+
+    /// <summary>
+    /// Событие групп паков первый раз была пройдена
+    /// </summary>
     public Deligates.PackGroupEvent OnPackGroupFirstTimePassed;
     
     /// <summary>
@@ -631,6 +647,16 @@ public class MyMaze : MonoBehaviour, ISavingElement
         _isFirstSceneLoad = false;
         SceneLoader.sceneName = level.name;
         SceneLoader.Load();
+    }
+
+    /// <summary>
+    /// Уровень был перезапущен
+    /// </summary>
+    /// <param name="level"></param>
+    public void LevelRestarted(Level level)
+    {
+        if (OnLevelRestarted != null)
+            OnLevelRestarted(level);
     }
 
     public void MenuLoadAction()

@@ -427,6 +427,8 @@ public class GameLevel : MonoBehaviour {
 
             if (OnRestart != null)
                 OnRestart();
+
+            MyMaze.Instance.LevelRestarted(MyMaze.Instance.LastSelectedLevel);
         }
         else
         {

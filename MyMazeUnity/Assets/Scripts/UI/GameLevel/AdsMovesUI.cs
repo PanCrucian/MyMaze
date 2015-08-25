@@ -76,27 +76,16 @@ public class AdsMovesUI : MonoBehaviour {
     /// </summary>
     public void OnFiveMovesButton()
     {
-        Ads.OnIncentivizedEnd += OnIncentivizedEnd;
-        MyMaze.Instance.Ads.ShowRewardVideo();
+        MyMaze.Instance.Ads.ShowRewardVideoForMoves();
 #if UNITY_EDITOR
-        OnIncentivizedEnd();
-#endif
-    }
-
-    /// <summary>
-    /// Открылось или закрылос окно с рекламой
-    /// </summary>
-    /// <param name="flag"></param>
-    void OnIncentivizedEnd()
-    {
-        Ads.OnIncentivizedEnd -= OnIncentivizedEnd;
         AddMovesAndClose();
+#endif
     }
 
     /// <summary>
     /// Добавляет ходы игроку и закрывает окно
     /// </summary>
-    void AddMovesAndClose()
+    public void AddMovesAndClose()
     {
         GameLevel.Instance.AddFiveMoves();
         GameLevel.Instance.UnPause();

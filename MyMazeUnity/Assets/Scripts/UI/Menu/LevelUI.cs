@@ -19,11 +19,9 @@ public class LevelUI : MonoBehaviour {
     public VisualSettings visualSettings;
 
     private CanvasGroup canvasGroup;
-    private AdsLifeUI adsCG;
 
     void Start()
     {
-        adsCG = GameObject.FindObjectOfType<AdsLifeUI>();
         canvasGroup = GetComponent<CanvasGroup>();
         //ссылку на level устанавливает LevelsUI исходя из последнего выбранного пака
     }
@@ -33,7 +31,9 @@ public class LevelUI : MonoBehaviour {
     /// </summary>
     public void LevelLoadRequest(GameObject button) {
         if (MyMaze.Instance.Life.Units <= 0)
-            adsCG.Show();
+        {
+            GetComponentInParent<LevelsMenuUI>().adsLifeUI.Show();
+        }
         else
         {
             button.GetComponent<Button>().interactable = false;

@@ -235,6 +235,9 @@ public class InApps : MonoBehaviour, ISavingElement {
         Debug.Log("Пытаюсь восстановить покупки");
 #if UNITY_IPHONE
         IOSInAppPurchaseManager.instance.restorePurchases();
+#elif UNITY_EDITOR
+        foreach (BasketItem item in basket)
+            OnTransactionSuccess(item.type);
 #endif
     }
 

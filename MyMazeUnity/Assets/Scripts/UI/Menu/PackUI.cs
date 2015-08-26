@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PackUI : MonoBehaviour {
+public class PackUI : GentleMonoBeh {
     public Pack pack;
     public Text numberText;
     public Text starsText;
@@ -11,10 +11,7 @@ public class PackUI : MonoBehaviour {
     public CanvasGroup lockCG;
     public Text requiredStarsText;
     public float contentLockAlpha = 0.5f;
-
-    private int saveCPURate = 6; //пересчитывать тяжелую логику раз в 6 кадров
-    private int frames;
-
+    
     void OnPageSwitch(int pageNumber)
     {
         Animator animator = GetComponent<Animator>();
@@ -42,16 +39,9 @@ public class PackUI : MonoBehaviour {
             }
     }
 
-    void Update()
+    public override void GentleUpdate()
     {
-        if (frames % saveCPURate == 0)
-            GentleUpdate();
-        
-        frames++;
-    }
-
-    void GentleUpdate()
-    {
+        base.GentleUpdate();
         FindMissingPacks();
         if (pack == null)
         {

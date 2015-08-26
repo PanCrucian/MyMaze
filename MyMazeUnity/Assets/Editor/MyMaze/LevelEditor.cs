@@ -50,6 +50,30 @@ public class LevelEditor : Editor
             }
         }
 
+
+        if (level.IsClosed)
+        {
+            if (GUILayout.Button("Открыть уровень"))
+            {
+                level.Open();
+                EditorUtility.SetDirty(level);
+            }
+        }
+        else
+        {
+            if (GUILayout.Button("Пройти уровень"))
+            {
+                level.Pass();
+                EditorUtility.SetDirty(level);
+            }
+
+            if (GUILayout.Button("Закрыть уровень"))
+            {
+                level.Close();
+                EditorUtility.SetDirty(level);
+            }
+        }
+
         //EditorGUILayout.Space();
         foldout[0] = EditorGUILayout.Foldout(foldout[0], new GUIContent() { text = "Управление звездами" });
         if (foldout[0])

@@ -38,6 +38,15 @@ public class PackEditor : Editor
                 EditorUtility.SetDirty(level);
             }
         }
+        if (GUILayout.Button("Пройти все уровни"))
+        {
+            for (int i = 0; i < pack.levels.Length; i++)
+            {
+                Level level = pack.levels[i];
+                level.Pass();
+                EditorUtility.SetDirty(level);
+            }
+        }
         if (pack.StarsRequired < 0)
             pack.StarsRequired = 0;
         if (GUILayout.Button("Подобрать все звезды"))

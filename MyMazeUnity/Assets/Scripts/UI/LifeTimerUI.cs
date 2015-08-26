@@ -2,11 +2,9 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class LifeTimerUI : MonoBehaviour {
+public class LifeTimerUI : GentleMonoBeh {
 
     private Text timerText;
-    private int saveCPURate = 6; //пересчитывать тяжелую логику раз в 6 кадров
-    private int frames;
 
     void Start()
     {
@@ -30,18 +28,10 @@ public class LifeTimerUI : MonoBehaviour {
     {
         ActiveTimer();
     }
-
-    void Update()
+    
+    public override void GentleUpdate()
     {
-
-        if (frames % saveCPURate == 0)
-            GentleUpdate();
-
-        frames++;
-    }
-
-    void GentleUpdate()
-    {
+        base.GentleUpdate();
         if (MyMaze.Instance.Life.Units == MyMaze.Instance.Life.MaxUnits)
             timerText.gameObject.SetActive(false);
         else

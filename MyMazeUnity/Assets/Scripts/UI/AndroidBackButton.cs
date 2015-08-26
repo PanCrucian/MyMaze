@@ -15,10 +15,11 @@ public class AndroidBackButton : MonoBehaviour {
         {
             BackButtonUI[] backBtns = GameObject.FindObjectsOfType<BackButtonUI>();
             foreach (BackButtonUI btn in backBtns)
-                if(btn.isActiveAndEnabled)
+                if (btn.isActiveAndEnabled)
+                {
                     InputSimulator.Instance.SimulateClick(btn.gameObject);
-
-            return;
+                    break;
+                }
         }
     }
 #endif

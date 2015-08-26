@@ -13692,8 +13692,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiGame: {fileID: 0}
   uiResults: {fileID: 0}
+  uiAdsLife: {fileID: 0}
+  uiAdsMoves: {fileID: 0}
   state: 1
   pyramids: []
+  addMoves: 0
+  MovesLeft: 0
+  CurrentLevelStars: []
 --- !u!114 &951999073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13705,7 +13710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b6f98df5f6b574984fc73b024a348b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundName: 9
+  soundName: 10
   type: 1
 --- !u!1001 &952454694
 Prefab:

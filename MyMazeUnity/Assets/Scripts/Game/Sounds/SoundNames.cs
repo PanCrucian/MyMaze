@@ -36,5 +36,7 @@ public enum SoundNames
     SpikeShow,
     HiddenWall01,
     HiddenWall02,
-    HiddenStar
+    HiddenStar,
+    FireworksFX,
+    GameTheme03
 }

@@ -70,10 +70,6 @@ public class GameLevel : MonoBehaviour {
     /// <param name="group"></param>
     void OnPackGroupFirstTimePassed(PackGroupTypes group)
     {
-        //выйдем в меню
-        //InputSimulator.Instance.SimulateClick(GameObject.FindObjectOfType<LevelLoaderUI>().gameObject);
-        //восстановим 1 еденицу энергии, т.к. выход в меню тратит её
-        //MyMaze.Instance.Life.RestoreOneUnit();
         packGroupFirstTimePassed = true;
     } 
 
@@ -301,10 +297,12 @@ public class GameLevel : MonoBehaviour {
         if (Player.Instance.MovesCount - stars[2].movesToGet <= stars[1].movesToGet)
             stars[1].Collect();
         stars[0].Collect();
-        
+
+        bool allStarsCollected = true;
         foreach (Star star in stars)
         {
-            if (star.IsCollected) {
+            if (star.IsCollected)
+            {
                 Animator starAnimator = StarsResultsUI.Instance.GetNotCollectedStar();
                 if (starAnimator != null)
                 {
@@ -318,7 +316,18 @@ public class GameLevel : MonoBehaviour {
                     yield return new WaitForSeconds(GameLevelDesign.Instance.starsCollectingDelay);
                 }
             }
+            else
+                allStarsCollected = false;
             i++;
+        }
+        //если все звезды собраны то салют
+        if (allStarsCollected)
+        {
+            Animator[] starsAnimator = StarsResultsUI.Instance.GetStars();
+            foreach (Animator starAnimator in starsAnimator)
+                if (starAnimator != null)
+                    starAnimator.SetBool("Fireworks", true);
+            soundsPlayer.PlayOneShootSound(SoundNames.FireworksFX);
         }
 
         //пройдем текущий уровень

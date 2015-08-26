@@ -25,7 +25,7 @@ public class Prepare : MonoBehaviour {
             InitDeltaDNA();
             InitAppsFlayer();
             InitHeyzap();
-            Application.LoadLevel("Main");
+            Application.LoadLevel("WhiteRoomGames");
         }
         counter++;
     }

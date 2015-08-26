@@ -3109,6 +3109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4170de813b9af4e94356a49bc00eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelFrequency: 4
+  adsShowTrashhold: 5
 --- !u!114 &11430942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3224,6 +3226,12 @@ MonoBehaviour:
   - name: HiddenStar
     nameEnum: 33
     clip: {fileID: 8300000, guid: cad7873798a68374abb46a88cfb7bc63, type: 3}
+  - name: FireworksFX
+    nameEnum: 34
+    clip: {fileID: 8300000, guid: 5be411dcbdda64c49b059b7e56b3bc2c, type: 3}
+  - name: GameTheme03
+    nameEnum: 35
+    clip: {fileID: 8300000, guid: 7d12b1d9c3858b646af7130e81068675, type: 3}
 --- !u!114 &11432178
 MonoBehaviour:
   m_ObjectHideFlags: 1

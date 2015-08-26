@@ -39,4 +39,13 @@ public class StarsResultsUI : MonoBehaviour {
         }
         return null;
     }
+
+    /// <summary>
+    /// Возвращает аниматор для не подорванной звезды
+    /// </summary>
+    /// <returns></returns>
+    public Animator[] GetStars()
+    {
+        return stars;
+    }
 }

@@ -60,7 +60,7 @@ PluginImporter:
       enabled: 1
       settings:
         CompileFlags: 
-        FrameworkDependencies: MobileCoreServices;AssetsLibrary;
+        FrameworkDependencies: AdSupport;CoreTelephony;MobileCoreServices;AssetsLibrary;EventKit;EventKitUI;
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -28,6 +28,7 @@ public class Ads : MonoBehaviour {
     /// </summary>
     HZInterstitialAd.AdDisplayListener HZInterstitialListener = delegate(string adState, string adTag)
     {
+        Debug.Log("HZInterstitialAd: " + adState);
         if (adState.Equals("show"))
         {
             
@@ -35,6 +36,7 @@ public class Ads : MonoBehaviour {
         else if (adState.Equals("hide"))
         {
             lastAdsHideTime = Timers.Instance.UnixTimestamp;
+        HZInterstitialAd.fetch();
         }
     };
 
@@ -43,6 +45,7 @@ public class Ads : MonoBehaviour {
     /// </summary>
     HZIncentivizedAd.AdDisplayListener HZIncentivizedLifeListener = delegate(string adState, string adTag)
     {
+        Debug.Log("HZIncentivizedAd: " + adState);
         if (adState.Equals("hide"))
         {
             lastAdsHideTime = Timers.Instance.UnixTimestamp;
@@ -56,6 +59,7 @@ public class Ads : MonoBehaviour {
     /// </summary>
     HZIncentivizedAd.AdDisplayListener HZIncentivizedMovesListener = delegate(string adState, string adTag)
     {
+        Debug.Log("HZIncentivizedAd: " + adState);
         if (adState.Equals("hide"))
         {
             lastAdsHideTime = Timers.Instance.UnixTimestamp;

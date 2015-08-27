@@ -11,9 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a294dc311ca4f6e958c595a985be67, type: 3}
   m_Name: ISDSettingsResource
   m_EditorClassIdentifier: 
-  IsFrameworksSettingOpen: 0
-  IsLinkerSettingOpen: 0
-  IsCompilerSettingsOpen: 1
+  IsfwSettingOpen: 0
+  IsLibSettingOpen: 0
+  IslinkerSettingOpne: 0
+  IscompilerSettingsOpen: 0
+  IsPlistSettingsOpen: 0
   frameworks: []
+  libraries: []
   compileFlags: []
   linkFlags: []
+  plistkeys: []
+  plisttags: []
+  plistvalues: []

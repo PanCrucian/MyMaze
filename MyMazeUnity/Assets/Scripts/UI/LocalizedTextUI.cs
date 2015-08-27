@@ -21,16 +21,11 @@ public class LocalizedTextUI : MonoBehaviour {
         }
 
         localization.OnRefreshTextMeshes += Refresh;
-
-        if (key.Contains(" "))
-        {
-            Debug.LogWarning("Ключ не должен содержать пробелы");
-        }
-
+        
         if (key.Equals("") || key.Contains(" "))
         {
             key = Localization.MISSING_KEY;
-            Debug.LogWarning("Ключ не должен содержать пробелы");
+            Debug.LogWarning("Ключ не должен содержать пробелы или пустоты");
         }
 
         Refresh();

@@ -61,6 +61,18 @@ public class MyMaze : MonoBehaviour, ISavingElement
     public List<Level> levels;
 
     /// <summary>
+    /// Уведомления
+    /// </summary>
+    public Notifications Notifications
+    {
+        get
+        {
+            return _notifications;
+        }
+    }
+    private Notifications _notifications;
+
+    /// <summary>
     /// Звуки и музыка
     /// </summary>
     public Sounds Sounds {
@@ -526,6 +538,7 @@ public class MyMaze : MonoBehaviour, ISavingElement
     /// </summary>
     void SetupApplicationPreferences()
     {
+        _notifications = GetComponent<Notifications>();
         _sounds = GetComponent<Sounds>();
         _webLinks = GetComponent<WebLinks>();
         _tutorial = GetComponent<Tutorial>();

@@ -270,6 +270,15 @@ public class Life : MonoBehaviour, ISavingElement {
     }
 
     /// <summary>
+    /// Получить последний блок жизней
+    /// </summary>
+    /// <returns></returns>
+    public LifeBlock GetLastBlock()
+    {
+        return blocks[MaxUnits - 1];
+    }
+
+    /// <summary>
     /// Сбросить сохранения
     /// </summary>
     public void ResetSaves()

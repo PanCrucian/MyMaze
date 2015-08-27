@@ -20,6 +20,7 @@ MonoBehaviour:
   ShowStoreKitParams: 0
   ShowGCParams: 0
   ShowAchievementsParams: 1
+  ShowUsersParams: 0
   ShowOtherParams: 0
   ShowCameraAndGalleryParams: 0
   UseOneSignal: 0
@@ -27,6 +28,8 @@ MonoBehaviour:
   UseGCRequestCaching: 0
   UsePPForAchievements: 0
   EnablePushNotificationsAPI: 0
+  AutoLoadUsersSmallImages: 1
+  AutoLoadUsersBigImages: 0
   MaxImageLoadSize: 512
   JPegCompressionRate: .800000012
   GalleryImageFormat: 1

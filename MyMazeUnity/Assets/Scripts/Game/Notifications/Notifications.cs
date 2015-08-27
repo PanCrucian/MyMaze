@@ -7,7 +7,7 @@ using System.Collections;
 public class Notifications : MonoBehaviour {
 
     void Start()
-    {
+    {        
 #if UNITY_IPHONE
         IOSNotificationController.Instance.RequestNotificationPermissions();
         if (IOSNotificationController.Instance.LaunchNotification != null)
@@ -31,7 +31,7 @@ public class Notifications : MonoBehaviour {
 
 #if UNITY_IPHONE
         ISN_LocalNotification notification = new ISN_LocalNotification(
-            System.DateTime.Now.AddSeconds(5), 
+            System.DateTime.Now.AddSeconds(Mathf.Abs(MyMaze.Instance.Life.GetLastBlock().regenerationTime - Timers.Instance.UnixTimestamp)), 
             MyMaze.Instance.Localization.GetLocalized("gobacktogame"), 
             true);
         notification.SetData("lives_restored");

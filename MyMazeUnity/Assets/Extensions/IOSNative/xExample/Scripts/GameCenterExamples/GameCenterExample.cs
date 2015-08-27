@@ -9,7 +9,6 @@
 
 
 using UnityEngine;
-using UnionAssets.FLE;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -48,15 +47,12 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 			
 			
 			//Listen for the Game Center events
-			GameCenterManager.Dispatcher.addEventListener (GameCenterManager.GAME_CENTER_ACHIEVEMENT_PROGRESS, OnAchievementProgress);
-			GameCenterManager.Dispatcher.addEventListener (GameCenterManager.GAME_CENTER_ACHIEVEMENTS_RESET, OnAchievementsReset);
+			GameCenterManager.OnAchievementsProgress += HandleOnAchievementsProgress;
+			GameCenterManager.OnAchievementsReset += HandleOnAchievementsReset;
 			
-			
-			GameCenterManager.Dispatcher.addEventListener (GameCenterManager.GAME_CENTER_LEADERBOARD_SCORE_LOADED, OnLeaderboardScoreLoaded);
 
-			
-			
-			//actions use example
+			GameCenterManager.OnPlayerScoreLoaded += HandleOnPlayerScoreLoaded;
+
 			GameCenterManager.OnPlayerScoreLoaded += OnPlayerScoreLoaded;
 			GameCenterManager.OnAuthFinished += OnAuthFinished;
 			
@@ -64,13 +60,19 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 			
 			
 			//Initializing Game Center class. This action will trigger authentication flow
-			GameCenterManager.init();
+			GameCenterManager.Init();
 			IsInitialized = true;
 		}
 		
 		
 		
 	}
+
+
+
+
+
+
 	
 	//--------------------------------------
 	//  PUBLIC METHODS
@@ -82,7 +84,7 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 		UpdateToStartPos();
 		
 		if(GameCenterManager.Player != null) {
-			GUI.Label(new Rect(100, 10, Screen.width, 40), "ID: " + GameCenterManager.Player.PlayerId);
+			GUI.Label(new Rect(100, 10, Screen.width, 40), "ID: " + GameCenterManager.Player.Id);
 			GUI.Label(new Rect(100, 20, Screen.width, 40), "Name: " +  GameCenterManager.Player.DisplayName);
 			GUI.Label(new Rect(100, 30, Screen.width, 40), "Alias: " +  GameCenterManager.Player.Alias);
 			
@@ -92,8 +94,8 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 			//if you whant to know exaxtly when the avatar is loaded, you can subscribe on 
 			//GameCenterManager.OnUserInfoLoaded action  			
 			//and checl for a spesific user ID
-			if(GameCenterManager.Player.Avatar != null) {
-				GUI.DrawTexture(new Rect(10, 10, 75, 75), GameCenterManager.Player.Avatar);
+			if(GameCenterManager.Player.SmallPhoto != null) {
+				GUI.DrawTexture(new Rect(10, 10, 75, 75), GameCenterManager.Player.SmallPhoto);
 			}
 		}
 		
@@ -152,7 +154,7 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 		
 		StartX += XButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Show Leaderboard 2 Today")) {
-			GameCenterManager.ShowLeaderboard(leaderBoardId2, GCBoardTimeSpan.TODAY);
+			GameCenterManager.ShowLeaderboard(leaderBoardId2, GK_TimeSpan.TODAY);
 		}
 		
 		StartX += XButtonStep;
@@ -240,7 +242,7 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 		if(result.IsSucceeded) {
 			Debug.Log ("Achievements were loaded from iOS Game Center");
 			
-			foreach(AchievementTemplate tpl in GameCenterManager.Achievements) {
+			foreach(GK_AchievementTemplate tpl in GameCenterManager.Achievements) {
 				Debug.Log (tpl.Id + ":  " + tpl.Progress);
 			}
 		}
@@ -251,7 +253,7 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 		Debug.Log("OnLeaderboardSetsInfoLoaded");
 		GameCenterManager.OnLeaderboardSetsInfoLoaded -= OnLeaderboardSetsInfoLoaded;
 		if(res.IsSucceeded) {
-			foreach(GCLeaderboardSet s in GameCenterManager.LeaderboardSets) {
+			foreach(GK_LeaderboardSet s in GameCenterManager.LeaderboardSets) {
 				Debug.Log(s.Title);
 				Debug.Log(s.Identifier);
 				Debug.Log(s.GroupIdentifier);
@@ -263,7 +265,7 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 			return;
 		}
 
-		GCLeaderboardSet LeaderboardSet = GameCenterManager.LeaderboardSets[0];
+		GK_LeaderboardSet LeaderboardSet = GameCenterManager.LeaderboardSets[0];
 		LeaderboardSet.OnLoaderboardsInfoLoaded += OnLoaderboardsInfoLoaded;
 		LeaderboardSet.LoadLeaderBoardsInfo();
 
@@ -273,7 +275,7 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 		res.LeaderBoardsSet.OnLoaderboardsInfoLoaded -= OnLoaderboardsInfoLoaded;
 
 		if(res.IsSucceeded) {
-			foreach(GCLeaderBoardInfo l in res.LeaderBoardsSet.BoardsInfo) {
+			foreach(GK_LeaderBoardInfo l in res.LeaderBoardsSet.BoardsInfo) {
 				Debug.Log(l.Title);
 				Debug.Log(l.Description);
 				Debug.Log(l.Identifier);
@@ -281,37 +283,30 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 		}
 
 	}
-	
-	private void OnAchievementsReset() {
+
+	void HandleOnAchievementsReset (ISN_Result obj){
 		Debug.Log ("All Achievements were reset");
 	}
-	
-	private void OnAchievementProgress(CEvent e) {
-		Debug.Log ("OnAchievementProgress");
-		
-		ISN_AchievementProgressResult result = e.data as ISN_AchievementProgressResult;
-		
+
+
+	private void HandleOnAchievementsProgress (GK_AchievementProgressResult result) {
 		if(result.IsSucceeded) {
-			AchievementTemplate tpl = result.info;
+			GK_AchievementTemplate tpl = result.Achievement;
 			Debug.Log (tpl.Id + ":  " + tpl.Progress.ToString());
 		}
-		
-		
 	}
-	
-	private void OnLeaderboardScoreLoaded(CEvent e) {
-		ISN_PlayerScoreLoadedResult result = e.data as ISN_PlayerScoreLoadedResult;
-		
+
+	void HandleOnPlayerScoreLoaded (GK_PlayerScoreLoadedResult result) {
 		if(result.IsSucceeded) {
-			GCScore score = result.loadedScore;
+			GK_Score score = result.loadedScore;
 			IOSNativePopUpManager.showMessage("Leaderboard " + score.leaderboardId, "Score: " + score.score + "\n" + "Rank:" + score.rank);
 		}
-		
 	}
+
 	
-	private void OnPlayerScoreLoaded (ISN_PlayerScoreLoadedResult result) {
+	private void OnPlayerScoreLoaded (GK_PlayerScoreLoadedResult result) {
 		if(result.IsSucceeded) {
-			GCScore score = result.loadedScore;
+			GK_Score score = result.loadedScore;
 			IOSNativePopUpManager.showMessage("Leaderboard " + score.leaderboardId, "Score: " + score.score + "\n" + "Rank:" + score.rank);
 			
 			Debug.Log("double score representation: " + score.GetDoubleScore());
@@ -338,7 +333,7 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 	
 	void OnAuthFinished (ISN_Result res) {
 		if (res.IsSucceeded) {
-			IOSNativePopUpManager.showMessage("Player Authed ", "ID: " + GameCenterManager.Player.PlayerId + "\n" + "Alias: " + GameCenterManager.Player.Alias);
+			IOSNativePopUpManager.showMessage("Player Authed ", "ID: " + GameCenterManager.Player.Id + "\n" + "Alias: " + GameCenterManager.Player.Alias);
 			GameCenterManager.LoadCurrentPlayerScore(leaderBoardId2);
 		} else {
 			IOSNativePopUpManager.showMessage("Game Center ", "Player authentication failed");
@@ -346,7 +341,7 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 	}
 	
 	
-	void OnPlayerSignatureRetrieveResult (ISN_PlayerSignatureResult result) {
+	void OnPlayerSignatureRetrieveResult (GK_PlayerSignatureResult result) {
 		Debug.Log("OnPlayerSignatureRetrieveResult");
 		
 		if(result.IsSucceeded) {
@@ -355,10 +350,10 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 			Debug.Log("Signature: " + result.Signature);
 			Debug.Log("Salt: " + result.Salt);
 			Debug.Log("Timestamp: " + result.Timestamp);
-			
+
 		} else {
-			Debug.Log("Error code: " + result.error.code);
-			Debug.Log("Error description: " + result.error.description);
+			Debug.Log("Error code: " + result.Error.Code);
+			Debug.Log("Error description: " + result.Error.Description);
 		}
 		
 		GameCenterManager.OnPlayerSignatureRetrieveResult -= OnPlayerSignatureRetrieveResult;
@@ -380,4 +375,5 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 	//--------------------------------------
 	
 	
+
 }

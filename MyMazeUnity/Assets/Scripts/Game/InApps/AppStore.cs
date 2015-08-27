@@ -25,13 +25,13 @@ public class AppStore : MonoBehaviour {
     void Start()
     {
         foreach (InApps.AppStoreMatching product in MyMaze.Instance.InApps.appStoreProducts)
-            IOSInAppPurchaseManager.instance.addProductId(product.productId);
+            IOSInAppPurchaseManager.Instance.addProductId(product.productId);
 
-        IOSInAppPurchaseManager.instance.OnStoreKitInitComplete += OnStoreKitInitComplete;
-        IOSInAppPurchaseManager.instance.OnTransactionComplete += OnTransactionComplete;
-        IOSInAppPurchaseManager.instance.OnRestoreComplete += OnRestoreComplete;
+        IOSInAppPurchaseManager.OnStoreKitInitComplete += OnStoreKitInitComplete;
+        IOSInAppPurchaseManager.OnTransactionComplete += OnTransactionComplete;
+        IOSInAppPurchaseManager.OnRestoreComplete += OnRestoreComplete;
 
-        IOSInAppPurchaseManager.instance.loadStore();
+        IOSInAppPurchaseManager.Instance.loadStore();
     }
 
     /// <summary>
@@ -44,21 +44,21 @@ public class AppStore : MonoBehaviour {
         if (_isInitalized)
             Debug.Log("StoreKit Init Succeeded" + "\n" + "Available products count: " + IOSInAppPurchaseManager.instance.products.Count.ToString());
         else
-            Debug.LogWarning("StoreKit Init Failed" + "\n" + "Error code: " + result.error.code + "\n" + "Error description:" + result.error.description);
+            Debug.LogWarning("StoreKit Init Failed" + "\n" + "Error code: " + result.Error.Code + "\n" + "Error description:" + result.Error.Description);
     }
 
     /// <summary>
     /// Ответ от магазина о состоянии последней транзации
     /// </summary>
     /// <param name="response"></param>
-    private void OnTransactionComplete(IOSStoreKitResponse response)
+    private void OnTransactionComplete(IOSStoreKitResult response)
     {
-        switch (response.state)
+        switch (response.State)
         {
             case InAppPurchaseState.Purchased:
             case InAppPurchaseState.Restored:
                 //Успешно или купили или восстановили покупку                    
-                InApps.AppStoreMatching product = MyMaze.Instance.InApps.GetProduct<InApps.AppStoreMatching>(response.productIdentifier);
+                InApps.AppStoreMatching product = MyMaze.Instance.InApps.GetProduct<InApps.AppStoreMatching>(response.ProductIdentifier);
                 if(product != null)
                     if (OnTransactionSuccess != null)
                         OnTransactionSuccess(product.type);
@@ -72,10 +72,10 @@ public class AppStore : MonoBehaviour {
                 //Покупка не прошла
                 Debug.LogWarning(
                     "Transaction failed" + "\n" + 
-                    "error code: " + response.error.code + "\n" +
-                    "description: " + response.error.description + "\n" +
-                    "product " + response.productIdentifier + "\n" + 
-                    "state: " + response.state.ToString());
+                    "error code: " + response.Error.Code + "\n" +
+                    "description: " + response.Error.Description + "\n" +
+                    "product " + response.ProductIdentifier + "\n" + 
+                    "state: " + response.State.ToString());
                 break;
         }
     }
@@ -84,7 +84,7 @@ public class AppStore : MonoBehaviour {
     /// Ответ от магазина после запроса о восстановлении покупок
     /// </summary>
     /// <param name="res"></param>
-    private void OnRestoreComplete(IOSStoreKitRestoreResponce res)
+    private void OnRestoreComplete(IOSStoreKitRestoreResult res)
     {
         if (res.IsSucceeded)
         {
@@ -94,8 +94,8 @@ public class AppStore : MonoBehaviour {
         }
         else
             Debug.LogWarning("Restore Failed Error: \n" +
-                "code: " + res.error.code + "\n" +
-                "description: " + res.error.description);
+                "code: " + res.Error.Code + "\n" +
+                "description: " + res.Error.Description);
     }	
 #endif
     #endregion

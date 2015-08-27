@@ -22,21 +22,13 @@ public class iCloudUseExample : MonoBehaviour {
 	void Awake() {
 
 		//initialize icloud and listed for events
-		iCloudManager.instance.OnCloundInitAction += OnCloundInitAction;
-		iCloudManager.instance.OnCloundDataChangedAction += OnCloundDataChangedAction;
-		iCloudManager.instance.OnCloudDataReceivedAction += OnCloudDataReceivedAction;
+		iCloudManager.OnCloundInitAction += OnCloundInitAction;
+		iCloudManager.OnCloudDataReceivedAction += OnCloudDataReceivedAction;
 
 		iCloudManager.instance.init ();
 	
 
-		//using events example
-		/*
-		iCloudManager.instance.addEventListener (iCloudManager.CLOUD_INITIALIZED, OnInit);
-		iCloudManager.instance.addEventListener (iCloudManager.CLOUD_INITIALIZE_FAILED, OnInitFailed);
-		iCloudManager.instance.addEventListener (iCloudManager.CLOUD_DATA_CHANGED, OnDataChanged);
-
-		iCloudManager.instance.addEventListener (iCloudManager.CLOUD_DATA_RECEIVE, OnDataReceive);
-		*/
+	
 	}
 
 	//--------------------------------------
@@ -122,11 +114,8 @@ public class iCloudUseExample : MonoBehaviour {
 	//--------------------------------------
 
 	void OnDestroy() {
-		if(iCloudManager.HasInstance) {
-			iCloudManager.instance.OnCloundInitAction -= OnCloundInitAction;
-			iCloudManager.instance.OnCloundDataChangedAction -= OnCloundDataChangedAction;
-			iCloudManager.instance.OnCloudDataReceivedAction -= OnCloudDataReceivedAction;
-		}
+		iCloudManager.OnCloundInitAction -= OnCloundInitAction;
+		iCloudManager.OnCloudDataReceivedAction -= OnCloudDataReceivedAction;
 	}
 
 }

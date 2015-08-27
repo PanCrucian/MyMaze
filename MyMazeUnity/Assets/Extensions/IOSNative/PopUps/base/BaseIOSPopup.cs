@@ -9,11 +9,10 @@
 
 
 using UnityEngine;
-using UnionAssets.FLE;
 using System.Collections;
 using System.Collections.Generic;
 
-public class BaseIOSPopup : EventDispatcher {
+public class BaseIOSPopup : MonoBehaviour {
 	
 	
 	public string title;

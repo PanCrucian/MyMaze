@@ -1,4 +1,4 @@
-﻿////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 //  
 // @module IOS Native Plugin for Unity3D 
 // @author Osipov Stanislav (Stan's Assets) 
@@ -21,9 +21,9 @@ public class LeaderboardCustomGUIExample : MonoBehaviour {
 	public GUIStyle boardStyle;
 
 
-	private GCLeaderboard loadedLeaderboard = null;
+	private GK_Leaderboard loadedLeaderboard = null;
 
-	private GCCollectionType displayCollection = GCCollectionType.FRIENDS;
+	private GK_CollectionType displayCollection = GK_CollectionType.FRIENDS;
 
 	void Awake() {
 
@@ -34,7 +34,7 @@ public class LeaderboardCustomGUIExample : MonoBehaviour {
 		GameCenterManager.OnScoresListLoaded += OnScoresListLoaded;
 
 		//Initializing Game Center class. This action will trigger authentication flow
-		GameCenterManager.init();
+		GameCenterManager.Init();
 	}
 	
 
@@ -43,30 +43,30 @@ public class LeaderboardCustomGUIExample : MonoBehaviour {
 		GUI.Label(new Rect(10, 20, 400, 40), "Custom Leaderboard GUI Example", headerStyle);
 
 		if(GUI.Button(new Rect(400, 10, 150, 50), "Load Friends Scores")) {
-			GameCenterManager.LoadScore(leaderboardId, 1, 10, GCBoardTimeSpan.ALL_TIME, GCCollectionType.FRIENDS);
+			GameCenterManager.LoadScore(leaderboardId, 1, 10, GK_TimeSpan.ALL_TIME, GK_CollectionType.FRIENDS);
 		}
 
 		if(GUI.Button(new Rect(600, 10, 150, 50), "Load Global Scores")) {
-			GameCenterManager.LoadScore(leaderboardId, 50, 150, GCBoardTimeSpan.ALL_TIME, GCCollectionType.GLOBAL);
+			GameCenterManager.LoadScore(leaderboardId, 50, 150, GK_TimeSpan.ALL_TIME, GK_CollectionType.GLOBAL);
 		}
 
 		Color defaultColor = GUI.color;
 
-		if(displayCollection == GCCollectionType.GLOBAL) {
+		if(displayCollection == GK_CollectionType.GLOBAL) {
 			GUI.color = Color.green;
 		}
 		if(GUI.Button(new Rect(800, 10, 170, 50), "Displaying Global Scores")) {
-			displayCollection = GCCollectionType.GLOBAL;
+			displayCollection = GK_CollectionType.GLOBAL;
 		}
 		GUI.color = defaultColor;
 
 
 
-		if(displayCollection == GCCollectionType.FRIENDS) {
+		if(displayCollection == GK_CollectionType.FRIENDS) {
 			GUI.color = Color.green;
 		}
 		if(GUI.Button(new Rect(800, 70, 170, 50), "Displaying Friends Scores")) {
-			displayCollection = GCCollectionType.FRIENDS;
+			displayCollection = GK_CollectionType.FRIENDS;
 		}
 		GUI.color = defaultColor;
 
@@ -78,18 +78,18 @@ public class LeaderboardCustomGUIExample : MonoBehaviour {
 
 		if(loadedLeaderboard != null) {
 			for(int i = 1; i < 10; i++) {
-				GCScore score = loadedLeaderboard.GetScore(i, GCBoardTimeSpan.ALL_TIME, displayCollection);
+				GK_Score score = loadedLeaderboard.GetScore(i, GK_TimeSpan.ALL_TIME, displayCollection);
 				if(score != null) {
 					GUI.Label(new Rect(10,  90 + 70 * i, 100, 40), i.ToString(), boardStyle);
 					GUI.Label(new Rect(100, 90 + 70 * i, 100, 40), score.GetLongScore().ToString() , boardStyle);
 					GUI.Label(new Rect(200, 90 + 70 * i, 100, 40), score.playerId, boardStyle);
 
 
-					GameCenterPlayerTemplate player = GameCenterManager.GetPlayerById(score.playerId);
+					GK_Player player = GameCenterManager.GetPlayerById(score.playerId);
 					if(player != null) {
 						GUI.Label(new Rect(400, 90 + 70 * i , 100, 40), player.Alias, boardStyle);
-						if(player.Avatar != null) {
-							GUI.DrawTexture(new Rect(550, 75 + 70 * i, 50, 50), player.Avatar);
+						if(player.SmallPhoto != null) {
+							GUI.DrawTexture(new Rect(550, 75 + 70 * i, 50, 50), player.SmallPhoto);
 						} else  {
 							GUI.Label(new Rect(550, 90 + 70 * i, 100, 40), "no photo ", boardStyle);
 						}
@@ -123,7 +123,7 @@ public class LeaderboardCustomGUIExample : MonoBehaviour {
 
 	private void OnAuthFinished (ISN_Result res) {
 		if (res.IsSucceeded) {
-			IOSNativePopUpManager.showMessage("Player Authed ", "ID: " + GameCenterManager.Player.PlayerId + "\n" + "Name: " + GameCenterManager.Player.DisplayName);
+			IOSNativePopUpManager.showMessage("Player Authed ", "ID: " + GameCenterManager.Player.Id + "\n" + "Name: " + GameCenterManager.Player.DisplayName);
 		} else {
 			IOSNativePopUpManager.showMessage("Game Center ", "Player authentication failed");
 		}

@@ -58,11 +58,20 @@
     [self bannerView].delegate = self;
     [[self bannerView] setBackgroundColor:[UIColor clearColor]];
    
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(orientationChanged:)
+     name:UIDeviceOrientationDidChangeNotification
+     object:[UIDevice currentDevice]];
    
     
   }
 
 
+- (void) orientationChanged:(NSNotification *)note {
+    [self UpdateBannerFrame:[self bannerGravity].intValue];
+}
 
 
 - (void) CreateBannerAdPos:(int)x y:(int)y  bannerId:(int)bannerId {
@@ -80,22 +89,17 @@
     [[vc view] addSubview:[self bannerView]];
     [self bannerView].hidden = true;
     
-    
-    
-    
-    
 }
 
-
--(void) CreateBanner:(int)gravity  bannerId:(int)bannerId {
+-(void) UpdateBannerFrame:(int)gravity {
     
-    [self InitBanner:bannerId];
-    
+    NSNumber *n = [NSNumber numberWithInt:gravity];
+    [self setBannerGravity:n];
     
     float x = 0.0;
     float y = 0.0;
     
-
+    
     
     if(gravity == 83) {
         y = [self GetH: 2];
@@ -142,10 +146,17 @@
         y = [self GetH: 1];
     }
     
-   
+    
     [self bannerView].frame = CGRectMake(x,y,
                                          [self bannerView].frame.size.width,
                                          [self bannerView].frame.size.height);
+
+}
+
+-(void) CreateBanner:(int)gravity  bannerId:(int)bannerId {
+    
+    [self InitBanner:bannerId];
+    [self UpdateBannerFrame:gravity];
     
     
     UIViewController *vc =  UnityGetGLViewController();

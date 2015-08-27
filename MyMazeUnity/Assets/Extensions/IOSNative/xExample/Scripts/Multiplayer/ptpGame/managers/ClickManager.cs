@@ -9,7 +9,6 @@
 
 
 using UnityEngine;
-using UnionAssets.FLE;
 using System.Collections;
 
 public class ClickManager : MonoBehaviour {
@@ -20,8 +19,10 @@ public class ClickManager : MonoBehaviour {
 	//--------------------------------------
 
 	void Awake() {
-		GameCenterMultiplayer.OnDataReceived += OnData;
+		GameCenter_RTM.ActionDataReceived += HandleActionDataReceived;
 	}
+
+
 
 
 	void Update() {
@@ -51,15 +52,12 @@ public class ClickManager : MonoBehaviour {
 	//  EVENTS
 	//--------------------------------------
 
-	private  void OnData(GameCenterDataPackage package) {
 
-
-
-
-		ByteBuffer b = new ByteBuffer (package.buffer);
-
+	void HandleActionDataReceived (GK_Player player, byte[] data) {
+		ByteBuffer b = new ByteBuffer (data);
+		
 		int pId = b.readInt();
-
+		
 		switch(pId) {
 		case 1:
 			Debug.Log("Sphere pack");
@@ -75,11 +73,6 @@ public class ClickManager : MonoBehaviour {
 			Debug.Log("Got pack wit id: " + pId);
 			break;
 		}
-
-
-
-	
-
 	}
 	
 	//--------------------------------------

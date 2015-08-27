@@ -78,13 +78,11 @@ public class IOSSharedApplication : ISN_Singleton<IOSSharedApplication> {
 
 
 	private void UrlCheckSuccess(string url) {
-		dispatch(URL_SCHEME_EXISTS, url);
 		OnUrlCheckResultAction(new ISN_CheckUrlResult(url, true));
 	}
 
 
 	private void UrlCheckFailed(string url) {
-		dispatch(URL_SCHEME_NOT_FOUND, url);
 		OnUrlCheckResultAction(new ISN_CheckUrlResult(url, false));
 	}
 

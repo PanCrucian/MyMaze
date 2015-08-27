@@ -1,25 +1,29 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  
-// @module Common Android Native Lib
+// @module Common IOS Native Lib
 // @author Osipov Stanislav (Stan's Assets) 
 // @support stans.assets@gmail.com 
 //
 ////////////////////////////////////////////////////////////////////////////////
-
-
  
 
 using UnityEngine;
-using UnionAssets.FLE;
 using System.Collections;
 
-public abstract class ISN_Singleton<T> : EventDispatcher where T : MonoBehaviour {
+public abstract class ISN_Singleton<T> : MonoBehaviour where T : MonoBehaviour {
 
 	private static T _instance = null;
 	private static bool applicationIsQuitting = false;
 	
-	
+	[System.Obsolete("instance is deprecated, please use Instance instead.")]
 	public static T instance {
+		get {
+			return Instance;
+		}
+	}
+
+
+	public static T Instance {
 		
 		get {
 			if(applicationIsQuitting) {
@@ -58,8 +62,6 @@ public abstract class ISN_Singleton<T> : EventDispatcher where T : MonoBehaviour
 		}
 	}
 	
-	
-	
 	/// <summary>
 	/// When Unity quits, it destroys objects in a random order.
 	/// In principle, a Singleton is only destroyed when application quits.
@@ -68,8 +70,7 @@ public abstract class ISN_Singleton<T> : EventDispatcher where T : MonoBehaviour
 	///   even after stopping playing the Application. Really bad!
 	/// So, this was made to be sure we're not creating that buggy ghost object.
 	/// </summary>
-	protected override void OnDestroy () {
-		base.OnDestroy();
+	protected void OnDestroy () {
 		_instance = null;
 		applicationIsQuitting = true;
 	}

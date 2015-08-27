@@ -18,6 +18,8 @@
 
 @property (strong)  CustomBannerView *bannerView;
 @property (strong)  NSNumber *bid;
+@property (strong)  NSNumber *bannerGravity;
+
 
 - (void) InitBanner:(int) bannerId;
 - (void) CreateBanner:(int) gravity bannerId: (int) bannerId;

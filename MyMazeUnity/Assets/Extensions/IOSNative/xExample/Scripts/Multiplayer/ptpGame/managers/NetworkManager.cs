@@ -24,7 +24,7 @@ public class NetworkManager  {
 	//--------------------------------------
 
 	public static void send(BasePackage pack) {
-		GameCenterMultiplayer.instance.SendDataToAll (pack.getBytes(), GameCenterDataSendType.RELIABLE);
+		GameCenter_RTM.instance.SendDataToAll (pack.getBytes(), GK_MatchSendDataMode.RELIABLE);
 	}
 
 

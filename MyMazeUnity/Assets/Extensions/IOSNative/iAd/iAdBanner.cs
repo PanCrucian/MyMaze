@@ -10,14 +10,13 @@
 
 using UnityEngine;
 using System;
-using UnionAssets.FLE;
 using System.Collections;
 using System.Collections.Generic;
 #if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
 using System.Runtime.InteropServices;
 #endif
 
-public class iAdBanner : EventDispatcherBase {
+public class iAdBanner  {
 
 	#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
 	[DllImport ("__Internal")]
@@ -43,11 +42,11 @@ public class iAdBanner : EventDispatcherBase {
 	private int _id;
 	private TextAnchor _anchor;
 
-	public Action AdLoadedAction  			= delegate {};
-	public Action FailToReceiveAdAction  	= delegate {};
-	public Action AdWiewLoadedAction  		= delegate {};
-	public Action AdViewActionBeginAction  	= delegate {};
-	public Action AdViewFinishedAction 		= delegate {};
+	public event Action AdLoadedAction  			= delegate {};
+	public event Action FailToReceiveAdAction  	= delegate {};
+	public event Action AdWiewLoadedAction  		= delegate {};
+	public event Action AdViewActionBeginAction  	= delegate {};
+	public event Action AdViewFinishedAction 		= delegate {};
 
 
 
@@ -178,7 +177,6 @@ public class iAdBanner : EventDispatcherBase {
 
 	public void didFailToReceiveAdWithError() {
 		FailToReceiveAdAction();
-		dispatch(iAdEvent.FAIL_TO_RECEIVE_AD);
 	}
 	
 	
@@ -190,26 +188,22 @@ public class iAdBanner : EventDispatcherBase {
 		}
 
 		AdLoadedAction();
-		dispatch(iAdEvent.AD_LOADED);
 
 	}
 	
 
 	public void bannerViewWillLoadAd(){
 		AdWiewLoadedAction();
-		dispatch(iAdEvent.AD_VIEW_LOADED);
 	}
 	
 	
 	public void bannerViewActionDidFinish(){
 		AdViewFinishedAction();
-		dispatch(iAdEvent.AD_VIEW_ACTION_FINISHED);
 	}
 		
 
 	public void bannerViewActionShouldBegin() {
 		AdViewActionBeginAction();
-		dispatch(iAdEvent.AD_VIEW_ACTION_BEGIN);
 	}
 }
 

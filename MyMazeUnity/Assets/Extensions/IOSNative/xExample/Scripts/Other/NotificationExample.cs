@@ -7,7 +7,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-
+using System;
 #if UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_5 || UNITY_4_6
 using UnityEngine;
 #else
@@ -17,7 +17,6 @@ using UnityEngine.iOS;
 #endif
 
 
-using UnionAssets.FLE;
 using System.Collections;
 
 public class NotificationExample : BaseIOSFeaturePreview {
@@ -31,8 +30,18 @@ public class NotificationExample : BaseIOSFeaturePreview {
 	
 	
 	void Awake() {
-		IOSNotificationController.instance.RequestNotificationPermissions();
+        IOSNotificationController.Instance.RequestNotificationPermissions();
+
+		IOSNotificationController.OnLocalNotificationReceived += HandleOnLocalNotificationReceived;
+
+		if(IOSNotificationController.Instance.LaunchNotification != null) {
+			ISN_LocalNotification notification = IOSNotificationController.Instance.LaunchNotification;
+
+			IOSMessage.Create("Launch Notification", "Messgae: " + notification.Message + "\nNotification Data: " + notification.Data);
+		}
 	}
+
+
 	
 	//--------------------------------------
 	//  PUBLIC METHODS
@@ -47,25 +56,39 @@ public class NotificationExample : BaseIOSFeaturePreview {
 		
 		StartY+= YLableStep;
 		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Schedule Notification Silent")) {
-			IOSNotificationController.instance.OnNotificationScheduleResult += OnNotificationScheduleResult;
-			lastNotificationId = IOSNotificationController.instance.ScheduleNotification (5, "Your Notification Text No Sound", false);
+			IOSNotificationController.OnNotificationScheduleResult += OnNotificationScheduleResult;
+
+			ISN_LocalNotification notification =  new ISN_LocalNotification(DateTime.Now.AddSeconds(5),"Your Notification Text No Sound", false);
+			notification.SetData("some_test_data");
+			notification.Schedule();
+
+			lastNotificationId = notification.Id;
 		}
 		
 		StartX += XButtonStep;
 		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Schedule Notification")) {
-			IOSNotificationController.instance.OnNotificationScheduleResult += OnNotificationScheduleResult;
-			lastNotificationId = IOSNotificationController.instance.ScheduleNotification (5, "Your Notification Text", true);
+			IOSNotificationController.OnNotificationScheduleResult += OnNotificationScheduleResult;
+
+			ISN_LocalNotification notification =  new ISN_LocalNotification(DateTime.Now.AddSeconds(5),"Your Notification Text", true);
+			notification.SetData("some_test_data");
+			notification.SetBadgesNumber(1);
+			notification.Schedule();
+
+			lastNotificationId = notification.Id; 
 		}
 		
 		
 		StartX += XButtonStep;
 		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Cancel All Notifications")) {
-			IOSNotificationController.instance.CancelAllLocalNotifications();
+            IOSNotificationController.Instance.CancelAllLocalNotifications();
+			IOSNativeUtility.SetApplicationBagesNumber(0);
 		}
 		
 		StartX += XButtonStep;
 		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Cansel Last Notification")) {
-			IOSNotificationController.instance.CancelLocalNotificationById(lastNotificationId);
+
+
+            IOSNotificationController.Instance.CancelLocalNotificationById(lastNotificationId);
 		}
 		
 		
@@ -79,11 +102,12 @@ public class NotificationExample : BaseIOSFeaturePreview {
 			
 			#if UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_5 || UNITY_4_6
 			IOSNotificationController.instance.RegisterForRemoteNotifications (RemoteNotificationType.Alert |  RemoteNotificationType.Badge |  RemoteNotificationType.Sound);
-			
-			IOSNotificationController.instance.addEventListener (IOSNotificationController.DEVICE_TOKEN_RECEIVED, OnTokenReceived);
+
+			IOSNotificationController.OnDeviceTokenReceived += OnDeviceTokenReceived;
+
 			#else
-			IOSNotificationController.instance.RegisterForRemoteNotifications (NotificationType.Alert |  NotificationType.Badge |  NotificationType.Sound);
-			IOSNotificationController.instance.addEventListener (IOSNotificationController.DEVICE_TOKEN_RECEIVED, OnTokenReceived);
+            IOSNotificationController.Instance.RegisterForRemoteNotifications(NotificationType.Alert | NotificationType.Badge | NotificationType.Sound);
+			IOSNotificationController.OnDeviceTokenReceived += OnDeviceTokenReceived;
 			#endif
 			
 			
@@ -94,11 +118,23 @@ public class NotificationExample : BaseIOSFeaturePreview {
 		}
 		
 		StartX += XButtonStep;
-		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Show Notification Banner")) {
-			IOSNotificationController.instance.ShowNotificationBanner("Title", "Message");
+		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Show Game Kit Notification")) {
+            IOSNotificationController.Instance.ShowGmaeKitNotification("Title", "Message");
 		}
 		
 		
+	}
+
+	public void CheckNotificationSettings() {
+		IOSNotificationController.OnNotificationSettingsInfoResult += HandleOnNotificationSettingsInfoResult;
+		IOSNotificationController.Instance.RequestNotificationSettings();
+
+	}
+
+	void HandleOnNotificationSettingsInfoResult (int avaliableTypes) {
+		if((avaliableTypes & ISN_NotificationType.Sound) != 0) {
+			//Sound avaliable;
+		}
 	}
 	
 	//--------------------------------------
@@ -109,18 +145,21 @@ public class NotificationExample : BaseIOSFeaturePreview {
 	//  EVENTS
 	//--------------------------------------
 	
-	private void OnTokenReceived(CEvent e) {
-		IOSNotificationDeviceToken token = e.data as IOSNotificationDeviceToken;
+	private void OnDeviceTokenReceived(IOSNotificationDeviceToken token) {
 		UnityEngine.Debug.Log ("OnTokenReceived");
 		UnityEngine.Debug.Log (token.tokenString);
 		
 		IOSDialog.Create("OnTokenReceived", token.tokenString);
 		
-		IOSNotificationController.instance.removeEventListener (IOSNotificationController.DEVICE_TOKEN_RECEIVED, OnTokenReceived);
+		IOSNotificationController.OnDeviceTokenReceived += OnDeviceTokenReceived;
 	}
-	
+
+	void HandleOnLocalNotificationReceived (ISN_LocalNotification notification) {
+		IOSMessage.Create("Notification Received", "Messgae: " + notification.Message + "\nNotification Data: " + notification.Data);
+	}
+
 	private void OnNotificationScheduleResult (ISN_Result res) {
-		IOSNotificationController.instance.OnNotificationScheduleResult -= OnNotificationScheduleResult;
+		IOSNotificationController.OnNotificationScheduleResult -= OnNotificationScheduleResult;
 		
 		
 		

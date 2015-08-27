@@ -28,17 +28,28 @@ static UIImagePickerController *_imagePicker = NULL;
     NSLog(@"saveToCameraRoll");
     NSData *imageData = [[NSData alloc] initWithBase64Encoding:media];
     UIImage *image = [[UIImage alloc] initWithData:imageData];
-    
+
+#if UNITY_VERSION < 500
+    [imageData release];
+#endif
     
     UIImageWriteToSavedPhotosAlbum(image,
                                    self, // send the message to 'self' when calling the callback
                                    @selector(thisImage:hasBeenSavedInPhotoAlbumWithError:usingContextInfo:), // the selector to tell the method to call on completion
                                    NULL); // you generally won't need a contextInfo here
     
+
+    
     
 }
 
 - (void)thisImage:(UIImage *)image hasBeenSavedInPhotoAlbumWithError:(NSError *)error usingContextInfo:(void*)ctxInfo {
+   
+#if UNITY_VERSION < 500
+    [image release];
+    image=  nil;
+#endif
+    
     if (error) {
         NSLog(@"image not saved: %@", error.description);
         UnitySendMessage("IOSCamera", "OnImageSaveFailed", [ISNDataConvertor NSStringToChar:@""]);

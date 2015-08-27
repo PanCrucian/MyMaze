@@ -8,6 +8,7 @@
 
 #import "ISNDataConvertor.h"
 #import "IOSNativeNotificationCenter.h"
+#import "AppDelegateListener.h"
 
 @implementation IOSNativeNotificationCenter
 
@@ -18,8 +19,54 @@ static IOSNativeNotificationCenter *sharedHelper = nil;
     if (!sharedHelper) {
         sharedHelper = [[IOSNativeNotificationCenter alloc] init];
         
+        
     }
     return sharedHelper;
+}
+
+- (id)init {
+    if ((self = [super init])) {
+        NSLog(@"Subscibing...");
+         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+        [notificationCenter addObserver: self
+                               selector: @selector (handle_NotificationEvent:)
+                                   name: kUnityDidReceiveLocalNotification
+                                 object: nil];
+
+    }
+    
+    return self;
+}
+
+#pragma mark Music notification handlers
+
+
+- (void) handle_NotificationEvent: (NSNotification *) receivedNotification {
+    
+    NSLog(@"ISN: handle_NotificationEvent");
+    UILocalNotification* notification = (UILocalNotification*) receivedNotification.userInfo;
+    
+    
+    NSMutableString * data = [[NSMutableString alloc] init];
+
+    [data appendString:notification.alertBody];
+    [data appendString:@"|"];
+    [data appendString:[notification.userInfo objectForKey:@"AlarmKey"]];
+    [data appendString:@"|"];
+    [data appendString:[notification.userInfo objectForKey:@"data"]];
+    [data appendString:@"|"];
+    [data appendString: [NSString stringWithFormat:@"%d", notification.applicationIconBadgeNumber]];
+    
+    
+    NSString *str = [data copy];
+    
+#if UNITY_VERSION < 500
+    [str autorelease];
+#endif
+
+    
+    UnitySendMessage("IOSNotificationController", "OnLocalNotificationReceived_Event", [ISNDataConvertor NSStringToChar:str]);
+
 }
 
 - (void) RegisterForNotifications {
@@ -31,18 +78,25 @@ static IOSNativeNotificationCenter *sharedHelper = nil;
     }
 }
 
+-(void) requestNotificationSettings {
+     UIUserNotificationSettings* NotificationSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
+    
+    NSString *str = [NSString stringWithFormat:@"%d", NotificationSettings.types];
 
--(void) scheduleNotification:(int)time message:(NSString *)message sound:(bool *)sound alarmID:(NSString *)alarmID badges:(int)badges {
+    UnitySendMessage("IOSNotificationController", "OnNotificationSettingsInfoRetrived", [ISNDataConvertor NSStringToChar:str]);
     
+
+}
+
+
+-(void) scheduleNotification:(int)time message:(NSString *)message sound:(bool *)sound alarmID:(NSString *)alarmID badges:(int)badges notificationData:(NSString *)notificationData {
     
-    
+  
     
     NSArray *vComp = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
     if ([[vComp objectAtIndex:0] intValue] >= 8) {
         UIUserNotificationSettings* NotificationSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
         
-        NSLog(@"iOS 8 detected");
- 
         if((NotificationSettings.types & UIUserNotificationTypeAlert) == 0) {
             NSLog(@"ISN: user disabled local notification for this app, sending fail event.");
             
@@ -66,7 +120,6 @@ static IOSNativeNotificationCenter *sharedHelper = nil;
            
             
         }
-        NSLog(@"ISN: sss %u", NotificationSettings.types & UIUserNotificationTypeSound);
         
         if((NotificationSettings.types & UIUserNotificationTypeSound) == 0) {
             if(sound) {
@@ -84,6 +137,8 @@ static IOSNativeNotificationCenter *sharedHelper = nil;
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:time];
     localNotification.alertBody = message;
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    
+  
    
     if (badges > 0)
         localNotification.applicationIconBadgeNumber = badges;
@@ -96,6 +151,8 @@ static IOSNativeNotificationCenter *sharedHelper = nil;
     
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
     [userInfo setObject:alarmID forKey:@"AlarmKey"];
+    [userInfo setObject:notificationData forKey:@"data"];
+    
     // Set some extra info to your alarm
     localNotification.userInfo = userInfo;
     
@@ -175,9 +232,9 @@ extern "C" {
     }
     
     
-    void  _ISN_ScheduleNotification (int time, char* message, bool* sound, char* nId, int badges)  {
+    void  _ISN_ScheduleNotification (int time, char* message, bool* sound, char* nId, int badges, char* data)  {
         NSString* alarmID = [ISNDataConvertor charToNSString:nId];
-        [[IOSNativeNotificationCenter sharedInstance] scheduleNotification:time message:[ISNDataConvertor charToNSString:message] sound:sound alarmID:alarmID badges:badges];
+        [[IOSNativeNotificationCenter sharedInstance] scheduleNotification:time message:[ISNDataConvertor charToNSString:message] sound:sound alarmID:alarmID badges:badges notificationData :[ISNDataConvertor charToNSString:data]];
     }
     
     void _ISN_ShowNotificationBanner (char* title, char* message)  {
@@ -186,16 +243,14 @@ extern "C" {
     void _ISN_ApplicationIconBadgeNumber (int badges) {
         [[IOSNativeNotificationCenter sharedInstance] applicationIconBadgeNumber:badges];
     }
+    void _ISN_RequestNotificationSettings () {
+        [[IOSNativeNotificationCenter sharedInstance] requestNotificationSettings];
+    }
+    
     
     
     void _ISN_RegisterForRemoteNotifications(int types) {
           NSLog(@"_ISN_RegisterForRemoteNotifications");
-       
-       // UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:Nil];
-       // [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-        
-        //[[UIApplication sharedApplication] registerForRemoteNotifications];
-        
         
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert |  UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];

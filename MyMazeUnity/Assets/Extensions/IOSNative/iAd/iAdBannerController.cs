@@ -10,14 +10,13 @@
 
 using UnityEngine;
 using System;
-using UnionAssets.FLE;
 using System.Collections;
 using System.Collections.Generic;
 #if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
 using System.Runtime.InteropServices;
 #endif
 
-public class iAdBannerController : EventDispatcher {
+public class iAdBannerController : ISN_Singleton<iAdBannerController> {
 
 	#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
 	[DllImport ("__Internal")]
@@ -41,10 +40,10 @@ public class iAdBannerController : EventDispatcher {
 	private Dictionary<int, iAdBanner> _banners; 
 
 	//Actions
-	public Action InterstitialDidFailWithErrorAction 	= delegate {};
-	public Action InterstitialAdWillLoadAction 			= delegate {};
-	public Action InterstitialAdDidLoadAction 			= delegate {};
-	public Action InterstitialAdDidFinishAction			= delegate {};
+	public static event Action InterstitialDidFailWithErrorAction 	= delegate {};
+	public static event Action InterstitialAdWillLoadAction 			= delegate {};
+	public static event Action InterstitialAdDidLoadAction 			= delegate {};
+	public static event Action InterstitialAdDidFinishAction			= delegate {};
 	
 
 	
@@ -57,22 +56,7 @@ public class iAdBannerController : EventDispatcher {
 		DontDestroyOnLoad(gameObject);
 	}
 
-
-	public static iAdBannerController instance {
-
-		get {
-			if (_instance == null) {
-				_instance = GameObject.FindObjectOfType(typeof(iAdBannerController)) as iAdBannerController;
-				if (_instance == null) {
-					_instance = new GameObject ("iAdBannerController").AddComponent<iAdBannerController> ();
-				}
-			}
-
-			return _instance;
-
-		}
-
-	}
+	
 
 	//--------------------------------------
 	//  PUBLIC METHODS
@@ -268,22 +252,18 @@ public class iAdBannerController : EventDispatcher {
 
 
 	private void interstitialdidFailWithError(string data) {
-		dispatch(iAdEvent.INTERSTITIAL_DID_FAIL_WITH_ERROR);
 		InterstitialDidFailWithErrorAction();
 	}
 
 	private void interstitialAdWillLoad(string data) {
-		dispatch(iAdEvent.INTERSTITIAL_AD_WILL_LOAD);
 		InterstitialAdWillLoadAction();
 	}
 
 	private void interstitialAdDidLoad(string data) {
-		dispatch(iAdEvent.INTERSTITIAL_AD_DID_LOAD);
 		InterstitialAdDidLoadAction();
 	}
 
 	private void interstitialAdActionDidFinish(string data) {
-		dispatch(iAdEvent.INTERSTITIAL_AD_ACTION_DID_FINISH);
 		InterstitialAdDidFinishAction();
 	}
 

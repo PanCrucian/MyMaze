@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-#if UNITY_IPHONE
-using UnionAssets.FLE;
-#endif
 
 public class GameCenter : MonoBehaviour {
     #region GameCenter methods and variables
@@ -41,10 +38,9 @@ public class GameCenter : MonoBehaviour {
         GameCenterManager.OnAchievementsLoaded += OnAchievementsLoaded;
         GameCenterManager.OnPlayerScoreLoaded += OnPlayerScoreLoaded;
         
-        GameCenterManager.Dispatcher.addEventListener(GameCenterManager.GAME_CENTER_ACHIEVEMENT_PROGRESS, OnAchievementProgress);
-        //GameCenterManager.Dispatcher.addEventListener(GameCenterManager.GAME_CENTER_LEADERBOARD_SCORE_LOADED, OnLeaderboardScoreLoaded);
+        GameCenterManager.OnAchievementsProgress += OnAchievementProgress;
 
-        GameCenterManager.init();
+        GameCenterManager.Init();
     }
 
     /// <summary>
@@ -56,14 +52,14 @@ public class GameCenter : MonoBehaviour {
         _isAuth = res.IsSucceeded;
         if (!_isAuth)
         {
-            if (res.error != null)
-                Debug.LogWarning("Game Center Auth Error: " + res.error.description);
+            if (res.Error != null)
+                Debug.LogWarning("Game Center Auth Error: " + res.Error.Description);
             else
                 Debug.LogWarning("Game Center Auth Error: " + "Unknow");
         }
         else
         {
-            Debug.Log("Player Authed" + "\n" + "ID: " + GameCenterManager.Player.PlayerId + "\n" + "Alias: " + GameCenterManager.Player.Alias);
+            Debug.Log("Player Authed" + "\n" + "ID: " + GameCenterManager.Player.Id + "\n" + "Alias: " + GameCenterManager.Player.Alias);
             GameCenterManager.LoadCurrentPlayerScore(MyMaze.Instance.Leaderboards.GetGameCenterId(LeaderboardTypes.Stars));
         }
     }
@@ -105,9 +101,8 @@ public class GameCenter : MonoBehaviour {
     /// Прогресс по достижению
     /// </summary>
     /// <param name="e"></param>
-    private void OnAchievementProgress(CEvent e)
+    private void OnAchievementProgress(GK_AchievementProgressResult result)
     {
-        ISN_AchievementProgressResult result = (ISN_AchievementProgressResult)e.data;
         if (result.IsSucceeded)
             Debug.Log("OnAchievementProgress: true \n" + result.info.Id + ":  " + result.info.Progress.ToString());
         else
@@ -131,7 +126,7 @@ public class GameCenter : MonoBehaviour {
     /// Загружена информация о рекорде игрока
     /// </summary>
     /// <param name="result"></param>
-    private void OnPlayerScoreLoaded(ISN_PlayerScoreLoadedResult result)
+    private void OnPlayerScoreLoaded(GK_PlayerScoreLoadedResult result)
     {
         if (result.IsSucceeded)
         {

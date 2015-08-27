@@ -39,7 +39,7 @@ public class ConnectionButton : MonoBehaviour {
 
 	void OnGUI() {
 		if(GUI.Button(r, "Find Match")) {
-			GameCenterMultiplayer.instance.FindMatch (2, 2);
+			GameCenter_RTM.Instance.FindMatch (2, 2);
 		}
 	}
 	

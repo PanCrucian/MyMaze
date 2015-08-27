@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class IOSNativeFeaturesPreview : BaseIOSFeaturePreview {
 
@@ -12,7 +13,6 @@ public class IOSNativeFeaturesPreview : BaseIOSFeaturePreview {
 		if(back == null) {
 			back = IOSNativePreviewBackButton.Create();
 		}
-
 	}
 
 
@@ -86,9 +86,16 @@ public class IOSNativeFeaturesPreview : BaseIOSFeaturePreview {
 		
 		StartX = XStartPos;
 		StartY += YLableStep;
-		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Multiplayer Example")) {
-			Application.LoadLevel("MultiplayerExampleScene");
+		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "TBM Multiplayer Example")) {
+			Application.LoadLevel("TMB_Multiplayer_Example");
 		}
+
+
+		StartX += XButtonStep;
+		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "RTM Multiplayer Example")) {
+			Application.LoadLevel("RTM_Multiplayer_Example");
+		}
+
 		
 		StartX += XButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "P2P Game Example")) {
@@ -105,6 +112,11 @@ public class IOSNativeFeaturesPreview : BaseIOSFeaturePreview {
 		StartY += YLableStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Native Popups and Events")) {
 			Application.LoadLevel("PopUpsAndAppEventsHandler");
+		}
+
+		StartX += XButtonStep;
+		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Media Player API")) {
+			Application.LoadLevel("MediaExample");
 		}
 
 		StartX += XButtonStep;

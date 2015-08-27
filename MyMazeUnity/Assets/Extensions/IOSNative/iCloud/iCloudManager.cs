@@ -17,19 +17,11 @@ using System.Runtime.InteropServices;
 #endif
 
 public class iCloudManager : ISN_Singleton<iCloudManager> {
-
-
-	//Events
-	public const string CLOUD_INITIALIZED	        = "cloud_initialized";
-	public const string CLOUD_INITIALIZE_FAILED	    = "cloud_initialize_failed";
-
-	public const string CLOUD_DATA_CHANGED	        = "cloud_data_changed";
-	public const string CLOUD_DATA_RECEIVE       = "cloud_data_receive";
+	
 
 	//Actions
-	public Action<ISN_Result> OnCloundInitAction = delegate {};
-	public Action OnCloundDataChangedAction = delegate {};
-	public Action<iCloudData> OnCloudDataReceivedAction = delegate {};
+	public static event Action<ISN_Result> OnCloundInitAction = delegate {};
+	public static event Action<iCloudData> OnCloudDataReceivedAction = delegate {};
 
 
 	#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
@@ -116,18 +108,15 @@ public class iCloudManager : ISN_Singleton<iCloudManager> {
 	private void OnCloudInit() {
 		ISN_Result res =  new ISN_Result(true);
 		OnCloundInitAction(res);
-		dispatch (CLOUD_INITIALIZED);
 	}
 
 	private void OnCloudInitFail() {
 		ISN_Result res =  new ISN_Result(false);
 		OnCloundInitAction(res);
-		dispatch (CLOUD_INITIALIZE_FAILED);
 	}
 
 	private void OnCloudDataChanged() {
-		OnCloundDataChangedAction();
-		dispatch (CLOUD_DATA_CHANGED);
+		//OnCloundDataChangedAction();
 	}
 
 
@@ -138,7 +127,6 @@ public class iCloudManager : ISN_Singleton<iCloudManager> {
 		iCloudData package = new iCloudData (data[0], data [1]);
 
 		OnCloudDataReceivedAction(package);
-		dispatch (CLOUD_DATA_RECEIVE, package);
 	}
 
 	private void OnCloudDataEmpty(string array) {
@@ -149,7 +137,6 @@ public class iCloudManager : ISN_Singleton<iCloudManager> {
 
 
 		OnCloudDataReceivedAction(package);
-		dispatch (CLOUD_DATA_RECEIVE, package);
 	}
 
 

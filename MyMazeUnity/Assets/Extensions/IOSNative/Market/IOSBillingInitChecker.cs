@@ -11,21 +11,23 @@ public class IOSBillingInitChecker
 	public IOSBillingInitChecker(BillingInitListener listener) {
 		_listener = listener;
 
-		if(IOSInAppPurchaseManager.instance.IsStoreLoaded) {
+		if(IOSInAppPurchaseManager.Instance.IsStoreLoaded) {
 			_listener();
 		} else {
 
-			IOSInAppPurchaseManager.instance.addEventListener(IOSInAppPurchaseManager.STORE_KIT_INITIALIZED, OnStoreKitInit);
-			if(!IOSInAppPurchaseManager.instance.IsWaitingLoadResult) {
-				IOSInAppPurchaseManager.instance.loadStore();
+			IOSInAppPurchaseManager.OnStoreKitInitComplete += HandleOnStoreKitInitComplete;
+			if(!IOSInAppPurchaseManager.Instance.IsWaitingLoadResult) {
+				IOSInAppPurchaseManager.Instance.loadStore();
 			}
 		}
 	}
 
-	private void OnStoreKitInit() {
-		IOSInAppPurchaseManager.instance.removeEventListener(IOSInAppPurchaseManager.STORE_KIT_INITIALIZED, OnStoreKitInit);
+	void HandleOnStoreKitInitComplete (ISN_Result obj) {
+		IOSInAppPurchaseManager.OnStoreKitInitComplete -= HandleOnStoreKitInitComplete;
 		_listener();
 	}
+
+
 
 }
 

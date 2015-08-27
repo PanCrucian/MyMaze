@@ -25,9 +25,18 @@ public class IOSImagePickResult : ISN_Result {
 	
 
 
-	public Texture2D image {
+
+	public Texture2D Image {
 		get {
 			return _image;
+		}
+	}
+
+
+	[System.Obsolete("image is deprecated, please use Image instead.")]
+	public Texture2D image {
+		get {
+			return Image;
 		}
 	}
 }

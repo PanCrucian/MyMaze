@@ -47,6 +47,16 @@ public class NativeIOSActionsExample : BaseIOSFeaturePreview {
 			IOSSharedApplication.instance.GetAdvertisingIdentifier();
 		}
 
+		StartX = XStartPos;
+		StartY+= YButtonStep;
+		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Set App Bages Count")) {
+			IOSNativeUtility.SetApplicationBagesNumber(10);
+		}
+
+		StartX += XButtonStep;
+		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Clear Application Bages")) {
+			IOSNativeUtility.SetApplicationBagesNumber(0);
+		}
 
 
 		StartX = XStartPos;
@@ -85,9 +95,7 @@ public class NativeIOSActionsExample : BaseIOSFeaturePreview {
 		StartY+= YLableStep;
 
 
-
 		GUI.Label(new Rect(StartX, StartY, Screen.width, 40), "Video", style);
-		
 		
 		StartY+= YLableStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Player Streamed video")) {
@@ -111,29 +119,29 @@ public class NativeIOSActionsExample : BaseIOSFeaturePreview {
 		
 		StartY+= YLableStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth + 10, buttonHeight), "Save Screenshot To Camera Roll")) {
-			IOSCamera.instance.OnImageSaved += OnImageSaved;
-			IOSCamera.instance.SaveScreenshotToCameraRoll();
+			IOSCamera.OnImageSaved += OnImageSaved;
+			IOSCamera.Instance.SaveScreenshotToCameraRoll();
 		}
 
 
 		StartX += XButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Save Texture To Camera Roll")) {
-			IOSCamera.instance.OnImageSaved += OnImageSaved;
-			IOSCamera.instance.SaveTextureToCameraRoll(hello_texture);
+			IOSCamera.OnImageSaved += OnImageSaved;
+			IOSCamera.Instance.SaveTextureToCameraRoll(hello_texture);
 		}
 
 
 		StartX += XButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Get Image From Camera")) {
-			IOSCamera.instance.OnImagePicked += OnImage;
-			IOSCamera.instance.GetImageFromCamera();
+			IOSCamera.OnImagePicked += OnImage;
+			IOSCamera.Instance.GetImageFromCamera();
 			
 		}
 
 		StartX += XButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Get Image From Album")) {
-			IOSCamera.instance.OnImagePicked += OnImage;
-			IOSCamera.instance.GetImageFromAlbum();
+			IOSCamera.OnImagePicked += OnImage;
+			IOSCamera.Instance.GetImageFromAlbum();
 
 		}
 
@@ -168,17 +176,17 @@ public class NativeIOSActionsExample : BaseIOSFeaturePreview {
 			Destroy(drawTexture);
 
 			//applaying new texture
-			drawTexture = result.image;
-			IOSMessage.Create("Success", "Image Successfully Loaded, Image size: " + result.image.width + "x" + result.image.height);
+			drawTexture = result.Image;
+			IOSMessage.Create("Success", "Image Successfully Loaded, Image size: " + result.Image.width + "x" + result.Image.height);
 		} else {
 			IOSMessage.Create("ERROR", "Image Load Failed");
 		}
 
-		IOSCamera.instance.OnImagePicked -= OnImage;
+		IOSCamera.OnImagePicked -= OnImage;
 	}
 
 	private void OnImageSaved (ISN_Result result) {
-		IOSCamera.instance.OnImageSaved -= OnImageSaved;
+		IOSCamera.OnImageSaved -= OnImageSaved;
 		if(result.IsSucceeded) {
 			IOSMessage.Create("Success", "Image Successfully saved to Camera Roll");
 		} else {

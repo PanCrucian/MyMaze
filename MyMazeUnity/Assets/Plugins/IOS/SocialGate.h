@@ -23,12 +23,10 @@
 
 + (id) sharedInstance;
 
-- (void) twitterPost:(NSString*)status;
-- (void) twitterPostWithMedia:(NSString*)status media: (NSString*) media;
+- (void) twitterPost:(NSString*)status url: (NSString*) url media: (NSString*) media;
+- (void) fbPost:(NSString*)status  url: (NSString*) url media: (NSString*) media;
 
 
-- (void) fbPost:(NSString*)status;
-- (void) fbPostWithMedia:(NSString*)status media: (NSString*) media;
 
 - (void) mediaShare:(NSString*)text media: (NSString*) media;
 - (void) sendEmail:(NSString*)subject body: (NSString*) body recipients: (NSString*) recipients media: (NSString*) media;

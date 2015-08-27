@@ -1,3 +1,4 @@
+#define SA_DEBUG_MODE
 ////////////////////////////////////////////////////////////////////////////////
 //  
 // @module IOS Native Plugin for Unity3D 
@@ -9,7 +10,6 @@
 
 
 using UnityEngine;
-using UnionAssets.FLE;
 using System.Collections;
 
 public class MultiplayerManagerExample : MonoBehaviour {
@@ -20,55 +20,76 @@ public class MultiplayerManagerExample : MonoBehaviour {
 
 	void Awake() {
 
-		GameCenterManager.init();
+		GameCenterManager.Init();
 
-
-		GameCenterMultiplayer.OnMatchStarted += OnGCMatchStart;
-		GameCenterMultiplayer.instance.addEventListener (GameCenterMultiplayer.PLAYER_CONNECTED, OnGCPlayerConnected);
-		GameCenterMultiplayer.instance.addEventListener (GameCenterMultiplayer.PLAYER_DISCONNECTED, OnGCPlayerDisconnected);
-
-	
-		GameCenterMultiplayer.instance.addEventListener (GameCenterMultiplayer.DATA_RECEIVED, OnGCDataReceived);
+		GameCenter_RTM.ActionMatchStarted += HandleActionMatchStarted;
+		GameCenter_RTM.ActionPlayerStateChanged += HandleActionPlayerStateChanged;
+		GameCenter_RTM.ActionDataReceived += HandleActionDataReceived;
 	}
+
+
+
+
+
+
+
 
 	//--------------------------------------
 	//  PUBLIC METHODS
 	//--------------------------------------
 
 	void OnGUI() {
+
+
 #if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+
+		GUI.enabled = true;
+
+		if(!GameCenterManager.IsPlayerAuthenticated) {
+			GUI.enabled = false;
+		}
+
+
+
 		if(GUI.Button(new Rect(170, 70, 150, 50), "Find Match")) {
-			GameCenterMultiplayer.instance.FindMatch (2, 2);
+			GameCenter_RTM.Instance.FindMatch(2, 2);
 		}
 
-		if(GUI.Button(new Rect(170, 130, 150, 50), "Send Data to All")) {
+		if(GUI.Button(new Rect(170, 130, 150, 50), "Find Match Natvie UI")) {
+			GameCenter_RTM.Instance.FindMatchWithNativeUI(2, 2);
+		}
+
+		if(GameCenter_RTM.Instance.CurrentMatch == null ) {
+			GUI.enabled = false;
+		} else {
+			if(GameCenter_RTM.Instance.CurrentMatch.ExpectedPlayerCount > 0) {
+				GUI.enabled = false;
+			}
+		}
+
+
+
+		if(GUI.Button(new Rect(170, 190, 150, 50), "Send Data to All")) {
 			string msg = "hello world";
 			System.Text.UTF8Encoding  encoding = new System.Text.UTF8Encoding();
 			byte[] data = encoding.GetBytes(msg);
-			GameCenterMultiplayer.instance.SendDataToAll (data, GameCenterDataSendType.RELIABLE);
+			GameCenter_RTM.Instance.SendDataToAll(data, GK_MatchSendDataMode.RELIABLE);
 		}
 
 
-		if(GUI.Button(new Rect(170, 190, 150, 50), "Send to Player")) {
+		if(GUI.Button(new Rect(170, 250, 150, 50), "Send to Player")) {
 			string msg = "hello world";
 			System.Text.UTF8Encoding  encoding = new System.Text.UTF8Encoding();
 			byte[] data = encoding.GetBytes(msg);
 
-			GameCenterMultiplayer.instance.sendDataToPlayers (data, GameCenterDataSendType.RELIABLE, GameCenterMultiplayer.instance.match.playerIDs[0]);
+			GameCenter_RTM.Instance.SendData(data, GK_MatchSendDataMode.RELIABLE, GameCenter_RTM.Instance.CurrentMatch.Players[0]);
+
 		}
 
-		if(GUI.Button(new Rect(170, 250, 150, 50), "Disconnect")) {
-			GameCenterMultiplayer.instance.disconnect ();
+		if(GUI.Button(new Rect(170, 310, 150, 50), "Disconnect")) {
+			GameCenter_RTM.Instance.Disconnect();
 		}
-
 #endif
-
-
-		//turn based
-	/*	if(GUI.Button(new Rect(330, 70, 150, 50), "Trun Based Match")) {
-			GameCenterMultiplayer.instance.FindTurnBasedMatch (2, 2);
-		} */
-
 	}
 	
 	//--------------------------------------
@@ -79,35 +100,43 @@ public class MultiplayerManagerExample : MonoBehaviour {
 	//  EVENTS
 	//--------------------------------------
 
-	private void OnGCPlayerConnected(CEvent e) {
-		string playerID = e.data as string;
-		IOSNativePopUpManager.showMessage ("Player Connected", "playerid: " + playerID);
+
+
+	void HandleActionPlayerStateChanged (GK_Player player, GK_PlayerConnectionState state, GK_RTM_Match match) {
+		IOSNativePopUpManager.dismissCurrentAlert();
+		IOSNativePopUpManager.showMessage ("Player State Changed", player.Alias + " state: " + state.ToString() + "\n  ExpectedPlayerCount: " + match.ExpectedPlayerCount);
 	}
 
-	private void OnGCPlayerDisconnected(CEvent e) {
-		string playerID = e.data as string;
-		IOSNativePopUpManager.showMessage ("Player Disconnected", "playerid: " + playerID);
+
+
+	void HandleActionMatchStarted (GK_RTM_MatchStartedResult result) {
+		IOSNativePopUpManager.dismissCurrentAlert();
+		if(result.IsSucceeded) {
+			IOSNativePopUpManager.showMessage ("Match Started", "let's play now\n  Others players count: " + result.Match.Players.Count);
+		} else {
+			IOSNativePopUpManager.showMessage ("Match Started Error", result.Error.Description);
+		}
 	}
 
-	private void OnGCMatchStart(GameCenterMatchData match) {
+	void HandleActionDataReceived (GK_Player player, byte[] data) {
+		IOSNativePopUpManager.dismissCurrentAlert();
 
-		IOSNativePopUpManager.showMessage ("OnMatchStart", "let's play now\n  Other player count: " + match.playerIDs.Count);
+		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
 
-
-
-	}
-
-	private void OnGCDataReceived(CEvent e) {
-#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
-		GameCenterDataPackage package = e.data as GameCenterDataPackage;
-
+		
 		System.Text.UTF8Encoding enc = new System.Text.UTF8Encoding();
-		string str = enc.GetString(package.buffer);
+		string str = enc.GetString(data);
 
-		IOSNativePopUpManager.showMessage ("Data received", "player ID: " + package.playerID + " \n " + "data: " + str);
-#endif
 
+		IOSNativePopUpManager.dismissCurrentAlert();
+
+		IOSNativePopUpManager.showMessage ("Data received", "player ID: " + player.Id + " \n " + "data: " + str);
+		#endif
 	}
+
+	
+
+
 	
 	//--------------------------------------
 	//  PRIVATE METHODS

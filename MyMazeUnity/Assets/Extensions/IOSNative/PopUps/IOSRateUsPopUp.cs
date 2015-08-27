@@ -10,7 +10,6 @@
 
 using UnityEngine;
 using System;
-using UnionAssets.FLE;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -21,7 +20,7 @@ public class IOSRateUsPopUp : BaseIOSPopup {
 	public string declined;
 
 
-	public Action<IOSDialogResult> OnComplete = delegate {};
+	public event Action<IOSDialogResult> OnComplete = delegate {};
 
 
 	//--------------------------------------
@@ -75,15 +74,12 @@ public class IOSRateUsPopUp : BaseIOSPopup {
 			case 0: 
 				IOSNativeUtility.RedirectToAppStoreRatingPage();
 				OnComplete(IOSDialogResult.RATED);
-				dispatch(BaseEvent.COMPLETE, IOSDialogResult.RATED);
 				break;
 			case 1:
 				OnComplete(IOSDialogResult.REMIND);
-				dispatch(BaseEvent.COMPLETE, IOSDialogResult.REMIND);
 				break;
 			case 2:
 				OnComplete(IOSDialogResult.DECLINED);
-				dispatch(BaseEvent.COMPLETE, IOSDialogResult.DECLINED);
 				break;
 		}
 		

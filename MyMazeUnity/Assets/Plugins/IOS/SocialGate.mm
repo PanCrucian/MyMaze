@@ -65,32 +65,46 @@ static SocialGate *_sharedInstance;
     
 }
 
-
--(void) twitterPostWithMedia:(NSString *)status media:(NSString *)media {
-    NSLog(@"ISN: twitterPostWithMedia");
+-(void) twitterPost:(NSString *)status url:(NSString *)url media:(NSString *)media {
+    NSLog(@"ISN: twitterPost");
     
-    NSData *imageData = [[NSData alloc] initWithBase64Encoding:media];
-    UIImage *image = [[UIImage alloc] initWithData:imageData];
+   
+    
+    
 
-  //  [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger: UIInterfaceOrientationPortrait]forKey:@"orientation"];
     [SLComposeServiceViewController attemptRotationToDeviceOrientation];
-    
     SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-    [tweetSheet setInitialText:status];
-    [tweetSheet addImage:image];
+    
+    if(tweetSheet == NULL) {
+        NSLog(@"ISN: SLServiceTypeTwitter not avaliable ");
+        UnitySendMessage("IOSSocialManager", "OnTwitterPostFailed", [ISNDataConvertor NSStringToChar:@""]);
+        return;
+    }
+
+    
+    if(status.length > 0) {
+        [tweetSheet setInitialText:status];
+    }
+    
+    if(media.length > 0) {
+        NSData *imageData = [[NSData alloc] initWithBase64Encoding:media];
+        UIImage *image = [[UIImage alloc] initWithData:imageData];
+        [tweetSheet addImage:image];
+    }
+   
+    if(url.length > 0) {
+        NSURL *urlObject = [NSURL URLWithString:url];
+        [tweetSheet addURL:urlObject];
+    }
     
     UIViewController *vc =  UnityGetGLViewController();
-    
-
-    
     [vc presentViewController:tweetSheet animated:YES completion:nil];
     
     tweetSheet.completionHandler = ^(SLComposeViewControllerResult result) {
         NSArray *vComp;
         switch(result) {
-                //  This means the user cancelled without sending the Tweet
+            //  This means the user cancelled without sending the Tweet
             case SLComposeViewControllerResultCancelled:
-                
                 vComp = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
                 if ([[vComp objectAtIndex:0] intValue] < 7) {
                     [tweetSheet dismissViewControllerAnimated:YES completion:nil];
@@ -113,148 +127,19 @@ static SocialGate *_sharedInstance;
                 break;
         }
     };
+
+    
     
 }
 
 
 
-
-
-- (void) twitterPost:(NSString *)status {
-    NSLog(@"ISN: twitterPost");
-    
-   
-  //  [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger: UIInterfaceOrientationPortrait]forKey:@"orientation"];
-    [SLComposeServiceViewController attemptRotationToDeviceOrientation];
-    
-    SLComposeViewController *twSheet = [SLComposeViewController  composeViewControllerForServiceType:SLServiceTypeTwitter];
-    [twSheet setInitialText:status];
-    
-    
-    UIViewController *vc =  UnityGetGLViewController();
-    
-    [vc presentViewController:twSheet animated:YES completion:nil];
-    
-    twSheet.completionHandler = ^(SLComposeViewControllerResult result) {
-        NSArray *vComp;
-        switch(result) {
-                //  This means the user cancelled without sending the Tweet
-            case SLComposeViewControllerResultCancelled:
-                
-                
-                vComp = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-                if ([[vComp objectAtIndex:0] intValue] < 7) {
-                    [twSheet dismissViewControllerAnimated:YES completion:nil];
-                }
-                
-                NSLog(@"ISN: Tweet message was cancelled");
-                UnitySendMessage("IOSSocialManager", "OnTwitterPostFailed", [ISNDataConvertor NSStringToChar:@""]);
-                break;
-                //  This means the user hit 'Send'
-            case SLComposeViewControllerResultDone:
-                
-                
-                vComp = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-                if ([[vComp objectAtIndex:0] intValue] < 7) {
-                    [twSheet dismissViewControllerAnimated:YES completion:nil];
-                }
-                
-                NSLog(@"ISN: Done pressed successfully");
-                UnitySendMessage("IOSSocialManager", "OnTwitterPostSuccess", [ISNDataConvertor NSStringToChar:@""]);
-                break;
-        }
-    };
-}
-
-
-- (void) fbPost:(NSString *)status {
-    
-    NSLog(@"ISN: fbPost");
-    
-  //  [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger: UIInterfaceOrientationPortrait]forKey:@"orientation"];
-    [SLComposeServiceViewController attemptRotationToDeviceOrientation];
-    
-    SLComposeViewController *fbSheet = [SLComposeViewController  composeViewControllerForServiceType:SLServiceTypeFacebook];
-    
-    
-    if(fbSheet == NULL) {
-        NSLog(@"ISN: SLServiceTypeFacebook not avaliable ");
-        UnitySendMessage("IOSSocialManager", "OnFacebookPostFailed", [ISNDataConvertor NSStringToChar:@""]);
-        return;
-    }
-    
-    [fbSheet setInitialText:status];
-    
-    UIViewController *vc =  UnityGetGLViewController();
-    
-    [vc presentViewController:fbSheet animated:YES completion:nil];
-    
-    NSLog(@"ISN: SLServiceTypeFacebook showed ");
-
-    
-    fbSheet.completionHandler = ^(SLComposeViewControllerResult result) {
-        NSArray *vComp;
-        switch(result) {
-                //  This means the user cancelled without sending the Tweet
-            case SLComposeViewControllerResultCancelled:
-                
-                
-                
-                vComp = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-                if ([[vComp objectAtIndex:0] intValue] < 7) {
-                    [fbSheet dismissViewControllerAnimated:YES completion:nil];
-                }
-                
-                NSLog(@"ISN: Facebook message was cancelled");
-                UnitySendMessage("IOSSocialManager", "OnFacebookPostFailed", [ISNDataConvertor NSStringToChar:@""]);
-                break;
-                //  This means the user hit 'Send'
-            case SLComposeViewControllerResultDone:
-                
-                vComp = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-                if ([[vComp objectAtIndex:0] intValue] < 7) {
-                    [fbSheet dismissViewControllerAnimated:YES completion:nil];
-                }
-                
-                NSLog(@"ISN: Facebook pressed successfully");
-                UnitySendMessage("IOSSocialManager", "OnFacebookPostSuccess", [ISNDataConvertor NSStringToChar:@""]);
-                break;
-        }
-    };
-    
-    
-    
-    
-    
-
-  /*  mc.mailComposeDelegate = self;
-    [mc setSubject:emailTitle];
-    [mc setMessageBody:messageBody isHTML:NO];
-    [mc setToRecipients:toRecipents];
-   */
-    
-}
-
-
-
-
-
-
-- (NSString*) photoFilePath {
-    return [NSString stringWithFormat:@"%@/%@",[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"],@"tempinstgramphoto.igo"];
-}
-
-
--(void) fbPostWithMedia:(NSString *)status media:(NSString *)media {
-    
+- (void) fbPost:(NSString *)status url:(NSString *)url media:(NSString *)media {
     NSLog(@"ISN: fbPostWithMedia");
     
-    NSData *imageData = [[NSData alloc] initWithBase64Encoding:media];
-    UIImage *image = [[UIImage alloc] initWithData:imageData];
-    
-   // [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger: UIInterfaceOrientationPortrait]forKey:@"orientation"];
+
+
     [SLComposeServiceViewController attemptRotationToDeviceOrientation];
-    
     SLComposeViewController *fbSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     if(fbSheet == NULL) {
         NSLog(@"ISN: SLServiceTypeFacebook not avaliable ");
@@ -263,8 +148,21 @@ static SocialGate *_sharedInstance;
     }
     
     
-    [fbSheet setInitialText:status];
-    [fbSheet addImage:image];
+    if(status.length > 0) {
+        [fbSheet setInitialText:status];
+    }
+    
+    if(media.length > 0) {
+        NSData *imageData = [[NSData alloc] initWithBase64Encoding:media];
+        UIImage *image = [[UIImage alloc] initWithData:imageData];
+        [fbSheet addImage:image];
+    }
+    
+    if(url.length > 0) {
+        NSURL *urlObject = [NSURL URLWithString:url];
+        [fbSheet addURL:urlObject];
+    }
+    
     
     UIViewController *vc =  UnityGetGLViewController();
     
@@ -300,7 +198,9 @@ static SocialGate *_sharedInstance;
         }
         
     };
+
 }
+
 
 
 - (void) sendEmail:(NSString *)subject body:(NSString *)body recipients: (NSString*) recipients media:(NSString *)media {
@@ -372,6 +272,14 @@ static SocialGate *_sharedInstance;
     
 }
 
+
+#pragma private
+
+- (NSString*) photoFilePath {
+    return [NSString stringWithFormat:@"%@/%@",[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"],@"tempinstgramphoto.igo"];
+}
+
+
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     switch (result)
     {
@@ -405,38 +313,20 @@ extern "C" {
     
     
     //--------------------------------------
-	//  IOS Native Plugin Section
+	//  IOS Plugin Section
 	//--------------------------------------
     
     
-    void _ISN_TwPost(char* text) {
-        NSString *status = [ISNDataConvertor charToNSString:text];
-        [[SocialGate sharedInstance] twitterPost:status];
+    void _ISN_TwPost(char* text, char* url, char* encodedMedia) {
+        [[SocialGate sharedInstance] twitterPost:[ISNDataConvertor charToNSString:text] url:[ISNDataConvertor charToNSString:url] media:[ISNDataConvertor charToNSString:encodedMedia]];
     }
     
     
-    
-    void _ISN_TwPostWithMedia(char* text, char* encodedMedia) {
-        NSString *status = [ISNDataConvertor charToNSString:text];
-        NSString *media = [ISNDataConvertor charToNSString:encodedMedia];
-        
-        [[SocialGate sharedInstance] twitterPostWithMedia:status media:media];
+    void _ISN_FbPost(char* text, char* url, char* encodedMedia) {
+        [[SocialGate sharedInstance] fbPost:[ISNDataConvertor charToNSString:text] url:[ISNDataConvertor charToNSString:url] media:[ISNDataConvertor charToNSString:encodedMedia]];
     }
     
     
-    void _ISN_FbPost(char* text) {
-        NSString *status = [ISNDataConvertor charToNSString:text];
-        [[SocialGate sharedInstance] fbPost:status];
-    }
-    
-    
-    void _ISN_FbPostWithMedia(char* text, char* encodedMedia) {
-        
-        NSString *status = [ISNDataConvertor charToNSString:text];
-        NSString *media = [ISNDataConvertor charToNSString:encodedMedia];
-        
-        [[SocialGate sharedInstance] fbPostWithMedia:status media:media];
-    }
     
     void _ISN_MediaShare(char* text, char* encodedMedia) {
         NSString *status = [ISNDataConvertor charToNSString:text];
@@ -459,35 +349,27 @@ extern "C" {
     
     
     //--------------------------------------
-	//  Mobile Social Plugin Section
-	//--------------------------------------
+    //  Mobile Social Plugin Section
+    //--------------------------------------
     
-    
-    void _MSP_TwPost(char* text) {
-        _ISN_TwPost(text);
+    void _MSP_TwPost(char* text, char* url, char* encodedMedia) {
+        _ISN_TwPost(text, url, encodedMedia);
     }
     
     
-    void _MSP_TwPostWithMedia(char* text, char* encodedMedia) {
-        _ISN_TwPostWithMedia(text, encodedMedia);
+    void _MSP_FbPost(char* text, char* url, char* encodedMedia) {
+        _ISN_FbPost(text, url, encodedMedia);
     }
     
     
-    void _MSP_FbPost(char* text) {
-        _ISN_FbPost(text);
-    }
-    
-    
-    void _MSP_FbPostWithMedia(char* text, char* encodedMedia) {
-        _ISN_FbPostWithMedia(text, encodedMedia);
-    }
     
     void _MSP_MediaShare(char* text, char* encodedMedia) {
         _ISN_MediaShare(text, encodedMedia);
     }
     
+    
     void _MSP_SendMail(char* subject, char* body,  char* recipients, char* encodedMedia) {
-        _ISN_SendMail(subject, body, recipients, encodedMedia);
+        _ISN_SendMail(subject, body,  recipients, encodedMedia);
     }
     
 }

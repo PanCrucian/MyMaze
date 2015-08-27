@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnionAssets.FLE;
 using System.Collections;
 
 public class GameCenterFriendLoadExample : MonoBehaviour {
@@ -17,12 +16,13 @@ public class GameCenterFriendLoadExample : MonoBehaviour {
 	
 	void Awake() {
 
-		GameCenterManager.Dispatcher.addEventListener (GameCenterManager.GAME_CENTER_PLAYER_AUTHENTICATED, OnAuth);
-
+		GameCenterManager.OnAuthFinished += HandleOnAuthFinished;
 		
 		//Initializing Game Center class. This action will trigger authentication flow
-		GameCenterManager.init();
+		GameCenterManager.Init();
 	}
+
+
 
 
 
@@ -58,12 +58,12 @@ public class GameCenterFriendLoadExample : MonoBehaviour {
 		int i = 1;
 		foreach(string FriendId in GameCenterManager.FriendsList) {
 
-			GameCenterPlayerTemplate player = GameCenterManager.GetPlayerById(FriendId);
+			GK_Player player = GameCenterManager.GetPlayerById(FriendId);
 			if(player != null) {
-				GUI.Label(new Rect(10,  90 + 70 * i, 100, 40), player.PlayerId, boardStyle);
+				GUI.Label(new Rect(10,  90 + 70 * i, 100, 40), player.Id, boardStyle);
 				GUI.Label(new Rect(150, 90 + 70 * i , 100, 40), player.Alias, boardStyle);
-				if(player.Avatar != null) {
-					GUI.DrawTexture(new Rect(300, 75 + 70 * i, 50, 50), player.Avatar);
+				if(player.SmallPhoto != null) {
+					GUI.DrawTexture(new Rect(300, 75 + 70 * i, 50, 50), player.SmallPhoto);
 				} else  {
 					GUI.Label(new Rect(300, 90 + 70 * i, 100, 40), "no photo ", boardStyle);
 				}
@@ -85,19 +85,14 @@ public class GameCenterFriendLoadExample : MonoBehaviour {
 
 	}
 
-	
-	private void OnAuth(CEvent e) {
-
-		ISN_Result result = e.data as ISN_Result;
-
+	void HandleOnAuthFinished (ISN_Result result){
 		if (result.IsSucceeded) {
 			Debug.Log("Player Authed");
 		} else {
 			IOSNativePopUpManager.showMessage("Game Center ", "Player authentication failed");
 		}
-
-
 	}
+	
 
 	private void OnFriendsListLoaded (ISN_Result result) {
 		GameCenterManager.OnFriendsListLoaded -= OnFriendsListLoaded;

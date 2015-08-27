@@ -5,10 +5,13 @@
 //
 
 #import "TransactionServer.h"
-#import "ISNDataConvertor.h"
+
+
 
 
 @implementation TransactionServer
+
+
 
 NSString* lastTransaction = @"";
 
@@ -49,7 +52,7 @@ NSString* lastTransaction = @"";
     [theRequest setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    NSString *length = [NSString stringWithFormat:@"%d", [json length]];
+    NSString *length = [NSString stringWithFormat:@"%lu", (unsigned long)[json length]];
     [theRequest setValue:length forHTTPHeaderField:@"Content-Length"];
     NSHTTPURLResponse* urlResponse = nil;
     NSError *error = [[NSError alloc] init];
@@ -90,8 +93,7 @@ NSString* lastTransaction = @"";
 
 
 
-- (NSString *)encodeBase64:(const uint8_t *)input length:(NSInteger)length
-{
+- (NSString *)encodeBase64:(const uint8_t *)input length:(NSInteger)length {
     NSData * data = [NSData dataWithBytes:input length:length];
     return [data ISN_base64EncodedString];
 }
@@ -118,18 +120,31 @@ NSString* lastTransaction = @"";
     NSMutableString * data = [[NSMutableString alloc] init];
     
     [data appendString:transaction.payment.productIdentifier];
-    [data appendString:@"|"];
+   
+    [data appendString: @"|"];
     if(isRestored) {
         [data appendString:@"0"];
     } else {
         [data appendString:@"1"];
     }
     
-    [data appendString:@"|"];
+    
+    [data appendString: @"|"];
+    
+    if(transaction.payment.applicationUsername ==  nil) {
+        [data appendString:@""];
+    } else {
+        [data appendString:transaction.payment.applicationUsername];
+    }
+   
+    
+    
+    
+    [data appendString: @"|"];
     [data appendString: [self getReceipt:transaction]];
     
     
-    [data appendString:@"|"];
+    [data appendString: @"|"];
     [data appendString: transaction.transactionIdentifier];
     
     
@@ -180,7 +195,7 @@ NSString* lastTransaction = @"";
 }
 
 - (void)failedTransaction:(SKPaymentTransaction *)transaction {
-    NSLog(@"ISN: Transaction Failed with code : %i", transaction.error.code);
+    NSLog(@"ISN: Transaction Failed with code : %li", (long)transaction.error.code);
     NSLog(@"ISN: Transaction error: %@", transaction.error.description);
     
     NSString *erroCode;
@@ -248,7 +263,7 @@ NSString* lastTransaction = @"";
     
     NSMutableString * data = [[NSMutableString alloc] init];
 
-     NSString *code = [NSString stringWithFormat:@"%d", error.code];
+     NSString *code = [NSString stringWithFormat:@"%ld", (long)error.code];
     [data appendString: code];
     [data appendString:@"|"];
     if(error.description != NULL) {
@@ -266,9 +281,8 @@ NSString* lastTransaction = @"";
 
 }
 
-- (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
-{
-    NSLog(@"ISN: received restored transactions: %i", queue.transactions.count);
+- (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
+    NSLog(@"ISN: received restored transactions: %lu", (unsigned long)queue.transactions.count);
     
     if (queue.transactions.count == 0) {
         NSLog(@"ISN: No purchases to restore, fail event sent");

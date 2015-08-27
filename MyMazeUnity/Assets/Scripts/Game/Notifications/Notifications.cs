@@ -1,5 +1,4 @@
-﻿using UnionAssets.FLE;
-using UnityEngine;
+﻿using UnityEngine;
 #if UNITY_IPHONE
 using UnityEngine.iOS;
 #endif
@@ -10,7 +9,15 @@ public class Notifications : MonoBehaviour {
     void Start()
     {
 #if UNITY_IPHONE
-        IOSNotificationController.instance.RequestNotificationPermissions();
+        IOSNotificationController.Instance.RequestNotificationPermissions();
+        if (IOSNotificationController.Instance.LaunchNotification != null)
+        {
+            ISN_LocalNotification notification = IOSNotificationController.Instance.LaunchNotification;
+
+            Debug.Log("Запустили приложение из уведомления \n" + 
+                      "Messgae: " + notification.Message + "\n" + 
+                      "Notification Data: " + notification.Data);
+        }
 #endif
     }
 
@@ -21,9 +28,16 @@ public class Notifications : MonoBehaviour {
     {
         if (MyMaze.Instance.Life.Units == MyMaze.Instance.Life.MaxUnits)
             return;
+
 #if UNITY_IPHONE
-        int id = IOSNotificationController.instance.ScheduleNotification(5, MyMaze.Instance.Localization.GetLocalized("gobacktogame"), true);
-        Debug.Log("Регистрация уведомления о жизнях id: " + id.ToString());
+        ISN_LocalNotification notification = new ISN_LocalNotification(
+            System.DateTime.Now.AddSeconds(5), 
+            MyMaze.Instance.Localization.GetLocalized("gobacktogame"), 
+            true);
+        notification.SetData("lives_restored");
+        notification.SetBadgesNumber(1);
+        notification.Schedule();
+        Debug.Log("Регистрация уведомления о жизнях id: " + notification.Id.ToString());
 #endif
     }
 
@@ -33,7 +47,8 @@ public class Notifications : MonoBehaviour {
     void CancelAllNotifications()
     {
 #if UNITY_IPHONE
-        IOSNotificationController.instance.CancelAllLocalNotifications();
+        IOSNotificationController.Instance.CancelAllLocalNotifications();
+        IOSNativeUtility.SetApplicationBagesNumber(0);
 #endif
     }
 

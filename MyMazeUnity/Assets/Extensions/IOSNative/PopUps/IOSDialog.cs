@@ -10,7 +10,6 @@
 
 using UnityEngine;
 using System;
-using UnionAssets.FLE;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -20,7 +19,7 @@ public class IOSDialog : BaseIOSPopup {
 	public string yes;
 	public string no;
 
-	public Action<IOSDialogResult> OnComplete = delegate {};
+	public event Action<IOSDialogResult> OnComplete = delegate {};
 	
 	//--------------------------------------
 	// INITIALIZE
@@ -64,11 +63,9 @@ public class IOSDialog : BaseIOSPopup {
 		
 		switch(index) {
 			case 1: 
-				dispatch(BaseEvent.COMPLETE, IOSDialogResult.YES);
 				OnComplete(IOSDialogResult.YES);
 				break;
 			case 0: 
-				dispatch(BaseEvent.COMPLETE, IOSDialogResult.NO);
 				OnComplete(IOSDialogResult.NO);
 				break;
 		}

@@ -1,3 +1,70 @@
+7.3.1:
+Perfomance improvments
+Twitter share with no account, iOS 7 NPE fixed
+
+7.3:
+Spelling Fixes
+New update system
+
+7.2
+Fixes:
+Leaderboard MaxRange bug fixed.
+IOS 6,7 compatibility fix
+In app user info bug fixed
+Game Center errors data fixed
+
+7.1
+New Features:
+Editor Plugin Cleanup
+Media Player API. Read more: https://goo.gl/7pDs88
+Application Bages Number API. Read more: https://goo.gl/qhv8IO
+Local Notification API refactor + new features. Read more: https://goo.gl/8xHhxV
+
+Update: 
+Popups API updated due to new IOS standarts 
+IOSStoreKitResult ApplicationUsername propertie added
+
+Fixes:
+ISN Camera memory leak fixed
+IOSInAppPurchaseManager Editor Fake events fixed
+Game Center black view on popup dismiss fixed
+Game Center player score dynamic update fixed
+Game Center player signature retrieval fixed
+Game Center leaderboards range retrive API fixed
+
+
+
+Refactor:
+Please remove following files before update:
+Assets/Plugins/IOS/IOSNativePopUpsManager.h
+Assets/Plugins/IOS/IOSNativePopUpsManager.m
+Assets/Plugins/IOS/IOSNativeUtility.h
+Assets/Plugins/IOS/IOSNativeUtility.mm
+Assets/Plugins/IOS/PopUPDelegate.h
+Assets/Plugins/IOS/PopUPDelegate.mm
+Assets/Plugins/IOS/IOSNativeUtility.h
+Assets/Plugins/IOS/IOSNativeUtility.mm
+
+Flash Like Events system dependency removed
+Most of action is now static. Check the examples.
+
+
+
+7.0:
+New Feature:
+Trun-Based multiplayer API
+Fully upgraded Real Time API
+Game Center Code refactor
+Minor fixes for Unity 5
+
+Update: 
+Please remove following files and folders before update:
+Assets/Extensions/IOSNative/
+Assets/Plugins/IOS/GameCenterManager.h
+Assets/Plugins/IOS/GameCenterManager.m
+Assets/Plugins/IOS/IOSGameCenterManager.h
+Assets/Plugins/IOS/IOSGameCenterManager.mm
+
 6.1:
 New Features:
 Resore Purchases API Extended. Read more: http://goo.gl/T9KBq9

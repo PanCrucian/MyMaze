@@ -24,6 +24,10 @@ public class IOSNativeSettingsEditor : Editor {
 
 	GUIContent UseGCCaching  = new GUIContent("Use Requests Caching[?]:", "Requests to Game Center will be cached if no Internet connection is available. Requests will be resent on the next Game Center connect event.");
 
+	GUIContent AutoLoadSmallImagesLoadTitle  = new GUIContent("Autoload Small Player Photo[?]:", "As soon as player info received, small player photo will be requested automatically");
+	GUIContent AutoLoadBigmagesLoadTitle  = new GUIContent("Autoload Big Player Photo[?]:", "As soon as player info received, big player photo will be requested automatically");
+	
+
 
 	GUIContent EnablePushNotification  = new GUIContent("Enable Push Notifications API[?]:", "Enables Push Notifications Api");
 	GUIContent DisablePluginLogsNote  = new GUIContent("Disable Plugin Logs[?]:", "All plugins 'Debug.Log' lines will be disabled if this option is enabled.");
@@ -122,6 +126,49 @@ public class IOSNativeSettingsEditor : Editor {
 
 	private void GeneralOptions() {
 
+		if(!IsInstalled) {
+			EditorGUILayout.HelpBox("Install Required ", MessageType.Error);
+			
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.Space();
+			Color c = GUI.color;
+			GUI.color = Color.cyan;
+			if(GUILayout.Button("Install Plugin",  GUILayout.Width(120))) {
+				UpdateVersionInfo();
+			}
+			GUI.color = c;
+			EditorGUILayout.EndHorizontal();
+		}
+		
+		if(IsInstalled) {
+			if(!IsUpToDate) {
+
+				
+				EditorGUILayout.HelpBox("Update Required \nResources version: " + SA_VersionsManager.ISN_StringVersionId + " Plugin version: " + IOSNativeSettings.VERSION_NUMBER, MessageType.Warning);
+				
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.Space();
+				Color c = GUI.color;
+				GUI.color = Color.cyan;
+
+				if(GUILayout.Button("How to update",  GUILayout.Width(250))) {
+					Application.OpenURL("https://goo.gl/M5hHUI");
+				}
+				
+				GUI.color = c;
+				EditorGUILayout.Space();
+				EditorGUILayout.EndHorizontal();
+				
+			} else {
+				EditorGUILayout.HelpBox("IOS Native Plugin v" + IOSNativeSettings.VERSION_NUMBER + " is installed", MessageType.Info);
+
+			}
+		}
+		
+		
+		EditorGUILayout.Space();
+
+
 
 		EditorGUILayout.HelpBox("(Required) Application Data", MessageType.None);
 
@@ -179,6 +226,23 @@ public class IOSNativeSettingsEditor : Editor {
 		if (IOSNativeSettings.Instance.ShowGCParams) {
 		
 			EditorGUI.indentLevel++;
+
+
+			IOSNativeSettings.Instance.ShowUsersParams = EditorGUILayout.Foldout(IOSNativeSettings.Instance.ShowUsersParams, "Players");
+			if (IOSNativeSettings.Instance.ShowUsersParams) {
+			
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField(AutoLoadBigmagesLoadTitle);
+				IOSNativeSettings.Instance.AutoLoadUsersBigImages = EditorGUILayout.Toggle(IOSNativeSettings.Instance.AutoLoadUsersBigImages);
+				EditorGUILayout.EndHorizontal();
+				
+				
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField(AutoLoadSmallImagesLoadTitle);
+				IOSNativeSettings.Instance.AutoLoadUsersSmallImages = EditorGUILayout.Toggle(IOSNativeSettings.Instance.AutoLoadUsersSmallImages);
+				EditorGUILayout.EndHorizontal();
+			}
+
 			IOSNativeSettings.Instance.ShowAchievementsParams = EditorGUILayout.Foldout(IOSNativeSettings.Instance.ShowAchievementsParams, "Achievements");
 			if (IOSNativeSettings.Instance.ShowAchievementsParams) {
 				if(IOSNativeSettings.Instance.RegisteredAchievementsIds.Count == 0) {
@@ -249,7 +313,7 @@ public class IOSNativeSettingsEditor : Editor {
 
 		EditorGUILayout.Space();
 		
-		IOSNativeSettings.Instance.ShowOtherParams = EditorGUILayout.Foldout(IOSNativeSettings.Instance.ShowOtherParams, "Other Settings");
+		IOSNativeSettings.Instance.ShowOtherParams = EditorGUILayout.Foldout(IOSNativeSettings.Instance.ShowOtherParams, "Settings");
 		if (IOSNativeSettings.Instance.ShowOtherParams) {
 
 			EditorGUI.BeginChangeCheck();
@@ -278,7 +342,26 @@ public class IOSNativeSettingsEditor : Editor {
 			EditorGUILayout.LabelField(DisablePluginLogsNote);
 			IOSNativeSettings.Instance.DisablePluginLogs = EditorGUILayout.Toggle(IOSNativeSettings.Instance.DisablePluginLogs);
 			EditorGUILayout.EndHorizontal();
+			EditorGUILayout.Space();
 
+		
+			EditorGUILayout.BeginHorizontal();
+			if(GUILayout.Button("Remove IOS Native",  GUILayout.Width(140))) {
+				SA_RemoveTool.RemovePlugins();
+			}
+
+			EditorGUILayout.EndHorizontal();
+			EditorGUILayout.Space();
+
+
+			EditorGUILayout.BeginHorizontal();
+			if(GUILayout.Button("Remove OneSigal SKD",  GUILayout.Width(140))) {
+				bool remove = EditorUtility.DisplayDialog("Remove OneSigal SKD", "Are you sure you want to remove OneSigal SKD?", "Ok", "Cancel");
+				if(remove) {
+					SA_RemoveTool.RemoveOneSignal();
+				}
+			}
+			EditorGUILayout.EndHorizontal();
 
 		}
 	}
@@ -386,8 +469,6 @@ public class IOSNativeSettingsEditor : Editor {
 	private void AboutGUI() {
 
 
-
-
 		EditorGUILayout.HelpBox("About the Plugin", MessageType.None);
 		EditorGUILayout.Space();
 		
@@ -410,6 +491,49 @@ public class IOSNativeSettingsEditor : Editor {
 		#if UNITY_EDITOR
 		EditorUtility.SetDirty(IOSNativeSettings.Instance);
 		#endif
+	}
+
+
+	public static bool IsInstalled {
+		get {
+			return SA_VersionsManager.Is_ISN_Installed;
+		}
+	}
+	
+	
+	public static bool IsUpToDate {
+		get {
+			
+			if(CurrentVersion == SA_VersionsManager.ISN_Version) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+	
+	public static int CurrentVersion {
+		get {
+			return SA_VersionsManager.ParceVersion(IOSNativeSettings.VERSION_NUMBER);
+		}
+	}
+	
+	public static int CurrentMagorVersion {
+		get {
+			return SA_VersionsManager.ParceMagorVersion(IOSNativeSettings.VERSION_NUMBER);
+		}
+	}
+	
+	
+	public static int Version {
+		get {
+			return SA_VersionsManager.ISN_Version;
+		}
+	}
+
+
+	public static void UpdateVersionInfo() {
+		FileStaticAPI.Write(SA_VersionsManager.ISN_VERSION_INFO_PATH, IOSNativeSettings.VERSION_NUMBER);
 	}
 	
 	

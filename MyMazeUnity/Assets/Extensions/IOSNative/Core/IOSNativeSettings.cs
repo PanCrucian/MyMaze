@@ -10,7 +10,7 @@ using UnityEditor;
 
 public class IOSNativeSettings : ScriptableObject {
 
-	public const string VERSION_NUMBER = "6.1";
+	public const string VERSION_NUMBER = "7.3.1";
 
 	public string AppleId = "XXXXXXXXX";
 
@@ -24,6 +24,7 @@ public class IOSNativeSettings : ScriptableObject {
 	public bool ShowStoreKitParams = false;
 	public bool ShowGCParams = false;
 	public bool ShowAchievementsParams = false;
+	public bool ShowUsersParams = false;
 	public bool ShowOtherParams = false;
 	public bool ShowCameraAndGalleryParams = false;
 	public bool UseOneSignal = false;
@@ -35,6 +36,9 @@ public class IOSNativeSettings : ScriptableObject {
 	public bool UseGCRequestCaching = false;
 	public bool UsePPForAchievements = false;
 	public bool EnablePushNotificationsAPI = false;
+
+	public bool AutoLoadUsersSmallImages = true;
+	public bool AutoLoadUsersBigImages = false;
 
 
 	public int  MaxImageLoadSize = 512;

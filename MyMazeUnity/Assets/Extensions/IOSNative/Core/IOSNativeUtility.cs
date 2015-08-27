@@ -19,6 +19,10 @@ public class IOSNativeUtility {
 	
 	[DllImport ("__Internal")]
 	private static extern void _ISN_HidePreloader();
+
+
+	[DllImport ("__Internal")]
+	private static extern void _ISN_SetApplicationBagesNumber(int count);
 	
 
 	#endif
@@ -33,6 +37,13 @@ public class IOSNativeUtility {
 			_ISN_RedirectToAppStoreRatingPage(appleId);
 		#endif
 	}
+
+	public static void SetApplicationBagesNumber(int count) {
+		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+			_ISN_SetApplicationBagesNumber(count);
+		#endif
+	}
+
 
 
 	public static void ShowPreloader() {

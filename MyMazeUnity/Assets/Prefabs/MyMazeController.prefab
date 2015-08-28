@@ -1192,6 +1192,7 @@ GameObject:
   - 114: {fileID: 11455596}
   - 114: {fileID: 11429882}
   - 114: {fileID: 11499636}
+  - 114: {fileID: 11441590}
   m_Layer: 0
   m_Name: MyMazeController
   m_TagString: Untagged
@@ -3112,6 +3113,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelFrequency: 4
   adsShowTrashhold: 5
+  noAdsPacks:
+  - {fileID: 11432342}
+  - {fileID: 11418366}
 --- !u!114 &11430942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3539,6 +3543,17 @@ MonoBehaviour:
   StarsRequired: 65
   group: 2
   IsAllreadyPassed: 0
+--- !u!114 &11441590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4426108debc16ef4b859b0d96c8cfde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11442570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4743,6 +4758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ab0295220658641ae38a762f925607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  permissionLevel: {fileID: 11444548}
+  restoredLivesName: lives_restored
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

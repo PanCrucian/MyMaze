@@ -115,6 +115,9 @@ public class Life : MonoBehaviour, ISavingElement {
     /// <returns>true если можно, false если нельзя</returns>
     public bool Use()
     {
+        //не удалось пройти уровень
+        MyMaze.Instance.LastSelectedLevel.Fail();
+
         //если купили бесконечные жизни, то не тратим их
         if (MyMaze.Instance.InApps.IsOwned(ProductTypes.UnlimitedLives))
             return true;

@@ -62,6 +62,8 @@ public class GameLevel : MonoBehaviour {
         MyMaze.Instance.OnMenuLoad += OnMenuLoad;
         Player.Instance.OnMoveEnd += OnPlayerMoveEnd;
         MyMaze.Instance.OnPackGroupFirstTimePassed += OnPackGroupFirstTimePassed;
+
+        MyMaze.Instance.LastSelectedLevel.Started();
     }
 
     /// <summary>

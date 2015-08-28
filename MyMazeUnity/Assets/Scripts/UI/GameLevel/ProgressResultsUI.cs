@@ -24,7 +24,7 @@ public class ProgressResultsUI : MonoBehaviour {
             pack = MyMaze.Instance.LastSelectedPack;
             return;
         }
-        starsCountText.text = pack.StarsRecived.ToString();
+        starsCountText.text = pack.StarsRecived.ToString() + "/" + pack.StarsCount.ToString();
         barImage.fillAmount = Mathf.SmoothDamp(
             barImage.fillAmount,
             (float)pack.StarsRecived / (float)pack.StarsCount,

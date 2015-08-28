@@ -8,6 +8,9 @@ public class InApps : MonoBehaviour, ISavingElement {
     public Deligates.SimpleEvent OnUnlimitedLivesBuyed;
     public Deligates.SimpleEvent OnFiveLivesBuyed;
 
+    public Deligates.TransactionEvent OnBuyed;
+    public Deligates.TransactionEvent OnBuyRequest;
+
     public interface IStoreMatch
     {
 
@@ -48,11 +51,13 @@ public class InApps : MonoBehaviour, ISavingElement {
     /// <param name="type">Тип продукта</param>
     public void BuyRequest(ProductTypes type)
     {
+        if (OnBuyRequest != null)
+            OnBuyRequest(type);
 #if UNITY_IPHONE
         if (MyMaze.Instance.AppStore.IsInitalized)
         {
             Debug.Log("Отправляю запрос на покупку продукта: " + type.ToString("g"));
-            IOSInAppPurchaseManager.instance.buyProduct(GetProduct<AppStoreMatching>(type).productId);
+            IOSInAppPurchaseManager.Instance.buyProduct(GetProduct<AppStoreMatching>(type).productId);
         }
         else
             Debug.Log("AppStore не инициализирован");
@@ -83,6 +88,8 @@ public class InApps : MonoBehaviour, ISavingElement {
                 OnFiveLivesSuccess();
                 break;
         }
+        if (OnBuyed != null)
+            OnBuyed(type);
         Save();
     }
 

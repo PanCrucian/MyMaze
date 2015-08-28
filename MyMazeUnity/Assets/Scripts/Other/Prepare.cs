@@ -61,16 +61,17 @@ public class Prepare : MonoBehaviour {
     /// </summary>
     void InitAppsFlayer()
     {
-#if !UNITY_EDITOR
+        if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.WindowsEditor)
+            return;
+
         Debug.Log("Try for start: AppsFlayer");
         AppsFlyer.setAppsFlyerKey("wr4oyoitcFGVerfzDk5Qf9");
-
-    #if UNITY_IOS
-        AppsFlyer.setAppID("YOUR_APPLE_APP_ID_HERE");
-        AppsFlyer.setIsDebug(true);
+#if UNITY_IPHONE
+        AppsFlyer.setAppID("991622568");
+        //AppsFlyer.setIsDebug(false);
         AppsFlyer.getConversionData();
         AppsFlyer.trackAppLaunch();
-    #elif UNITY_ANDROID
+#elif UNITY_ANDROID
 		// All Initialization occur in the override activity defined in the mainfest.xml, including track app launch
 		// You can define AppsFlyer library here use this commented out code.
 
@@ -80,7 +81,6 @@ public class Prepare : MonoBehaviour {
 		//AppsFlyer.createValidateInAppListener ("AppsFlyerTrackerCallbacks", "onInAppBillingSuccess", "onInAppBillingFailure");
 		//AppsFlyer.loadConversionData("AppsFlyerTrackerCallbacks","didReceiveConversionData", "didReceiveConversionDataWithError");
 		//AppsFlyer.trackAppLaunch ();
-    #endif
 #endif
     }
 }

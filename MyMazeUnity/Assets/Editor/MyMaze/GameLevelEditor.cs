@@ -16,13 +16,15 @@ public class GameLevelEditor : Editor {
     {
  	    DrawDefaultInspector();
         EditorGUILayout.Space();
-        if(GUILayout.Button("Объекты к сетке")) {
-            CorrectDraggablePosition();
-        }
         if(Application.isPlaying)
             if (GUILayout.Button("Закончить уровень"))
                 PickUpAllPyramids();
-
+        if (Application.isPlaying)
+            return;
+        if (GUILayout.Button("Объекты к сетке"))
+        {
+            CorrectDraggablePosition();
+        }
         draw = EditorGUILayout.Toggle("Рисовать мышкой", draw);
         drawObject = (GridObject)EditorGUILayout.ObjectField("Что рисуем", drawObject, typeof(GridObject), false);
         color = EditorGUILayout.ColorField("Цвет", color);

@@ -22,6 +22,8 @@ public class Ads : MonoBehaviour {
     /// Время в секундах как минимальный интервал времени перед показом следующей рекламы
     /// </summary>
     public int adsShowTrashhold = 5;
+
+    public Pack[] noAdsPacks;
     
     /// <summary>
     /// Слушатель состояния интерстишалов
@@ -36,7 +38,7 @@ public class Ads : MonoBehaviour {
         else if (adState.Equals("hide"))
         {
             lastAdsHideTime = Timers.Instance.UnixTimestamp;
-        HZInterstitialAd.fetch();
+            HZInterstitialAd.fetch();
         }
     };
 
@@ -80,6 +82,8 @@ public class Ads : MonoBehaviour {
 
         MyMaze.Instance.OnLevelLoad += OnLevelLoadOrRestarted;
         MyMaze.Instance.OnLevelRestarted += OnLevelLoadOrRestarted;
+
+        levelFrequencyCounter = levelFrequency;
     }
 
     /// <summary>
@@ -88,6 +92,10 @@ public class Ads : MonoBehaviour {
     /// <param name="level"></param>
     void OnLevelLoadOrRestarted(Level level)
     {
+        //не считаем счетчик если текущий пак без рекламы
+        if (!IsCurrentPackWithAds())
+            return;
+
         levelFrequencyCounter++;
 
         if (levelFrequencyCounter >= levelFrequency)
@@ -104,9 +112,10 @@ public class Ads : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.5f);
 
-        if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
-            if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-                HZInterstitialAd.show(); //HZInterstitialAd.chartboostShowForLocation("mymaze.onLaunch");
+        if (IsCurrentPackWithAds())
+            if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
+                if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
+                    HZInterstitialAd.show(); //HZInterstitialAd.chartboostShowForLocation("mymaze.onLaunch");
     }
 
     /// <summary>
@@ -116,9 +125,28 @@ public class Ads : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.5f);
 
-        if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
-            if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-                HZInterstitialAd.show(); //HZInterstitialAd.chartboostShowForLocation("mymaze.onEndOfGame");
+        if (IsCurrentPackWithAds())
+            if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
+                if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
+                    HZInterstitialAd.show(); //HZInterstitialAd.chartboostShowForLocation("mymaze.onEndOfGame");
+    }
+
+    /// <summary>
+    /// Текущий пак позволяет показывать рекламу?
+    /// </summary>
+    /// <returns></returns>
+    bool IsCurrentPackWithAds()
+    {
+        bool allowedAds = true;
+        foreach (Pack pack in noAdsPacks)
+            if (MyMaze.Instance.LastSelectedPack.packName.Equals(pack.packName))
+                if (!pack.IsAllreadyPassed)
+                {
+                    allowedAds = false;
+                    break;
+                }
+
+        return allowedAds;
     }
 
     /// <summary>
@@ -148,7 +176,10 @@ public class Ads : MonoBehaviour {
         HZIncentivizedAd.show();
     }
 
-
+    /// <summary>
+    /// Приложение сварачивается или разварачивается
+    /// </summary>
+    /// <param name="pause"></param>
     void OnApplicationPause(bool pause)
     {
         if (!pause)

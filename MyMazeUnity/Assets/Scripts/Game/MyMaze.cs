@@ -282,6 +282,26 @@ public class MyMaze : MonoBehaviour, ISavingElement
     /// События которые нужно выполнить когда-то
     /// </summary>
     private List<DelayedEvent> delayedEvents = new List<DelayedEvent>();
+    
+    /// <summary>
+    /// Штам времени когда было установлено приложение в первый раз
+    /// </summary>
+    public int InstallTime
+    {
+        get
+        {
+            return _installTime;
+        }
+    }
+    private int _installTime = 0;
+
+    public int DaysInGame
+    {
+        get
+        {
+            return TimeSpan.FromSeconds(Mathf.Abs(Timers.Instance.UnixTimestamp - InstallTime)).Days;
+        }
+    }
 
     void Awake()
     {
@@ -305,10 +325,19 @@ public class MyMaze : MonoBehaviour, ISavingElement
         CheckNames();
         CheckLastSelectedForNull();
         Load();
+        SetupInstallTime();
         SetupListeners();
         yield return new WaitForEndOfFrame();
         CalculateTotalStars();
-        //CalculateStarsRecived();
+    }
+
+    /// <summary>
+    /// Проверим первый ли раз запустили приложение и установим штамп времени установки
+    /// </summary>
+    void SetupInstallTime()
+    {
+        if (_installTime <= 0)
+            _installTime = Timers.Instance.UnixTimestamp;
     }
 
     /// <summary>
@@ -399,17 +428,6 @@ public class MyMaze : MonoBehaviour, ISavingElement
         if (LastSelectedLevel == null)
             LastSelectedLevel = levels[0];
         //LastSelectedPage не проверяем, он устанавливается в меню
-    }
-
-    /// <summary>
-    /// Считаем сколько всего звезд было получено
-    /// </summary>
-    void CalculateStarsRecived()
-    {
-        int summ = 0;
-        foreach (Pack pack in MyMaze.Instance.packs)
-            summ += pack.StarsRecived;
-        StarsRecived = summ;
     }
 
     /// <summary>
@@ -716,6 +734,9 @@ public class MyMaze : MonoBehaviour, ISavingElement
         //счетчик ходов игрока
         PlayerPrefs.SetInt("MovesCounter", _movesCounter);
 
+        //когда установил игру
+        PlayerPrefs.SetInt("InstallTime", _installTime);
+
         //звуки
         this.Sounds.Save();
 
@@ -779,6 +800,10 @@ public class MyMaze : MonoBehaviour, ISavingElement
         //счетчик ходов игрока
         if (PlayerPrefs.HasKey("MovesCounter"))
             _movesCounter = PlayerPrefs.GetInt("MovesCounter");
+        
+        //когда установил игру
+        if (PlayerPrefs.HasKey("InstallTime"))
+            _installTime = PlayerPrefs.GetInt("InstallTime");
 
         //звуки
         this.Sounds.Load();

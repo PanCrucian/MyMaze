@@ -11,6 +11,8 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
 {
     public Deligates.LevelEvent OnPassed;
     public Deligates.LevelEvent OnFirstTimePassed;
+    public Deligates.LevelEvent OnFailed;
+    public Deligates.LevelEvent OnStarted;
 
     /// <summary>
     /// Имя
@@ -101,6 +103,24 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
             if (OnFirstTimePassed != null)
                 OnFirstTimePassed(this);
         }
+    }
+
+    /// <summary>
+    /// Уроень не смогли пройти
+    /// </summary>
+    public void Fail()
+    {
+        if (OnFailed != null)
+            OnFailed(this);
+    }
+
+    /// <summary>
+    /// Start занято монобехом, Starting - когда в уровень начали играть
+    /// </summary>
+    public void Started()
+    {
+        if (OnStarted != null)
+            OnStarted(this);
     }
 
     public int CompareTo(object obj)

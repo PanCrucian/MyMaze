@@ -71,8 +71,9 @@ public class Ads : MonoBehaviour {
     };
     
     void Awake()
-    {        
+    {
         HZInterstitialAd.setDisplayListener(HZInterstitialListener);
+        HZIncentivizedAd.fetch();
     }
 
     void Start()

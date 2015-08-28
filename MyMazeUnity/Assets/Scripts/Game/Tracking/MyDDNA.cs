@@ -100,7 +100,6 @@ public class MyDDNA : MonoBehaviour {
             "adsFreqSet",
             new EventBuilder()
                 .AddParam("adsFrequency", MyMaze.Instance.Ads.levelFrequency.ToString())
-                .AddParam("platform", DDNA.Instance.Platform)
         );
     }
 
@@ -114,7 +113,6 @@ public class MyDDNA : MonoBehaviour {
             "levelUp",
             new EventBuilder()
                 .AddParam("levelUpName", pack.packName)
-                .AddParam("platform", DDNA.Instance.Platform)
         );
     }
 
@@ -129,7 +127,6 @@ public class MyDDNA : MonoBehaviour {
             new EventBuilder()
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
-                .AddParam("platform", DDNA.Instance.Platform)
         );
     }
 
@@ -144,7 +141,6 @@ public class MyDDNA : MonoBehaviour {
             new EventBuilder()
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
-                .AddParam("platform", DDNA.Instance.Platform)
         );
     }
 
@@ -159,7 +155,6 @@ public class MyDDNA : MonoBehaviour {
             new EventBuilder()
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
-                .AddParam("platform", DDNA.Instance.Platform)
         );        
     }
 
@@ -177,7 +172,6 @@ public class MyDDNA : MonoBehaviour {
                 .AddParam("notificationId", id.ToString())
                 .AddParam("notificationLaunch", launchTime.ToString())
                 .AddParam("notificationName", name)
-                .AddParam("platform", DDNA.Instance.Platform)
         );
     }
 
@@ -188,7 +182,6 @@ public class MyDDNA : MonoBehaviour {
     void RecordThumbPurchaseAttempt(ProductTypes type)
     {
         EventBuilder thumbPurchaseAttempt = new EventBuilder();
-        thumbPurchaseAttempt.AddParam("platform", DDNA.Instance.Platform);
         thumbPurchaseAttempt.AddParam("thumbAdvID", type.ToString("g"));
 #if UNITY_IPHONE
         thumbPurchaseAttempt.AddParam("thumbIAPid", MyMaze.Instance.InApps.GetProduct<InApps.AppStoreMatching>(type).productId);
@@ -209,7 +202,6 @@ public class MyDDNA : MonoBehaviour {
     void RecordTransaction(ProductTypes type)
     {
         EventBuilder thumbPurchaseAttempt = new EventBuilder();
-        thumbPurchaseAttempt.AddParam("platform", DDNA.Instance.Platform);
         thumbPurchaseAttempt.AddParam("thumbAdvID", type.ToString("g"));
         thumbPurchaseAttempt.AddParam("thumbUserDaysInGame", MyMaze.Instance.DaysInGame.ToString());
         thumbPurchaseAttempt.AddParam("transactionName", type.ToString("g"));

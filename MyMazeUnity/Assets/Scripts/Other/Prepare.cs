@@ -67,7 +67,7 @@ public class Prepare : MonoBehaviour {
         Debug.Log("Try for start: AppsFlayer");
         AppsFlyer.setAppsFlyerKey("wr4oyoitcFGVerfzDk5Qf9");
 #if UNITY_IPHONE
-        AppsFlyer.setAppID("991622568");
+        AppsFlyer.setAppID("1018888691");
         //AppsFlyer.setIsDebug(false);
         AppsFlyer.getConversionData();
         AppsFlyer.trackAppLaunch();

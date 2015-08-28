@@ -31,11 +31,7 @@ public class Ads : MonoBehaviour {
     HZInterstitialAd.AdDisplayListener HZInterstitialListener = delegate(string adState, string adTag)
     {
         Debug.Log("HZInterstitialAd: " + adState);
-        if (adState.Equals("show"))
-        {
-            
-        }
-        else if (adState.Equals("hide"))
+        if (adState.Equals("hide"))
         {
             lastAdsHideTime = Timers.Instance.UnixTimestamp;
             HZInterstitialAd.fetch();
@@ -43,29 +39,23 @@ public class Ads : MonoBehaviour {
     };
 
     /// <summary>
-    /// Слушатель состояния Reward видео для жизней
+    /// Слушатель на Reward видео
     /// </summary>
-    HZIncentivizedAd.AdDisplayListener HZIncentivizedLifeListener = delegate(string adState, string adTag)
+    HZIncentivizedAd.AdDisplayListener HZIncentivizedListener = delegate(string adState, string adTag)
     {
         Debug.Log("HZIncentivizedAd: " + adState);
         if (adState.Equals("hide"))
         {
-            lastAdsHideTime = Timers.Instance.UnixTimestamp;
-            MyMaze.Instance.Life.RestoreOneUnit();
-            HZIncentivizedAd.fetch();
-        }
-    };
-
-    /// <summary>
-    /// Слушатель состояния Reward видео для ходов
-    /// </summary>
-    HZIncentivizedAd.AdDisplayListener HZIncentivizedMovesListener = delegate(string adState, string adTag)
-    {
-        Debug.Log("HZIncentivizedAd: " + adState);
-        if (adState.Equals("hide"))
-        {
-            lastAdsHideTime = Timers.Instance.UnixTimestamp;
-            GameObject.FindObjectOfType<AdsMovesUI>().AddMovesAndClose();
+            if (adTag.Equals("life"))
+            {
+                lastAdsHideTime = Timers.Instance.UnixTimestamp;
+                MyMaze.Instance.Life.RestoreOneUnit();
+            }
+            else if (adTag.Equals("moves"))
+            {
+                lastAdsHideTime = Timers.Instance.UnixTimestamp;
+                GameObject.FindObjectOfType<AdsMovesUI>().AddMovesAndClose();
+            }
             HZIncentivizedAd.fetch();
         }
     };
@@ -73,7 +63,7 @@ public class Ads : MonoBehaviour {
     void Awake()
     {
         HZInterstitialAd.setDisplayListener(HZInterstitialListener);
-        HZIncentivizedAd.fetch();
+        HZIncentivizedAd.setDisplayListener(HZIncentivizedListener);
     }
 
     void Start()
@@ -164,8 +154,7 @@ public class Ads : MonoBehaviour {
     /// </summary>
     public void ShowRewardVideoForLife()
     {
-        HZIncentivizedAd.setDisplayListener(HZIncentivizedLifeListener);
-        HZIncentivizedAd.show();        
+        HZIncentivizedAd.show("life");        
     }
 
     /// <summary>
@@ -173,8 +162,7 @@ public class Ads : MonoBehaviour {
     /// </summary>
     public void ShowRewardVideoForMoves()
     {
-        HZIncentivizedAd.setDisplayListener(HZIncentivizedMovesListener);
-        HZIncentivizedAd.show();
+        HZIncentivizedAd.show("moves");
     }
 
     /// <summary>

@@ -2782,7 +2782,7 @@ MonoBehaviour:
   steps:
   - stepName: HowToMove
     phase: 0
-    IsComplete: 1
+    IsComplete: 0
     IsStarted: 1
   - stepName: Teleport
     phase: 1

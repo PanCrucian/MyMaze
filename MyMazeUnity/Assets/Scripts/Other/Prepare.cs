@@ -36,7 +36,7 @@ public class Prepare : MonoBehaviour {
     void InitDeltaDNA()
     {
         Debug.Log("Try for start: DeltaDNA SDK");
-        //DDNA.Instance.SetLoggingLevel(Logger.Level.DEBUG);
+        DDNA.Instance.SetLoggingLevel(Logger.Level.DEBUG);
         DDNA.Instance.ClientVersion = "1.0.0";
 
         DDNA.Instance.StartSDK(

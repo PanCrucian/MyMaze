@@ -101,6 +101,7 @@ public class MyDDNA : MonoBehaviour {
             new EventBuilder()
                 .AddParam("adsFrequency", MyMaze.Instance.Ads.levelFrequency.ToString())
         );
+        DDNA.Instance.Upload();
     }
 
     /// <summary>
@@ -114,6 +115,7 @@ public class MyDDNA : MonoBehaviour {
             new EventBuilder()
                 .AddParam("levelUpName", pack.packName)
         );
+        DDNA.Instance.Upload();
     }
 
     /// <summary>
@@ -128,6 +130,7 @@ public class MyDDNA : MonoBehaviour {
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
         );
+        DDNA.Instance.Upload();
     }
 
     /// <summary>
@@ -142,6 +145,7 @@ public class MyDDNA : MonoBehaviour {
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
         );
+        DDNA.Instance.Upload();
     }
 
     /// <summary>
@@ -155,7 +159,8 @@ public class MyDDNA : MonoBehaviour {
             new EventBuilder()
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
-        );        
+        );
+        DDNA.Instance.Upload();   
     }
 
     /// <summary>
@@ -173,6 +178,7 @@ public class MyDDNA : MonoBehaviour {
                 .AddParam("notificationLaunch", launchTime.ToString())
                 .AddParam("notificationName", name)
         );
+        DDNA.Instance.Upload();
     }
 
     /// <summary>
@@ -193,6 +199,7 @@ public class MyDDNA : MonoBehaviour {
         thumbPurchaseAttempt.AddParam("transactionType", type.ToString("g"));
 
         DDNA.Instance.RecordEvent("thumbPurchaseAttempt", thumbPurchaseAttempt);
+        DDNA.Instance.Upload();
     }
 
     /// <summary>
@@ -208,5 +215,6 @@ public class MyDDNA : MonoBehaviour {
         thumbPurchaseAttempt.AddParam("transactionType", type.ToString("g"));
 
         DDNA.Instance.RecordEvent("transaction", thumbPurchaseAttempt);
+        DDNA.Instance.Upload();
     }
 }

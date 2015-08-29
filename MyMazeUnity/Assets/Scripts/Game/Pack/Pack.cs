@@ -90,6 +90,7 @@ public class Pack : MonoBehaviour, IPack, ISavingElement {
 
             if (!IsAllreadyPassed)
             {
+                Debug.Log("Пак " + packName + " пройден в первый раз");
                 IsAllreadyPassed = true;
                 if (OnFirstTimePassed != null)
                     OnFirstTimePassed(this);

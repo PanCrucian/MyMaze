@@ -12,6 +12,8 @@ namespace DeltaDNA
 {
 	public class DDNA : Singleton<DDNA>
 	{
+        public Deligates.SimpleEvent OnUploadEnd;
+
 		static readonly string PF_KEY_USER_ID = "DDSDK_USER_ID";
 		static readonly string PF_KEY_FIRST_RUN = "DDSDK_FIRST_RUN";
 		static readonly string PF_KEY_HASH_SECRET = "DDSDK_HASH_SECRET";
@@ -727,6 +729,8 @@ namespace DeltaDNA
                         else {
                             Logger.LogWarning("Event upload failed - try again later.");
                         }
+                        if (OnUploadEnd != null)
+                            OnUploadEnd();
                     };
 
 					yield return StartCoroutine(PostEvents(events.ToArray(), postCb));

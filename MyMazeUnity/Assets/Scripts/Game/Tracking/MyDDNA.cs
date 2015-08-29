@@ -4,6 +4,16 @@ using DeltaDNA;
 
 public class MyDDNA : MonoBehaviour {
 
+    private bool uploadRoutine = false;
+    private float uploadDelay = 1f;
+
+    enum TransactionTypes
+    {
+        PURCHASE,
+        SALE,
+        TRADE
+    }
+
     IEnumerator Start()
     {
         yield return new WaitForEndOfFrame();
@@ -20,6 +30,8 @@ public class MyDDNA : MonoBehaviour {
         MyMaze.Instance.Notifications.OnNewNotice += OnNewNotification;
         MyMaze.Instance.InApps.OnBuyRequest += OnBuyRequest;
         MyMaze.Instance.InApps.OnBuyed += OnBuyed;
+
+        RecordAdsFreqency();
     }
 
     /// <summary>
@@ -99,9 +111,9 @@ public class MyDDNA : MonoBehaviour {
         DDNA.Instance.RecordEvent(
             "adsFreqSet",
             new EventBuilder()
-                .AddParam("adsFrequency", MyMaze.Instance.Ads.levelFrequency.ToString())
+                .AddParam("adsFrequency", MyMaze.Instance.Ads.levelFrequency)
         );
-        DDNA.Instance.Upload();
+        Upload();
     }
 
     /// <summary>
@@ -115,7 +127,7 @@ public class MyDDNA : MonoBehaviour {
             new EventBuilder()
                 .AddParam("levelUpName", pack.packName)
         );
-        DDNA.Instance.Upload();
+        Upload();
     }
 
     /// <summary>
@@ -125,12 +137,13 @@ public class MyDDNA : MonoBehaviour {
     void RecordMissionCompleted(Level level)
     {
         DDNA.Instance.RecordEvent(
-            "missionCompleted", 
+            "missionCompleted",
             new EventBuilder()
+                .AddParam("isTutorial", System.Convert.ToBoolean("FALSE"))
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
         );
-        DDNA.Instance.Upload();
+        Upload();
     }
 
     /// <summary>
@@ -142,10 +155,11 @@ public class MyDDNA : MonoBehaviour {
         DDNA.Instance.RecordEvent(
             "missionFailed",
             new EventBuilder()
+                .AddParam("isTutorial", System.Convert.ToBoolean("FALSE"))
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
         );
-        DDNA.Instance.Upload();
+        Upload();
     }
 
     /// <summary>
@@ -157,10 +171,11 @@ public class MyDDNA : MonoBehaviour {
         DDNA.Instance.RecordEvent(
             "missionStarted",
             new EventBuilder()
+                .AddParam("isTutorial", System.Convert.ToBoolean("FALSE"))
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
         );
-        DDNA.Instance.Upload();   
+        Upload();   
     }
 
     /// <summary>
@@ -174,11 +189,11 @@ public class MyDDNA : MonoBehaviour {
         DDNA.Instance.RecordEvent(
             "notificationOpened",
             new EventBuilder()
-                .AddParam("notificationId", id.ToString())
-                .AddParam("notificationLaunch", launchTime.ToString())
+                .AddParam("notificationId", id)
+                .AddParam("notificationLaunch", true)
                 .AddParam("notificationName", name)
         );
-        DDNA.Instance.Upload();
+        Upload();
     }
 
     /// <summary>
@@ -194,12 +209,12 @@ public class MyDDNA : MonoBehaviour {
 #elif UNITY_ANDROID
         thumbPurchaseAttempt.AddParam("thumbIAPid", "Not setuped yet");
 #endif
-        thumbPurchaseAttempt.AddParam("thumbUserDaysInGame", MyMaze.Instance.DaysInGame.ToString());
+        thumbPurchaseAttempt.AddParam("thumbUserDaysInGame", MyMaze.Instance.DaysInGame);
         thumbPurchaseAttempt.AddParam("transactionName", type.ToString("g"));
-        thumbPurchaseAttempt.AddParam("transactionType", type.ToString("g"));
-
+        thumbPurchaseAttempt.AddParam("transactionType", TransactionTypes.PURCHASE.ToString("g"));
+        thumbPurchaseAttempt.AddParam("thumbUserCurrentCashBalance", 1);
         DDNA.Instance.RecordEvent("thumbPurchaseAttempt", thumbPurchaseAttempt);
-        DDNA.Instance.Upload();
+        Upload();
     }
 
     /// <summary>
@@ -208,13 +223,56 @@ public class MyDDNA : MonoBehaviour {
     /// <param name="type"></param>
     void RecordTransaction(ProductTypes type)
     {
+        Debug.Log("RecordTransaction " + type.ToString("g"));
         EventBuilder thumbPurchaseAttempt = new EventBuilder();
         thumbPurchaseAttempt.AddParam("thumbAdvID", type.ToString("g"));
-        thumbPurchaseAttempt.AddParam("thumbUserDaysInGame", MyMaze.Instance.DaysInGame.ToString());
+        thumbPurchaseAttempt.AddParam("thumbUserDaysInGame", MyMaze.Instance.DaysInGame);
         thumbPurchaseAttempt.AddParam("transactionName", type.ToString("g"));
-        thumbPurchaseAttempt.AddParam("transactionType", type.ToString("g"));
+        thumbPurchaseAttempt.AddParam("transactionType", TransactionTypes.PURCHASE.ToString("g"));
+        thumbPurchaseAttempt.AddParam("productsReceived", new ProductBuilder()
+                                .AddItem(type.ToString("g"), type.ToString("g"), 1));
+		thumbPurchaseAttempt.AddParam("productsSpent", new ProductBuilder()
+						        .AddRealCurrency("USD",1));
+
+        thumbPurchaseAttempt.AddParam("afAttrAdgroupID", "none");
+        thumbPurchaseAttempt.AddParam("afAttrAdgroupName", "none");
+        thumbPurchaseAttempt.AddParam("afAttrAdsetID", "none");
+        thumbPurchaseAttempt.AddParam("afAttrAdsetName", "none");
+        thumbPurchaseAttempt.AddParam("afAttrCampaignID", "none");
+        thumbPurchaseAttempt.AddParam("afAttrIsFacebook", false);
+        thumbPurchaseAttempt.AddParam("afAttrMediaSource", "none");
+        thumbPurchaseAttempt.AddParam("afAttrStatus", "ORGANIC");
 
         DDNA.Instance.RecordEvent("transaction", thumbPurchaseAttempt);
-        DDNA.Instance.Upload();
+        Upload();
+    }
+
+    void Upload()
+    {
+        if (!uploadRoutine)
+        {
+            uploadRoutine = true;
+            StartCoroutine(UploadNumerator());
+        }
+    }
+
+    IEnumerator UploadNumerator()
+    {
+        yield return new WaitForSeconds(uploadDelay);
+        if (!DDNA.Instance.IsUploading)
+        {
+            DDNA.Instance.Upload();
+            DDNA.Instance.OnUploadEnd += OnUploadEnd;
+        }
+        else
+        {
+            StartCoroutine(UploadNumerator());
+        }
+    }
+
+    void OnUploadEnd()
+    {
+        DDNA.Instance.OnUploadEnd -= OnUploadEnd;
+        uploadRoutine = false;
     }
 }

@@ -2368,27 +2368,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iOSMatching:
-  - achId: A1
+  - achId: mymaze_achievement_greyzone
     type: 1
-  - achId: A2
+  - achId: mymaze_achievement_purplezone
     type: 2
-  - achId: A3
+  - achId: mymaze_achievement_greenzone
     type: 3
-  - achId: A4
+  - achId: mymaze_achievement_bluezone
     type: 0
-  - achId: A5
+  - achId: mymaze_achievement_finalzone
     type: 4
-  - achId: A6
+  - achId: mymaze_achievement_treasurehunter
     type: 5
-  - achId: A7
+  - achId: mymaze_achievement_firststeps
     type: 6
-  - achId: A8
+  - achId: mymaze_achievement_experienced
     type: 7
-  - achId: A9
+  - achId: mymaze_achievement_advanced
     type: 8
-  - achId: A10
+  - achId: mymaze_achievement_master
     type: 9
-  - achId: A11
+  - achId: mymaze_achievement_gamecomplete
     type: 10
   elements:
   - name: Page00Opened
@@ -3755,7 +3755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iOSMatching:
-  - boardId: L1
+  - boardId: mymaze_leaderboard
     type: 0
   elements:
   - name: Stars

@@ -56,6 +56,9 @@ public class Ads : MonoBehaviour, ISavingElement {
         Debug.Log("HZIncentivizedAd: " + adState);
         if (adState.Equals("hide"))
         {
+#if UNITY_IPHONE
+            MyMaze.Instance.Sounds.UnMute();
+#endif
             MyMaze.Instance.Ads.lastAdsHideTime = Timers.Instance.UnixTimestamp;
             if (adTag.Equals("life"))
             {
@@ -162,7 +165,10 @@ public class Ads : MonoBehaviour, ISavingElement {
     /// </summary>
     public void ShowRewardVideoForLife()
     {
-        HZIncentivizedAd.show("life");        
+        HZIncentivizedAd.show("life");   
+#if UNITY_IPHONE
+        MyMaze.Instance.Sounds.Mute();
+#endif
     }
 
     /// <summary>
@@ -171,6 +177,9 @@ public class Ads : MonoBehaviour, ISavingElement {
     public void ShowRewardVideoForMoves()
     {
         HZIncentivizedAd.show("moves");
+#if UNITY_IPHONE
+        MyMaze.Instance.Sounds.Mute();
+#endif
     }
 
     /// <summary>
@@ -180,14 +189,7 @@ public class Ads : MonoBehaviour, ISavingElement {
     void OnApplicationPause(bool pause)
     {
         if (!pause)
-        {
-            MyMaze.Instance.Sounds.UnMute();
             StartCoroutine(ShowOnLaunchInterstitial());
-        }
-        else
-        {
-            MyMaze.Instance.Sounds.Mute();
-        }
     }
 
     public void Save()

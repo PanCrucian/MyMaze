@@ -13,7 +13,7 @@ def edit_pbxproj_file():
                 continue
             xcodeproj = os.path.join(unityProjectTopDirectory, xcodeproj)
             for pbxproj in os.listdir(xcodeproj):
-                if not re.search('\.pbxproj', pbxproj):
+                if not re.search('project\.pbxproj', pbxproj):
                     continue
                 pbxproj = os.path.join(xcodeproj, pbxproj)
                 
@@ -33,6 +33,7 @@ def edit_pbxproj_file():
                 # the below paths are relative to the SDKROOT, i.e.: `/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/`
                 # Add the Frameworks needed
                 project.add_file_if_doesnt_exist('usr/lib/libxml2.dylib',                       parent=frameworksGroupID, tree='SDKROOT')
+                project.add_file_if_doesnt_exist('usr/lib/libsqlite3.dylib',                    parent=frameworksGroupID, tree='SDKROOT')
 
                 # for AdColony
                 project.add_file_if_doesnt_exist('System/Library/Frameworks/WebKit.framework',  parent=frameworksGroupID, tree='SDKROOT')
@@ -47,9 +48,10 @@ def edit_pbxproj_file():
 
                 project.save()
                 print "Heyzap: successfully modified file: ", pbxproj
-                return
-        raise FileExistsError("Could not find a .pbxproj file to edit")
+                return 0
+        raise FileExistsError("Could not find the 'project.pbxproj' file to edit")
     except Exception as e:
-      print "Heyzap: ERROR modifying .pbxproj, error: ", e
+      print "Heyzap: ERROR modifying 'project.pbxproj', error: ", e
+      return 1
 
-edit_pbxproj_file()
+sys.exit(edit_pbxproj_file())

@@ -84,19 +84,37 @@
  */
 + (void) fetchForTag: (NSString *) tag withCompletion:(void (^)(BOOL, NSError *))completion;
 
+
 /**
- *  Whether or not a video ad is ready to show
+ *  Fetches an incentivized video ad for each of the given tags.
  *
- *  @return If the video is ready to show
+ *  @param tags An NSArray of NSString* identifiers for the location of ads which you can use to disable ads from your dashboard.
+ */
++ (void) fetchForTags:(NSArray *)tags;
+
+
+/**
+ *  Fetches an incentivized video ad for each of the given tags with an optional completion handler.
+ *
+ *  @param tag        An NSArray of NSString* identifiers for the location of ads which you can use to disable ads from your dashboard.
+ *  @param completion A block called when an ad for each tag is fetched or fails to fetch. `result` states whether the fetch was sucessful; the error object describes the issue, if there was one.
+ */
++ (void) fetchForTags:(NSArray *)tags withCompletion:(void (^)(BOOL result, NSError *error))completion;
+
+
+/**
+ *  Whether or not an incentivized video ad is ready to show.
+ *
+ *  @return If an incentivized video ad is ready to show.
  */
 + (BOOL) isAvailable;
 
 /**
- *  Whether or not an incentivized ad is ready to show for the particular tag.
+ *  Whether or not an incentivized video ad is ready to show for the given tag.
  *
  *  @param tag Tag name describing the location or context for the ad to be shown.
  *  
- *  @return If the video is ready to show
+ *  @return If an incentivized video ad is ready to show.
  */
 + (BOOL) isAvailableForTag: (NSString *) tag;
 

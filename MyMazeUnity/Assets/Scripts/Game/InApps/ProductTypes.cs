@@ -5,5 +5,6 @@ public enum ProductTypes {
     NoAds,
     BoosterTimeMachine,
     UnlimitedLives,
-    FiveLives
+    FiveLives,
+    BoosterTeleport
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using DeltaDNA;
+using ChartboostSDK;
 
 public class Prepare : MonoBehaviour {
 
@@ -20,7 +21,7 @@ public class Prepare : MonoBehaviour {
 
     void Update()
     {
-        if (counter > 1)
+        if (counter == 1)
         {
             InitDeltaDNA();
             InitAppsFlayer();

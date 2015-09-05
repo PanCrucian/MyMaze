@@ -40,8 +40,10 @@ public class HeyzapPostBuild : MonoBehaviour
 				
 				proc.Start();
 				proc.WaitForExit();
-				
-				UnityEngine.Debug.Log( "Heyzap: Finished post-build script" );
+				if (proc.ExitCode > 0) {
+					UnityEngine.Debug.LogError("Heyzap post-build script had an error(code=" + proc.ExitCode + "). See the editor log for more info & email a copy of it to support@heyzap.com for more help.");
+				}
+				UnityEngine.Debug.Log( "Heyzap: Finished post-build script." );
 			}
 		}
 	}

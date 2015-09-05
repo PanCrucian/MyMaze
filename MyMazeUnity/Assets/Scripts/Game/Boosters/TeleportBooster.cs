@@ -41,6 +41,11 @@ public class TeleportBooster : Booster, ISavingElement {
 
         return false;
     }
+
+    public void Reset()
+    {
+        _lastUsingTime = 0;
+    }
     
     public override void Open()
     {

@@ -31,7 +31,7 @@ public class Life : MonoBehaviour, ISavingElement {
     /// <summary>
     /// Массив жизней
     /// </summary>
-    private LifeBlock[] blocks;
+    private LifeBlock[] _blocks;
 
     /// <summary>
     /// Возвращяет текущее количество жизней
@@ -41,7 +41,7 @@ public class Life : MonoBehaviour, ISavingElement {
         get
         {
             int units = 0;
-            foreach (LifeBlock block in blocks)
+            foreach (LifeBlock block in _blocks)
             {
                 if (block.IsAvaliable)
                     units++;
@@ -49,6 +49,15 @@ public class Life : MonoBehaviour, ISavingElement {
             return units;
         }
     }
+
+    public LifeBlock[] Blocks
+    {
+        get
+        {
+            return _blocks;
+        }
+    }
+
     void Awake()
     {
         SetDefaultValues();
@@ -82,12 +91,12 @@ public class Life : MonoBehaviour, ISavingElement {
     /// </summary>
     void SetDefaultValues()
     {
-        blocks = new LifeBlock[_maxUnits];
+        _blocks = new LifeBlock[_maxUnits];
         for (int i = 0; i < _maxUnits; i++)
         {
             LifeBlock block = new LifeBlock();
             block.index = i;
-            blocks[i] = block;
+            _blocks[i] = block;
         }
     }
 
@@ -102,7 +111,7 @@ public class Life : MonoBehaviour, ISavingElement {
     void Regeneration()
     {
         int unixTimestamp = Timers.Instance.UnixTimestamp;
-        foreach (LifeBlock block in blocks)
+        foreach (LifeBlock block in _blocks)
         {
             if (!block.IsAvaliable && block.regenerationTime <= unixTimestamp)
                 RestoreOneUnit();
@@ -122,19 +131,27 @@ public class Life : MonoBehaviour, ISavingElement {
         if (MyMaze.Instance.InApps.IsOwned(ProductTypes.UnlimitedLives))
             return true;
 
-        LifeBlock block = GetFirstAvaliableBlock();
-        if (block != null)
+        LifeBlock blockAvb = GetFirstAvaliableBlock();
+        if (blockAvb != null)
         {
+            int timeOffset = 0; //отступ для перенятия остатка таймера от следующего сердца
+            LifeBlock blockNotAvb = GetFirstNotAvaliableBlock();
+            if (blockNotAvb != null)
+                timeOffset = restoreTime - Mathf.Abs(blockNotAvb.regenerationTime - Timers.Instance.UnixTimestamp);
+
             int j = 1;
-            for (int i = block.index; i < _maxUnits; i++)
+            for (int i = blockAvb.index; i < _maxUnits; i++)
             {
-                blocks[i].IsAvaliable = false;
-                blocks[i].regenerationTime = Timers.Instance.UnixTimestamp + restoreTime * j;
+                _blocks[i].IsAvaliable = false;
+                _blocks[i].regenerationTime = Timers.Instance.UnixTimestamp + restoreTime * j - timeOffset;
                 j++;
             }
+
             if (OnUseLife != null)
                 OnUseLife(Units);
+
             Save();
+
             return true;
         }
         if (OnEmptyLife != null)
@@ -151,9 +168,9 @@ public class Life : MonoBehaviour, ISavingElement {
     {
         for (int i = _maxUnits - 1; i >= 0; i--)
         {
-            if (blocks[i].IsAvaliable)
+            if (_blocks[i].IsAvaliable)
             {
-                return blocks[i];
+                return _blocks[i];
             }
         }
         return null;
@@ -167,9 +184,9 @@ public class Life : MonoBehaviour, ISavingElement {
     {
         for (int i = 0; i < _maxUnits; i++)
         {
-            if (!blocks[i].IsAvaliable)
+            if (!_blocks[i].IsAvaliable)
             {
-                return blocks[i];
+                return _blocks[i];
             }
         }
         return null;
@@ -191,7 +208,7 @@ public class Life : MonoBehaviour, ISavingElement {
     /// <summary>
     /// Восстановить 1 Жизнь
     /// </summary>
-    public void RestoreOneUnit()
+    public void RestoreOneUnit(bool save)
     {
         LifeBlock block = GetFirstNotAvaliableBlock();
         if (block == null)
@@ -205,10 +222,17 @@ public class Life : MonoBehaviour, ISavingElement {
         int j = 1;
         for (int i = block.index + 1; i < _maxUnits; i++)
         {
-            blocks[i].IsAvaliable = false;
-            blocks[i].regenerationTime = Timers.Instance.UnixTimestamp + restoreTime * j;
+            _blocks[i].IsAvaliable = false;
+            _blocks[i].regenerationTime = Timers.Instance.UnixTimestamp + restoreTime * j;
             j++;
         }
+        if (save)
+            Save();
+    }
+
+    public void RestoreOneUnit()
+    {
+        RestoreOneUnit(true);
     }
 
     /// <summary>
@@ -219,11 +243,12 @@ public class Life : MonoBehaviour, ISavingElement {
         int startIndex = 0;
         LifeBlock avBlock = GetFirstAvaliableBlock();
         if (avBlock != null)
-            startIndex = System.Array.IndexOf(blocks, avBlock);
+            startIndex = System.Array.IndexOf(_blocks, avBlock);
         for (int i = startIndex; i < _maxUnits; i++)
         {
-            RestoreOneUnit();
+            RestoreOneUnit(false);
         }
+        Save();
     }
 
     /// <summary>
@@ -231,7 +256,7 @@ public class Life : MonoBehaviour, ISavingElement {
     /// </summary>
     public void Save()
     {
-        foreach (LifeBlock block in blocks)
+        foreach (LifeBlock block in _blocks)
         {
             PlayerPrefs.SetInt("Life#" + block.index.ToString() + "#IsAvaliable", System.Convert.ToInt32(block.IsAvaliable));
             PlayerPrefs.SetInt("Life#" + block.index.ToString() + "#regenerationTime", block.regenerationTime);
@@ -243,7 +268,7 @@ public class Life : MonoBehaviour, ISavingElement {
     /// </summary>
     public void Load()
     {
-        foreach (LifeBlock block in blocks)
+        foreach (LifeBlock block in _blocks)
         {
             if (PlayerPrefs.HasKey("Life#" + block.index.ToString() + "#IsAvaliable"))
                 block.IsAvaliable = System.Convert.ToBoolean(PlayerPrefs.GetInt("Life#" + block.index.ToString() + "#IsAvaliable"));
@@ -266,10 +291,22 @@ public class Life : MonoBehaviour, ISavingElement {
         int unixTimestamp = Timers.Instance.UnixTimestamp;
         for (int i = _maxUnits - 1; i >= 0; i--)
         {
-            LifeBlock block = blocks[i];
+            LifeBlock block = _blocks[i];
             if (!block.IsAvaliable && block.regenerationTime <= unixTimestamp)
                 block.Restore();
         }
+    }
+
+    /// <summary>
+    /// Если жизни чануть багать, возможно это надо будет убрать
+    /// </summary>
+    /// <param name="pause"></param>
+    void OnApplicationPause(bool pause)
+    {
+        if (pause)
+            Save();
+        else
+            Load();
     }
 
     /// <summary>
@@ -278,7 +315,7 @@ public class Life : MonoBehaviour, ISavingElement {
     /// <returns></returns>
     public LifeBlock GetLastBlock()
     {
-        return blocks[MaxUnits - 1];
+        return _blocks[MaxUnits - 1];
     }
 
     /// <summary>

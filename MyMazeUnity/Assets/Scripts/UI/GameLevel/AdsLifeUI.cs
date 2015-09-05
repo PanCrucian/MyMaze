@@ -58,7 +58,9 @@ public class AdsLifeUI : MonoBehaviour {
     /// </summary>
     public void OnFreeLifeButton()
     {
+#if (UNITY_IPHONE || UNITY_ANDROID) && !UNITY_EDITOR
         MyMaze.Instance.Ads.ShowRewardVideoForLife();
+#endif
 #if UNITY_EDITOR
         MyMaze.Instance.Life.RestoreOneUnit();
 #endif

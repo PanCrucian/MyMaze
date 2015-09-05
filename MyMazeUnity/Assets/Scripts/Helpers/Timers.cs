@@ -17,6 +17,9 @@ public class Timers : MonoBehaviour {
 
     private static Timers _instance;
 
+    [HideInInspector]
+    public int unixTimeOffset = 0;
+
     void Awake()
     {
         if (!IsExist())
@@ -49,7 +52,7 @@ public class Timers : MonoBehaviour {
     {
         get
         {
-            return (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            return (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds + unixTimeOffset;
         }
     }
 }

@@ -2329,6 +2329,11 @@ MonoBehaviour:
     phase: 2
     IsComplete: 0
     IsStarted: 0
+  - stepName: SecretStar
+    phase: 3
+    IsComplete: 0
+    IsStarted: 0
+  secretStarTutorialOnLevel: {fileID: 11468760}
 --- !u!114 &11404178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3111,11 +3116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4170de813b9af4e94356a49bc00eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelFrequency: 4
+  frequency: 1
+  cooldown: 60
   adsShowTrashhold: 5
   noAdsPacks:
   - {fileID: 11432342}
-  - {fileID: 11418366}
 --- !u!114 &11430942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3278,14 +3283,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appStoreProducts:
-  - productId: NotSetYet01
+  - productId: mymaze_noads
     type: 0
-  - productId: NotSetYet02
+    cost: 199
+  - productId: mymaze_rewind
     type: 1
-  - productId: NotSetYet03
+    cost: 99
+  - productId: mymaze_unlimited
     type: 2
-  - productId: NotSetYet04
+    cost: 499
+  - productId: mymaze_refill
     type: 3
+    cost: 99
+  - productId: mymaze_teleportation
+    type: 4
+    cost: 99
   basket:
   - isOwned: 0
     type: 0
@@ -3295,6 +3307,8 @@ MonoBehaviour:
     type: 2
   - isOwned: 0
     type: 3
+  - isOwned: 0
+    type: 4
 --- !u!114 &11432342
 MonoBehaviour:
   m_ObjectHideFlags: 1

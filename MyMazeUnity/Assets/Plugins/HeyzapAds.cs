@@ -107,6 +107,16 @@ public class HeyzapAds : MonoBehaviour {
 
     #endif
   }
+  
+  public static string getRemoteData(){
+    #if UNITY_ANDROID
+    return HeyzapAdsAndroid.getRemoteData();
+    #elif UNITY_IPHONE && !UNITY_EDITOR
+    return HeyzapAdsIOS.getRemoteData();
+    #else 
+    return "{}";
+    #endif
+  }
 
   public static void showMediationTestSuite() {
     #if UNITY_ANDROID
@@ -224,6 +234,12 @@ public class HeyzapAdsIOS : MonoBehaviour {
   public static bool isNetworkInitialized(string network) {
     return hz_ads_is_network_initialized(network);
   }
+  
+  public static string getRemoteData(){
+    return hz_ads_get_remote_data();
+  }
+  [DllImport ("__Internal")]
+  private static extern string hz_ads_get_remote_data();
 
   [DllImport ("__Internal")]
   private static extern bool hz_ads_is_network_initialized(string network);
@@ -293,6 +309,14 @@ public class HeyzapAdsAndroid : MonoBehaviour {
     AndroidJNIHelper.debug = false;
     using (AndroidJavaClass jc = new AndroidJavaClass("com.heyzap.sdk.extensions.unity3d.UnityHelper")) {
       jc.CallStatic("showNetworkActivity");
+    }
+  }
+  public static string getRemoteData() {
+    if(Application.platform != RuntimePlatform.Android) return "{}";
+    AndroidJNIHelper.debug = false;
+    
+    using (AndroidJavaClass jc = new AndroidJavaClass("com.heyzap.sdk.extensions.unity3d.UnityHelper")) {
+      return jc.CallStatic<String>("getCustomPublisherData");
     }
   }
 

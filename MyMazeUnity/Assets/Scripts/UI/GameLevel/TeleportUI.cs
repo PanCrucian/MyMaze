@@ -29,6 +29,19 @@ public class TeleportUI : MonoBehaviour {
         float segmentsInterval = 1f / (float)maxSegments;
         for (int i = 0; i < maxSegments; i++)
             segments[i] = segmentsInterval * (float) (i+1);
+
+        MyMaze.Instance.InApps.OnTeleportBuyed += OnTeleportBuyed;
+    }
+
+    void OnTeleportBuyed()
+    {
+        if(MyMaze.Instance.InApps.ConsumeTeleport())
+            MyMaze.Instance.TeleportBooster.Reset();
+    }
+
+    void OnDestroy()
+    {
+        MyMaze.Instance.InApps.OnTeleportBuyed -= OnTeleportBuyed;
     }
 
     void Update()
@@ -43,7 +56,9 @@ public class TeleportUI : MonoBehaviour {
 
     public void InitTeleportAction()
     {
-        if(teleport.IsAvaliable())
+        if (teleport.IsAvaliable())
             Player.Instance.PrepareForTeleport();
+        else
+            MyMaze.Instance.InApps.BuyRequest(ProductTypes.BoosterTeleport);
     }
 }

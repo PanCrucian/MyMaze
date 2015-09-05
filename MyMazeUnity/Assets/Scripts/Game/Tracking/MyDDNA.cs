@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DeltaDNA;
-
+using System.Collections.Generic;
 public class MyDDNA : MonoBehaviour {
 
     private bool uploadRoutine = false;
@@ -30,8 +30,46 @@ public class MyDDNA : MonoBehaviour {
         MyMaze.Instance.Notifications.OnNewNotice += OnNewNotification;
         MyMaze.Instance.InApps.OnBuyRequest += OnBuyRequest;
         MyMaze.Instance.InApps.OnBuyed += OnBuyed;
+        EngageOnGameStart();
+    }
 
-        RecordAdsFreqency();
+    /// <summary>
+    /// Запросим параметры из DDNA для события onGameStart
+    /// </summary>
+    void EngageOnGameStart()
+    {
+        Debug.Log("Запрашиваю из DDNA параметры на onGameStart");
+        DDNA.Instance.RequestEngagement("onGameStart", null, (response) =>
+        {
+            if (response != null && response.ContainsKey("parameters"))
+            {
+                Dictionary<string, object> parameters = (Dictionary<string, object>)response["parameters"];
+
+                //Частота показа
+                if (parameters.ContainsKey("adsFrequency"))
+                {
+                    int adsFrequency = System.Convert.ToInt32(parameters["adsFrequency"]);
+                    if (MyMaze.Instance.Ads.frequency != adsFrequency)
+                    {
+                        MyMaze.Instance.Ads.frequency = adsFrequency;
+                        MyMaze.Instance.Ads.Save();
+                        RecordAdsFreqency();
+                    }
+                }
+
+                //Частота показа во времени
+                if (parameters.ContainsKey("adsCooldown"))
+                {
+                    int adsCooldown = System.Convert.ToInt32(parameters["adsCooldown"]);
+                    if (MyMaze.Instance.Ads.cooldown != adsCooldown)
+                    {
+                        MyMaze.Instance.Ads.cooldown = adsCooldown;
+                        MyMaze.Instance.Ads.Save();
+                        RecordAdsFreqency();
+                    }
+                }
+            }
+        });
     }
 
     /// <summary>
@@ -111,7 +149,8 @@ public class MyDDNA : MonoBehaviour {
         DDNA.Instance.RecordEvent(
             "adsFreqSet",
             new EventBuilder()
-                .AddParam("adsFrequency", MyMaze.Instance.Ads.levelFrequency)
+                .AddParam("adsFrequency", MyMaze.Instance.Ads.frequency)
+                .AddParam("adsCooldown", MyMaze.Instance.Ads.cooldown)
         );
         Upload();
     }
@@ -142,6 +181,7 @@ public class MyDDNA : MonoBehaviour {
                 .AddParam("isTutorial", System.Convert.ToBoolean("FALSE"))
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
+                .AddParam("starsAchieved", level.GetCollectedStarsCount())
         );
         Upload();
     }
@@ -212,7 +252,7 @@ public class MyDDNA : MonoBehaviour {
         thumbPurchaseAttempt.AddParam("thumbUserDaysInGame", MyMaze.Instance.DaysInGame);
         thumbPurchaseAttempt.AddParam("transactionName", type.ToString("g"));
         thumbPurchaseAttempt.AddParam("transactionType", TransactionTypes.PURCHASE.ToString("g"));
-        thumbPurchaseAttempt.AddParam("thumbUserCurrentCashBalance", 1);
+        thumbPurchaseAttempt.AddParam("thumbUserCurrentCashBalance", 0);
         DDNA.Instance.RecordEvent("thumbPurchaseAttempt", thumbPurchaseAttempt);
         Upload();
     }
@@ -231,8 +271,14 @@ public class MyDDNA : MonoBehaviour {
         thumbPurchaseAttempt.AddParam("transactionType", TransactionTypes.PURCHASE.ToString("g"));
         thumbPurchaseAttempt.AddParam("productsReceived", new ProductBuilder()
                                 .AddItem(type.ToString("g"), type.ToString("g"), 1));
-		thumbPurchaseAttempt.AddParam("productsSpent", new ProductBuilder()
-						        .AddRealCurrency("USD",1));
+#if UNITY_IPHONE        
+        thumbPurchaseAttempt.AddParam("productsSpent", new ProductBuilder()
+                                .AddRealCurrency("USD", MyMaze.Instance.InApps.GetProduct<InApps.AppStoreMatching>(type).cost));
+#endif
+#if UNITY_ANDROID
+        thumbPurchaseAttempt.AddParam("productsSpent", new ProductBuilder()
+                                .AddRealCurrency("USD", 0));
+#endif
 
         thumbPurchaseAttempt.AddParam("afAttrAdgroupID", "none");
         thumbPurchaseAttempt.AddParam("afAttrAdgroupName", "none");

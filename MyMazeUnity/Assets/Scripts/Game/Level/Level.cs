@@ -196,6 +196,27 @@ public class Level : MonoBehaviour, ILevel, IComparable, ISavingElement
         return ss;
     }
 
+    /// <summary>
+    /// Вернуть количество собранных звезд
+    /// </summary>
+    /// <returns></returns>
+    public int GetCollectedStarsCount()
+    {
+        return GetCollectedStars().Count;
+    }
+
+    /// <summary>
+    /// Массив звезд которые были подобраны
+    /// </summary>
+    /// <returns></returns>
+    public List<Star> GetCollectedStars()
+    {
+        List<Star> lstars = new List<Star>();
+        foreach (Star star in stars)
+            if (star.IsCollected)
+                lstars.Add(star);
+        return lstars;
+    }
 
     /// <summary>
     /// Сохраняет в PlayerPrefs информацию о текущем состоянии уровня и звезд

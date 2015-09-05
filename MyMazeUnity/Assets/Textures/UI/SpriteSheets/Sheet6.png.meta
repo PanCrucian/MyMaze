@@ -92,8 +92,8 @@ TextureImporter:
     - name: i_FireworksFX_000
       rect:
         serializedVersion: 2
-        x: 2
-        y: 465
+        x: 570
+        y: 882
         width: 140
         height: 140
       alignment: 0
@@ -102,8 +102,8 @@ TextureImporter:
     - name: i_FireworksFX_001
       rect:
         serializedVersion: 2
-        x: 2
-        y: 323
+        x: 712
+        y: 882
         width: 140
         height: 140
       alignment: 0
@@ -112,8 +112,8 @@ TextureImporter:
     - name: i_FireworksFX_002
       rect:
         serializedVersion: 2
-        x: 2
-        y: 181
+        x: 854
+        y: 882
         width: 140
         height: 140
       alignment: 0
@@ -122,8 +122,8 @@ TextureImporter:
     - name: i_FireworksFX_003
       rect:
         serializedVersion: 2
-        x: 2
-        y: 39
+        x: 570
+        y: 740
         width: 140
         height: 140
       alignment: 0
@@ -132,8 +132,8 @@ TextureImporter:
     - name: i_FireworksFX_004
       rect:
         serializedVersion: 2
-        x: 144
-        y: 465
+        x: 712
+        y: 740
         width: 140
         height: 140
       alignment: 0
@@ -142,8 +142,8 @@ TextureImporter:
     - name: i_FireworksFX_005
       rect:
         serializedVersion: 2
-        x: 144
-        y: 323
+        x: 854
+        y: 740
         width: 140
         height: 140
       alignment: 0
@@ -152,8 +152,8 @@ TextureImporter:
     - name: i_FireworksFX_006
       rect:
         serializedVersion: 2
-        x: 144
-        y: 181
+        x: 2
+        y: 633
         width: 140
         height: 140
       alignment: 0
@@ -163,7 +163,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 39
+        y: 633
         width: 140
         height: 140
       alignment: 0
@@ -173,7 +173,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 286
-        y: 465
+        y: 633
         width: 140
         height: 140
       alignment: 0
@@ -182,124 +182,14 @@ TextureImporter:
     - name: i_FireworksFX_009
       rect:
         serializedVersion: 2
-        x: 376
-        y: 882
+        x: 428
+        y: 633
         width: 140
         height: 140
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: i_FireworksFX_010
-      rect:
-        serializedVersion: 2
-        x: 376
-        y: 740
-        width: 140
-        height: 140
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_011
-      rect:
-        serializedVersion: 2
-        x: 286
-        y: 323
-        width: 140
-        height: 140
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_012
-      rect:
-        serializedVersion: 2
-        x: 286
-        y: 181
-        width: 140
-        height: 140
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_013
-      rect:
-        serializedVersion: 2
-        x: 286
-        y: 39
-        width: 140
-        height: 140
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_014
-      rect:
-        serializedVersion: 2
-        x: 518
-        y: 882
-        width: 140
-        height: 140
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_015
-      rect:
-        serializedVersion: 2
-        x: 660
-        y: 882
-        width: 140
-        height: 140
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_016
-      rect:
-        serializedVersion: 2
-        x: 802
-        y: 882
-        width: 140
-        height: 140
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_017
-      rect:
-        serializedVersion: 2
-        x: 518
-        y: 740
-        width: 140
-        height: 140
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_018
-      rect:
-        serializedVersion: 2
-        x: 660
-        y: 740
-        width: 140
-        height: 140
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_019
-      rect:
-        serializedVersion: 2
-        x: 802
-        y: 740
-        width: 140
-        height: 140
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_020
-      rect:
-        serializedVersion: 2
-        x: 428
-        y: 598
-        width: 140
-        height: 140
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_021
       rect:
         serializedVersion: 2
         x: 570
@@ -309,7 +199,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_022
+    - name: i_FireworksFX_011
       rect:
         serializedVersion: 2
         x: 712
@@ -319,7 +209,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_023
+    - name: i_FireworksFX_012
       rect:
         serializedVersion: 2
         x: 854
@@ -329,11 +219,121 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: i_FireworksFX_024
+    - name: i_FireworksFX_013
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 491
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_FireworksFX_014
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 491
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_FireworksFX_015
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 491
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_FireworksFX_016
       rect:
         serializedVersion: 2
         x: 428
+        y: 491
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_FireworksFX_017
+      rect:
+        serializedVersion: 2
+        x: 570
         y: 456
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_FireworksFX_018
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 456
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_FireworksFX_019
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 456
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_FireworksFX_020
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 314
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_FireworksFX_021
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 172
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_FireworksFX_022
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 30
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_FireworksFX_023
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 349
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: i_FireworksFX_024
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 349
         width: 140
         height: 140
       alignment: 0
@@ -343,7 +343,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 428
-        y: 314
+        y: 349
         width: 140
         height: 140
       alignment: 0
@@ -352,8 +352,8 @@ TextureImporter:
     - name: i_FireworksFX_026
       rect:
         serializedVersion: 2
-        x: 428
-        y: 172
+        x: 144
+        y: 207
         width: 140
         height: 140
       alignment: 0
@@ -362,8 +362,8 @@ TextureImporter:
     - name: i_FireworksFX_027
       rect:
         serializedVersion: 2
-        x: 428
-        y: 30
+        x: 144
+        y: 65
         width: 140
         height: 140
       alignment: 0
@@ -372,8 +372,8 @@ TextureImporter:
     - name: i_FireworksFX_028
       rect:
         serializedVersion: 2
-        x: 570
-        y: 456
+        x: 286
+        y: 207
         width: 140
         height: 140
       alignment: 0
@@ -382,8 +382,8 @@ TextureImporter:
     - name: i_FireworksFX_029
       rect:
         serializedVersion: 2
-        x: 712
-        y: 456
+        x: 286
+        y: 65
         width: 140
         height: 140
       alignment: 0
@@ -392,8 +392,8 @@ TextureImporter:
     - name: i_FireworksFX_030
       rect:
         serializedVersion: 2
-        x: 854
-        y: 456
+        x: 428
+        y: 207
         width: 140
         height: 140
       alignment: 0
@@ -402,8 +402,8 @@ TextureImporter:
     - name: i_FireworksFX_031
       rect:
         serializedVersion: 2
-        x: 570
-        y: 314
+        x: 428
+        y: 65
         width: 140
         height: 140
       alignment: 0
@@ -413,7 +413,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 570
-        y: 172
+        y: 314
         width: 140
         height: 140
       alignment: 0
@@ -423,7 +423,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 570
-        y: 30
+        y: 172
         width: 140
         height: 140
       alignment: 0
@@ -432,8 +432,8 @@ TextureImporter:
     - name: i_FireworksFX_034
       rect:
         serializedVersion: 2
-        x: 712
-        y: 314
+        x: 570
+        y: 30
         width: 140
         height: 140
       alignment: 0
@@ -442,7 +442,7 @@ TextureImporter:
     - name: i_FireworksFX_035
       rect:
         serializedVersion: 2
-        x: 854
+        x: 712
         y: 314
         width: 140
         height: 140
@@ -452,8 +452,8 @@ TextureImporter:
     - name: i_FireworksFX_036
       rect:
         serializedVersion: 2
-        x: 712
-        y: 172
+        x: 854
+        y: 314
         width: 140
         height: 140
       alignment: 0
@@ -463,7 +463,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 712
-        y: 30
+        y: 172
         width: 140
         height: 140
       alignment: 0
@@ -472,8 +472,8 @@ TextureImporter:
     - name: i_FireworksFX_038
       rect:
         serializedVersion: 2
-        x: 854
-        y: 172
+        x: 712
+        y: 30
         width: 140
         height: 140
       alignment: 0
@@ -483,9 +483,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 607
-        width: 372
-        height: 415
+        y: 775
+        width: 566
+        height: 247
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

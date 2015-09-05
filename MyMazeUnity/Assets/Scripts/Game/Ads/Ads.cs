@@ -1,22 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Ads : MonoBehaviour {
+public class Ads : MonoBehaviour, ISavingElement {
 
     public Deligates.SimpleEvent OnMyMazeUILifeAds;
 
     /// <summary>
     /// Частота показа рекламы между уровнями
-    /// example: 4 значит что через 4 сыграных или перезапущенных уровня покажется реклама
     /// </summary>
-    public int levelFrequency = 4;
+    public int frequency = 1;
+    private int frequencyCounter = 0;
 
-    private int levelFrequencyCounter = 0;
+    /// <summary>
+    /// Показывать интерстишал не чаще чем раз в ...
+    /// </summary>
+    public int cooldown = 60;
 
     /// <summary>
     /// Время последнего показа рекламы, штамп на закрытие
     /// </summary>
-    private static int lastAdsHideTime = 0;
+    private int lastAdsHideTime = 0;
+
+    /// <summary>
+    /// Время последнего показа интерстишела
+    /// </summary>
+    private int lastInterstitialHideTime = 0;
 
     /// <summary>
     /// Время в секундах как минимальный интервал времени перед показом следующей рекламы
@@ -31,11 +39,13 @@ public class Ads : MonoBehaviour {
     HZInterstitialAd.AdDisplayListener HZInterstitialListener = delegate(string adState, string adTag)
     {
         Debug.Log("HZInterstitialAd: " + adState);
+        Debug.Log("mymaze.onLaunch: " + HZInterstitialAd.chartboostIsAvailableForLocation("mymaze.onLaunch").ToString());
         if (adState.Equals("hide"))
         {
-            lastAdsHideTime = Timers.Instance.UnixTimestamp;
+            MyMaze.Instance.Ads.lastAdsHideTime = Timers.Instance.UnixTimestamp;
+            MyMaze.Instance.Ads.lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
             HZInterstitialAd.fetch();
-        }
+        }        
     };
 
     /// <summary>
@@ -46,16 +56,16 @@ public class Ads : MonoBehaviour {
         Debug.Log("HZIncentivizedAd: " + adState);
         if (adState.Equals("hide"))
         {
+            MyMaze.Instance.Ads.lastAdsHideTime = Timers.Instance.UnixTimestamp;
             if (adTag.Equals("life"))
             {
-                lastAdsHideTime = Timers.Instance.UnixTimestamp;
                 MyMaze.Instance.Life.RestoreOneUnit();
+                if(GameLevel.Instance == null)
+                    MyMaze.Instance.LevelLoadAction(MyMaze.Instance.LastSelectedLevel, true);
             }
             else if (adTag.Equals("moves"))
-            {
-                lastAdsHideTime = Timers.Instance.UnixTimestamp;
                 GameObject.FindObjectOfType<AdsMovesUI>().AddMovesAndClose();
-            }
+
             HZIncentivizedAd.fetch();
         }
     };
@@ -63,6 +73,8 @@ public class Ads : MonoBehaviour {
     void Awake()
     {
         HZInterstitialAd.setDisplayListener(HZInterstitialListener);
+        HZInterstitialAd.chartboostFetchForLocation("mymaze.onLaunch");
+        HZInterstitialAd.chartboostFetchForLocation("mymaze.onEndOfGame");
         HZInterstitialAd.fetch();
         HZIncentivizedAd.setDisplayListener(HZIncentivizedListener);
         HZIncentivizedAd.fetch();
@@ -72,28 +84,21 @@ public class Ads : MonoBehaviour {
     {
         if (MyMaze.Instance.IsFirstSceneLoad)
             StartCoroutine(ShowOnLaunchInterstitial());
-
-        MyMaze.Instance.OnLevelLoad += OnLevelLoadOrRestarted;
-        MyMaze.Instance.OnLevelRestarted += OnLevelLoadOrRestarted;
-
-        levelFrequencyCounter = levelFrequency;
     }
 
     /// <summary>
-    /// Игровой уровень был загружен или перезапущен
+    /// Проверить и запустить интерстишал для OnGameEnd рекламы
     /// </summary>
-    /// <param name="level"></param>
-    void OnLevelLoadOrRestarted(Level level)
+    public void CheckAndLaunchOnEndGameAds()
     {
         //не считаем счетчик если текущий пак без рекламы
         if (!IsCurrentPackWithAds())
             return;
 
-        levelFrequencyCounter++;
-
-        if (levelFrequencyCounter >= levelFrequency)
+        frequencyCounter++;
+        if (frequencyCounter >= frequency)
         {
-            levelFrequencyCounter = 0;
+            frequencyCounter = 0;
             StartCoroutine(ShowOnGameEndInterstitial());
         }
     }
@@ -108,7 +113,7 @@ public class Ads : MonoBehaviour {
         if (IsCurrentPackWithAds())
             if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
                 if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-                    HZInterstitialAd.show(); //HZInterstitialAd.chartboostShowForLocation("mymaze.onLaunch");
+                    HZInterstitialAd.chartboostShowForLocation("mymaze.onLaunch"); //HZInterstitialAd.show(); //
     }
 
     /// <summary>
@@ -121,7 +126,8 @@ public class Ads : MonoBehaviour {
         if (IsCurrentPackWithAds())
             if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
                 if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-                    HZInterstitialAd.show(); //HZInterstitialAd.chartboostShowForLocation("mymaze.onEndOfGame");
+                    if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastInterstitialHideTime) > cooldown)
+                        HZInterstitialAd.chartboostShowForLocation("mymaze.onEndOfGame"); //HZInterstitialAd.show(); //
     }
 
     /// <summary>
@@ -174,6 +180,34 @@ public class Ads : MonoBehaviour {
     void OnApplicationPause(bool pause)
     {
         if (!pause)
+        {
+            MyMaze.Instance.Sounds.UnMute();
             StartCoroutine(ShowOnLaunchInterstitial());
+        }
+        else
+        {
+            MyMaze.Instance.Sounds.Mute();
+        }
+    }
+
+    public void Save()
+    {
+        PlayerPrefs.SetInt("adsFrequency", frequency);
+        PlayerPrefs.SetInt("adsCooldown", cooldown);
+    }
+
+    public void Load()
+    {
+        if (PlayerPrefs.HasKey("adsFrequency"))
+            frequency = PlayerPrefs.GetInt("adsFrequency");
+
+        if (PlayerPrefs.HasKey("adsCooldown"))
+            cooldown = PlayerPrefs.GetInt("adsCooldown");
+    }
+
+    public void ResetSaves()
+    {
+        PlayerPrefs.DeleteKey("adsFrequency");
+        PlayerPrefs.DeleteKey("adsCooldown");
     }
 }

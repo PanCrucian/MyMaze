@@ -354,7 +354,9 @@ public class GameLevel : MonoBehaviour {
             Debug.Log("Игра пройдена! Нет уровня для загрузки");
 
         //сохраним весь прогресс
-        MyMaze.Instance.Save();
+        MyMaze.Instance.Save(); 
+        
+        MyMaze.Instance.Ads.CheckAndLaunchOnEndGameAds();
     }
 
     /// <summary>
@@ -466,7 +468,10 @@ public class GameLevel : MonoBehaviour {
 
         //ходы закончились
         if (!uiAdsMoves.TryForShow())
+        {
+            MyMaze.Instance.Ads.CheckAndLaunchOnEndGameAds();
             OnRestartRequest();
+        }
     }
 
     /// <summary>

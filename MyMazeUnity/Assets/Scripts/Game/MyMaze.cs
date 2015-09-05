@@ -681,6 +681,32 @@ public class MyMaze : MonoBehaviour, ISavingElement
     }
 
     /// <summary>
+    /// Загрузить уровень с анимацией затухания экрана
+    /// </summary>
+    /// <param name="level"></param>
+    /// <param name="animate"></param>
+    public void LevelLoadAction(Level level, bool animate)
+    {
+        if (animate)
+        {
+            StartCoroutine(LevelLoadNumerator(level));
+        }
+        else
+        {
+            LevelLoadAction(level);
+        }
+    }
+
+    IEnumerator LevelLoadNumerator(Level level)
+    {
+        yield return new WaitForSeconds(0.25f);
+        ScreenOverlayUI.Instance.FadeIn();
+        yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
+        Debug.Log("Загружаю уровень " + level.name);
+        MyMaze.Instance.LevelLoadAction(level);
+    }
+
+    /// <summary>
     /// Уровень был перезапущен
     /// </summary>
     /// <param name="level"></param>
@@ -764,6 +790,8 @@ public class MyMaze : MonoBehaviour, ISavingElement
         //Рекорды
         this.Leaderboards.Save();
 
+        this.Ads.Save();
+
         //Сбросим на диск
         PlayerPrefs.Save();
     }
@@ -831,6 +859,10 @@ public class MyMaze : MonoBehaviour, ISavingElement
 
         //Рекорды
         this.Leaderboards.Load();
+
+        this.Ads.Load();
+
+        Debug.Log("MyMaze загрузил сохранения");
     }
 
     bool isResetSaves = false;

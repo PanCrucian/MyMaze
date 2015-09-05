@@ -877,13 +877,11 @@ class XcodeProject(PBXDict):
                 f_path = os.path.relpath(f_path, self.source_root)
             else:
                 tree = '<absolute>'
-        print "monroedebug: parent before: ", parent
         if not parent:
             parent = self.root_group
         elif not isinstance(parent, PBXGroup):
             # assume it's an id
             parent = self.objects.get(parent, self.root_group)
-        print "monroedebug: parent after: ", parent
         file_ref = PBXFileReference.Create(f_path, tree, ignore_unknown_type=ignore_unknown_type)
         parent.add_child(file_ref)
         results.append(file_ref)

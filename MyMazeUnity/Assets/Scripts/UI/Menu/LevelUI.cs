@@ -29,7 +29,10 @@ public class LevelUI : MonoBehaviour {
     /// <summary>
     /// Кликнули на кнопку уровня, попробуем загрузить уровень
     /// </summary>
-    public void LevelLoadRequest(GameObject button) {
+    public void LevelLoadRequest(GameObject button)
+    {
+
+        MyMaze.Instance.LastSelectedLevel = level;
         if (MyMaze.Instance.Life.Units <= 0)
         {
             GetComponentInParent<LevelsMenuUI>().adsLifeUI.Show();
@@ -37,20 +40,9 @@ public class LevelUI : MonoBehaviour {
         else
         {
             button.GetComponent<Button>().interactable = false;
-            StartCoroutine(LevelLoadNumerator());
-        }        
-    }
-
-    IEnumerator LevelLoadNumerator()
-    {
-        GetComponent<SoundsPlayer>().PlayOneShootSound();
-        yield return new WaitForSeconds(0.25f);
-        ScreenOverlayUI.Instance.FadeIn();
-        yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
-        
-        MyMaze.Instance.LastSelectedLevel = level;
-        Debug.Log("Загружаю уровень " + level.name);
-        MyMaze.Instance.LevelLoadAction(level);
+            GetComponent<SoundsPlayer>().PlayOneShootSound();
+            MyMaze.Instance.LevelLoadAction(level, true);
+        }
     }
 
     void Update()

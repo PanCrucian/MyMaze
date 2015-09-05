@@ -7,9 +7,25 @@ public class Tutorial : MonoBehaviour, ITutorial, ISavingElement
 
     public TutorialStep[] steps;
 
+    /// <summary>
+    /// Запустить обучение секретной звезды на уровне
+    /// </summary>
+    public Level secretStarTutorialOnLevel;
+
     void Start()
     {
         CheckTheIntegrity();
+        MyMaze.Instance.OnLevelLoad += OnLevelLoad;
+    }
+
+    void OnLevelLoad(Level level)
+    {
+        if (level.levelName.Equals(secretStarTutorialOnLevel.levelName))
+        {
+            TutorialStep step = GetStep(TutorialPhase.SecretStar);
+            if (!step.IsTeach())
+                step.Start();
+        }
     }
 
     /// <summary>

@@ -30,7 +30,7 @@
 #import "HZVideoAd.h"
 #import "HZIncentivizedAd.h"
 #import "HZBannerAd.h"
-#import "Chartboost.h"
+#import "HZUnityAdapterChartboostProxy.h"
 
 extern void UnitySendMessage(const char *, const char *, const char *);
 
@@ -195,7 +195,7 @@ extern "C" {
     }
     
     void hz_ads_show_banner(const char *position, const char *tag) {
-        if (HZCurrentBannerAd == nil) {
+        if (!HZCurrentBannerAd) {
             HZBannerPosition pos = HZBannerPositionBottom;
             NSString *positionStr = [NSString stringWithUTF8String: position];
             if ([positionStr isEqualToString: @"top"]) {
@@ -206,8 +206,15 @@ extern "C" {
             options.tag = [NSString stringWithUTF8String:tag];
             
             [HZBannerAd placeBannerInView:nil position:pos options:options success:^(HZBannerAd *banner) {
-                HZCurrentBannerAd = banner;
-                [HZCurrentBannerAd setDelegate: HZBannerDelegate];
+                if (!HZCurrentBannerAd) {
+                    HZCurrentBannerAd = banner;
+                    [HZCurrentBannerAd setDelegate: HZBannerDelegate];
+                    [HZBannerDelegate sendMessageForKlass:[HZBannerDelegate klassName] withMessage:@"loaded" andTag:banner.options.tag];
+                } else {
+                    [banner removeFromSuperview];
+                    NSLog(@"Requested a banner before the previous one was destroyed. Ignoring this request.");
+                }
+
             } failure:^(NSError *error) {
                 NSLog(@"Error fetching banner; error = %@",error);
                 [HZBannerDelegate bannerDidFailToReceiveAd: nil error: error];
@@ -219,20 +226,26 @@ extern "C" {
     }
     
     void hz_ads_hide_banner(void) {
-        if (HZCurrentBannerAd != nil) {
+        if (HZCurrentBannerAd) {
             [HZCurrentBannerAd setHidden: YES];
+            
+        } else {
+            NSLog(@"Can't hide banner, there is no banner ad currently loaded.");
         }
     }
     
     void hz_ads_destroy_banner(void) {
-        if (HZCurrentBannerAd  != nil) {
+        if (HZCurrentBannerAd) {
             [HZCurrentBannerAd removeFromSuperview];
             HZCurrentBannerAd = nil;
+            
+        } else {
+            NSLog(@"Can't destroy banner, there is no banner ad currently loaded.");
         }
     }
     
     char * hz_ads_banner_dimensions(void) {
-        if (HZCurrentBannerAd != nil) {
+        if (HZCurrentBannerAd) {
             const char * dims = [[HZCurrentBannerAd dimensionsDescription] UTF8String];
             if (dims == NULL) {
                 return NULL;
@@ -241,9 +254,20 @@ extern "C" {
             char* returnValue = (char*)malloc(strlen(dims) + 1);
             strcpy(returnValue, dims);
             return returnValue;
+            
+        } else {
+            NSLog(@"Can't get banner dimensions, there is no banner ad currently loaded.");
         }
         
         return NULL;
+    }
+    
+    char * hz_ads_get_remote_data(void){
+      NSString *remoteData = [HeyzapAds getRemoteDataJsonString];
+      const char* remoteString = [remoteData UTF8String];
+      char* returnValue = (char*)malloc(sizeof(char)*(strlen(remoteString) + 1));
+      strcpy(returnValue, remoteString);
+      return returnValue;
     }
     
     void hz_ads_show_mediation_debug_view_controller(void) {
@@ -284,7 +308,8 @@ extern "C" {
             return;
         }
         
-        [Chartboost cacheInterstitial:nsLocation];
+        
+        [HZUnityAdapterChartboostProxy cacheInterstitial:nsLocation];
     }
     
     bool hz_chartboost_is_available_for_location(const char *location) {
@@ -292,7 +317,7 @@ extern "C" {
         if (!hz_chartboost_enabled()) {
             return NO;
         }
-        return [Chartboost hasInterstitial:nsLocation];
+        return [HZUnityAdapterChartboostProxy hasInterstitial:nsLocation];
     }
     
     void hz_show_chartboost_for_location(const char *location) {
@@ -303,6 +328,6 @@ extern "C" {
             return;
         }
         
-        [Chartboost showInterstitial:nsLocation];
+        [HZUnityAdapterChartboostProxy showInterstitial:nsLocation];
     }
 }

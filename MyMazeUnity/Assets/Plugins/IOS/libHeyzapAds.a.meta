@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7d3b5521eb52e4d2ba343f054eba17f0
+guid: fd1825bde391946d1a750f5ed2c634a8
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
@@ -60,7 +60,7 @@ PluginImporter:
       enabled: 1
       settings:
         CompileFlags: 
-        FrameworkDependencies: AdSupport;CoreTelephony;MobileCoreServices;AssetsLibrary;EventKit;EventKitUI;
+        FrameworkDependencies: AdSupport;CoreTelephony;MobileCoreServices;Security;StoreKit;EventKit;EventKitUI;
   userData: 
   assetBundleName: 
   assetBundleVariant: 

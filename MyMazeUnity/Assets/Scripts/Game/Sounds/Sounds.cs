@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 [RequireComponent(typeof(MyMaze))]
-public class Sounds : MonoBehaviour, ISavingElement {
+public class Sounds : GentleMonoBeh, ISavingElement {
 
     [System.Serializable]
     public class SoundMap
@@ -19,34 +19,33 @@ public class Sounds : MonoBehaviour, ISavingElement {
 
     public float volume = 1f;
     public SoundMap[] soundsMap;
-
-    private float fadeInTime;
-
-    void Start()
+    
+    public override void GentleUpdate()
     {
-        fadeInTime = 0;
-    }
-
-    void Update()
-    {
-        //VolumeFadeIn();
+        base.GentleUpdate();
+        AudioListener.volume = volume;
     }
 
     /// <summary>
-    /// Плавно прибавляем звук
+    /// Установим громкость глобального слушаетля на 0
     /// </summary>
-    void VolumeFadeIn()
+    public void Mute()
     {
-        fadeInTime += Time.deltaTime * 0.5f;
-        if (fadeInTime > 1)
-            fadeInTime = 1;
-        AudioListener.volume = volume * (fadeInTime);
+        volume = 0f;
+    }
+
+    /// <summary>
+    /// Установим громкость глобального слушаетля на 1
+    /// </summary>
+    public void UnMute()
+    {
+        volume = 1f;
     }
 
     /// <summary>
     /// Установим громкости
     /// </summary>
-    void SetupVolume()
+    void SetupMutes()
     {
         Sound[] soundsGO = GameObject.FindObjectsOfType<Sound>();
         Theme[] themesGO = GameObject.FindObjectsOfType<Theme>();
@@ -83,7 +82,7 @@ public class Sounds : MonoBehaviour, ISavingElement {
     {
         theme = true;
         sounds = true;
-        SetupVolume();
+        SetupMutes();
     }
 
     /// <summary>
@@ -93,7 +92,7 @@ public class Sounds : MonoBehaviour, ISavingElement {
     {
         theme = false;
         sounds = false;
-        SetupVolume();
+        SetupMutes();
     }
 
     /// <summary>
@@ -103,7 +102,7 @@ public class Sounds : MonoBehaviour, ISavingElement {
     {
         theme = false;
         sounds = true;
-        SetupVolume();
+        SetupMutes();
     }
 
     /// <summary>
@@ -127,7 +126,7 @@ public class Sounds : MonoBehaviour, ISavingElement {
             this.sounds = Convert.ToBoolean(PlayerPrefs.GetInt("Sounds#sounds"));
         if (PlayerPrefs.HasKey("Sounds#volume"))
             this.volume = PlayerPrefs.GetFloat("Sounds#volume");
-        SetupVolume();
+        SetupMutes();
     }
     
     public void ResetSaves()

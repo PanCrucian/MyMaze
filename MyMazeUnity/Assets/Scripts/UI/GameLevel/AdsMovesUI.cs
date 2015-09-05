@@ -1,20 +1,40 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
-public class AdsMovesUI : MonoBehaviour {
+public class AdsMovesUI : GentleMonoBeh {
 
 
     private bool isFirstShowUp = true;
+
+    public Text restartOrExitText;
+    public Button replayButton;
+    public Button menuButton;
 
     void Start()
     {
         MyMaze.Instance.Ads.OnMyMazeUILifeAds += OnLifeWindowAds;
         GameLevel.Instance.OnRestart += OnGameRestart;
+        SetGentleCPURate(30);
     }
 
     void OnDestroy()
     {
         MyMaze.Instance.Ads.OnMyMazeUILifeAds -= OnLifeWindowAds;
+    }
+
+    public override void GentleUpdate()
+    {
+        base.GentleUpdate();
+        SetRestartOrExitText();
+    }
+
+    void SetRestartOrExitText()
+    {
+        if(MyMaze.Instance.Life.Units > 0)
+            restartOrExitText.text = MyMaze.Instance.Localization.GetLocalized("Restart_level");
+        else
+            restartOrExitText.text = MyMaze.Instance.Localization.GetLocalized("Back_to_menu");
     }
 
     /// <summary>
@@ -90,5 +110,16 @@ public class AdsMovesUI : MonoBehaviour {
         GameLevel.Instance.AddFiveMoves();
         GameLevel.Instance.UnPause();
         Hide();
+    }
+
+    /// <summary>
+    /// Нажали кнопку рестарта или выхода в меню
+    /// </summary>
+    public void RestartOrExitButton()
+    {
+        if (MyMaze.Instance.Life.Units > 0)
+            InputSimulator.Instance.SimulateClick(replayButton.gameObject);
+        else
+            InputSimulator.Instance.SimulateClick(menuButton.gameObject);
     }
 }

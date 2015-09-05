@@ -59,7 +59,9 @@ public class Notifications : MonoBehaviour {
             return;
 
 #if UNITY_IPHONE
-        System.DateTime launchTime = System.DateTime.Now.AddSeconds(Mathf.Abs(MyMaze.Instance.Life.GetLastBlock().regenerationTime - Timers.Instance.UnixTimestamp));
+        System.DateTime launchTime = System.DateTime.Now.AddSeconds(
+            Mathf.Abs(MyMaze.Instance.Life.GetLastBlock().regenerationTime - Timers.Instance.UnixTimestamp)
+        );
         ISN_LocalNotification notification = new ISN_LocalNotification(
             launchTime, 
             MyMaze.Instance.Localization.GetLocalized("gobacktogame"), 

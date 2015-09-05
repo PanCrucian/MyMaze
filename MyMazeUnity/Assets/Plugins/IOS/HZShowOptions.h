@@ -53,4 +53,9 @@
  */
 @property (nonatomic, copy) void (^completion)(BOOL result, NSError *error);
 
+/**
+ *  @discussion When an incentivized video is completed, this string will be sent to your server via our server-to-server callbacks. Set it to anything you want to pass to your server regarding this incentivized video view (i.e.: a username, user ID, level name, etc.), or leave it `nil` if you don't need to use it / aren't using server callbacks for incentivized video. This parameter will be ignored for ads shown via classes other than `HZIncentivizedAd`.
+ */
+@property (nonatomic, strong) NSString *incentivizedInfo;
+
 @end

@@ -7,6 +7,7 @@ public class InApps : MonoBehaviour, ISavingElement {
     public Deligates.SimpleEvent OnTimeMachineBuyed;
     public Deligates.SimpleEvent OnUnlimitedLivesBuyed;
     public Deligates.SimpleEvent OnFiveLivesBuyed;
+    public Deligates.SimpleEvent OnTeleportBuyed;
 
     public Deligates.TransactionEvent OnBuyed;
     public Deligates.TransactionEvent OnBuyRequest;
@@ -21,6 +22,7 @@ public class InApps : MonoBehaviour, ISavingElement {
     {
         public string productId;
         public ProductTypes type;
+        public int cost = 0;
     }
     /// <summary>
     /// Сопаставления продуктов с идетификаторами магазина Apple
@@ -76,7 +78,7 @@ public class InApps : MonoBehaviour, ISavingElement {
         switch (type)
         {
             case ProductTypes.NoAds:
-                OnNoAdsTransactionSuccess();
+                OnNoAdsSuccess();
                 break;
             case ProductTypes.BoosterTimeMachine:
                 OnTimeMachineSuccess();
@@ -87,6 +89,9 @@ public class InApps : MonoBehaviour, ISavingElement {
             case ProductTypes.FiveLives:
                 OnFiveLivesSuccess();
                 break;
+            case ProductTypes.BoosterTeleport:
+                OnTeleportSuccess();
+                break;
         }
         if (OnBuyed != null)
             OnBuyed(type);
@@ -96,7 +101,7 @@ public class InApps : MonoBehaviour, ISavingElement {
     /// <summary>
     /// Успешно проведена покупка пакета "Без рекламы"
     /// </summary>
-    void OnNoAdsTransactionSuccess()
+    void OnNoAdsSuccess()
     {
         BasketItem item = GetBasketItem(ProductTypes.NoAds);
         if (!item.isOwned)
@@ -162,6 +167,23 @@ public class InApps : MonoBehaviour, ISavingElement {
     }
 
     /// <summary>
+    /// Успешно проведена покупка пакета "Бустер телепорт"
+    /// </summary>
+    void OnTeleportSuccess()
+    {
+        BasketItem item = GetBasketItem(ProductTypes.BoosterTeleport);
+        if (!item.isOwned)
+        {
+            Debug.Log("Купили бустер телепорт");
+            item.isOwned = true;
+            if (OnTeleportBuyed != null)
+                OnTeleportBuyed();
+        }
+        else
+            Debug.Log("Вы уже покупали бустер телепорт");
+    }
+
+    /// <summary>
     /// Потребить покупку в 5 жизней
     /// </summary>
     /// <returns></returns>
@@ -175,6 +197,23 @@ public class InApps : MonoBehaviour, ISavingElement {
             return true;
         }
         Debug.Log("Не могу потребить покупку в 5 жизней, т.к. она не была куплена");
+        return false;
+    }
+
+    /// <summary>
+    /// Потребить покупку Бустер телепорт
+    /// </summary>
+    /// <returns></returns>
+    public bool ConsumeTeleport()
+    {
+        BasketItem item = GetBasketItem(ProductTypes.BoosterTeleport);
+        if (item.isOwned)
+        {
+            item.isOwned = false;
+            Debug.Log("Успешно потребили покупку: бустер телепорт");
+            return true;
+        }
+        Debug.Log("Не могу потребить покупку бустер телепорт, т.к. она не была куплена");
         return false;
     }
 

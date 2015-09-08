@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections;
 
-public class PluginsInstalationUtil  {
+public class PluginsInstalationUtil : MonoBehaviour {
 
 
 	public const string ANDROID_SOURCE_PATH       = "Plugins/StansAssets/Android/";

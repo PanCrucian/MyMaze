@@ -82,7 +82,7 @@ public class OneSignal : MonoBehaviour {
 				#if UNITY_ANDROID
 					oneSignalPlatform = new OneSignalAndroid(gameObjectName, googleProjectNumber, appId, logLevel, visualLogLevel);
                 #elif UNITY_IPHONE
-					oneSignalPlatform = new OneSignalIOS(gameObjectName, appId, autoRegister, logLevel, visualLogLevel);
+					//oneSignalPlatform = new OneSignalIOS(gameObjectName, appId, autoRegister, logLevel, visualLogLevel);
                 #elif UNITY_WP8
 					oneSignalPlatform = new OneSignalWP(appId);
                 #endif

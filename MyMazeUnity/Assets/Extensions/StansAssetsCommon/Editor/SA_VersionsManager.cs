@@ -36,13 +36,6 @@ public static class SA_VersionsManager  {
 		}
 	}
 
-	public static int AN_MagorVersion {
-		get {
-			return GetMagorVersionCode(AN_VERSION_INFO_PATH);
-		}
-	}
-
-
 	public static string AN_StringVersionId {
 		get {
 			return GetStringVersionId(AN_VERSION_INFO_PATH);
@@ -64,13 +57,6 @@ public static class SA_VersionsManager  {
 
 		get {
 			return GetVersionCode(MSP_VERSION_INFO_PATH);
-		}
-	}
-
-	public static int MSP_MagorVersion {
-		
-		get {
-			return GetMagorVersionCode(MSP_VERSION_INFO_PATH);
 		}
 	}
 
@@ -96,12 +82,6 @@ public static class SA_VersionsManager  {
 		}
 	}
 
-	public static int UM_MagorVersion {
-		get {
-			return GetMagorVersionCode(UM_VERSION_INFO_PATH);
-		}
-	}
-
 	public static string UM_StringVersionId {
 		get {
 			return GetStringVersionId(UM_VERSION_INFO_PATH);
@@ -122,12 +102,6 @@ public static class SA_VersionsManager  {
 	public static int GMA_Version {
 		get {
 			return GetVersionCode(GMA_VERSION_INFO_PATH);
-		} 
-	}
-
-	public static int GMA_MagorVersion {
-		get {
-			return GetMagorVersionCode(GMA_VERSION_INFO_PATH);
 		} 
 	}
 
@@ -155,13 +129,6 @@ public static class SA_VersionsManager  {
 		} 
 	}
 
-	public static int ISN_MagorVersion {
-		get {
-			return GetMagorVersionCode(ISN_VERSION_INFO_PATH);
-		} 
-	}
-
-
 	public static string ISN_StringVersionId {
 		get {
 			return GetStringVersionId(ISN_VERSION_INFO_PATH);
@@ -173,34 +140,20 @@ public static class SA_VersionsManager  {
 	// Utilities
 	//--------------------------------------
 
-	public static int ParceMagorVersion(string stringVersionId) {
-		string[] versions = stringVersionId.Split (new char[] {'.'});
-		int intVersion = Int32.Parse(versions[0]) * 100 + Int32.Parse(versions[1]) * 10;
-		return  intVersion;
-	} 
-
-	
-	private static int GetMagorVersionCode(string versionFilePath) {
-		string stringVersionId = FileStaticAPI.Read (versionFilePath);
-		return ParceMagorVersion(stringVersionId);
-	}
-
-
-
 	public static int ParceVersion(string stringVersionId) {
 		string[] versions = stringVersionId.Split (new char[] {'.'});
+		
 		int intVersion = Int32.Parse(versions[0]) * 100 + Int32.Parse(versions[1]) * 10 + (versions.Length == 3 ? Int32.Parse(versions[2]) : 0);
 		return  intVersion;
 	} 
 
 
 
+	
 	private static int GetVersionCode(string versionFilePath) {
 		string stringVersionId = FileStaticAPI.Read (versionFilePath);
 		return ParceVersion(stringVersionId);
 	}
-
-
 
 	private static string GetStringVersionId(string versionFilePath) {
 		if(FileStaticAPI.IsFileExists(versionFilePath)) {

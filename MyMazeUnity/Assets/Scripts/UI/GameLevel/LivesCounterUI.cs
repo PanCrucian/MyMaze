@@ -85,4 +85,10 @@ public class LivesCounterUI : MonoBehaviour {
         foreach (LivesCounterHeartUI heart in hearts)
             heart.Lose();
     }
+
+    void OnApplicationPause(bool pause)
+    {
+        if (!pause)
+            SetupLifeUI();
+    }
 }

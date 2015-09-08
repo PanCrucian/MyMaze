@@ -65,6 +65,13 @@ public class Ads : MonoBehaviour, ISavingElement {
                 MyMaze.Instance.Life.RestoreOneUnit();
                 if(GameLevel.Instance == null)
                     MyMaze.Instance.LevelLoadAction(MyMaze.Instance.LastSelectedLevel, true);
+                else
+                {
+                    AdsLifeUI adsLifeUI = GameObject.FindObjectOfType<AdsLifeUI>();
+                    if (adsLifeUI != null)
+                        adsLifeUI.Hide();
+                    GameLevel.Instance.OnRestartRequest();
+                }
             }
             else if (adTag.Equals("moves"))
                 GameObject.FindObjectOfType<AdsMovesUI>().AddMovesAndClose();

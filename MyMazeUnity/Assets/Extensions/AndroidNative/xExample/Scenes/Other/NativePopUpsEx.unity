@@ -817,7 +817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53686f775072656c6f61646572
+  MethodName: ShowPreloader
 --- !u!114 &291226490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,6 +832,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &291226491
@@ -1111,7 +1112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4d657373616765506f705570
+  MethodName: MessagePopUp
 --- !u!114 &401504979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,6 +1127,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &401504980
@@ -1692,7 +1694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4469616c6f67506f705570
+  MethodName: DialogPopUp
 --- !u!114 &807895427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1707,6 +1709,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &807895428
@@ -2985,7 +2988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4f70656e526174696e6750616765
+  MethodName: OpenRatingPage
 --- !u!114 &1486672938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3000,6 +3003,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &1486672939
@@ -3812,6 +3816,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &1909552824
@@ -3884,7 +3889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 526174654469616c6f67506f705570
+  MethodName: RateDialogPopUp
 --- !u!1 &1971952996
 GameObject:
   m_ObjectHideFlags: 0
@@ -4066,7 +4071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 486964655072656c6f61646572
+  MethodName: HidePreloader
 --- !u!114 &2005285977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4081,6 +4086,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &2005285978

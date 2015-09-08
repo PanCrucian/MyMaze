@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 46726965647369647352657175657374
+  MethodName: FriedsidsRequest
 --- !u!114 &75765033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1255,7 +1255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 506f737453637265656853686f74
+  MethodName: PostScreehShot
 --- !u!114 &189636355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1661,7 +1661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 506f7374496d616765
+  MethodName: PostImage
 --- !u!114 &331328862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1878,7 +1878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 506f73744d5347
+  MethodName: PostMSG
 --- !u!114 &382963130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3529,7 +3529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 506f73744e617469766553637265656e73686f74
+  MethodName: PostNativeScreenshot
 --- !u!114 &807895427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5239,7 +5239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 506f73744d657373616765
+  MethodName: PostMessage
 --- !u!114 &1214191023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5347,7 +5347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 466f6c6c6f7765727369647352657175657374
+  MethodName: FollowersidsRequest
 --- !u!114 &1214596284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5677,7 +5677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 5477656574536561726368
+  MethodName: TweetSearch
 --- !u!114 &1274064674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6524,7 +6524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 526574726965766554696d654c696e65
+  MethodName: RetrieveTimeLine
 --- !u!114 &1493536204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7106,7 +7106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 436f6e6e656374
+  MethodName: Connect
 --- !u!114 &1689820749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8275,7 +8275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 506f73745769746841757468436865636b
+  MethodName: PostWithAuthCheck
 --- !u!1 &1915539513
 GameObject:
   m_ObjectHideFlags: 0
@@ -8915,7 +8915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4c6f61645573657244617461
+  MethodName: LoadUserData
 --- !u!114 &2068060169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9097,7 +9097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 557365724c6f6f6b557052657175657374
+  MethodName: UserLookUpRequest
 --- !u!114 &2096825378
 MonoBehaviour:
   m_ObjectHideFlags: 0

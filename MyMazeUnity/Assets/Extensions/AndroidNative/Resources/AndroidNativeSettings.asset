@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04884765aeeb4749909d668fc086f5c, type: 3}
+  m_Name: AndroidNativeSettings
+  m_EditorClassIdentifier: 
+  EnablePlusAPI: 1
+  EnableGamesAPI: 1
+  EnableAppStateAPI: 0
+  EnableDriveAPI: 0
+  LoadProfileIcons: 1
+  LoadProfileImages: 1
+  LoadQuestsImages: 1
+  LoadQuestsIcons: 1
+  LoadEventsIcons: 1
+  ShowConnectingPopup: 1
+  EnableATCSupport: 0
+  SaveCameraImageToGallery: 0
+  UseProductNameAsFolderName: 1
+  GalleryFolderName: My Maze
+  MaxImageLoadSize: 512
+  CameraCaptureMode: 0
+  ImageFormat: 0
+  ShowPluginSettings: 0
+  ShowAppPermissions: 0
+  EnableBillingAPI: 1
+  EnablePSAPI: 1
+  EnableSocialAPI: 0
+  EnableCameraAPI: 0
+  ExpandNativeAPI: 0
+  ExpandPSAPI: 0
+  ExpandBillingAPI: 0
+  ExpandSocialAPI: 0
+  ExpandCameraAPI: 0
+  ShowStoreKitParams: 0
+  ShowCameraAndGalleryParams: 0
+  ShowLocalNotificationParams: 0
+  ShowPushNotificationParams: 0
+  ThirdPartyParams: 0
+  ShowPSSettings: 0
+  ShowPSSettingsResources: 1
+  ShowActions: 0
+  GCMSettingsActinve: 0
+  LocalNotificationsAPI: 1
+  ImmersiveModeAPI: 0
+  ApplicationInformationAPI: 0
+  ExternalAppsAPI: 0
+  PoupsandPreloadersAPI: 0
+  CheckAppLicenseAPI: 0
+  NetworkStateAPI: 0
+  InAppPurchasesAPI: 1
+  GooglePlayServicesAPI: 1
+  PlayServicesAdvancedSignInAPI: 1
+  GoogleButtonAPI: 0
+  AnalyticsAPI: 0
+  GoogleCloudSaveAPI: 0
+  PushNotificationsAPI: 0
+  GoogleMobileAdAPI: 0
+  GalleryAPI: 0
+  CameraAPI: 0
+  KeepManifestClean: 1
+  GCM_SenderId: YOUR_SENDER_ID_HERE
+  GooglePlayServiceAppID: 216817929098
+  base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkAUrH7quMhyy90zK26vMxVzShcl1feFj2ZMdNb0wv1OED9a0N5UrWwn1N3yamz9lpNVsXdi0R1hDNLcBrvf5NyzrFEvswhH2AdFnLV0k97SbymqzjzKgsDg/VXkQPKHQvoQcGMnRyA85NKilaQ4XcwXDcqprAnggMEoVwY+ziBeO8x8Lkfbjw/PXDmfT4rC9tmWsiFMmaQna9LmfXaNdjYFPh2AxbNor+yTYrGwWlGidRkd9h9jOZAFoxhxK7kqAp+jDiIvLronVvQEz0zy9be+KqHJSJ3vUummKeRMqcGC2FawtGP9+Jv6cvYlkXzAWPomo0hA2lWfXTKZtm5UcjQIDAQAB
+  InAppProducts: []
+  ShowWhenAppIsForeground: 1
+  EnableVibrationLocal: 0
+  LocalNotificationIcon: {fileID: 0}
+  LocalNotificationSound: {fileID: 0}
+  UseGameThrivePushNotifications: 0
+  GameThriveAppID: YOUR_ONESIGNAL_APP_ID
+  UseParsePushNotifications: 0
+  ParseAppId: YOUR_PARSE_APP_ID
+  DotNetKey: YOUR_PARSE_DOT_NET_KEY
+  ReplaceOldNotificationWithNew: 0
+  ShowPushWhenAppIsForeground: 1
+  EnableVibrationPush: 0
+  PushNotificationIcon: {fileID: 0}
+  PushNotificationSound: {fileID: 0}

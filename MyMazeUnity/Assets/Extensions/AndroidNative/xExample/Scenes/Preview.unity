@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1377476083}
-  MethodName: 4f70656e446f6373
+  MethodName: OpenDocs
 --- !u!1 &420134430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 517565737473416e644576656e74734578616d706c65
+  levelName: QuestsAndEventsExample
 --- !u!114 &491825683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2257,7 +2257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 42696c6c696e67496d706c656d656e746174696f6e4578616d706c65
+  levelName: BillingImplementationExample
 --- !u!1 &609173947
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,7 +2303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 52544d5f4578616d706c65
+  levelName: RTM_Example
 --- !u!114 &609173950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2879,7 +2879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 506c6179536572766963654578616d706c65
+  levelName: PlayServiceExample
 --- !u!1 &750729466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3059,7 +3059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 437573746f6d4c6561646572626f7255494578616d706c65
+  levelName: CustomLeaderborUIExample
 --- !u!1 &837907305
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,7 +3313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 4f746865724665617475726573
+  levelName: OtherFeatures
 --- !u!1 &883405454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3567,7 +3567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 536f6369616c53686172696e67
+  levelName: SocialSharing
 --- !u!1 &936267774
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,7 +4090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1377476083}
-  MethodName: 53656e64427567
+  MethodName: SendBug
 --- !u!114 &1130205396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4690,7 +4690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1377476083}
-  MethodName: 4f70656e417373657453746f7265
+  MethodName: OpenAssetStore
 --- !u!114 &1295569484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4970,7 +4970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 42696c6c696e674578616d706c65
+  levelName: BillingExample
 --- !u!1 &1395919461
 GameObject:
   m_ObjectHideFlags: 0
@@ -5152,7 +5152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 506c7573427574746f6e4578616d706c65
+  levelName: PlusButtonExample
 --- !u!114 &1489903230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5318,7 +5318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 476f6f676c6541644578616d706c65
+  levelName: GoogleAdExample
 --- !u!1 &1507693765
 GameObject:
   m_ObjectHideFlags: 0
@@ -5572,7 +5572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 547769747465724578616d706c65
+  levelName: TwitterExample
 --- !u!1 &1541246386
 GameObject:
   m_ObjectHideFlags: 0
@@ -6068,7 +6068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 4e6f74696669636174696f6e73
+  levelName: Notifications
 --- !u!1 &1633146153
 GameObject:
   m_ObjectHideFlags: 0
@@ -6174,7 +6174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 4e6174697665506f705570734578
+  levelName: NativePopUpsEx
 --- !u!1 &1640513574
 GameObject:
   m_ObjectHideFlags: 0
@@ -6574,7 +6574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 476f6f6c65436c6f75644578616d706c65
+  levelName: GooleCloudExample
 --- !u!114 &1804578216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6902,7 +6902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1377476083}
-  MethodName: 4d6f7265506c7567696e73
+  MethodName: MorePlugins
 --- !u!114 &1836818995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7290,7 +7290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 536176656447616d65734578616d706c65
+  levelName: SavedGamesExample
 --- !u!1 &1922059510
 GameObject:
   m_ObjectHideFlags: 0
@@ -7337,7 +7337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1377476083}
-  MethodName: 53656e644d61696c
+  MethodName: SendMail
 --- !u!114 &1922059513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7725,7 +7725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 46616365626f6f6b4578616d706c65
+  levelName: FacebookExample
 --- !u!1 &2123469827
 GameObject:
   m_ObjectHideFlags: 0
@@ -7938,4 +7938,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 467269656e64734c6f61644578616d706c65
+  levelName: FriendsLoadExample

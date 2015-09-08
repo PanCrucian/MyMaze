@@ -518,12 +518,6 @@ public class IOSNativeSettingsEditor : Editor {
 		}
 	}
 	
-	public static int CurrentMagorVersion {
-		get {
-			return SA_VersionsManager.ParceMagorVersion(IOSNativeSettings.VERSION_NUMBER);
-		}
-	}
-	
 	
 	public static int Version {
 		get {

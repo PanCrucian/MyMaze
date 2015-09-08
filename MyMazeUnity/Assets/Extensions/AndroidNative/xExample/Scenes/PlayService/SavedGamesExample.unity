@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53686f77436f6d706c65746564517565737473
+  MethodName: ShowCompletedQuests
 --- !u!23 &189188170
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53686f77536176656447616d65735549
+  MethodName: ShowSavedGamesUI
 --- !u!114 &406199061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1461,7 +1461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4c6f6164536176656447616d6573
+  MethodName: LoadSavedGames
 --- !u!114 &508730419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2388,7 +2388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4372656174654e6577536e617073686f74
+  MethodName: CreateNewSnapshot
 --- !u!114 &941049570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3124,7 +3124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4c6f6164517565737473
+  MethodName: LoadQuests
 --- !u!114 &1194746766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3530,7 +3530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53686f774163636570746564517565737473
+  MethodName: ShowAcceptedQuests
 --- !u!114 &1265793093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4529,7 +4529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 436f6e6e636574427574746f6e5072657373
+  MethodName: ConncetButtonPress
 --- !u!114 &1689820749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4711,7 +4711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4163636570745175657374
+  MethodName: AcceptQuest
 --- !u!114 &1701048870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5204,7 +5204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53686f774f70656e517565737473
+  MethodName: ShowOpenQuests
 --- !u!23 &1870382883
 MeshRenderer:
   m_ObjectHideFlags: 0

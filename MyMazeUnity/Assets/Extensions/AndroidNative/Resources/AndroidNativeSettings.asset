@@ -28,7 +28,7 @@ MonoBehaviour:
   MaxImageLoadSize: 512
   CameraCaptureMode: 0
   ImageFormat: 0
-  ShowPluginSettings: 0
+  ShowPluginSettings: 1
   ShowAppPermissions: 0
   EnableBillingAPI: 1
   EnablePSAPI: 1
@@ -39,14 +39,14 @@ MonoBehaviour:
   ExpandBillingAPI: 0
   ExpandSocialAPI: 0
   ExpandCameraAPI: 0
-  ShowStoreKitParams: 1
+  ShowStoreKitParams: 0
   ShowCameraAndGalleryParams: 0
   ShowLocalNotificationParams: 0
   ShowPushNotificationParams: 0
   ThirdPartyParams: 0
-  ShowPSSettings: 1
+  ShowPSSettings: 0
   ShowPSSettingsResources: 1
-  ShowActions: 0
+  ShowActions: 1
   GCMSettingsActinve: 0
   LocalNotificationsAPI: 1
   ImmersiveModeAPI: 0

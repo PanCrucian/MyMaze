@@ -56,7 +56,6 @@ public class MyDDNA : MonoBehaviour {
             if (response != null && response.ContainsKey("parameters"))
             {
                 Dictionary<string, object> parameters = (Dictionary<string, object>)response["parameters"];
-
                 //Частота показа
                 if (parameters.ContainsKey("adsFrequency"))
                 {

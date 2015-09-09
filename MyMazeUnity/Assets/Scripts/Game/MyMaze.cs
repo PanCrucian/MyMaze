@@ -773,7 +773,12 @@ public class MyMaze : MonoBehaviour, ISavingElement
 
     public void GoToMarket()
     {
-        Debug.Log("Идем в магазин приложений");
+#if UNITY_IPHONE
+        WebLinks.OpenAppleStore();
+#endif
+#if UNITY_ANDROID
+        WebLinks.OpenPlayMarket();
+#endif
     }
 
     /// <summary>

@@ -37,7 +37,8 @@ public class MyDDNA : MonoBehaviour {
     {
         get
         {
-            Debug.LogWarning("DDNA не инициализирован");
+            if (!DDNA.Instance.IsInitialised)
+                Debug.LogWarning("DDNA не инициализирован");
             return DDNA.Instance.IsInitialised;
         }
     }

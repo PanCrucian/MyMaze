@@ -74,7 +74,10 @@ public class InApps : MonoBehaviour, ISavingElement {
         if (MyMaze.Instance.PlayMarket.IsInitalized)
             MyMaze.Instance.PlayMarket.Purchase(GetProduct<MarketMatching>(type).productId);
         else
-            Debug.LogWarning("Play market не инициализирован");
+            Debug.LogWarning("Play market не инициализирован");        
+#endif
+#if UNITY_EDITOR
+        OnTransactionSuccess(type);
 #endif
     }
 

@@ -64,6 +64,15 @@ public class GameLevel : MonoBehaviour {
         MyMaze.Instance.OnPackGroupFirstTimePassed += OnPackGroupFirstTimePassed;
 
         MyMaze.Instance.LastSelectedLevel.Started();
+        MyMaze.Instance.InApps.OnFiveLivesBuyed += OnFiveLivesBuyed;
+    }
+
+    /// <summary>
+    /// Купили 5 жизней
+    /// </summary>
+    void OnFiveLivesBuyed()
+    {
+        OnRestartRequest();
     }
 
     /// <summary>
@@ -512,6 +521,7 @@ public class GameLevel : MonoBehaviour {
         {
             MyMaze.Instance.OnMenuLoad -= OnMenuLoad;
             MyMaze.Instance.OnPackGroupFirstTimePassed -= OnPackGroupFirstTimePassed;
+            MyMaze.Instance.InApps.OnFiveLivesBuyed -= OnFiveLivesBuyed;
         }
     }
 }

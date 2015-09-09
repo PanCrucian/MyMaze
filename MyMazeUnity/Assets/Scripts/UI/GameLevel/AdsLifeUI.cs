@@ -38,6 +38,8 @@ public class AdsLifeUI : MonoBehaviour {
     /// </summary>
     public void Show()
     {
+        if (GetComponent<CanvasGroup>().alpha >= 0.1f)
+            return;
         if (MyMaze.Instance.IsGameLevel)
         {
             if (GameLevel.Instance.state == GameLevelStates.GameOver)

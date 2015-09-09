@@ -137,7 +137,11 @@ public class Ads : MonoBehaviour, ISavingElement {
             if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
                 if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
                     if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastInterstitialHideTime) > cooldown)
+                    {
+                        Debug.Log("Показываю рекламу");
+                        lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
                         HZInterstitialAd.chartboostShowForLocation("mymaze.onEndOfGame"); //HZInterstitialAd.show(); //
+                    }
     }
 
     /// <summary>

@@ -24,15 +24,10 @@ public class ButtonReplayUI : MonoBehaviour {
 
     void Update()
     {
-        if (MyMaze.Instance.Life.Units <= 0)
+        if (GameLevel.Instance.state == GameLevelStates.Game && !Player.Instance.allowControl)
             button.interactable = false;
         else
-        {
-            if (GameLevel.Instance.state == GameLevelStates.Game && !Player.Instance.allowControl)
-                button.interactable = false;
-            else
-                button.interactable = true;
-        }
+            button.interactable = true;
     }
 
     void OnDestroy()

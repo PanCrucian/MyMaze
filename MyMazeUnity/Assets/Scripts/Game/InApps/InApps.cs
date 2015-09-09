@@ -18,7 +18,7 @@ public class InApps : MonoBehaviour, ISavingElement {
     }
 
     [System.Serializable]
-    public class AppStoreMatching : IStoreMatch
+    public class MarketMatching : IStoreMatch
     {
         public string productId;
         public ProductTypes type;
@@ -27,7 +27,12 @@ public class InApps : MonoBehaviour, ISavingElement {
     /// <summary>
     /// Сопаставления продуктов с идетификаторами магазина Apple
     /// </summary>
-    public AppStoreMatching[] appStoreProducts;
+    public MarketMatching[] appStoreProducts;
+
+    /// <summary>
+    /// Сопаставления продуктов с индентификаторами магазина Google Play
+    /// </summary>
+    public MarketMatching[] playMarketProducts;
 
     [System.Serializable]
     public class BasketItem
@@ -45,6 +50,9 @@ public class InApps : MonoBehaviour, ISavingElement {
 #if UNITY_IPHONE
         MyMaze.Instance.AppStore.OnTransactionSuccess += OnTransactionSuccess;
 #endif
+#if UNITY_ANDROID
+        MyMaze.Instance.PlayMarket.OnTransactionSuccess += OnTransactionSuccess;
+#endif
     }
 
     /// <summary>
@@ -55,17 +63,18 @@ public class InApps : MonoBehaviour, ISavingElement {
     {
         if (OnBuyRequest != null)
             OnBuyRequest(type);
+        Debug.Log("Отправляю запрос на покупку продукта: " + type.ToString("g"));
 #if UNITY_IPHONE
         if (MyMaze.Instance.AppStore.IsInitalized)
-        {
-            Debug.Log("Отправляю запрос на покупку продукта: " + type.ToString("g"));
-            IOSInAppPurchaseManager.Instance.buyProduct(GetProduct<AppStoreMatching>(type).productId);
-        }
+            IOSInAppPurchaseManager.Instance.buyProduct(GetProduct<MarketMatching>(type).productId);
         else
             Debug.Log("AppStore не инициализирован");
 #endif
 #if UNITY_ANDROID
-        OnTransactionSuccess(type);
+        if (MyMaze.Instance.PlayMarket.IsInitalized)
+            MyMaze.Instance.PlayMarket.Purchase(GetProduct<MarketMatching>(type).productId);
+        else
+            Debug.LogWarning("Play market не инициализирован");
 #endif
     }
 
@@ -240,7 +249,7 @@ public class InApps : MonoBehaviour, ISavingElement {
     public T GetProduct<T>(ProductTypes type) where T : IStoreMatch
     {
 #if UNITY_IPHONE
-        foreach (AppStoreMatching product in appStoreProducts)
+        foreach (MarketMatching product in appStoreProducts)
             if (product.type == type)
                 return (T)(IStoreMatch) product;
 #endif
@@ -255,7 +264,7 @@ public class InApps : MonoBehaviour, ISavingElement {
     public T GetProduct<T>(string id) where T : IStoreMatch
     {
 #if UNITY_IPHONE
-        foreach (AppStoreMatching product in appStoreProducts)
+        foreach (MarketMatching product in appStoreProducts)
             if (product.productId.Equals(id))
                 return (T)(IStoreMatch)product;
 #endif
@@ -279,11 +288,13 @@ public class InApps : MonoBehaviour, ISavingElement {
     public void RestoreIAPs()
     {
         Debug.Log("Пытаюсь восстановить покупки");
-#if UNITY_IPHONE
-        IOSInAppPurchaseManager.instance.restorePurchases();
-#elif UNITY_EDITOR
+#if UNITY_EDITOR
         foreach (BasketItem item in basket)
-            OnTransactionSuccess(item.type);
+            OnTransactionSuccess(item.type);        
+#elif UNITY_IPHONE        
+        IOSInAppPurchaseManager.instance.restorePurchases();
+#elif UNITY_ANDROID
+        MyMaze.Instance.PlayMarket.CheckPurchasedProductsAndConsume();
 #endif
     }
 

@@ -1184,12 +1184,14 @@ GameObject:
   - 114: {fileID: 11422392}
   - 114: {fileID: 11402642}
   - 114: {fileID: 11455244}
+  - 114: {fileID: 11455596}
   - 114: {fileID: 11432260}
   - 114: {fileID: 11487576}
+  - 114: {fileID: 11408314}
   - 114: {fileID: 11402342}
+  - 114: {fileID: 11432856}
   - 114: {fileID: 11404412}
   - 114: {fileID: 11447982}
-  - 114: {fileID: 11455596}
   - 114: {fileID: 11429882}
   - 114: {fileID: 11499636}
   - 114: {fileID: 11441590}
@@ -2390,6 +2392,29 @@ MonoBehaviour:
     type: 9
   - achId: mymaze_achievement_gamecomplete
     type: 10
+  gPSMatching:
+  - achId: CgkI4JDql48IEAIQAA
+    type: 0
+  - achId: CgkI4JDql48IEAIQAQ
+    type: 1
+  - achId: CgkI4JDql48IEAIQAg
+    type: 2
+  - achId: CgkI4JDql48IEAIQAw
+    type: 3
+  - achId: CgkI4JDql48IEAIQBA
+    type: 4
+  - achId: CgkI4JDql48IEAIQBQ
+    type: 5
+  - achId: CgkI4JDql48IEAIQBg
+    type: 6
+  - achId: CgkI4JDql48IEAIQBw
+    type: 7
+  - achId: CgkI4JDql48IEAIQCA
+    type: 8
+  - achId: CgkI4JDql48IEAIQCQ
+    type: 9
+  - achId: CgkI4JDql48IEAIQCg
+    type: 10
   elements:
   - name: Page00Opened
     type: 0
@@ -2555,6 +2580,17 @@ MonoBehaviour:
   IsPassed: 0
   IsClosed: 1
   IsAllreadyPassed: 0
+--- !u!114 &11408314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ee8b2a2161322418ee157fe531702e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11411964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3298,6 +3334,22 @@ MonoBehaviour:
   - productId: mymaze_teleportation
     type: 4
     cost: 99
+  playMarketProducts:
+  - productId: mymaze_noads
+    type: 0
+    cost: 199
+  - productId: mymaze_rewind
+    type: 1
+    cost: 99
+  - productId: mymaze_unlimited
+    type: 2
+    cost: 499
+  - productId: mymaze_refill
+    type: 3
+    cost: 99
+  - productId: mymaze_teleportation
+    type: 4
+    cost: 99
   basket:
   - isOwned: 0
     type: 0
@@ -3331,6 +3383,17 @@ MonoBehaviour:
   StarsRequired: 0
   group: 0
   IsAllreadyPassed: 0
+--- !u!114 &11432856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03638f9653f51ba46a1535aaadfa2fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11433856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3756,6 +3819,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iOSMatching:
   - boardId: mymaze_leaderboard
+    type: 0
+  gPSMatching:
+  - boardId: CgkI4JDql48IEAIQCw
     type: 0
   elements:
   - name: Stars

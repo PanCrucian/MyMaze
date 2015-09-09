@@ -21,6 +21,14 @@ public class AchievementsUI : MonoBehaviour, IPointerClickHandler {
         else
             DisableButton();
     }
+#elif UNITY_ANDROID
+    void Update()
+    {
+        if (MyMaze.Instance.GooglePlayServices.IsAuth && MyMaze.Instance.GooglePlayServices.IsAchievementsLoaded)
+            EnableButton();
+        else
+            DisableButton();
+    }
 #else
     void Update()
     {
@@ -44,6 +52,11 @@ public class AchievementsUI : MonoBehaviour, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData)
     {
+#if UNITY_IPHONE
         GameCenterManager.ShowAchievements();
+#endif
+#if UNITY_ANDROID
+        GooglePlayManager.Instance.ShowAchievementsUI();
+#endif
     }
 }

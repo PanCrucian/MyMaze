@@ -22,6 +22,14 @@ public class LeaderboardUI : MonoBehaviour, IPointerClickHandler
         else
             DisableButton();
     }
+#elif UNITY_ANDROID
+    void Update()
+    {
+        if (MyMaze.Instance.GooglePlayServices.IsAuth && MyMaze.Instance.GooglePlayServices.IsLeaderboardsLoaded)
+            EnableButton();
+        else
+            DisableButton();
+    }
 #else
     void Update()
     {
@@ -45,6 +53,11 @@ public class LeaderboardUI : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        GameCenterManager.ShowLeaderboard(MyMaze.Instance.Leaderboards.GetGameCenterId(LeaderboardTypes.Stars));
+#if UNITY_IPHONE
+        GameCenterManager.ShowLeaderboard(MyMaze.Instance.Leaderboards.GetMarketId(LeaderboardTypes.Stars));
+#endif
+#if UNITY_ANDROID
+        GooglePlayManager.Instance.ShowLeaderBoardsUI();
+#endif
     }
 }

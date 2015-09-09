@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameCenter : MonoBehaviour {
-    #region GameCenter methods and variables
+public class GameCenter : MonoBehaviour
+{
 #if UNITY_IPHONE
     /// <summary>
     /// Авторизовался?
@@ -31,7 +31,7 @@ public class GameCenter : MonoBehaviour {
 
     void Start()
     {
-        foreach (Achievements.GameCenterTypeMatching iOSMatch in MyMaze.Instance.Achievements.iOSMatching)
+        foreach (Achievements.IdToTypeMatching iOSMatch in MyMaze.Instance.Achievements.iOSMatching)
             GameCenterManager.RegisterAchievement(iOSMatch.achId);
 
         GameCenterManager.OnAuthFinished += OnAuthFinished;
@@ -60,7 +60,7 @@ public class GameCenter : MonoBehaviour {
         else
         {
             Debug.Log("Player Authed" + "\n" + "ID: " + GameCenterManager.Player.Id + "\n" + "Alias: " + GameCenterManager.Player.Alias);
-            GameCenterManager.LoadCurrentPlayerScore(MyMaze.Instance.Leaderboards.GetGameCenterId(LeaderboardTypes.Stars));
+            GameCenterManager.LoadCurrentPlayerScore(MyMaze.Instance.Leaderboards.GetMarketId(LeaderboardTypes.Stars));
         }
     }
 
@@ -91,7 +91,7 @@ public class GameCenter : MonoBehaviour {
         foreach (Achievement achievement in MyMaze.Instance.Achievements.elements)
             if (achievement.IsAchieved)
             {
-                string achievementGcId = MyMaze.Instance.Achievements.GetGameCenterId(achievement.type);
+                string achievementGcId = MyMaze.Instance.Achievements.GetMarketId(achievement.type);
                 if (GameCenterManager.GetAchievementProgress(achievementGcId) < 100f)
                     achievement.GameCenterAchieve();
             }
@@ -131,12 +131,11 @@ public class GameCenter : MonoBehaviour {
         if (result.IsSucceeded)
         {
             Debug.Log("Leaderboard " + result.loadedScore.leaderboardId + "\n" + "Score: " + result.loadedScore.score + "\n" + "Rank:" + result.loadedScore.rank);
-            if (result.loadedScore.leaderboardId.Equals(MyMaze.Instance.Leaderboards.GetGameCenterId(LeaderboardTypes.Stars)))
+            if (result.loadedScore.leaderboardId.Equals(MyMaze.Instance.Leaderboards.GetMarketId(LeaderboardTypes.Stars)))
                 MyMaze.Instance.Leaderboards.SetStarsLeaderboard();
         }
         else
             Debug.LogWarning("OnPlayerScoreLoaded false");
     }
 #endif
-    #endregion
 }

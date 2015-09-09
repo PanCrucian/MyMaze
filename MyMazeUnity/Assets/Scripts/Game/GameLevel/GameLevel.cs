@@ -275,9 +275,12 @@ public class GameLevel : MonoBehaviour {
     {
         //подождем немного и переключим экраны
         yield return new WaitForSeconds(GameLevelDesign.Instance.gameOverDelay);
+        ScreenOverlayUI.Instance.FadeIn();
+        yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay / 2f);
         CGSwitcher.Instance.SetHideObject(uiGame);
         CGSwitcher.Instance.SetShowObject(uiResults);
         CGSwitcher.Instance.Switch();
+        ScreenOverlayUI.Instance.FadeOut();
 
         //установим рекорд движений
         Level lastSelectedLevel = MyMaze.Instance.LastSelectedLevel;

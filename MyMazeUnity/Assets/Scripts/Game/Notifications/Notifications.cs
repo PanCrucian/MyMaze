@@ -57,11 +57,10 @@ public class Notifications : MonoBehaviour {
     {
         if (MyMaze.Instance.Life.Units == MyMaze.Instance.Life.MaxUnits)
             return;
-
-#if UNITY_IPHONE
         System.DateTime launchTime = System.DateTime.Now.AddSeconds(
             Mathf.Abs(MyMaze.Instance.Life.GetLastBlock().regenerationTime - Timers.Instance.UnixTimestamp)
         );
+#if UNITY_IPHONE        
         ISN_LocalNotification notification = new ISN_LocalNotification(
             launchTime, 
             MyMaze.Instance.Localization.GetLocalized("gobacktogame"), 
@@ -73,6 +72,15 @@ public class Notifications : MonoBehaviour {
             OnNewNotice(notification.Id, launchTime, restoredLivesName);
         Debug.Log("Регистрация уведомления о жизнях id: " + notification.Id.ToString());
 #endif
+#if UNITY_ANDROID
+        int lastNotificationId = AndroidNotificationManager.Instance.ScheduleLocalNotification(
+            "My Maze", 
+            MyMaze.Instance.Localization.GetLocalized("gobacktogame"), 
+            Mathf.Abs(MyMaze.Instance.Life.GetLastBlock().regenerationTime - Timers.Instance.UnixTimestamp));
+        if (OnNewNotice != null)
+            OnNewNotice(lastNotificationId, launchTime, restoredLivesName);
+        Debug.Log("Регистрация уведомления о жизнях id: " + lastNotificationId.ToString());
+#endif
     }
 
     /// <summary>
@@ -83,6 +91,9 @@ public class Notifications : MonoBehaviour {
 #if UNITY_IPHONE
         IOSNotificationController.Instance.CancelAllLocalNotifications();
         IOSNativeUtility.SetApplicationBagesNumber(0);
+#endif
+#if UNITY_ANDROID
+        AndroidNotificationManager.Instance.CancelAllLocalNotifications();
 #endif
     }
 

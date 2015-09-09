@@ -39,7 +39,7 @@ MonoBehaviour:
   ExpandBillingAPI: 0
   ExpandSocialAPI: 0
   ExpandCameraAPI: 0
-  ShowStoreKitParams: 0
+  ShowStoreKitParams: 1
   ShowCameraAndGalleryParams: 0
   ShowLocalNotificationParams: 0
   ShowPushNotificationParams: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
   CameraAPI: 0
   KeepManifestClean: 1
   GCM_SenderId: YOUR_SENDER_ID_HERE
-  GooglePlayServiceAppID: 216817929098
-  base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkAUrH7quMhyy90zK26vMxVzShcl1feFj2ZMdNb0wv1OED9a0N5UrWwn1N3yamz9lpNVsXdi0R1hDNLcBrvf5NyzrFEvswhH2AdFnLV0k97SbymqzjzKgsDg/VXkQPKHQvoQcGMnRyA85NKilaQ4XcwXDcqprAnggMEoVwY+ziBeO8x8Lkfbjw/PXDmfT4rC9tmWsiFMmaQna9LmfXaNdjYFPh2AxbNor+yTYrGwWlGidRkd9h9jOZAFoxhxK7kqAp+jDiIvLronVvQEz0zy9be+KqHJSJ3vUummKeRMqcGC2FawtGP9+Jv6cvYlkXzAWPomo0hA2lWfXTKZtm5UcjQIDAQAB
+  GooglePlayServiceAppID: 278954412128
+  base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtKcG1AD1jKZO5YMG/A7dBECJm5I+cucStyQdFWBU4c3GUgcku/i9SjQPPZe0s8jQsGQItyesoEiq0LFC1RDYzerGYlsRDWZ7ExxnB20fCWdEmhjWPeHhSjAxhR32QVMsYbFxtCHVZkiKDvwFLWYLHNyvJl5zlEs22MrJIP/BNYWnUz/nWC8/s9wJMbBIgeIMPa1cZyF6y2py2GenxCgWSclm8Htt1r9VZEB6nBceO+adJIWDmPTwCopMFxwUTdaMEeJ3BxVEul2P31cHU2lJnpNrkcGnZPO2yvMLS6Lgw0ol0kcr9VA5GmJCfSNPmlZQG6Y4e95l9F6FA65LBtTEpwIDAQAB
   InAppProducts: []
   ShowWhenAppIsForeground: 1
   EnableVibrationLocal: 0

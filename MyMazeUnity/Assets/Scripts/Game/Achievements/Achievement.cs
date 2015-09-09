@@ -28,21 +28,31 @@ public class Achievement : ISavingElement {
 #if UNITY_IPHONE
         GameCenterAchieve();
 #endif
+#if UNITY_ANDROID
+        GooglePlayAchieve();
+#endif
     }
 
-    #region GameCenter methods and variables    
 #if UNITY_IPHONE
     /// <summary>
     /// Ачивка в игровой центр
     /// </summary>
     public void GameCenterAchieve()
     {
-        GameCenter gameCenter = MyMaze.Instance.GameCenter;
-        if (gameCenter.IsAuth && gameCenter.IsAchievementsLoaded)
-            GameCenterManager.SubmitAchievement(100f, MyMaze.Instance.Achievements.GetGameCenterId(type));
+        if (MyMaze.Instance.GameCenter.IsAuth && MyMaze.Instance.GameCenter.IsAchievementsLoaded)
+            GameCenterManager.SubmitAchievement(100f, MyMaze.Instance.Achievements.GetMarketId(type));
     }
 #endif
-    #endregion
+#if UNITY_ANDROID
+    /// <summary>
+    /// Ачивка в гугл плей
+    /// </summary>
+    public void GooglePlayAchieve()
+    {
+        if (MyMaze.Instance.GooglePlayServices.IsAuth && MyMaze.Instance.GooglePlayServices.IsAchievementsLoaded)
+            GooglePlayManager.Instance.UnlockAchievementById(MyMaze.Instance.Achievements.GetMarketId(type));
+    }
+#endif
 
     /// <summary>
     /// Убрать ачивку

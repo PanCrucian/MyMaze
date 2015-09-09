@@ -24,7 +24,7 @@ public class AppStore : MonoBehaviour {
     /// </summary>
     void Start()
     {
-        foreach (InApps.AppStoreMatching product in MyMaze.Instance.InApps.appStoreProducts)
+        foreach (InApps.MarketMatching product in MyMaze.Instance.InApps.appStoreProducts)
             IOSInAppPurchaseManager.Instance.addProductId(product.productId);
 
         IOSInAppPurchaseManager.OnStoreKitInitComplete += OnStoreKitInitComplete;
@@ -58,7 +58,7 @@ public class AppStore : MonoBehaviour {
             case InAppPurchaseState.Purchased:
             case InAppPurchaseState.Restored:
                 //Успешно или купили или восстановили покупку                    
-                InApps.AppStoreMatching product = MyMaze.Instance.InApps.GetProduct<InApps.AppStoreMatching>(response.ProductIdentifier);
+                InApps.MarketMatching product = MyMaze.Instance.InApps.GetProduct<InApps.MarketMatching>(response.ProductIdentifier);
                 if(product != null)
                     if (OnTransactionSuccess != null)
                         OnTransactionSuccess(product.type);

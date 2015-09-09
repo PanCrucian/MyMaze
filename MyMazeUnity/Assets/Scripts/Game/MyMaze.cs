@@ -223,6 +223,32 @@ public class MyMaze : MonoBehaviour, ISavingElement
     private AppStore _appStore;
 #endif
 
+#if UNITY_ANDROID
+    /// <summary>
+    /// Ссылка на GooglePlay
+    /// </summary>
+    public GooglePlayServices GooglePlayServices
+    {
+        get
+        {
+            return _googlePlayServices;
+        }
+    }
+    private GooglePlayServices _googlePlayServices;
+
+    /// <summary>
+    /// ссылка на Play Market
+    /// </summary>
+    public PlayMarket PlayMarket
+    {
+        get
+        {
+            return _playMarket;
+        }
+    }
+    private PlayMarket _playMarket;
+#endif
+
     /// <summary>
     /// Ссылка на рекламу
     /// </summary>
@@ -295,11 +321,29 @@ public class MyMaze : MonoBehaviour, ISavingElement
     }
     private int _installTime = 0;
 
+    /// <summary>
+    /// Дней в игре с момента установки
+    /// </summary>
     public int DaysInGame
     {
         get
         {
             return TimeSpan.FromSeconds(Mathf.Abs(Timers.Instance.UnixTimestamp - InstallTime)).Days;
+        }
+    }
+
+    /// <summary>
+    /// Сколько паков было пройдено игроком
+    /// </summary>
+    public int PacksPassedCount
+    {
+        get
+        {
+            int count = 0;
+            foreach (Pack pack in packs)
+                if (pack.IsAllreadyPassed)
+                    count++;
+            return count;
         }
     }
 
@@ -572,6 +616,10 @@ public class MyMaze : MonoBehaviour, ISavingElement
 #if UNITY_IPHONE
         _gameCenter = GetComponent<GameCenter>();
         _appStore = GetComponent<AppStore>();
+#endif
+#if UNITY_ANDROID
+        _googlePlayServices = GetComponent<GooglePlayServices>();
+        _playMarket = GetComponent<PlayMarket>();
 #endif
 
     }

@@ -3,24 +3,32 @@ using System.Collections;
 
 public class Achievements : MonoBehaviour, ISavingElement {
     [System.Serializable]
-    public class GameCenterTypeMatching
+    public class IdToTypeMatching
     {
         public string achId;
         public AchievementsTypes type;
     }
-    public GameCenterTypeMatching[] iOSMatching;
+    public IdToTypeMatching[] iOSMatching;
+    public IdToTypeMatching[] gPSMatching;
     public Achievement[] elements;
     
     /// <summary>
-    /// Получить ID ачивки для геймцентра
+    /// Получить ID ачивки для геймцентра или GooglePlay, в зависимости от платформы
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
-    public string GetGameCenterId(AchievementsTypes type)
+    public string GetMarketId(AchievementsTypes type)
     {
-        foreach (GameCenterTypeMatching iOSMatch in iOSMatching)
+#if UNITY_IPHONE
+        foreach (IdToTypeMatching iOSMatch in iOSMatching)
             if (iOSMatch.type == type)
                 return iOSMatch.achId;
+#endif
+#if UNITY_ANDROID
+        foreach (IdToTypeMatching gPSMatch in gPSMatching)
+            if (gPSMatch.type == type)
+                return gPSMatch.achId;
+#endif
         return "";
     }
 

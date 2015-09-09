@@ -27,6 +27,7 @@ public class GameUIController : MonoBehaviour {
             GetComponent<RectTransform>(),
             shopUIInstance.GetComponent<RectTransform>()
             );
+        shopUIInstance.transform.SetSiblingIndex(transform.parent.childCount - 2);
     }
 
     /// <summary>

@@ -33,11 +33,23 @@ public class MyDDNA : MonoBehaviour {
         EngageOnGameStart();
     }
 
+    bool IsDDNAInitalized
+    {
+        get
+        {
+            Debug.LogWarning("DDNA не инициализирован");
+            return DDNA.Instance.IsInitialised;
+        }
+    }
+
     /// <summary>
     /// Запросим параметры из DDNA для события onGameStart
     /// </summary>
     void EngageOnGameStart()
     {
+        if (!IsDDNAInitalized)
+            return;
+
         Debug.Log("Запрашиваю из DDNA параметры на onGameStart");
         DDNA.Instance.RequestEngagement("onGameStart", null, (response) =>
         {
@@ -146,6 +158,9 @@ public class MyDDNA : MonoBehaviour {
     /// </summary>
     void RecordAdsFreqency()
     {
+        if (!IsDDNAInitalized)
+            return;
+
         DDNA.Instance.RecordEvent(
             "adsFreqSet",
             new EventBuilder()
@@ -161,6 +176,9 @@ public class MyDDNA : MonoBehaviour {
     /// <param name="pack"></param>
     void RecordLevelUp(Pack pack)
     {
+        if (!IsDDNAInitalized)
+            return;
+
         DDNA.Instance.RecordEvent(
             "levelUp",
             new EventBuilder()
@@ -175,6 +193,9 @@ public class MyDDNA : MonoBehaviour {
     /// <param name="level"></param>
     void RecordMissionCompleted(Level level)
     {
+        if (!IsDDNAInitalized)
+            return;
+
         DDNA.Instance.RecordEvent(
             "missionCompleted",
             new EventBuilder()
@@ -182,6 +203,8 @@ public class MyDDNA : MonoBehaviour {
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
                 .AddParam("starsAchieved", level.GetCollectedStarsCount())
+                .AddParam("userLevel", MyMaze.Instance.PacksPassedCount)
+                .AddParam("userScore", MyMaze.Instance.StarsRecived)
         );
         Upload();
     }
@@ -192,12 +215,17 @@ public class MyDDNA : MonoBehaviour {
     /// <param name="level"></param>
     void RecordMissionFailed(Level level)
     {
+        if (!IsDDNAInitalized)
+            return;
+
         DDNA.Instance.RecordEvent(
             "missionFailed",
             new EventBuilder()
                 .AddParam("isTutorial", System.Convert.ToBoolean("FALSE"))
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
+                .AddParam("userLevel", MyMaze.Instance.PacksPassedCount)
+                .AddParam("userScore", MyMaze.Instance.StarsRecived)
         );
         Upload();
     }
@@ -208,12 +236,17 @@ public class MyDDNA : MonoBehaviour {
     /// <param name="level"></param>
     void RecordMissionStarted(Level level)
     {
+        if (!IsDDNAInitalized)
+            return;
+
         DDNA.Instance.RecordEvent(
             "missionStarted",
             new EventBuilder()
                 .AddParam("isTutorial", System.Convert.ToBoolean("FALSE"))
                 .AddParam("missionID", level.displayText)
                 .AddParam("missionName", level.levelName)
+                .AddParam("userLevel", MyMaze.Instance.PacksPassedCount)
+                .AddParam("userScore", MyMaze.Instance.StarsRecived)
         );
         Upload();   
     }
@@ -226,6 +259,9 @@ public class MyDDNA : MonoBehaviour {
     /// <param name="name"></param>
     void RecordNotificationOpened(int id, System.DateTime launchTime, string name)
     {
+        if (!IsDDNAInitalized)
+            return;
+
         DDNA.Instance.RecordEvent(
             "notificationOpened",
             new EventBuilder()
@@ -242,13 +278,12 @@ public class MyDDNA : MonoBehaviour {
     /// <param name="type"></param>
     void RecordThumbPurchaseAttempt(ProductTypes type)
     {
+        if (!IsDDNAInitalized)
+            return;
+
         EventBuilder thumbPurchaseAttempt = new EventBuilder();
         thumbPurchaseAttempt.AddParam("thumbAdvID", type.ToString("g"));
-#if UNITY_IPHONE
-        thumbPurchaseAttempt.AddParam("thumbIAPid", MyMaze.Instance.InApps.GetProduct<InApps.AppStoreMatching>(type).productId);
-#elif UNITY_ANDROID
-        thumbPurchaseAttempt.AddParam("thumbIAPid", "Not setuped yet");
-#endif
+        thumbPurchaseAttempt.AddParam("thumbIAPid", MyMaze.Instance.InApps.GetProduct<InApps.MarketMatching>(type).productId);
         thumbPurchaseAttempt.AddParam("thumbUserDaysInGame", MyMaze.Instance.DaysInGame);
         thumbPurchaseAttempt.AddParam("transactionName", type.ToString("g"));
         thumbPurchaseAttempt.AddParam("transactionType", TransactionTypes.PURCHASE.ToString("g"));
@@ -263,6 +298,9 @@ public class MyDDNA : MonoBehaviour {
     /// <param name="type"></param>
     void RecordTransaction(ProductTypes type)
     {
+        if (!IsDDNAInitalized)
+            return;
+
         Debug.Log("RecordTransaction " + type.ToString("g"));
         EventBuilder thumbPurchaseAttempt = new EventBuilder();
         thumbPurchaseAttempt.AddParam("thumbAdvID", type.ToString("g"));
@@ -270,16 +308,9 @@ public class MyDDNA : MonoBehaviour {
         thumbPurchaseAttempt.AddParam("transactionName", type.ToString("g"));
         thumbPurchaseAttempt.AddParam("transactionType", TransactionTypes.PURCHASE.ToString("g"));
         thumbPurchaseAttempt.AddParam("productsReceived", new ProductBuilder()
-                                .AddItem(type.ToString("g"), type.ToString("g"), 1));
-#if UNITY_IPHONE        
+                                .AddItem(type.ToString("g"), type.ToString("g"), 1));     
         thumbPurchaseAttempt.AddParam("productsSpent", new ProductBuilder()
-                                .AddRealCurrency("USD", MyMaze.Instance.InApps.GetProduct<InApps.AppStoreMatching>(type).cost));
-#endif
-#if UNITY_ANDROID
-        thumbPurchaseAttempt.AddParam("productsSpent", new ProductBuilder()
-                                .AddRealCurrency("USD", 0));
-#endif
-
+                                .AddRealCurrency("USD", MyMaze.Instance.InApps.GetProduct<InApps.MarketMatching>(type).cost));
         thumbPurchaseAttempt.AddParam("afAttrAdgroupID", "none");
         thumbPurchaseAttempt.AddParam("afAttrAdgroupName", "none");
         thumbPurchaseAttempt.AddParam("afAttrAdsetID", "none");

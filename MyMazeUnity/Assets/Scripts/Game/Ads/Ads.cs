@@ -44,7 +44,9 @@ public class Ads : MonoBehaviour, ISavingElement {
         {
             MyMaze.Instance.Ads.lastAdsHideTime = Timers.Instance.UnixTimestamp;
             MyMaze.Instance.Ads.lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
-            HZInterstitialAd.fetch();
+
+            HZInterstitialAd.chartboostFetchForLocation("mymaze.onLaunch");
+            HZInterstitialAd.chartboostFetchForLocation("mymaze.onEndOfGame");
         }        
     };
 
@@ -83,15 +85,15 @@ public class Ads : MonoBehaviour, ISavingElement {
     void Awake()
     {
         HZInterstitialAd.setDisplayListener(HZInterstitialListener);
-        HZInterstitialAd.chartboostFetchForLocation("mymaze.onLaunch");
-        HZInterstitialAd.chartboostFetchForLocation("mymaze.onEndOfGame");
-        HZInterstitialAd.fetch();
         HZIncentivizedAd.setDisplayListener(HZIncentivizedListener);
-        HZIncentivizedAd.fetch();
     }
 
-    void Start()
+    IEnumerator Start()
     {
+        HZInterstitialAd.chartboostFetchForLocation("mymaze.onLaunch");
+        HZInterstitialAd.chartboostFetchForLocation("mymaze.onEndOfGame");
+        HZIncentivizedAd.fetch();
+        yield return new WaitForSeconds(5f);
         if (MyMaze.Instance.IsFirstSceneLoad)
             StartCoroutine(ShowOnLaunchInterstitial());
     }

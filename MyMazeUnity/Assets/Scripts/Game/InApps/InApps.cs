@@ -253,6 +253,11 @@ public class InApps : MonoBehaviour, ISavingElement {
             if (product.type == type)
                 return (T)(IStoreMatch) product;
 #endif
+#if UNITY_ANDROID
+        foreach (MarketMatching product in playMarketProducts)
+            if (product.type == type)
+                return (T)(IStoreMatch) product;
+#endif
         return (T)(IStoreMatch) null;
     }
     /// <summary>
@@ -265,6 +270,11 @@ public class InApps : MonoBehaviour, ISavingElement {
     {
 #if UNITY_IPHONE
         foreach (MarketMatching product in appStoreProducts)
+            if (product.productId.Equals(id))
+                return (T)(IStoreMatch)product;
+#endif
+#if UNITY_ANDROID
+        foreach (MarketMatching product in playMarketProducts)
             if (product.productId.Equals(id))
                 return (T)(IStoreMatch)product;
 #endif

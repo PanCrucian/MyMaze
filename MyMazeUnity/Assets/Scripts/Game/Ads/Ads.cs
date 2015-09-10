@@ -107,9 +107,17 @@ public class Ads : MonoBehaviour, ISavingElement {
         if (!IsCurrentPackWithAds())
             return;
 
+        //если колдаун не позволяет показать рекламу
+        if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastInterstitialHideTime) < cooldown)
+            return;
+
+        //если куплен пакет без рекламы
+        if (MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
+            return;
+
         frequencyCounter++;
         if (frequencyCounter >= frequency)
-        {
+        {            
             frequencyCounter = 0;
             StartCoroutine(ShowOnGameEndInterstitial());
         }
@@ -135,15 +143,12 @@ public class Ads : MonoBehaviour, ISavingElement {
     {
         yield return new WaitForSeconds(0.5f);
 
-        if (IsCurrentPackWithAds())
-            if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
-                if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-                    if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastInterstitialHideTime) > cooldown)
-                    {
-                        Debug.Log("Показываю рекламу");
-                        lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
-                        HZInterstitialAd.chartboostShowForLocation("mymaze.onEndOfGame"); //HZInterstitialAd.show(); //
-                    }
+        if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
+        {
+            Debug.Log("Показываю рекламу");
+            lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
+            HZInterstitialAd.chartboostShowForLocation("mymaze.onEndOfGame"); //HZInterstitialAd.show(); //
+        }
     }
 
     /// <summary>

@@ -13,6 +13,7 @@ public class GameLevel : MonoBehaviour {
     public Animator uiResults;
     public AdsLifeUI uiAdsLife;
     public AdsMovesUI uiAdsMoves;
+    public ReplayUI uiReplay;
     public GameLevelStates state;
     public List<Pyramid> pyramids;
 
@@ -48,6 +49,7 @@ public class GameLevel : MonoBehaviour {
     void Start()
     {
         CurrentLevelStars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();
+        uiReplay = GameObject.FindObjectOfType<ReplayUI>();
         uiAdsMoves = GameObject.FindObjectOfType<AdsMovesUI>();
         uiAdsLife = GameObject.FindObjectOfType<AdsLifeUI>();
         uiGame = GameObject.FindGameObjectWithTag("uiGame").GetComponent<Animator>();
@@ -65,12 +67,18 @@ public class GameLevel : MonoBehaviour {
 
         MyMaze.Instance.LastSelectedLevel.Started();
         MyMaze.Instance.InApps.OnFiveLivesBuyed += OnFiveLivesBuyed;
+        MyMaze.Instance.InApps.OnUnlimitedLivesBuyed += OnUnlimitedLivesBuyed;
     }
 
     /// <summary>
     /// Купили 5 жизней
     /// </summary>
     void OnFiveLivesBuyed()
+    {
+        OnRestartRequest();
+    }
+
+    void OnUnlimitedLivesBuyed()
     {
         OnRestartRequest();
     }
@@ -482,7 +490,10 @@ public class GameLevel : MonoBehaviour {
         if (!uiAdsMoves.TryForShow())
         {
             MyMaze.Instance.Ads.CheckAndLaunchOnEndGameAds();
-            OnRestartRequest();
+            if (MyMaze.Instance.Life.Units > 0)
+                uiReplay.Show();
+            else
+                OnRestartRequest();
         }
     }
 
@@ -522,6 +533,7 @@ public class GameLevel : MonoBehaviour {
             MyMaze.Instance.OnMenuLoad -= OnMenuLoad;
             MyMaze.Instance.OnPackGroupFirstTimePassed -= OnPackGroupFirstTimePassed;
             MyMaze.Instance.InApps.OnFiveLivesBuyed -= OnFiveLivesBuyed;
+            MyMaze.Instance.InApps.OnUnlimitedLivesBuyed -= OnUnlimitedLivesBuyed;
         }
     }
 }

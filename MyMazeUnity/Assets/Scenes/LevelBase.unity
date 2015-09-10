@@ -263,34 +263,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -54.6480103
-      objectReference: {fileID: 0}
-    - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: -54.6480103
-      objectReference: {fileID: 0}
-    - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
-      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
-      propertyPath: m_SizeDelta.x
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1008,6 +1000,7 @@ MonoBehaviour:
   uiResults: {fileID: 0}
   uiAdsLife: {fileID: 0}
   uiAdsMoves: {fileID: 0}
+  uiReplay: {fileID: 0}
   state: 1
   pyramids: []
   addMoves: 0

@@ -76,7 +76,7 @@ public class LivesCounterUI : MonoBehaviour {
             if (i < MyMaze.Instance.Life.Units)
                 hearts[i].Collect();
             else
-                hearts[i].Lose();
+                hearts[i].Lose(true);
         }
     }
 

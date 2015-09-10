@@ -28,6 +28,17 @@ public class LivesCounterHeartUI : MonoBehaviour
             StartCoroutine(AnimateLose());
     }
 
+    public void Lose(bool hard)
+    {
+        if (hard)
+        {
+            fillStar.color = new Color(fillStar.color.r, fillStar.color.g, fillStar.color.b, 0f);
+            outlineStar.color = new Color(outlineStar.color.r, outlineStar.color.g, outlineStar.color.b, 1f);
+        }
+        else
+            Lose();
+    }
+
     /// <summary>
     /// Звезда закрашена?
     /// </summary>

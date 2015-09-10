@@ -65,6 +65,8 @@ public class AdsLifeUI : MonoBehaviour {
 #endif
 #if UNITY_EDITOR
         MyMaze.Instance.Life.RestoreOneUnit();
+        if (GameLevel.Instance != null)
+            GameLevel.Instance.OnRestartRequest();
 #endif
     }
 

@@ -14,11 +14,8 @@ public class ButtonReplayUI : MonoBehaviour {
 
     public void OnRestartRequest()
     {
-        if (GameLevel.Instance.uiAdsLife.GetComponent<CanvasGroup>().alpha > 0f)
-        {
-            CGSwitcher.Instance.SetHideObject(GameLevel.Instance.uiAdsLife.GetComponent<Animator>());
-            CGSwitcher.Instance.Switch();
-        }
+        GameLevel.Instance.uiAdsLife.Hide();
+        GameLevel.Instance.uiReplay.Hide();
         GameLevel.Instance.OnRestartRequest();
     }
 

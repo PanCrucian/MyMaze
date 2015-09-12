@@ -29,6 +29,8 @@ public class AdsLifeUI : MonoBehaviour {
     /// </summary>
     public void Hide()
     {
+        if (GetComponent<CanvasGroup>().alpha < 0.1f)
+            return;
         CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());
         CGSwitcher.Instance.Switch();
     }

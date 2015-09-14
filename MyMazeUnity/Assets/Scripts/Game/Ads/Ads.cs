@@ -60,14 +60,14 @@ public class Ads : GentleMonoBeh, ISavingElement {
     /// </summary>
     HZIncentivizedAd.AdDisplayListener HZIncentivizedListener = delegate(string adState, string adTag)
     {
-        Debug.Log("HZIncentivizedAd: " + adState);
+        Debug.Log("HZIncentivizedAd: " + adState + ", Tag: " + adTag);
         if (adState.Equals("hide"))
         {
 #if UNITY_IPHONE
             MyMaze.Instance.Sounds.UnMute();
 #endif
             MyMaze.Instance.Ads.lastAdsHideTime = Timers.Instance.UnixTimestamp;
-            if (adTag.Equals("mymaze.AdLife"))
+            if (adTag.Contains("AdLife"))
             {
                 MyMaze.Instance.Life.RestoreOneUnit();
                 if(GameLevel.Instance == null)
@@ -80,7 +80,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
                     GameLevel.Instance.OnRestartRequest();
                 }
             }
-            else if (adTag.Equals("mymaze.AdMoves"))
+            else if (adTag.Contains("AdMoves"))
                 GameObject.FindObjectOfType<AdsMovesUI>().AddMovesAndClose();
 
             HZIncentivizedAd.fetch();

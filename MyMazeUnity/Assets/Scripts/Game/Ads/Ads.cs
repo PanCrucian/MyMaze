@@ -49,8 +49,8 @@ public class Ads : GentleMonoBeh, ISavingElement {
             MyMaze.Instance.Ads.lastAdsHideTime = Timers.Instance.UnixTimestamp;
             MyMaze.Instance.Ads.lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
 
-            HZInterstitialAd.chartboostFetchForLocation("mymaze.onLaunch");
-            HZInterstitialAd.chartboostFetchForLocation("mymaze.onPause");
+            HZInterstitialAd.chartboostFetchForLocation("mymaze.onlaunch");
+            HZInterstitialAd.chartboostFetchForLocation("mymaze.onpause");
             HZInterstitialAd.fetch();
         }        
     };
@@ -67,7 +67,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
             MyMaze.Instance.Sounds.UnMute();
 #endif
             MyMaze.Instance.Ads.lastAdsHideTime = Timers.Instance.UnixTimestamp;
-            if (adTag.Contains("AdLife"))
+            if (adTag.Equals("mymaze.adlife"))
             {
                 MyMaze.Instance.Life.RestoreOneUnit();
                 if(GameLevel.Instance == null)
@@ -80,7 +80,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
                     GameLevel.Instance.OnRestartRequest();
                 }
             }
-            else if (adTag.Contains("AdMoves"))
+            else if (adTag.Contains("mymaze.admoves"))
                 GameObject.FindObjectOfType<AdsMovesUI>().AddMovesAndClose();
 
             HZIncentivizedAd.fetch();
@@ -96,8 +96,8 @@ public class Ads : GentleMonoBeh, ISavingElement {
     IEnumerator Start()
     {
         SetGentleCPURate(30);
-        HZInterstitialAd.chartboostFetchForLocation("mymaze.onLaunch");
-        HZInterstitialAd.chartboostFetchForLocation("mymaze.onPause");
+        HZInterstitialAd.chartboostFetchForLocation("mymaze.onlaunch");
+        HZInterstitialAd.chartboostFetchForLocation("mymaze.onpause");
         //HZInterstitialAd.chartboostFetchForLocation("mymaze.onEndOfGame");
         HZInterstitialAd.fetch();
         HZIncentivizedAd.fetch();
@@ -147,7 +147,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
         if (IsCurrentPackWithAds())
             if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
                 if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-                    HZInterstitialAd.chartboostShowForLocation("mymaze.onLaunch"); //HZInterstitialAd.show(); //
+                    HZInterstitialAd.chartboostShowForLocation("mymaze.onlaunch"); //HZInterstitialAd.show(); //
     }
 
     /// <summary>
@@ -160,7 +160,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
         if (IsCurrentPackWithAds())
             if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
                 if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-                    HZInterstitialAd.show("mymaze.onPause"); //HZInterstitialAd.show(); //
+                    HZInterstitialAd.show("mymaze.onpause"); //HZInterstitialAd.show(); //
     }
 
     /// <summary>
@@ -174,7 +174,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
         {
             Debug.Log("Показываю рекламу");
             lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
-            HZInterstitialAd.show("mymaze.onEndOfGame"); //HZInterstitialAd.show(); //
+            HZInterstitialAd.show("mymaze.onendofgame"); //HZInterstitialAd.show(); //
         }
     }
 
@@ -210,7 +210,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
     /// </summary>
     public void ShowRewardVideoForLife()
     {
-        HZIncentivizedAd.show("mymaze.AdLife");   
+        HZIncentivizedAd.show("mymaze.adlife");   
 #if UNITY_IPHONE
         MyMaze.Instance.Sounds.Mute();
 #endif
@@ -221,7 +221,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
     /// </summary>
     public void ShowRewardVideoForMoves()
     {
-        HZIncentivizedAd.show("mymaze.AdMoves");
+        HZIncentivizedAd.show("mymaze.admoves");
 #if UNITY_IPHONE
         MyMaze.Instance.Sounds.Mute();
 #endif

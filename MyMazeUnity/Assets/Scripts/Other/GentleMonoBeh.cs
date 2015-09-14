@@ -9,7 +9,7 @@ public class GentleMonoBeh : MonoBehaviour {
     private int saveCPURate = 6; //пересчитывать тяжелую логику раз в 6 кадров
     private int frames;
 
-    void Update()
+    public virtual void Update()
     {
 
         if (frames % saveCPURate == 0)

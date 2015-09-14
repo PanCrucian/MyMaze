@@ -40,6 +40,13 @@ public class Prepare : MonoBehaviour {
         DDNA.Instance.SetLoggingLevel(Logger.Level.DEBUG);
         DDNA.Instance.ClientVersion = "1.0.0";
 
+#if UNITY_IPHONE
+        // Enable push notifications for iOS
+        DDNA.Instance.Notifications.RegisterForPushNotifications();
+        DDNA.Instance.Notifications.OnDidRegisterForPushNotifications += (string n) => { Debug.Log("Got an iOS push token: " + n); };
+        DDNA.Instance.Notifications.OnDidReceivePushNotification += (string n) => { Debug.Log("Got an iOS push notification! " + n); };
+#endif
+
         DDNA.Instance.StartSDK(
             "07340666555270785346798059914368",
             "http://collect5099mymzs.deltadna.net/collect/api",

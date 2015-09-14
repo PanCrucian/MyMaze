@@ -2885,6 +2885,8 @@ MonoBehaviour:
   facebook: https://www.facebook.com/whiteroomgames
   vk: http://vk.com/white_room_games
   itunes: 
+  appleStore: https://itunes.apple.com/app/id1018888691
+  playMarket: https://play.google.com/store/apps/details?id=com.thumbspire.mymaze
 --- !u!114 &11423436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3065,7 +3067,7 @@ MonoBehaviour:
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 20
+    movesToGet: 27
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
@@ -4793,7 +4795,7 @@ MonoBehaviour:
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 22
+    movesToGet: 26
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1

@@ -3,12 +3,20 @@ using System.Collections;
 
 public class WhiteRoomGames : MonoBehaviour {
 
-    public float yieldLogo = 0.5f;
+    public GameObject[] destroyableObjects;
+
+    void Awake()
+    {
+        if(Application.isPlaying)
+            DontDestroyOnLoad(gameObject);
+    }
 
 	IEnumerator Start () {
-        yield return new WaitForSeconds(yieldLogo);
+        AsyncOperation async = Application.LoadLevelAsync("Main");
+        yield return async;
         ScreenOverlayUI.Instance.FadeIn();
         yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
-        Application.LoadLevel("Main");
+        for (int i = 0; i < destroyableObjects.Length; i++)
+            Destroy(destroyableObjects[i]);
 	}
 }

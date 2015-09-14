@@ -26,8 +26,9 @@ public class MyDDNA : MonoBehaviour {
             level.OnFailed += OnLevelFailed;
             level.OnStarted += OnLevelStarted;
         }
+        MyMaze.Instance.OnLevelRestarted += OnLevelStarted;
 
-        MyMaze.Instance.Notifications.OnNewNotice += OnNewNotification;
+        //MyMaze.Instance.Notifications.OnNewNotice += OnNewNotification;
         MyMaze.Instance.InApps.OnBuyRequest += OnBuyRequest;
         MyMaze.Instance.InApps.OnBuyed += OnBuyed;
         EngageOnGameStart();
@@ -149,8 +150,8 @@ public class MyDDNA : MonoBehaviour {
     /// <param name="name"></param>
     void OnNewNotification(int id, System.DateTime launchTime, string name)
     {
-        if (name.Equals(MyMaze.Instance.Notifications.restoredLivesName))
-            RecordNotificationOpened(id, launchTime, name);
+        /*if (name.Equals(MyMaze.Instance.Notifications.restoredLivesName))
+            RecordNotificationOpened(id, launchTime, name);*/
     }
 
     /// <summary>
@@ -259,7 +260,7 @@ public class MyDDNA : MonoBehaviour {
     /// <param name="name"></param>
     void RecordNotificationOpened(int id, System.DateTime launchTime, string name)
     {
-        if (!IsDDNAInitalized)
+        /*if (!IsDDNAInitalized)
             return;
 
         DDNA.Instance.RecordEvent(
@@ -269,7 +270,7 @@ public class MyDDNA : MonoBehaviour {
                 .AddParam("notificationLaunch", true)
                 .AddParam("notificationName", name)
         );
-        Upload();
+        Upload();*/
     }
 
     /// <summary>

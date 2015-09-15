@@ -131,8 +131,8 @@ public class GameCenter : MonoBehaviour
         if (result.IsSucceeded)
         {
             Debug.Log("Leaderboard " + result.loadedScore.leaderboardId + "\n" + "Score: " + result.loadedScore.score + "\n" + "Rank:" + result.loadedScore.rank);
-            if (result.loadedScore.leaderboardId.Equals(MyMaze.Instance.Leaderboards.GetMarketId(LeaderboardTypes.Stars)))
-                MyMaze.Instance.Leaderboards.SetStarsLeaderboard();
+            //if (result.loadedScore.leaderboardId.Equals(MyMaze.Instance.Leaderboards.GetMarketId(LeaderboardTypes.Stars)))
+                //MyMaze.Instance.Leaderboards.SetStarsLeaderboard();
         }
         else
             Debug.LogWarning("OnPlayerScoreLoaded false");

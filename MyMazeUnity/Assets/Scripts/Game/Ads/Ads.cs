@@ -103,8 +103,8 @@ public class Ads : GentleMonoBeh, ISavingElement {
     {
         SetGentleCPURate(30);
 
-        //HZInterstitialAd.ChartboostFetchForLocation("mymaze_onlaunch");
-        //yield return new WaitForEndOfFrame();
+        HZInterstitialAd.ChartboostFetchForLocation("mymaze_onlaunch");
+        yield return new WaitForEndOfFrame();
 
         HZInterstitialAd.Fetch("mymaze-onpause");
         yield return new WaitForEndOfFrame();
@@ -179,9 +179,8 @@ public class Ads : GentleMonoBeh, ISavingElement {
                     if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastInterstitialHideTime) > cooldown)
                     {
                         lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
-
                         HZShowOptions showOptions = new HZShowOptions();
-                        showOptions.Tag = "mymaze-onpause";
+                        showOptions.Tag = "mymaze-onpause";                        
                         HZInterstitialAd.ShowWithOptions(showOptions);
                     }
     }

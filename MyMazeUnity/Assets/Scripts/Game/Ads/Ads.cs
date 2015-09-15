@@ -50,8 +50,8 @@ public class Ads : GentleMonoBeh, ISavingElement {
             MyMaze.Instance.Ads.lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
 
             HZInterstitialAd.chartboostFetchForLocation("mymaze.onlaunch");
-            HZInterstitialAd.chartboostFetchForLocation("mymaze.onpause");
-            HZInterstitialAd.fetch();
+            HZInterstitialAd.fetch("mymaze.onpause");
+            HZInterstitialAd.fetch("mymaze.onendofgame");
         }        
     };
 
@@ -97,10 +97,8 @@ public class Ads : GentleMonoBeh, ISavingElement {
     {
         SetGentleCPURate(30);
         HZInterstitialAd.chartboostFetchForLocation("mymaze.onlaunch");
-        HZInterstitialAd.chartboostFetchForLocation("mymaze.onpause");
-        //HZInterstitialAd.chartboostFetchForLocation("mymaze.onEndOfGame");
-        HZInterstitialAd.fetch();
-        HZIncentivizedAd.fetch();
+        HZInterstitialAd.fetch("mymaze.onpause");
+        HZInterstitialAd.fetch("mymaze.onendofgame");
         yield return new WaitForSeconds(5f);
         if (MyMaze.Instance.IsFirstSceneLoad)
             StartCoroutine(ShowOnLaunchInterstitial());

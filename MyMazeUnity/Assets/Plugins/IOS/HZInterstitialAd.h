@@ -39,7 +39,7 @@
 
 @protocol HZAdsDelegate;
 
-/** HZInterstitialAd is responsible for fetching and showing interstitial ads. */
+/** HZInterstitialAd is responsible for fetching and showing interstitial ads. All methods on this class must be called from the main queue. */
 @interface HZInterstitialAd : NSObject
 
 #pragma mark - Showing Ads

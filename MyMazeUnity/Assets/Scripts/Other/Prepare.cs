@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 using DeltaDNA;
 using ChartboostSDK;
+using Heyzap;
 
 public class Prepare : MonoBehaviour {
 
@@ -61,7 +62,7 @@ public class Prepare : MonoBehaviour {
     void InitHeyzap()
     {
         Debug.Log("Try for start: Heyzap SDK");
-        HeyzapAds.start("dbd8d8664dc59f959a160d97849baf5c", HeyzapAds.FLAG_DISABLE_AUTOMATIC_FETCHING);
+        HeyzapAds.Start("dbd8d8664dc59f959a160d97849baf5c", HeyzapAds.FLAG_DISABLE_AUTOMATIC_FETCHING);
     }
 
     /// <summary>

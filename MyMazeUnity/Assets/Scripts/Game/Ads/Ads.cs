@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Heyzap;
 
 public class Ads : GentleMonoBeh, ISavingElement {
 
@@ -50,11 +51,11 @@ public class Ads : GentleMonoBeh, ISavingElement {
             MyMaze.Instance.Ads.lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
 
             if (adTag.Equals("mymaze.onpause"))
-                HZInterstitialAd.fetch("mymaze.onpause");
+                HZInterstitialAd.Fetch("mymaze.onpause");
             else if (adTag.Equals("mymaze.onendofgame"))
-                HZInterstitialAd.fetch("mymaze.onendofgame");
+                HZInterstitialAd.Fetch("mymaze.onendofgame");
             else if (adTag.Equals("mymaze.onlaunch"))
-                HZInterstitialAd.chartboostFetchForLocation("mymaze.onlaunch");
+                HZInterstitialAd.ChartboostFetchForLocation("mymaze.onlaunch");
         }        
     };
 
@@ -82,31 +83,39 @@ public class Ads : GentleMonoBeh, ISavingElement {
                         adsLifeUI.Hide();
                     GameLevel.Instance.OnRestartRequest();
                 }
-                HZIncentivizedAd.fetch("mymaze.adlife");
+                HZIncentivizedAd.Fetch("mymaze.adlife");
             }
             else if (adTag.Equals("mymaze.admoves"))
             {
                 GameObject.FindObjectOfType<AdsMovesUI>().AddMovesAndClose();
-                HZIncentivizedAd.fetch("mymaze.admoves");
+                HZIncentivizedAd.Fetch("mymaze.admoves");
             }
         }
     };
     
     void Awake()
     {
-        HZInterstitialAd.setDisplayListener(HZInterstitialListener);
-        HZIncentivizedAd.setDisplayListener(HZIncentivizedListener);
+        HZInterstitialAd.SetDisplayListener(HZInterstitialListener);
+        HZIncentivizedAd.SetDisplayListener(HZIncentivizedListener);
     }
 
     IEnumerator Start()
     {
         SetGentleCPURate(30);
-        HZInterstitialAd.fetch("mymaze.onpause");
-        HZInterstitialAd.fetch("mymaze.onendofgame");
-        HZInterstitialAd.chartboostFetchForLocation("mymaze.onlaunch");
-        HZIncentivizedAd.fetch("mymaze.adlife");
-        HZIncentivizedAd.fetch("mymaze.admoves");
+
+        HZInterstitialAd.ChartboostFetchForLocation("mymaze.onlaunch");
+        yield return new WaitForEndOfFrame();
+
+        HZInterstitialAd.Fetch("mymaze.onpause");
+        yield return new WaitForEndOfFrame();
+        HZInterstitialAd.Fetch("mymaze.onendofgame");
+        yield return new WaitForEndOfFrame();
+
+        HZIncentivizedAd.Fetch("mymaze.adlife");
+        yield return new WaitForEndOfFrame();
+        HZIncentivizedAd.Fetch("mymaze.admoves");
         yield return new WaitForSeconds(5f);
+
         StartCoroutine(ShowOnLaunchInterstitial());
     }
 
@@ -154,7 +163,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
         if (IsCurrentPackWithAds())
             if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
                 if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-                    HZInterstitialAd.chartboostShowForLocation("mymaze.onlaunch");
+                    HZInterstitialAd.ChartboostShowForLocation("mymaze.onlaunch");
     }
 
     /// <summary>
@@ -170,7 +179,10 @@ public class Ads : GentleMonoBeh, ISavingElement {
                     if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastInterstitialHideTime) > cooldown)
                     {
                         lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
-                        HZInterstitialAd.show("mymaze.onpause");
+
+                        HZShowOptions showOptions = new HZShowOptions();
+                        showOptions.Tag = "mymaze.onpause";
+                        HZInterstitialAd.ShowWithOptions(showOptions);
                     }
     }
 
@@ -181,8 +193,9 @@ public class Ads : GentleMonoBeh, ISavingElement {
     {
         yield return new WaitForSeconds(0.5f);
         lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
-        HZInterstitialAd.show("mymaze.onendofgame");
-        
+        HZShowOptions showOptions = new HZShowOptions();
+        showOptions.Tag = "mymaze.onendofgame";
+        HZInterstitialAd.ShowWithOptions(showOptions);        
     }
 
     /// <summary>
@@ -217,7 +230,9 @@ public class Ads : GentleMonoBeh, ISavingElement {
     /// </summary>
     public void ShowRewardVideoForLife()
     {
-        HZIncentivizedAd.show("mymaze.adlife");   
+        HZIncentivizedShowOptions showOptions = new HZIncentivizedShowOptions();
+        showOptions.Tag = "mymaze.adlife";
+        HZIncentivizedAd.ShowWithOptions(showOptions);
 #if UNITY_IPHONE
         MyMaze.Instance.Sounds.Mute();
 #endif
@@ -228,7 +243,9 @@ public class Ads : GentleMonoBeh, ISavingElement {
     /// </summary>
     public void ShowRewardVideoForMoves()
     {
-        HZIncentivizedAd.show("mymaze.admoves");
+        HZIncentivizedShowOptions showOptions = new HZIncentivizedShowOptions();
+        showOptions.Tag = "mymaze.admoves";
+        HZIncentivizedAd.ShowWithOptions(showOptions);
 #if UNITY_IPHONE
         MyMaze.Instance.Sounds.Mute();
 #endif

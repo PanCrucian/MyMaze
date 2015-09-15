@@ -39,7 +39,7 @@
 
 @protocol HZAdsDelegate;
 
-/** HZVideoAd is responsible for fetching and showing video ads. */
+/** HZVideoAd is responsible for fetching and showing video ads. All methods on this class must be called from the main queue. */
 @interface HZVideoAd : NSObject
 
 #pragma mark - Showing Ads

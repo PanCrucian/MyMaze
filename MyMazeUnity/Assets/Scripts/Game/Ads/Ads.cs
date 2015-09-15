@@ -79,11 +79,13 @@ public class Ads : GentleMonoBeh, ISavingElement {
                         adsLifeUI.Hide();
                     GameLevel.Instance.OnRestartRequest();
                 }
+                HZIncentivizedAd.fetch("mymaze.adlife");
             }
             else if (adTag.Contains("mymaze.admoves"))
+            {
                 GameObject.FindObjectOfType<AdsMovesUI>().AddMovesAndClose();
-
-            HZIncentivizedAd.fetch();
+                HZIncentivizedAd.fetch("mymaze.admoves");
+            }
         }
     };
     
@@ -99,6 +101,8 @@ public class Ads : GentleMonoBeh, ISavingElement {
         HZInterstitialAd.chartboostFetchForLocation("mymaze.onlaunch");
         HZInterstitialAd.fetch("mymaze.onpause");
         HZInterstitialAd.fetch("mymaze.onendofgame");
+        HZIncentivizedAd.fetch("mymaze.adlife");
+        HZIncentivizedAd.fetch("mymaze.admoves");
         yield return new WaitForSeconds(5f);
         if (MyMaze.Instance.IsFirstSceneLoad)
             StartCoroutine(ShowOnLaunchInterstitial());

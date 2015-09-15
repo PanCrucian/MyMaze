@@ -61,7 +61,7 @@ public class Prepare : MonoBehaviour {
     void InitHeyzap()
     {
         Debug.Log("Try for start: Heyzap SDK");
-        HeyzapAds.start("dbd8d8664dc59f959a160d97849baf5c", HeyzapAds.FLAG_NO_OPTIONS);
+        HeyzapAds.start("dbd8d8664dc59f959a160d97849baf5c", HeyzapAds.FLAG_DISABLE_AUTOMATIC_FETCHING);
     }
 
     /// <summary>

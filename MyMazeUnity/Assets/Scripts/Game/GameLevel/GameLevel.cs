@@ -293,7 +293,7 @@ public class GameLevel : MonoBehaviour {
         //подождем немного и переключим экраны
         yield return new WaitForSeconds(GameLevelDesign.Instance.gameOverDelay);
         ScreenOverlayUI.Instance.FadeIn();
-        yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay / 2f);
+        yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
         CGSwitcher.Instance.SetHideObject(uiGame);
         CGSwitcher.Instance.SetShowObject(uiResults);
         CGSwitcher.Instance.Switch();

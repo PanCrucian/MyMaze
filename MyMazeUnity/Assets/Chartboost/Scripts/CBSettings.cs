@@ -83,13 +83,13 @@ namespace ChartboostSDK {
 
 	    #region App Settings
 		[SerializeField]
-		public string iOSAppId = "55a3ee6843150f1b7a855f3d";
+        public string iOSAppId = iOSExampleAppIDLabel;
 		[SerializeField]
-		public string iOSAppSecret = "a421f0834240c3b361d1a45aae5fc37ff182db24";
+        public string iOSAppSecret = iOSExampleAppSignatureLabel;
 		[SerializeField]
-        public string androidAppId = "55a3ed870d602550d0eddb19";
+        public string androidAppId = androidExampleAppIDLabel;
 		[SerializeField]
-		public string androidAppSecret = "6dd4630133d47c807467018cbb87b480a0a44c13";
+        public string androidAppSecret = androidExampleAppSignatureLabel;
 		[SerializeField]
 		public string amazonAppId = amazonExampleAppIDLabel;
 		[SerializeField]

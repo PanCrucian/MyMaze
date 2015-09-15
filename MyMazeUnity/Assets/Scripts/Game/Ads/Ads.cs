@@ -43,15 +43,18 @@ public class Ads : GentleMonoBeh, ISavingElement {
     /// </summary>
     HZInterstitialAd.AdDisplayListener HZInterstitialListener = delegate(string adState, string adTag)
     {
-        Debug.Log("HZInterstitialAd: " + adState);
+        Debug.Log("HZInterstitialAd: " + adState + ", Tag: " + adTag);
         if (adState.Equals("hide"))
         {
             MyMaze.Instance.Ads.lastAdsHideTime = Timers.Instance.UnixTimestamp;
             MyMaze.Instance.Ads.lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
 
-            HZInterstitialAd.chartboostFetchForLocation("mymaze.onlaunch");
-            HZInterstitialAd.fetch("mymaze.onpause");
-            HZInterstitialAd.fetch("mymaze.onendofgame");
+            if (adTag.Equals("mymaze.onpause"))
+                HZInterstitialAd.fetch("mymaze.onpause");
+            else if (adTag.Equals("mymaze.onendofgame"))
+                HZInterstitialAd.fetch("mymaze.onendofgame");
+            else if (adTag.Equals("mymaze.onlaunch"))
+                HZInterstitialAd.chartboostFetchForLocation("mymaze.onlaunch");
         }        
     };
 
@@ -81,7 +84,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
                 }
                 HZIncentivizedAd.fetch("mymaze.adlife");
             }
-            else if (adTag.Contains("mymaze.admoves"))
+            else if (adTag.Equals("mymaze.admoves"))
             {
                 GameObject.FindObjectOfType<AdsMovesUI>().AddMovesAndClose();
                 HZIncentivizedAd.fetch("mymaze.admoves");
@@ -98,14 +101,13 @@ public class Ads : GentleMonoBeh, ISavingElement {
     IEnumerator Start()
     {
         SetGentleCPURate(30);
-        HZInterstitialAd.chartboostFetchForLocation("mymaze.onlaunch");
         HZInterstitialAd.fetch("mymaze.onpause");
         HZInterstitialAd.fetch("mymaze.onendofgame");
+        HZInterstitialAd.chartboostFetchForLocation("mymaze.onlaunch");
         HZIncentivizedAd.fetch("mymaze.adlife");
         HZIncentivizedAd.fetch("mymaze.admoves");
         yield return new WaitForSeconds(5f);
-        if (MyMaze.Instance.IsFirstSceneLoad)
-            StartCoroutine(ShowOnLaunchInterstitial());
+        StartCoroutine(ShowOnLaunchInterstitial());
     }
 
     public override void GentleUpdate()
@@ -119,6 +121,9 @@ public class Ads : GentleMonoBeh, ISavingElement {
     /// </summary>
     public void CheckAndLaunchOnEndGameAds()
     {
+        if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) < adsShowTrashhold)
+            return;
+
         //не считаем счетчик если текущий пак без рекламы
         if (!IsCurrentPackWithAds())
             return;
@@ -149,7 +154,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
         if (IsCurrentPackWithAds())
             if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
                 if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-                    HZInterstitialAd.chartboostShowForLocation("mymaze.onlaunch"); //HZInterstitialAd.show(); //
+                    HZInterstitialAd.chartboostShowForLocation("mymaze.onlaunch");
     }
 
     /// <summary>
@@ -162,7 +167,11 @@ public class Ads : GentleMonoBeh, ISavingElement {
         if (IsCurrentPackWithAds())
             if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
                 if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-                    HZInterstitialAd.show("mymaze.onpause"); //HZInterstitialAd.show(); //
+                    if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastInterstitialHideTime) > cooldown)
+                    {
+                        lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
+                        HZInterstitialAd.show("mymaze.onpause");
+                    }
     }
 
     /// <summary>
@@ -171,13 +180,9 @@ public class Ads : GentleMonoBeh, ISavingElement {
     IEnumerator ShowOnGameEndInterstitial()
     {
         yield return new WaitForSeconds(0.5f);
-
-        if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-        {
-            Debug.Log("Показываю рекламу");
-            lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
-            HZInterstitialAd.show("mymaze.onendofgame"); //HZInterstitialAd.show(); //
-        }
+        lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
+        HZInterstitialAd.show("mymaze.onendofgame");
+        
     }
 
     /// <summary>

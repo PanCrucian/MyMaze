@@ -2,7 +2,6 @@
 using System.Collections;
 using System;
 using DeltaDNA;
-using ChartboostSDK;
 using Heyzap;
 
 public class Prepare : MonoBehaviour {

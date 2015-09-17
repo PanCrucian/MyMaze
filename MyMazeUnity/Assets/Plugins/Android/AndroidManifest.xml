@@ -12,6 +12,12 @@
     <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true" />
     <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="\ 278954412128" />
     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="\ 0" />
+    <meta-data
+            android:name="applovin.sdk.verbose_logging"
+            android:value="false" />
+    <meta-data
+            android:name="applovin.sdk.key"
+            android:value="YOUR_SDK_KEY" />
     <receiver android:name="com.appsflyer.MultipleInstallBroadcastReceiver" android:exported="true">
       <intent-filter>
         <action android:name="com.android.vending.INSTALL_REFERRER" />
@@ -60,6 +66,14 @@
     <activity android:name="com.jirbo.adcolony.AdColonyBrowser"
       android:configChanges="keyboardHidden|orientation|screenSize"
       android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+    <activity android:name="com.applovin.adview.AppLovinInterstitialActivity" />
+    <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
+    <activity
+            android:name="com.unity3d.player.VideoPlayer"
+            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" >
+    </activity>
   </application>
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

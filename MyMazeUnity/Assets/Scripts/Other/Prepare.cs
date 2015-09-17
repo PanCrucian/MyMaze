@@ -48,7 +48,7 @@ public class Prepare : MonoBehaviour {
 #endif
 
         DDNA.Instance.StartSDK(
-            "07340666555270785346798059914368",
+            "07355525153794960673570812114368",
             "http://collect5099mymzs.deltadna.net/collect/api",
             "http://engage5099mymzs.deltadna.net",
             DDNA.AUTO_GENERATED_USER_ID

@@ -89,6 +89,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
                     MyMaze.Instance.LevelLoadAction(MyMaze.Instance.LastSelectedLevel, true);
                 else
                 {
+                    MyMaze.Instance.Life.RestoreOneUnit();
                     AdsLifeUI adsLifeUI = GameObject.FindObjectOfType<AdsLifeUI>();
                     if (adsLifeUI != null)
                         adsLifeUI.Hide();

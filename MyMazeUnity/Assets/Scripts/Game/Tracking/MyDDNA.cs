@@ -98,9 +98,9 @@ public class MyDDNA : MonoBehaviour {
     /// Что-то купили
     /// </summary>
     /// <param name="type"></param>
-    void OnBuyed(ProductTypes type)
+    void OnBuyed(ProductTypes type, string reciept)
     {
-        RecordTransaction(type);
+        RecordTransaction(type, reciept);
     }
 
     /// <summary>
@@ -297,31 +297,39 @@ public class MyDDNA : MonoBehaviour {
     /// Запишем покупку
     /// </summary>
     /// <param name="type"></param>
-    void RecordTransaction(ProductTypes type)
+    void RecordTransaction(ProductTypes type, string reciept)
     {
         if (!IsDDNAInitalized)
             return;
 
         Debug.Log("RecordTransaction " + type.ToString("g"));
-        EventBuilder thumbPurchaseAttempt = new EventBuilder();
-        thumbPurchaseAttempt.AddParam("thumbAdvID", type.ToString("g"));
-        thumbPurchaseAttempt.AddParam("thumbUserDaysInGame", MyMaze.Instance.DaysInGame);
-        thumbPurchaseAttempt.AddParam("transactionName", type.ToString("g"));
-        thumbPurchaseAttempt.AddParam("transactionType", TransactionTypes.PURCHASE.ToString("g"));
-        thumbPurchaseAttempt.AddParam("productsReceived", new ProductBuilder()
+        EventBuilder transaction = new EventBuilder();
+        transaction.AddParam("thumbAdvID", type.ToString("g"));
+        transaction.AddParam("thumbUserDaysInGame", MyMaze.Instance.DaysInGame);
+        transaction.AddParam("transactionName", type.ToString("g"));
+        transaction.AddParam("transactionType", TransactionTypes.PURCHASE.ToString("g"));
+        transaction.AddParam("productsReceived", new ProductBuilder()
                                 .AddItem(type.ToString("g"), type.ToString("g"), 1));     
-        thumbPurchaseAttempt.AddParam("productsSpent", new ProductBuilder()
+        transaction.AddParam("productsSpent", new ProductBuilder()
                                 .AddRealCurrency("USD", MyMaze.Instance.InApps.GetProduct<InApps.MarketMatching>(type).cost));
-        thumbPurchaseAttempt.AddParam("afAttrAdgroupID", "none");
-        thumbPurchaseAttempt.AddParam("afAttrAdgroupName", "none");
-        thumbPurchaseAttempt.AddParam("afAttrAdsetID", "none");
-        thumbPurchaseAttempt.AddParam("afAttrAdsetName", "none");
-        thumbPurchaseAttempt.AddParam("afAttrCampaignID", "none");
-        thumbPurchaseAttempt.AddParam("afAttrIsFacebook", false);
-        thumbPurchaseAttempt.AddParam("afAttrMediaSource", "none");
-        thumbPurchaseAttempt.AddParam("afAttrStatus", "ORGANIC");
+        transaction.AddParam("afAttrAdgroupID", "none");
+        transaction.AddParam("afAttrAdgroupName", "none");
+        transaction.AddParam("afAttrAdsetID", "none");
+        transaction.AddParam("afAttrAdsetName", "none");
+        transaction.AddParam("afAttrCampaignID", "none");
+        transaction.AddParam("afAttrIsFacebook", false);
+        transaction.AddParam("afAttrMediaSource", "none");
+        transaction.AddParam("afAttrStatus", "ORGANIC");
+#if UNITY_IPHONE
+        transaction.AddParam("transactionServer", "APPLE");
+        transaction.AddParam("transactionReceipt", reciept);
+#endif
+#if UNITY_ANDROID
+        transaction.AddParam("transactionServer", "GOOGLE");
+        transaction.AddParam("transactionReceipt", reciept);
+#endif
 
-        DDNA.Instance.RecordEvent("transaction", thumbPurchaseAttempt);
+        DDNA.Instance.RecordEvent("transaction", transaction);
         Upload();
     }
 

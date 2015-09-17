@@ -3067,7 +3067,7 @@ MonoBehaviour:
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 27
+    movesToGet: 24
     IsCollected: 0
   IsPassed: 0
   IsClosed: 0
@@ -3159,6 +3159,7 @@ MonoBehaviour:
   adsShowTrashhold: 5
   noAdsPacks:
   - {fileID: 11432342}
+  fakeAdsSetup: 0
 --- !u!114 &11430942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4795,7 +4796,7 @@ MonoBehaviour:
     IsCollected: 0
   - starName: Star
     IsHidden: 0
-    movesToGet: 26
+    movesToGet: 23
     IsCollected: 0
   IsPassed: 0
   IsClosed: 1

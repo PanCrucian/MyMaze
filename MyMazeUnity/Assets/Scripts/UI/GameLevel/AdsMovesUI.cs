@@ -54,6 +54,8 @@ public class AdsMovesUI : GentleMonoBeh {
     /// </summary>
     void Hide()
     {
+        if (GameLevel.Instance.state == GameLevelStates.Pause)
+            GameLevel.Instance.UnPause();
         CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());
         CGSwitcher.Instance.Switch();
     }

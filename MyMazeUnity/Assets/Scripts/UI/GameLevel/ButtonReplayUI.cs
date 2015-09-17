@@ -5,6 +5,7 @@ using System.Collections;
 public class ButtonReplayUI : MonoBehaviour {
 
     private Button button;
+    public bool useLife = true;
 
     void Start()
     {
@@ -16,12 +17,16 @@ public class ButtonReplayUI : MonoBehaviour {
     {
         GameLevel.Instance.uiAdsLife.Hide();
         GameLevel.Instance.uiReplay.Hide();
+        if (!useLife)
+            GameLevel.Instance.notUseLifeFlag = true;
         GameLevel.Instance.OnRestartRequest();
     }
 
     void Update()
     {
         if (GameLevel.Instance.state == GameLevelStates.Game && !Player.Instance.allowControl)
+            button.interactable = false;
+        else if (MyMaze.Instance.Life.Units <= 0 && useLife)
             button.interactable = false;
         else
             button.interactable = true;

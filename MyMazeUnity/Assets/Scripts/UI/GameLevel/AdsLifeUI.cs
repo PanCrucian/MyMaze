@@ -31,6 +31,11 @@ public class AdsLifeUI : MonoBehaviour {
     {
         if (GetComponent<CanvasGroup>().alpha < 0.1f)
             return;
+        if (MyMaze.Instance.IsGameLevel)
+        {
+            if(GameLevel.Instance.state == GameLevelStates.Pause)
+                GameLevel.Instance.UnPause();
+        }
         CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());
         CGSwitcher.Instance.Switch();
     }
@@ -67,8 +72,12 @@ public class AdsLifeUI : MonoBehaviour {
 #endif
 #if UNITY_EDITOR
         MyMaze.Instance.Life.RestoreOneUnit();
+        Hide();
         if (GameLevel.Instance != null)
+        {
+            MyMaze.Instance.Life.RestoreOneUnit();
             GameLevel.Instance.OnRestartRequest();
+        }
 #endif
     }
 

@@ -40,6 +40,12 @@ public class GameLevel : MonoBehaviour {
     private static GameLevel _instance;
     private bool packGroupFirstTimePassed = false;
 
+    /// <summary>
+    /// Костыль который слушает покупку 5 жизней и не тратит жизнь после рестарта
+    /// </summary>
+    [HideInInspector]
+    public bool notUseLifeFlag = false;
+
     void Awake()
     {
         _instance = this;
@@ -48,6 +54,9 @@ public class GameLevel : MonoBehaviour {
 
     void Start()
     {
+        if (ScreenOverlayUI.Instance != null)
+            ScreenOverlayUI.Instance.FadeOut();
+
         CurrentLevelStars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();
         uiReplay = GameObject.FindObjectOfType<ReplayUI>();
         uiAdsMoves = GameObject.FindObjectOfType<AdsMovesUI>();
@@ -75,6 +84,7 @@ public class GameLevel : MonoBehaviour {
     /// </summary>
     void OnFiveLivesBuyed()
     {
+        notUseLifeFlag = true;
         OnRestartRequest();
     }
 
@@ -447,7 +457,12 @@ public class GameLevel : MonoBehaviour {
     public void OnRestartRequest()
     {
         //Потратим жизнь
-        if (MyMaze.Instance.Life.Use())
+        if (!notUseLifeFlag)
+            MyMaze.Instance.Life.Use();
+        else
+            notUseLifeFlag = false;
+
+        if (MyMaze.Instance.Life.Units >= 1)
         {
             if (state == GameLevelStates.GameOver)
             {
@@ -489,7 +504,6 @@ public class GameLevel : MonoBehaviour {
         //ходы закончились
         if (!uiAdsMoves.TryForShow())
         {
-            MyMaze.Instance.Ads.CheckAndLaunchOnEndGameAds();
             if (MyMaze.Instance.Life.Units > 0)
                 uiReplay.Show();
             else

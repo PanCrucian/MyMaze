@@ -762,6 +762,7 @@ public class MyMaze : MonoBehaviour, ISavingElement
     {
         if (OnLevelRestarted != null)
             OnLevelRestarted(level);
+        Ads.CheckAndLaunchOnEndGameAds();
     }
 
     public void MenuLoadAction()

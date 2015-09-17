@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayMarket : MonoBehaviour {
 #if UNITY_ANDROID
-    public Deligates.TransactionEvent OnTransactionSuccess;
+    public Deligates.RecieptTransactionEvent OnTransactionSuccess;
     public Deligates.SimpleEvent OnRestoreCompleteSuccess;
 
     /// <summary>
@@ -123,7 +123,7 @@ public class PlayMarket : MonoBehaviour {
         {
             Debug.Log("Cousume Success: " + result.response.ToString() + " " + result.message);
             if (OnTransactionSuccess != null)
-                OnTransactionSuccess(MyMaze.Instance.InApps.GetProduct<InApps.MarketMatching>(result.purchase.SKU).type);
+                OnTransactionSuccess(MyMaze.Instance.InApps.GetProduct<InApps.MarketMatching>(result.purchase.SKU).type, result.purchase.token);
         }
         else
         {
@@ -131,4 +131,4 @@ public class PlayMarket : MonoBehaviour {
         }
     }
 #endif
-}
+                                        }

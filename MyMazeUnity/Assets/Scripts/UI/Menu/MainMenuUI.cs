@@ -7,6 +7,9 @@ public class MainMenuUI : MonoBehaviour {
     public LevelsMenuUI levelsMenuUi;
 
 	void Start () {
+        if (ScreenOverlayUI.Instance != null)
+            ScreenOverlayUI.Instance.FadeOut();
+
         if (!MyMaze.Instance.IsFirstSceneLoad)
         {
             CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());

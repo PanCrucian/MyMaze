@@ -9,7 +9,7 @@ public class InApps : MonoBehaviour, ISavingElement {
     public Deligates.SimpleEvent OnFiveLivesBuyed;
     public Deligates.SimpleEvent OnTeleportBuyed;
 
-    public Deligates.TransactionEvent OnBuyed;
+    public Deligates.RecieptTransactionEvent OnBuyed;
     public Deligates.TransactionEvent OnBuyRequest;
 
     public interface IStoreMatch
@@ -77,7 +77,7 @@ public class InApps : MonoBehaviour, ISavingElement {
             Debug.LogWarning("Play market не инициализирован");        
 #endif
 #if UNITY_EDITOR
-        OnTransactionSuccess(type);
+        OnTransactionSuccess(type, "empty");
 #endif
     }
 
@@ -85,7 +85,7 @@ public class InApps : MonoBehaviour, ISavingElement {
     /// Какаято транзакция была успешно проведена
     /// </summary>
     /// <param name="type">Тип продукта</param>
-    void OnTransactionSuccess(ProductTypes type)
+    void OnTransactionSuccess(ProductTypes type, string reciept)
     {
         switch (type)
         {
@@ -106,7 +106,7 @@ public class InApps : MonoBehaviour, ISavingElement {
                 break;
         }
         if (OnBuyed != null)
-            OnBuyed(type);
+            OnBuyed(type, reciept);
         Save();
     }
 
@@ -303,7 +303,7 @@ public class InApps : MonoBehaviour, ISavingElement {
         Debug.Log("Пытаюсь восстановить покупки");
 #if UNITY_EDITOR
         foreach (BasketItem item in basket)
-            OnTransactionSuccess(item.type);        
+            OnTransactionSuccess(item.type, "empty");        
 #elif UNITY_IPHONE        
         IOSInAppPurchaseManager.instance.restorePurchases();
 #elif UNITY_ANDROID

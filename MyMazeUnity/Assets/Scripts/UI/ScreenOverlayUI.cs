@@ -66,16 +66,7 @@ public class ScreenOverlayUI : GentleMonoBeh {
     /// </summary>
     void OnLevelWasLoaded(int level)
     {
-        canvas.worldCamera = Camera.main; 
-        if (Application.loadedLevelName.Equals("WhiteRoomGames"))
-            return;
-        StartCoroutine(SceneWasLoaded());        
-    }
-
-    IEnumerator SceneWasLoaded()
-    {
-        yield return new WaitForEndOfFrame();
-        FadeOut();
+        canvas.worldCamera = Camera.main;       
     }
 
     /// <summary>
@@ -83,7 +74,8 @@ public class ScreenOverlayUI : GentleMonoBeh {
     /// </summary>
     public void FadeIn()
     {
-        actionsQueue.Add("FadeIn");
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("ScreenOverlayFadeInStay"))
+            actionsQueue.Add("FadeIn");
     }
 
     /// <summary>
@@ -91,7 +83,8 @@ public class ScreenOverlayUI : GentleMonoBeh {
     /// </summary>
     public void FadeOut()
     {
-        actionsQueue.Add("FadeOut");
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("ScreenOverlayFadeOutStay"))
+            actionsQueue.Add("FadeOut");
     }
 
     /// <summary>

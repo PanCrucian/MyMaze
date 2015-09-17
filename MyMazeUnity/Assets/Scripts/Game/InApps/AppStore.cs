@@ -4,7 +4,7 @@ using System.Collections;
 public class AppStore : MonoBehaviour {
     #region Apple AppStore methods and variables
 #if UNITY_IPHONE
-    public Deligates.TransactionEvent OnTransactionSuccess;
+    public Deligates.RecieptTransactionEvent OnTransactionSuccess;
     public Deligates.SimpleEvent OnRestoreCompleteSuccess;
 
     /// <summary>
@@ -61,7 +61,7 @@ public class AppStore : MonoBehaviour {
                 InApps.MarketMatching product = MyMaze.Instance.InApps.GetProduct<InApps.MarketMatching>(response.ProductIdentifier);
                 if(product != null)
                     if (OnTransactionSuccess != null)
-                        OnTransactionSuccess(product.type);
+                        OnTransactionSuccess(product.type, response.Receipt);
                 break;
             case InAppPurchaseState.Deferred:
                 //iOS 8 introduces Ask to Buy, which lets parents approve any purchases initiated by children

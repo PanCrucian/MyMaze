@@ -14,6 +14,7 @@ public static class Deligates
     public delegate void StarEvent(Star star);
     public delegate void PackGroupEvent(PackGroupTypes group);
     public delegate void TransactionEvent(ProductTypes type);
+    public delegate void RecieptTransactionEvent(ProductTypes type, string reciept);
     public delegate void BoolEvent(bool flag);
     public delegate void NotificationEvent(int id, System.DateTime launchTime, string name);
 }

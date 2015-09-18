@@ -7,9 +7,7 @@ public class MainMenuUI : MonoBehaviour {
     public LevelsMenuUI levelsMenuUi;
 
 	void Start () {
-        if (ScreenOverlayUI.Instance != null)
-            ScreenOverlayUI.Instance.FadeOut();
-
+        StartCoroutine(FadeOutNumerator());
         if (!MyMaze.Instance.IsFirstSceneLoad)
         {
             CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());
@@ -19,6 +17,13 @@ public class MainMenuUI : MonoBehaviour {
         GetComponent<SoundsPlayer>().PlayLooped();
         MyMaze.Instance.OnLevelLoad += OnLevelLoad;
 	}
+
+    IEnumerator FadeOutNumerator()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (ScreenOverlayUI.Instance != null)
+            ScreenOverlayUI.Instance.FadeOut();
+    }
 
     /// <summary>
     /// Временная фича, сбрасывает сохранения

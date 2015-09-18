@@ -85,6 +85,8 @@ public class ScreenOverlayUI : GentleMonoBeh {
     {
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("ScreenOverlayFadeOutStay"))
             actionsQueue.Add("FadeOut");
+        else
+            Debug.Log("121111111111111111111111111111");
     }
 
     /// <summary>

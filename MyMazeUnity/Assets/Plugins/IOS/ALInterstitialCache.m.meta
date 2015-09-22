@@ -35,10 +35,12 @@ PluginImporter:
       enabled: 0
       settings:
         CPU: AnyCPU
-    SamsungTV:
+    WP8:
       enabled: 0
       settings:
-        STV_MODEL: STANDARD_13
+        CPU: AnyCPU
+        DontProcess: False
+        PlaceholderPath: 
     Win:
       enabled: 0
       settings:
@@ -47,6 +49,13 @@ PluginImporter:
       enabled: 0
       settings:
         CPU: AnyCPU
+    WindowsStoreApps:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+        DontProcess: False
+        PlaceholderPath: 
+        SDK: AnySDK
     iOS:
       enabled: 1
       settings:

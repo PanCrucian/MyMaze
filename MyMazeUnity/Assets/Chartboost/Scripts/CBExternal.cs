@@ -217,8 +217,8 @@ namespace ChartboostSDK {
 			Log("Unity : isAnyViewVisible");
 			return false;
 		}
-#endif		
-#if UNITY_IPHONE && !UNITY_EDITOR
+		
+#elif UNITY_IPHONE
 		[DllImport("__Internal")]
 		private static extern void _chartBoostInit(string appId, string appSignature, string unityVersion);
 		[DllImport("__Internal")]
@@ -594,9 +594,9 @@ namespace ChartboostSDK {
 			Log("iOS : trackInAppAppleStorePurchaseEvent");
 		}
 		
-#endif
-#if UNITY_ANDROID && !UNITY_EDITOR
-        private static AndroidJavaObject _plugin;
+		
+#elif UNITY_ANDROID
+		private static AndroidJavaObject _plugin;
 		
 		/// Initialize the android sdk
 		public static void init() {
@@ -897,6 +897,6 @@ namespace ChartboostSDK {
 		}
 		
 #endif
-    }
+	}
 }
 

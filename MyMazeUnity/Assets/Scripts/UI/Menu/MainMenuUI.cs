@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Heyzap;
 
 [RequireComponent(typeof(Animator))]
 public class MainMenuUI : MonoBehaviour {
@@ -16,6 +17,7 @@ public class MainMenuUI : MonoBehaviour {
         }
         GetComponent<SoundsPlayer>().PlayLooped();
         MyMaze.Instance.OnLevelLoad += OnLevelLoad;
+        HeyzapAds.ShowMediationTestSuite();
 	}
 
     IEnumerator FadeOutNumerator()

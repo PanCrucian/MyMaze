@@ -56,7 +56,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
                 case "mymaze-onendofgame":
                     MyMaze.Instance.Ads.FetchInterstitialAd(adTag);
                     break;
-                case "mymaze_onlaunch":
+                case "mymaze-onlaunch":
                     MyMaze.Instance.Ads.FetchInterstitialAd(adTag, true);
                     break;
             }
@@ -69,7 +69,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
                 case "mymaze-onendofgame":
                     MyMaze.Instance.Ads.FetchInterstitialAd(adTag, false, UnityEngine.Random.Range(15f, 30f));
                     break;
-                case "mymaze_onlaunch":
+                case "mymaze-onlaunch":
                     MyMaze.Instance.Ads.FetchInterstitialAd(adTag, true, UnityEngine.Random.Range(15f, 30f));
                     break;
             }
@@ -121,7 +121,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
     {
         SetGentleCPURate(30);
         yield return new WaitForEndOfFrame();
-        FetchInterstitialAd("mymaze_onlaunch", true);
+        FetchInterstitialAd("mymaze-onlaunch", true);
         yield return new WaitForSeconds(0.5f);
         FetchInterstitialAd("mymaze-onpause");
         yield return new WaitForSeconds(0.5f);
@@ -240,7 +240,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
         if (IsCurrentPackWithAds())
             if (!MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
                 if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
-                    HZInterstitialAd.ChartboostShowForLocation("mymaze_onlaunch");
+                    HZInterstitialAd.ChartboostShowForLocation("mymaze-onlaunch");
     }
 
     /// <summary>

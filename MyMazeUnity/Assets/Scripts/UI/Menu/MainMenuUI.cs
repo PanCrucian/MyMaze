@@ -20,9 +20,11 @@ public class MainMenuUI : MonoBehaviour {
 
     IEnumerator FadeOutNumerator()
     {
-        yield return new WaitForSeconds(0.1f);
-        if (ScreenOverlayUI.Instance != null)
-            ScreenOverlayUI.Instance.FadeOut();
+        if (ScreenOverlayUI.Instance != null) {
+			if (MyMaze.Instance.IsFirstSceneLoad)
+				yield return new WaitForSeconds(ScreenOverlayUI.Instance.FadeDelay);
+			ScreenOverlayUI.Instance.FadeOut();
+		}
     }
 
     /// <summary>

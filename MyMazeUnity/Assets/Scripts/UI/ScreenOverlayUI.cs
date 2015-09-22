@@ -60,14 +60,6 @@ public class ScreenOverlayUI : GentleMonoBeh {
         }
         return false;
     }
-    
-    /// <summary>
-    /// Загрузилась какаято сцена
-    /// </summary>
-    void OnLevelWasLoaded(int level)
-    {
-        canvas.worldCamera = Camera.main;       
-    }
 
     /// <summary>
     /// Показать черный экран
@@ -85,8 +77,6 @@ public class ScreenOverlayUI : GentleMonoBeh {
     {
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("ScreenOverlayFadeOutStay"))
             actionsQueue.Add("FadeOut");
-        else
-            Debug.Log("121111111111111111111111111111");
     }
 
     /// <summary>

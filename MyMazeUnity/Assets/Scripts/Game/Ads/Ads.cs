@@ -60,7 +60,20 @@ public class Ads : GentleMonoBeh, ISavingElement {
                     MyMaze.Instance.Ads.FetchInterstitialAd(adTag, true);
                     break;
             }
-        }        
+        }
+        if (adState.Equals("fetch_failed"))
+        {
+            switch (adTag)
+            {
+                case "mymaze-onpause":
+                case "mymaze-onendofgame":
+                    MyMaze.Instance.Ads.FetchInterstitialAd(adTag, false, UnityEngine.Random.Range(15f, 30f));
+                    break;
+                case "mymaze_onlaunch":
+                    MyMaze.Instance.Ads.FetchInterstitialAd(adTag, true, UnityEngine.Random.Range(15f, 30f));
+                    break;
+            }
+        }
     };
 
     /// <summary>
@@ -128,6 +141,15 @@ public class Ads : GentleMonoBeh, ISavingElement {
         gentleFrames++;
     }
 
+    IEnumerator FetchInterstitialNumerator(string tag, bool isChartboost, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        if (!isChartboost)
+            HZInterstitialAd.Fetch(tag);
+        else
+            HZInterstitialAd.ChartboostFetchForLocation(tag);
+    }
+
     /// <summary>
     /// Кешируем рекламу картинкой для хейзапа
     /// </summary>
@@ -144,7 +166,12 @@ public class Ads : GentleMonoBeh, ISavingElement {
     /// <param name="isChartboost"></param>
     public void FetchInterstitialAd(string tag, bool isChartboost)
     {
-        StartCoroutine(FetchInterstitialAdNumerator(tag, isChartboost));
+        FetchInterstitialAd(tag, false, 0.5f);
+    }
+
+    public void FetchInterstitialAd(string tag, bool isChartboost, float delayTime)
+    {
+        StartCoroutine(FetchInterstitialNumerator(tag, isChartboost, delayTime));
     }
 
     /// <summary>
@@ -160,14 +187,6 @@ public class Ads : GentleMonoBeh, ISavingElement {
     {
         yield return new WaitForSeconds(0.25f);
         HZIncentivizedAd.Fetch(tag);
-    }
-    IEnumerator FetchInterstitialAdNumerator(string tag, bool isChartboost)
-    {
-        yield return new WaitForSeconds(0.25f);
-        if (!isChartboost)
-            HZInterstitialAd.Fetch(tag);
-        else
-            HZInterstitialAd.ChartboostFetchForLocation(tag);
     }
 
     /// <summary>

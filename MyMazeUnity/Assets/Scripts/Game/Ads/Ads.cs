@@ -38,11 +38,6 @@ public class Ads : GentleMonoBeh, ISavingElement {
     public int adsShowTrashhold = 5;
 
     public Pack[] noAdsPacks;
-
-    /// <summary>
-    /// Наебём издателя с рекламой
-    /// </summary>
-    public bool fakeAdsSetup = false;
     
     /// <summary>
     /// Слушатель состояния интерстишалов
@@ -56,15 +51,9 @@ public class Ads : GentleMonoBeh, ISavingElement {
             MyMaze.Instance.Ads.lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
 
             if (adTag.Equals("mymaze-onpause"))
-                if (!MyMaze.Instance.Ads.fakeAdsSetup)
-                    HZInterstitialAd.Fetch("mymaze-onpause");
-                else
-                    HZIncentivizedAd.Fetch("mymaze-onpause");
+                HZInterstitialAd.Fetch("mymaze-onpause");
             else if (adTag.Equals("mymaze-onendofgame"))
-                if (!MyMaze.Instance.Ads.fakeAdsSetup)
-                    HZInterstitialAd.Fetch("mymaze-onendofgame");
-                else
-                    HZIncentivizedAd.Fetch("mymaze-onendofgame");
+                HZInterstitialAd.Fetch("mymaze-onendofgame");
             else if (adTag.Equals("mymaze_onlaunch"))
                 HZInterstitialAd.ChartboostFetchForLocation("mymaze_onlaunch");
         }        
@@ -115,18 +104,12 @@ public class Ads : GentleMonoBeh, ISavingElement {
     {
         SetGentleCPURate(30);
 
-        HZInterstitialAd.ChartboostFetchForLocation("mymaze_onlaunch");
+        /*HZInterstitialAd.ChartboostFetchForLocation("mymaze_onlaunch");
         yield return new WaitForEndOfFrame();
 
-        if (!fakeAdsSetup)
-            HZInterstitialAd.Fetch("mymaze-onpause");
-        else
-            HZIncentivizedAd.Fetch("mymaze-onpause");
+        HZInterstitialAd.Fetch("mymaze-onpause");
         yield return new WaitForEndOfFrame();
-        if (!fakeAdsSetup)
-            HZInterstitialAd.Fetch("mymaze-onendofgame");
-        else
-            HZIncentivizedAd.Fetch("mymaze-onendofgame");
+        HZInterstitialAd.Fetch("mymaze-onendofgame");
         yield return new WaitForEndOfFrame();
 
         HZIncentivizedAd.Fetch("mymaze-adlife");
@@ -134,7 +117,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
         HZIncentivizedAd.Fetch("mymaze-admoves");
         yield return new WaitForSeconds(7f);
 
-        StartCoroutine(ShowOnLaunchInterstitial());
+        StartCoroutine(ShowOnLaunchInterstitial());*/
     }
 
     public override void GentleUpdate()
@@ -150,8 +133,10 @@ public class Ads : GentleMonoBeh, ISavingElement {
     {
         if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) < adsShowTrashhold)
             return;
+		
+		frequencyCounter++;
 
-        //не считаем счетчик если текущий пак без рекламы
+        //если текущий пак без рекламы
         if (!IsCurrentPackWithAds())
             return;
 
@@ -163,13 +148,23 @@ public class Ads : GentleMonoBeh, ISavingElement {
         if (MyMaze.Instance.InApps.IsOwned(ProductTypes.NoAds))
             return;
 
-        frequencyCounter++;
         if (frequencyCounter >= frequency)
         {            
             frequencyCounter = 0;
             StartCoroutine(ShowOnGameEndInterstitial());
         }
-    }
+	}
+	
+	/// <summary>
+	/// Показать интерстишал для onEndOfGame
+	/// </summary>
+	IEnumerator ShowOnGameEndInterstitial()
+	{
+		yield return new WaitForSeconds(0.5f);
+		HZShowOptions showOptions = new HZShowOptions();
+		showOptions.Tag = "mymaze-onendofgame";
+		HZInterstitialAd.ShowWithOptions(showOptions);
+	}
 
     /// <summary>
     /// Показать интерстишал для OnLaunch
@@ -196,41 +191,10 @@ public class Ads : GentleMonoBeh, ISavingElement {
                 if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastAdsHideTime) > adsShowTrashhold)
                     if (Mathf.Abs(Timers.Instance.UnixTimestamp - lastInterstitialHideTime) > cooldown)
                     {
-                        lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
-                        if (!fakeAdsSetup)
-                        {
-                            HZShowOptions showOptions = new HZShowOptions();
-                            showOptions.Tag = "mymaze-onpause";
-                            HZInterstitialAd.ShowWithOptions(showOptions);
-                        }
-                        else
-                        {
-                            HZIncentivizedShowOptions showOptions = new HZIncentivizedShowOptions();
-                            showOptions.Tag = "mymaze-onpause";
-                            HZIncentivizedAd.ShowWithOptions(showOptions);
-                        }
+                        HZShowOptions showOptions = new HZShowOptions();
+                        showOptions.Tag = "mymaze-onpause";
+                        HZInterstitialAd.ShowWithOptions(showOptions);
                     }
-    }
-
-    /// <summary>
-    /// Показать интерстишал для onEndOfGame
-    /// </summary>
-    IEnumerator ShowOnGameEndInterstitial()
-    {
-        yield return new WaitForSeconds(0.5f);
-        lastInterstitialHideTime = Timers.Instance.UnixTimestamp;
-        if (!fakeAdsSetup)
-        {
-            HZShowOptions showOptions = new HZShowOptions();
-            showOptions.Tag = "mymaze-onendofgame";
-            HZInterstitialAd.ShowWithOptions(showOptions);
-        }
-        else
-        {
-            HZIncentivizedShowOptions showOptions = new HZIncentivizedShowOptions();
-            showOptions.Tag = "mymaze-onendofgame";
-            HZIncentivizedAd.ShowWithOptions(showOptions);
-        }
     }
 
     /// <summary>

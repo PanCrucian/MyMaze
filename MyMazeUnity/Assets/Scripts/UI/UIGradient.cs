@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
  
 [AddComponentMenu("UI/Effects/Gradient")]
-public class UIGradient : BaseVertexEffect
+public class UIGradient : BaseMeshEffect
 {
 		public GradientMode gradientMode = GradientMode.Global;
 		public GradientDir gradientDir = GradientDir.Vertical;
@@ -12,13 +12,28 @@ public class UIGradient : BaseVertexEffect
 		public Color vertex1 = Color.white;
 		public Color vertex2 = Color.black;
 		private Graphic targetGraphic;
+    
+        public override void ModifyMesh(Mesh mesh)
+        {
+            if (!this.IsActive())
+                return;
 
-		protected override void Start ()
-		{
-				targetGraphic = GetComponent<Graphic> ();
-		}
+            List<UIVertex> list = new List<UIVertex>();
+            using (VertexHelper vertexHelper = new VertexHelper(mesh))
+            {
+                vertexHelper.GetUIVertexStream(list);
+            }
 
-		public override void ModifyVertices (List<UIVertex> vertexList)
+            ModifyVertices(list);  // calls the old ModifyVertices which was used on pre 5.2
+
+            using (VertexHelper vertexHelper2 = new VertexHelper())
+            {
+                vertexHelper2.AddUIVertexTriangleStream(list);
+                vertexHelper2.FillMesh(mesh);
+            }
+        }
+
+		public void ModifyVertices (List<UIVertex> vertexList)
 		{
 				if (!IsActive () || vertexList.Count == 0) {
 						return;
@@ -26,8 +41,11 @@ public class UIGradient : BaseVertexEffect
 
                 if (targetGraphic == null)
                 {
-                    Debug.LogWarning("Graphic is null");
-                    return;
+                    targetGraphic = GetComponent<Graphic>();
+                    if (targetGraphic == null) { 
+                        Debug.LogWarning("Graphic is null");
+                        return;
+                    }
                 }
 
 				int count = vertexList.Count;

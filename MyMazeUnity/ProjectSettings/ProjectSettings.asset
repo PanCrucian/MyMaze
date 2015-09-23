@@ -8,41 +8,41 @@ PlayerSettings:
   defaultScreenOrientation: 0
   targetDevice: 2
   targetResolution: 0
-  accelerometerFrequency: 0
-  companyName: Thumbspire
-  productName: My Maze
+  accelerometerFrequency: 60
+  companyName: DefaultCompany
+  productName: MyMazeUnity
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 0
-  defaultScreenWidth: 480
-  defaultScreenHeight: 800
+  defaultScreenWidth: 1024
+  defaultScreenHeight: 768
   defaultScreenWidthWeb: 960
   defaultScreenHeightWeb: 600
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   m_ActiveColorSpace: 0
   m_MTRendering: 1
-  m_MobileMTRendering: 1
+  m_MobileMTRendering: 0
   m_Stereoscopic3D: 0
   iosShowActivityIndicatorOnLoading: -1
   androidShowActivityIndicatorOnLoading: -1
   iosAppInBackgroundBehavior: 0
-  displayResolutionDialog: 2
+  displayResolutionDialog: 1
   allowedAutorotateToPortrait: 1
-  allowedAutorotateToPortraitUpsideDown: 0
-  allowedAutorotateToLandscapeRight: 0
-  allowedAutorotateToLandscapeLeft: 0
-  useOSAutorotation: 0
+  allowedAutorotateToPortraitUpsideDown: 1
+  allowedAutorotateToLandscapeRight: 1
+  allowedAutorotateToLandscapeLeft: 1
+  useOSAutorotation: 1
   use32BitDisplayBuffer: 1
   disableDepthAndStencilBuffers: 0
-  defaultIsFullScreen: 0
+  defaultIsFullScreen: 1
   defaultIsNativeResolution: 1
   runInBackground: 0
   captureSingleScreen: 0
   Override IPod Music: 0
   Prepare IOS For Recording: 0
   submitAnalytics: 0
-  usePlayerLog: 0
+  usePlayerLog: 1
   bakeCollisionMeshes: 0
   forceSingleInstance: 0
   resizableWindow: 0
@@ -53,7 +53,7 @@ PlayerSettings:
   xboxEnableKinect: 0
   xboxEnableKinectAutoTracking: 0
   xboxEnableFitness: 0
-  visibleInBackground: 1
+  visibleInBackground: 0
   macFullscreenMode: 2
   d3d9FullscreenMode: 1
   d3d11FullscreenMode: 1
@@ -78,23 +78,20 @@ PlayerSettings:
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
-  productGUID: 209b67f8ba7a2f4408868cc6bbffa64e
+  productGUID: 839815ededae16d498b7e8605fd3d7a9
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 10
+  AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2
-  iPhoneStrippingLevel: 2
+  iPhoneStrippingLevel: 0
   iPhoneScriptCallOptimization: 0
-  ForceInternetPermission: 1
+  ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
   APKExpansionFiles: 0
   preloadShaders: 0
   StripUnusedMeshComponents: 0
-  VertexChannelCompressionMask:
-    serializedVersion: 2
-    m_Bits: 238
   iPhoneSdkVersion: 988
   iPhoneTargetOSVersion: 22
   uIPrerenderedIcon: 1
@@ -127,49 +124,35 @@ PlayerSettings:
   iOSLaunchScreenBackgroundColor:
     serializedVersion: 2
     rgba: 0
-  iOSLaunchScreenFillPct: 1
+  iOSLaunchScreenFillPct: 100
   iOSLaunchScreenSize: 100
   iOSLaunchScreenCustomXibPath: 
   AndroidTargetDevice: 0
-  AndroidSplashScreenScale: 1
+  AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: E:/Unity5_Projects/MyMaze/Source/Keys/mymaze.keystore
-  AndroidKeyaliasName: mymaze
-  AndroidTVCompatibility: 0
+  AndroidKeystoreName: 
+  AndroidKeyaliasName: 
+  AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
   m_AndroidBanners:
   - width: 320
     height: 180
-    banner: {fileID: 2800000, guid: 84b413a9b2e268f4482e753cb7339045, type: 3}
+    banner: {fileID: 0}
   androidGamepadSupportLevel: 0
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 2800000, guid: ea7e63666a761c240afdd450a1bc70fa, type: 3}
+    - m_Icon: {fileID: 0}
       m_Size: 128
-  - m_BuildTarget: Android
-    m_Icons:
-    - m_Icon: {fileID: 2800000, guid: fee3877b381a38246917c1f58a267cc4, type: 3}
-      m_Size: 192
-    - m_Icon: {fileID: 2800000, guid: 073240d2cbdb6544cbec049917c3eb63, type: 3}
-      m_Size: 144
-    - m_Icon: {fileID: 2800000, guid: 56600b6d302741c4685e4a8d116a59f8, type: 3}
-      m_Size: 96
-    - m_Icon: {fileID: 2800000, guid: 76e8f65c95906724095f2c1581daebf7, type: 3}
-      m_Size: 72
-    - m_Icon: {fileID: 2800000, guid: 62b7860d737660f479da4c67a10b6934, type: 3}
-      m_Size: 48
-    - m_Icon: {fileID: 2800000, guid: 0dda51ff117065047bac4982337ee28f, type: 3}
-      m_Size: 36
   - m_BuildTarget: iPhone
     m_Icons:
     - m_Icon: {fileID: 2800000, guid: 867c730448c5b2d429bc397c4f93c18c, type: 3}
       m_Size: 180
     - m_Icon: {fileID: 2800000, guid: 78127c98543e96e48a16e0e1c9977f6c, type: 3}
       m_Size: 152
-    - m_Icon: {fileID: 2800000, guid: e029698704c74d64bbdad77ae95a5bfa, type: 3}
+    - m_Icon: {fileID: 2800000, guid: 073240d2cbdb6544cbec049917c3eb63, type: 3}
       m_Size: 144
     - m_Icon: {fileID: 2800000, guid: d9e4dfb3c9b79b949b7b89158ac7634b, type: 3}
       m_Size: 120
@@ -181,17 +164,8 @@ PlayerSettings:
       m_Size: 72
     - m_Icon: {fileID: 2800000, guid: 0434a8db72ee1ec40af82ad54955b511, type: 3}
       m_Size: 57
-  m_BuildTargetBatching:
-  - m_BuildTarget: Android
-    m_StaticBatching: 1
-    m_DynamicBatching: 1
-  - m_BuildTarget: iPhone
-    m_StaticBatching: 1
-    m_DynamicBatching: 1
-  m_BuildTargetGraphicsAPIs:
-  - m_BuildTarget: AndroidPlayer
-    m_APIs: 08000000
-    m_Automatic: 0
+  m_BuildTargetBatching: []
+  m_BuildTargetGraphicsAPIs: []
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
   actionOnDotNetUnhandledException: 1
@@ -246,8 +220,6 @@ PlayerSettings:
   ps4SaveDataImagePath: 
   ps4BGMPath: 
   ps4ShareFilePath: 
-  ps4ShareOverlayImagePath: 
-  ps4PrivacyGuardImagePath: 
   ps4NPtitleDatPath: 
   ps4RemotePlayKeyAssignment: -1
   ps4EnterButtonAssignment: 1
@@ -426,7 +398,6 @@ PlayerSettings:
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
   intPropertyNames:
-  - Android::ScriptingBackend
   - Metro::ScriptingBackend
   - Standalone::ScriptingBackend
   - WP8::ScriptingBackend
@@ -434,19 +405,18 @@ PlayerSettings:
   - WebGL::audioCompressionFormat
   - WebGL::exceptionSupport
   - WebGL::memorySize
+  - WebPlayer::ScriptingBackend
   - iOS::Architecture
-  - iOS::EnableIncrementalBuildSupportForIl2cpp
   - iOS::ScriptingBackend
-  Android::ScriptingBackend: 0
   Metro::ScriptingBackend: 2
   Standalone::ScriptingBackend: 0
   WP8::ScriptingBackend: 2
   WebGL::ScriptingBackend: 1
   WebGL::audioCompressionFormat: 4
-  WebGL::exceptionSupport: 0
+  WebGL::exceptionSupport: 1
   WebGL::memorySize: 256
+  WebPlayer::ScriptingBackend: 0
   iOS::Architecture: 2
-  iOS::EnableIncrementalBuildSupportForIl2cpp: 0
   iOS::ScriptingBackend: 1
   boolPropertyNames:
   - WebGL::analyzeBuildSize

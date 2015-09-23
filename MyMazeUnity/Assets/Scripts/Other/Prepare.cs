@@ -14,8 +14,8 @@ public class Prepare : MonoBehaviour {
         counter = 0;
         
 #if (UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8) && !UNITY_EDITOR
-        /*if (Screen.currentResolution.width > 1280 && Screen.currentResolution.height > 800 && Screen.dpi > 240f)
-            Screen.SetResolution(Convert.ToInt32(Screen.currentResolution.width / 2), Convert.ToInt32(Screen.currentResolution.height / 2), true);*/
+        if (Screen.currentResolution.width > 1280 && Screen.currentResolution.height > 800 && Screen.dpi > 240f)
+            Screen.SetResolution(Convert.ToInt32(Screen.currentResolution.width / 2), Convert.ToInt32(Screen.currentResolution.height / 2), true);
 #endif
     }
 

@@ -33,6 +33,11 @@ public class UIGradient : BaseVertexEffect
             }
         }*/
 
+        protected override void Start()
+        {
+            targetGraphic = GetComponent<Graphic>();
+        }
+
         public override void ModifyVertices(List<UIVertex> vertexList)
 		{
 				if (!IsActive () || vertexList.Count == 0) {

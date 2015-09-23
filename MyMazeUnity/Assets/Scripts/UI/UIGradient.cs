@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
  
 [AddComponentMenu("UI/Effects/Gradient")]
-public class UIGradient : BaseMeshEffect
+public class UIGradient : BaseVertexEffect
 {
 		public GradientMode gradientMode = GradientMode.Global;
 		public GradientDir gradientDir = GradientDir.Vertical;
@@ -13,7 +13,7 @@ public class UIGradient : BaseMeshEffect
 		public Color vertex2 = Color.black;
 		private Graphic targetGraphic;
     
-        public override void ModifyMesh(Mesh mesh)
+        /*public override void ModifyMesh(Mesh mesh)
         {
             if (!this.IsActive())
                 return;
@@ -31,9 +31,9 @@ public class UIGradient : BaseMeshEffect
                 vertexHelper2.AddUIVertexTriangleStream(list);
                 vertexHelper2.FillMesh(mesh);
             }
-        }
+        }*/
 
-		public void ModifyVertices (List<UIVertex> vertexList)
+        public override void ModifyVertices(List<UIVertex> vertexList)
 		{
 				if (!IsActive () || vertexList.Count == 0) {
 						return;

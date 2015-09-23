@@ -14,13 +14,12 @@ QualitySettings:
     shadowProjection: 1
     shadowCascades: 1
     shadowDistance: 20
-    shadowNearPlaneOffset: 2
     shadowCascade2Split: .333333343
     shadowCascade4Split: {x: .0666666701, y: .200000003, z: .466666669}
     blendWeights: 2
     textureQuality: 0
     anisotropicTextures: 1
-    antiAliasing: 2
+    antiAliasing: 0
     softParticles: 0
     softVegetation: 0
     realtimeReflectionProbes: 0
@@ -32,6 +31,7 @@ QualitySettings:
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
     Android: 0
+    BlackBerry: 0
     Standalone: 0
     WP8: 0
     Web: 0

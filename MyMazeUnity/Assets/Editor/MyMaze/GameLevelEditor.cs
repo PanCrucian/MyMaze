@@ -16,9 +16,21 @@ public class GameLevelEditor : Editor {
     {
  	    DrawDefaultInspector();
         EditorGUILayout.Space();
-        if(Application.isPlaying)
+        if (Application.isPlaying)
+        {
             if (GUILayout.Button("Закончить уровень"))
                 PickUpAllPyramids();
+
+            if (GUILayout.Button("Выключить переключатели"))
+            {
+                Switcher[] switchers = GameObject.FindObjectsOfType<Switcher>();
+                foreach (Switcher switcher in switchers)
+                {
+                    switcher.Off();
+                    switcher.ReleaseButton();
+                }
+            }
+        }
         if (Application.isPlaying)
             return;
         if (GUILayout.Button("Объекты к сетке"))

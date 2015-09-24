@@ -91,26 +91,63 @@ public class Ads : GentleMonoBeh, ISavingElement {
             switch (adTag)
             {
                 case "mymaze-adlife":
-                    MyMaze.Instance.Life.RestoreOneUnit();
-                    if(GameLevel.Instance == null)
-                        MyMaze.Instance.LevelLoadAction(MyMaze.Instance.LastSelectedLevel, true);
-                    else
-                    {
-                        MyMaze.Instance.Life.RestoreOneUnit();
-                        AdsLifeUI adsLifeUI = GameObject.FindObjectOfType<AdsLifeUI>();
-                        if (adsLifeUI != null)
-                            adsLifeUI.Hide();
-                        GameLevel.Instance.OnRestartRequest();
-                    }
+                    MyMaze.Instance.Ads.AdLifeClosed();
                     break;
                 case "mymaze-admoves":
-                    GameObject.FindObjectOfType<AdsMovesUI>().AddMovesAndClose();
+                    MyMaze.Instance.Ads.AdMovesClosed();
                     break;
             }
+            if (GameLevel.Instance != null)
+                MyMaze.Instance.Ads.OffSwitchersOnGameLevel();
+
             MyMaze.Instance.Ads.FetchIncentivizedAd(adTag);
         }
     };
-    
+
+    /// <summary>
+    /// Закрылась ревард видео для ходов
+    /// </summary>
+    public void AdMovesClosed()
+    {
+        GameObject.FindObjectOfType<AdsMovesUI>().AddMovesAndClose();
+    }
+
+    /// <summary>
+    /// Закрылось ревард видео для жизней
+    /// </summary>
+    public void AdLifeClosed()
+    {
+        MyMaze.Instance.Life.RestoreOneUnit();
+        if (GameLevel.Instance == null)
+            MyMaze.Instance.LevelLoadAction(MyMaze.Instance.LastSelectedLevel, true);
+        else
+        {
+            MyMaze.Instance.Life.RestoreOneUnit();
+            AdsLifeUI adsLifeUI = GameObject.FindObjectOfType<AdsLifeUI>();
+            if (adsLifeUI != null)
+                adsLifeUI.Hide();
+            GameLevel.Instance.OnRestartRequest();
+        }
+    }
+
+    /// <summary>
+    /// Костыль. Выключает все переключатели на уровне
+    /// </summary>
+    public void OffSwitchersOnGameLevel()
+    {
+        StartCoroutine(OffSwitchersOnGameLevelNumerator());
+    }
+    IEnumerator OffSwitchersOnGameLevelNumerator()
+    {
+        yield return new WaitForEndOfFrame();
+        Switcher[] switchers = GameObject.FindObjectsOfType<Switcher>();
+        foreach (Switcher switcher in switchers)
+        {
+            switcher.Off();
+            switcher.ReleaseButton();
+        }
+    }
+
     void Awake()
     {
         HZInterstitialAd.SetDisplayListener(HZInterstitialListener);
@@ -298,7 +335,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
         showOptions.Tag = "mymaze-adlife";
         if (HZIncentivizedAd.IsAvailable(showOptions.Tag))
             HZIncentivizedAd.ShowWithOptions(showOptions);
-#if UNITY_IPHONE
+#if UNITY_IPHONE && !UNITY_EDITOR
         MyMaze.Instance.Sounds.Mute();
 #endif
     }
@@ -312,7 +349,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
         showOptions.Tag = "mymaze-admoves";
         if (HZIncentivizedAd.IsAvailable(showOptions.Tag))
             HZIncentivizedAd.ShowWithOptions(showOptions);
-#if UNITY_IPHONE
+#if UNITY_IPHONE && !UNITY_EDITOR
         MyMaze.Instance.Sounds.Mute();
 #endif
     }

@@ -39,7 +39,7 @@ public class ButtonLevel : GameLevelObject {
     /// <summary>
     /// Отжать кнопку
     /// </summary>
-    void ReleaseButton()
+    public void ReleaseButton()
     {
         state = ButtonStates.Off;
         if (OnRelease != null)
@@ -52,6 +52,6 @@ public class ButtonLevel : GameLevelObject {
     public override void Restart()
     {
         base.Restart();
-        state = ButtonStates.Off;
+        ReleaseButton();
     }
 }

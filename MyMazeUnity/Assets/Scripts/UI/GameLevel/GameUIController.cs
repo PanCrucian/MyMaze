@@ -8,7 +8,7 @@ public class GameUIController : MonoBehaviour {
     private CartButtonUI cartBtnUI;
     private Animator resultsUI;
 
-    void Start()
+    void Awake()
     {
         cartBtnUI = transform.parent.GetComponentInChildren<CartButtonUI>();
         resultsUI = transform.parent.FindChild("cg_Results").GetComponent<Animator>();

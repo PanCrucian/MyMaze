@@ -52,6 +52,11 @@ public class GridObject : Grid {
 
     void Start()
     {
+        Init();
+    }
+
+    public void Init()
+    {
         UpdatePositionVars();
         _startPosition = position.Clone();
         oldUpdateTime = Time.time;

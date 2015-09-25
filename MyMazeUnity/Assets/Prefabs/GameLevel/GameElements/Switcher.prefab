@@ -77,6 +77,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   draggable: {fileID: 0}
   workTime: 3
+  switcherPrefab: {fileID: 100296}
 --- !u!114 &11468392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,6 +147,10 @@ Prefab:
       propertyPath: animatorController
       value: 
       objectReference: {fileID: 9100000, guid: 75271855a99e18d4799996a896ab280b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: switcherPrefab
+      value: 
+      objectReference: {fileID: 100296}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100296}

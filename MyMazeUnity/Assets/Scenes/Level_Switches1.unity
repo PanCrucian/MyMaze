@@ -24033,6 +24033,11 @@ Prefab:
       propertyPath: position.yRow
       value: -4
       objectReference: {fileID: 0}
+    - target: {fileID: 21251538, guid: 4ef8dade6f2536247afa3be717e1acb4, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300658, guid: 425dafc30817a104d9a57e8cca356bec,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ef8dade6f2536247afa3be717e1acb4, type: 2}
   m_IsPrefabParent: 0

@@ -8,6 +8,7 @@ public class Switcher : ButtonLevel
     /// Время работы в секундах, после входа в состояние SwitcherStates.IsWorking
     /// </summary>
     public float workTime = 3f;
+    public GameObject switcherPrefab;
 
     private SwitcherStates switchState;
     private float workingTime = 0f;
@@ -83,6 +84,39 @@ public class Switcher : ButtonLevel
     }
 
     /// <summary>
+    /// Костыль которые пересаздает переключатель. После просмотра рекламы
+    /// </summary>
+    public void Reinit()
+    {
+        MovingWall[] movingWalls = GameObject.FindObjectsOfType<MovingWall>();
+        GameObject newSwitcherObj = Instantiate(switcherPrefab);
+        Switcher newSwitcher = newSwitcherObj.GetComponent<Switcher>();
+
+        newSwitcher.transform.SetParent(transform.parent);
+        newSwitcher.transform.localPosition = transform.localPosition;
+        newSwitcher.name = newSwitcher.name.Replace("(Clone)", "");
+        newSwitcher.Init();
+        newSwitcher.draggable.Init();
+        newSwitcher.workTime = workTime;
+        newSwitcher.switcherHistory = switcherHistory;
+        newSwitcher.draggable.SetPositionVars(draggable.StartPosition.Clone());
+        newSwitcher.draggable.UpdatePosition();
+        foreach (MovingWall wall in movingWalls)
+        {
+            wall.button = newSwitcher;
+            wall.InitListeners();
+        }
+        if (newSwitcher.OnRelease != null)
+            newSwitcher.OnRelease(newSwitcher);
+
+        GameLevel.Instance.OnRestart -= Restart;
+        Player.Instance.OnMoveEnd -= Record;
+        GameLevel.Instance.OnReturnToMove -= ReturnToMove;
+
+        Destroy(gameObject);
+    }
+
+    /// <summary>
     /// Перевели переключатель в выключенное состояние
     /// </summary>
     public void Off()
@@ -93,7 +127,7 @@ public class Switcher : ButtonLevel
         animator.ResetTrigger("NowTurnOff");
         animator.ResetTrigger("TurnsOff");
         animator.ResetTrigger("Reset");
-        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Empty"))
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("SwitcherIdle"))
             animator.SetTrigger("Reset");
         workingTime = 0f;
     }

@@ -25,7 +25,7 @@ public class GameLevelEditor : Editor {
             {
                 Switcher[] switchers = GameObject.FindObjectsOfType<Switcher>();
                 foreach (Switcher switcher in switchers)
-                    switcher.Off();
+                    switcher.Reinit();
             }
         }
         if (Application.isPlaying)

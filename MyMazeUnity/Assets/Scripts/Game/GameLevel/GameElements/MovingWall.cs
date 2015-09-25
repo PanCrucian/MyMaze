@@ -25,6 +25,11 @@ public class MovingWall : GameLevelObject {
             Debug.LogWarning("У стены не присвоена кнопка. Проверь инспектор на наличие ссылки");
             return;
         }
+        InitListeners();
+    }
+
+    public void InitListeners()
+    {
         button.OnPress += OnPress;
         button.OnRelease += OnRelease;
     }

@@ -17,13 +17,17 @@ public class GameLevelObject : MonoBehaviour, IRecordingElement, IPauseable, IRe
 
     public virtual void Start()
     {
+        Init();
+    }
+
+    public void Init()
+    {
         animator = GetComponent<Animator>();
         draggable = GetComponent<GridDraggableObject>();
         GameLevel.Instance.OnRestart += Restart;
         Player.Instance.OnMoveEnd += Record;
         GameLevel.Instance.OnReturnToMove += ReturnToMove;
         StartCoroutine(FirstRecord());
-
     }
 
     IEnumerator FirstRecord()

@@ -135,11 +135,6 @@ public class Ads : GentleMonoBeh, ISavingElement {
     /// </summary>
     public void OffSwitchersOnGameLevel()
     {
-        //StartCoroutine(OffSwitchersOnGameLevelNumerator());
-    }
-    IEnumerator OffSwitchersOnGameLevelNumerator()
-    {
-        yield return new WaitForEndOfFrame();
         Switcher[] switchers = GameObject.FindObjectsOfType<Switcher>();
         foreach (Switcher switcher in switchers)
         {

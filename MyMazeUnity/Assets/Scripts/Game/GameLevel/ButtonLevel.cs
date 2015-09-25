@@ -52,6 +52,6 @@ public class ButtonLevel : GameLevelObject {
     public override void Restart()
     {
         base.Restart();
-        ReleaseButton();
+        state = ButtonStates.Off;
     }
 }

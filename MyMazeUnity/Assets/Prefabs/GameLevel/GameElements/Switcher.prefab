@@ -77,7 +77,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   draggable: {fileID: 0}
   workTime: 3
-  controller: {fileID: 9100000, guid: 75271855a99e18d4799996a896ab280b, type: 2}
 --- !u!114 &11468392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,6 +140,10 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 75271855a99e18d4799996a896ab280b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: animatorController
       value: 
       objectReference: {fileID: 9100000, guid: 75271855a99e18d4799996a896ab280b, type: 2}
     m_RemovedComponents: []

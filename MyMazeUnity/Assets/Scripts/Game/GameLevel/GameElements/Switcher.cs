@@ -92,6 +92,7 @@ public class Switcher : ButtonLevel
         animator.ResetTrigger("Working");
         animator.ResetTrigger("NowTurnOff");
         animator.ResetTrigger("TurnsOff");
+        animator.ResetTrigger("Reset");
         if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Empty"))
             animator.SetTrigger("Reset");
         workingTime = 0f;

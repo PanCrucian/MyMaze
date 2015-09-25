@@ -135,7 +135,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
     /// </summary>
     public void OffSwitchersOnGameLevel()
     {
-        StartCoroutine(OffSwitchersOnGameLevelNumerator());
+        //StartCoroutine(OffSwitchersOnGameLevelNumerator());
     }
     IEnumerator OffSwitchersOnGameLevelNumerator()
     {

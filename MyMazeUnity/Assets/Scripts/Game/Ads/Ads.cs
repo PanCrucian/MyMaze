@@ -137,7 +137,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
     {
         Switcher[] switchers = GameObject.FindObjectsOfType<Switcher>();
         foreach (Switcher switcher in switchers)
-            switcher.Off();
+            switcher.Reinit();
     }
 
     void Awake()

@@ -24,7 +24,7 @@ MonoBehaviour:
   EnableATCSupport: 0
   SaveCameraImageToGallery: 0
   UseProductNameAsFolderName: 1
-  GalleryFolderName: My Maze
+  GalleryFolderName: MyMazeUnity
   MaxImageLoadSize: 512
   CameraCaptureMode: 0
   ImageFormat: 0
@@ -34,20 +34,20 @@ MonoBehaviour:
   EnablePSAPI: 1
   EnableSocialAPI: 0
   EnableCameraAPI: 0
-  ExpandNativeAPI: 0
-  ExpandPSAPI: 0
-  ExpandBillingAPI: 0
-  ExpandSocialAPI: 0
-  ExpandCameraAPI: 0
-  ShowStoreKitParams: 0
-  ShowCameraAndGalleryParams: 0
-  ShowLocalNotificationParams: 0
-  ShowPushNotificationParams: 0
-  ThirdPartyParams: 0
-  ShowPSSettings: 0
+  ExpandNativeAPI: 1
+  ExpandPSAPI: 1
+  ExpandBillingAPI: 1
+  ExpandSocialAPI: 1
+  ExpandCameraAPI: 1
+  ShowStoreKitParams: 1
+  ShowCameraAndGalleryParams: 1
+  ShowLocalNotificationParams: 1
+  ShowPushNotificationParams: 1
+  ThirdPartyParams: 1
+  ShowPSSettings: 1
   ShowPSSettingsResources: 1
   ShowActions: 1
-  GCMSettingsActinve: 0
+  GCMSettingsActinve: 1
   LocalNotificationsAPI: 1
   ImmersiveModeAPI: 0
   ApplicationInformationAPI: 0
@@ -57,12 +57,12 @@ MonoBehaviour:
   NetworkStateAPI: 0
   InAppPurchasesAPI: 1
   GooglePlayServicesAPI: 1
-  PlayServicesAdvancedSignInAPI: 1
+  PlayServicesAdvancedSignInAPI: 0
   GoogleButtonAPI: 0
   AnalyticsAPI: 0
   GoogleCloudSaveAPI: 0
-  PushNotificationsAPI: 0
-  GoogleMobileAdAPI: 0
+  PushNotificationsAPI: 1
+  GoogleMobileAdAPI: 1
   GalleryAPI: 0
   CameraAPI: 0
   KeepManifestClean: 1

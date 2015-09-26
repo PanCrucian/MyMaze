@@ -2393,27 +2393,27 @@ MonoBehaviour:
   - achId: mymaze_achievement_gamecomplete
     type: 10
   gPSMatching:
-  - achId: CgkI4JDql48IEAIQAA
+  - achId: CgkIxYnzg-cOEAIQBA
     type: 0
-  - achId: CgkI4JDql48IEAIQAQ
+  - achId: CgkIxYnzg-cOEAIQAQ
     type: 1
-  - achId: CgkI4JDql48IEAIQAg
+  - achId: CgkIxYnzg-cOEAIQAg
     type: 2
-  - achId: CgkI4JDql48IEAIQAw
+  - achId: CgkIxYnzg-cOEAIQAw
     type: 3
-  - achId: CgkI4JDql48IEAIQBA
+  - achId: CgkIxYnzg-cOEAIQBQ
     type: 4
-  - achId: CgkI4JDql48IEAIQBQ
+  - achId: CgkIxYnzg-cOEAIQCw
     type: 5
-  - achId: CgkI4JDql48IEAIQBg
+  - achId: CgkIxYnzg-cOEAIQBw
     type: 6
-  - achId: CgkI4JDql48IEAIQBw
+  - achId: CgkIxYnzg-cOEAIQCA
     type: 7
-  - achId: CgkI4JDql48IEAIQCA
+  - achId: CgkIxYnzg-cOEAIQCQ
     type: 8
-  - achId: CgkI4JDql48IEAIQCQ
+  - achId: CgkIxYnzg-cOEAIQCg
     type: 9
-  - achId: CgkI4JDql48IEAIQCg
+  - achId: CgkIxYnzg-cOEAIQBg
     type: 10
   elements:
   - name: Page00Opened
@@ -3159,7 +3159,6 @@ MonoBehaviour:
   adsShowTrashhold: 5
   noAdsPacks:
   - {fileID: 11432342}
-  fakeAdsSetup: 0
 --- !u!114 &11430942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3824,7 +3823,7 @@ MonoBehaviour:
   - boardId: mymaze_leaderboard
     type: 0
   gPSMatching:
-  - boardId: CgkI4JDql48IEAIQCw
+  - boardId: CgkIxYnzg-cOEAIQAA
     type: 0
   elements:
   - name: Stars

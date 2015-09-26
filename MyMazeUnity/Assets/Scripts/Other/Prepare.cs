@@ -43,8 +43,14 @@ public class Prepare : MonoBehaviour {
 #if UNITY_IPHONE
         // Enable push notifications for iOS
         DDNA.Instance.Notifications.RegisterForPushNotifications();
-        DDNA.Instance.Notifications.OnDidRegisterForPushNotifications += (string n) => { Debug.Log("Got an iOS push token: " + n); };
+        DDNA.Instance.Notifications.OnDidRegisterForPushNotifications += (string n) => { 
+            Debug.Log("Got an iOS push token: " + n); 
+            DDNA.Instance.PushNotificationToken = n; 
+        };
         DDNA.Instance.Notifications.OnDidReceivePushNotification += (string n) => { Debug.Log("Got an iOS push notification! " + n); };
+#endif
+#if UNITY_ANDROID
+        
 #endif
 
         DDNA.Instance.StartSDK(

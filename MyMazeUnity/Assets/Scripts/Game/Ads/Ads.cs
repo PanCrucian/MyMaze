@@ -150,7 +150,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(0.25f);
 #if UNITY_IPHONE
-        Screen.orientation = ScreenOrientation.Portrait
+        Screen.orientation = ScreenOrientation.Portrait;
 #endif
     }
 

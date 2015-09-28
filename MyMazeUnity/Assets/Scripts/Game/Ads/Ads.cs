@@ -100,6 +100,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
             if (GameLevel.Instance != null)
                 MyMaze.Instance.Ads.OffSwitchersOnGameLevel();
 
+            MyMaze.Instance.Ads.ScreenOrientationPortrait();
             MyMaze.Instance.Ads.FetchIncentivizedAd(adTag);
         }
     };
@@ -138,6 +139,19 @@ public class Ads : GentleMonoBeh, ISavingElement {
         Switcher[] switchers = GameObject.FindObjectsOfType<Switcher>();
         foreach (Switcher switcher in switchers)
             switcher.Reinit();
+    }
+
+    public void ScreenOrientationPortrait()
+    {
+        StartCoroutine(ScreenOrientationNumerator());
+    }
+    IEnumerator ScreenOrientationNumerator()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.25f);
+#if UNITY_IPHONE
+        Screen.orientation = ScreenOrientation.Portrait
+#endif
     }
 
     void Awake()

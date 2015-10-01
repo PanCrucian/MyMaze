@@ -529,6 +529,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &131676217
 Transform:
   m_ObjectHideFlags: 0
@@ -1034,7 +1035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: TwitterShare
+  MethodName: 547769747465725368617265
 --- !u!114 &347875900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,7 +1050,6 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
-  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &347875901
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShareImage
+  MethodName: 5368617265496d616765
 --- !u!114 &401504979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1265,7 +1265,6 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
-  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &401504980
@@ -2235,7 +2234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShareFB
+  MethodName: 53686172654642
 --- !u!114 &712342821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2250,7 +2249,6 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
-  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &712342822
@@ -2640,7 +2638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShareScreehshot
+  MethodName: 536861726553637265656873686f74
 --- !u!114 &807895427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2655,7 +2653,6 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
-  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &807895428
@@ -3118,7 +3115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: InstaShare
+  MethodName: 496e7374615368617265
 --- !u!114 &986172871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3133,7 +3130,6 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
-  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &986172872
@@ -4869,7 +4865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: GoogleShare
+  MethodName: 476f6f676c655368617265
 --- !u!114 &1832445957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4884,7 +4880,6 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
-  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &1832445958
@@ -5150,7 +5145,6 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
-  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &1909552824
@@ -5223,7 +5217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShareText
+  MethodName: 536861726554657874
 --- !u!1 &1937946727
 GameObject:
   m_ObjectHideFlags: 0
@@ -5479,7 +5473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShareMail
+  MethodName: 53686172654d61696c
 --- !u!114 &1985378902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5494,7 +5488,6 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 0}
-  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!23 &1985378903

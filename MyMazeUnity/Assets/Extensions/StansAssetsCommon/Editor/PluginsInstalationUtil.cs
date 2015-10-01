@@ -21,32 +21,51 @@ public class PluginsInstalationUtil : MonoBehaviour {
 	}
 
 	public static void IOS_InstallPlugin(bool IsFirstInstall = true) {
-		#if UNITY_3_5 || UNITY_4_0 || UNITY_4_1	|| UNITY_4_2 || UNITY_4_3 || UNITY_4_5 || UNITY_4_6
-		FileStaticAPI.CopyFolder(IOS_SOURCE_PATH, IOS_DESTANATION_PATH);
-		#else
-		Unity5_IOS_CleanUp();
-		#endif
 
-		IOSCleanUP();
+		IOS_CleanUp();
+
+
+
+
+
+		//IOS Native
+		FileStaticAPI.CopyFile(PluginsInstalationUtil.IOS_SOURCE_PATH + "ISN_Camera.mm.txt", 		PluginsInstalationUtil.IOS_DESTANATION_PATH + "ISN_Camera.mm");
+		FileStaticAPI.CopyFile(PluginsInstalationUtil.IOS_SOURCE_PATH + "ISN_GameCenter.mm.txt", 	PluginsInstalationUtil.IOS_DESTANATION_PATH + "ISN_GameCenter.mm");
+		FileStaticAPI.CopyFile(PluginsInstalationUtil.IOS_SOURCE_PATH + "ISN_iAd.mm.txt", 			PluginsInstalationUtil.IOS_DESTANATION_PATH + "ISN_iAd.mm");
+		FileStaticAPI.CopyFile(PluginsInstalationUtil.IOS_SOURCE_PATH + "ISN_InApp.mm.txt", 		PluginsInstalationUtil.IOS_DESTANATION_PATH + "ISN_InApp.mm");
+		FileStaticAPI.CopyFile(PluginsInstalationUtil.IOS_SOURCE_PATH + "ISN_Media.mm.txt", 		PluginsInstalationUtil.IOS_DESTANATION_PATH + "ISN_Media.mm");
+		FileStaticAPI.CopyFile(PluginsInstalationUtil.IOS_SOURCE_PATH + "ISN_ReplayKit.mm.txt", 	PluginsInstalationUtil.IOS_DESTANATION_PATH + "ISN_ReplayKit.mm");
+		FileStaticAPI.CopyFile(PluginsInstalationUtil.IOS_SOURCE_PATH + "ISN_NSData+Base64.h.txt", 	PluginsInstalationUtil.IOS_DESTANATION_PATH + "ISN_NSData+Base64.h");
+		FileStaticAPI.CopyFile(PluginsInstalationUtil.IOS_SOURCE_PATH + "ISN_NSData+Base64.m.txt", PluginsInstalationUtil.IOS_DESTANATION_PATH + "ISN_NSData+Base64.m");
+		
+
+		IOS_Install_SocialPart();
+		
+
+
+	}
+
+	public static void InstallGMAPart() {
+		//GMA
+		FileStaticAPI.CopyFile(PluginsInstalationUtil.IOS_SOURCE_PATH + "GMA_SA_Lib.mm.txt", 	PluginsInstalationUtil.IOS_DESTANATION_PATH + "GMA_SA_Lib.mm");
+
 	}
 
 
-	public static void IOSCleanUP() {
-		FileStaticAPI.DeleteFile(PluginsInstalationUtil.IOS_DESTANATION_PATH + "GADAdMobExtras.h");
-		FileStaticAPI.DeleteFile(PluginsInstalationUtil.IOS_DESTANATION_PATH + "GADAdNetworkExtras.h");
-		FileStaticAPI.DeleteFile(PluginsInstalationUtil.IOS_DESTANATION_PATH + "GADAdSize.h");
-		FileStaticAPI.DeleteFile(PluginsInstalationUtil.IOS_DESTANATION_PATH + "GADBannerViewDelegate.h");
-		FileStaticAPI.DeleteFile(PluginsInstalationUtil.IOS_DESTANATION_PATH + "GADInAppPurchase.h");
-		FileStaticAPI.DeleteFile(PluginsInstalationUtil.IOS_DESTANATION_PATH + "GADInAppPurchaseDelegate.h");
-		FileStaticAPI.DeleteFile(PluginsInstalationUtil.IOS_DESTANATION_PATH + "GADInterstitialDelegate.h");
-		FileStaticAPI.DeleteFile(PluginsInstalationUtil.IOS_DESTANATION_PATH + "GADModules.h");
-		FileStaticAPI.DeleteFile(PluginsInstalationUtil.IOS_DESTANATION_PATH + "GADRequest.h");
-		FileStaticAPI.DeleteFile(PluginsInstalationUtil.IOS_DESTANATION_PATH + "GADRequestError.h");
-		FileStaticAPI.DeleteFile(PluginsInstalationUtil.IOS_DESTANATION_PATH + "libGoogleAdMobAds.a");
-
+	public static void IOS_Install_SocialPart() {
+		//IOS Native +  MSP
+		FileStaticAPI.CopyFile(PluginsInstalationUtil.IOS_SOURCE_PATH + "ISN_SocialGate.mm.txt", 	PluginsInstalationUtil.IOS_DESTANATION_PATH + "ISN_SocialGate.mm");
+		FileStaticAPI.CopyFile(PluginsInstalationUtil.IOS_SOURCE_PATH + "ISN_NativeCore.h.txt", 	PluginsInstalationUtil.IOS_DESTANATION_PATH + "ISN_NativeCore.h");
+		FileStaticAPI.CopyFile(PluginsInstalationUtil.IOS_SOURCE_PATH + "ISN_NativeCore.mm.txt", 	PluginsInstalationUtil.IOS_DESTANATION_PATH + "ISN_NativeCore.mm");
 	}
 
-	public static void Unity5_IOS_CleanUp() {
+
+
+
+	public static void IOS_CleanUp() {
+
+
+		//Old APi
 		RemoveIOSFile("AppEventListener");
 		RemoveIOSFile("CloudManager");
 		RemoveIOSFile("CustomBannerView");
@@ -71,8 +90,58 @@ public class PluginsInstalationUtil : MonoBehaviour {
 		RemoveIOSFile("SocialGate");
 		RemoveIOSFile("StoreProductView");
 		RemoveIOSFile("TransactionServer");
+
+		RemoveIOSFile("OneSignalUnityRuntime");
+		RemoveIOSFile("OneSignal");
+		RemoveIOSFile("libOneSignal");
+		RemoveIOSFile("ISN_Security");
+		RemoveIOSFile("ISN_NativeUtility");
+		RemoveIOSFile("ISN_NativePopUpsManager");
+		RemoveIOSFile("ISN_Media");
+		RemoveIOSFile("ISN_GameCenterTBM");
+		RemoveIOSFile("ISN_GameCenterRTM");
+		RemoveIOSFile("ISN_GameCenterManager");
+		RemoveIOSFile("ISN_GameCenterListner");
+		RemoveIOSFile("IOSNativeNotificationCenter");
+
+
+
+		//New API
+		RemoveIOSFile("ISN_Camera");
+		RemoveIOSFile("ISN_GameCenter");
+		RemoveIOSFile("ISN_InApp");
+		RemoveIOSFile("ISN_iAd");
+		RemoveIOSFile("ISN_NativeCore");
+		RemoveIOSFile("ISN_SocialGate");
+		RemoveIOSFile("ISN_ReplayKit");
+		
+
+		
+
+
+		//Google Ad old v1
+		RemoveIOSFile("GADAdMobExtras");
+		RemoveIOSFile("GADAdNetworkExtras");
+		RemoveIOSFile("GADAdSize");
+		RemoveIOSFile("GADBannerViewDelegate");
+		RemoveIOSFile("GADInAppPurchase");
+		RemoveIOSFile("GADInAppPurchaseDelegate");
+		RemoveIOSFile("GADInterstitialDelegate");
+		RemoveIOSFile("GADModules");
+		RemoveIOSFile("GADRequest");
+		RemoveIOSFile("GADRequestError");
+		RemoveIOSFile("libGoogleAdMobAds");
+
+		//Google Ad old v2
 		RemoveIOSFile("GoogleMobileAdBanner");
 		RemoveIOSFile("GoogleMobileAdController");
+
+
+		//Google Ad new
+		RemoveIOSFile("GMA_SA_Lib");
+
+
+		//MSP old
 		RemoveIOSFile("IOSInstaPlugin");
 		RemoveIOSFile("IOSTwitterPlugin");
 		RemoveIOSFile("MGInstagram");
@@ -84,10 +153,11 @@ public class PluginsInstalationUtil : MonoBehaviour {
 	}
 
 
-	private static void RemoveIOSFile(string filename) {
+	public static void RemoveIOSFile(string filename) {
 		FileStaticAPI.DeleteFile(IOS_DESTANATION_PATH + filename + ".h");
 		FileStaticAPI.DeleteFile(IOS_DESTANATION_PATH + filename + ".m");
 		FileStaticAPI.DeleteFile(IOS_DESTANATION_PATH + filename + ".mm");
+		FileStaticAPI.DeleteFile(IOS_DESTANATION_PATH + filename + ".a");
 	}
 
 

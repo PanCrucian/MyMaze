@@ -8,6 +8,7 @@
 
 
 using UnityEngine;
+using System;
 using System.Collections;
 
 public class GooglePlayerTemplate {
@@ -24,7 +25,8 @@ public class GooglePlayerTemplate {
 	private bool _hasHiResImage = false;
 
 
-
+	public event Action<Texture2D> BigPhotoLoaded =  delegate {};
+	public event Action<Texture2D> SmallPhotoLoaded =  delegate {};
 
 	//--------------------------------------
 	// INITIALIZE
@@ -151,10 +153,12 @@ public class GooglePlayerTemplate {
 
 	private void OnProfileImageLoaded(Texture2D tex) {
 		_image = tex;
+		BigPhotoLoaded(_image);
 	}
 
 	private void OnProfileIconLoaded(Texture2D tex) {
 		_icon = tex;
+		SmallPhotoLoaded(_icon);
 
 	}
 

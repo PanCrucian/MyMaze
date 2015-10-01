@@ -11,7 +11,7 @@ public class GooglePlayServices : MonoBehaviour {
     {
         get
         {
-            if (GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED)
+            if (GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED)
                 return true;
             else
                 return false;
@@ -54,10 +54,10 @@ public class GooglePlayServices : MonoBehaviour {
         GooglePlayManager.ActionAchievementsLoaded += OnAchievementsLoaded;
         GooglePlayManager.ActionAchievementUpdated += OnAchievementUpdated;
 
-        if (GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED)
+        if (GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED)
             OnPlayerConnected();
         else
-            GooglePlayConnection.Instance.connect();
+            GooglePlayConnection.Instance.Connect();
     }
 
     /// <summary>
@@ -186,7 +186,7 @@ public class GooglePlayServices : MonoBehaviour {
     /// Изменилось состояние ачивки
     /// </summary>
     /// <param name="result"></param>
-    void OnAchievementUpdated(GP_GamesResult result)
+    void OnAchievementUpdated(GP_AchievementResult result)
     {
         Debug.Log("Achievment Updated " + "Id: " + result.achievementId + "\n status: " + result.message);
     }

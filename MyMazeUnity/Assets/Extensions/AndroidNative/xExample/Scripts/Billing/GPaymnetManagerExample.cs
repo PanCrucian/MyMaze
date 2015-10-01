@@ -49,7 +49,7 @@ public class GPaymnetManagerExample : MonoBehaviour {
 	
 
 		//you may use loadStore function without parametr if you have filled base64EncodedPublicKey in plugin settings
-		AndroidInAppPurchaseManager.instance.loadStore();
+		AndroidInAppPurchaseManager.Instance.LoadStore();
 
 		//or You can pass base64EncodedPublicKey using scirption:
 		//AndroidInAppPurchaseManager.instance.loadStore(YOU_BASE_64_KEY_HERE);
@@ -64,11 +64,11 @@ public class GPaymnetManagerExample : MonoBehaviour {
 
 
 	public static void purchase(string SKU) {
-		AndroidInAppPurchaseManager.instance.purchase (SKU);
+		AndroidInAppPurchaseManager.Instance.Purchase (SKU);
 	}
 
 	public static void consume(string SKU) {
-		AndroidInAppPurchaseManager.instance.consume (SKU);
+		AndroidInAppPurchaseManager.Instance.Consume (SKU);
 	}
 
 	//--------------------------------------
@@ -128,7 +128,7 @@ public class GPaymnetManagerExample : MonoBehaviour {
 
 		if(result.isSuccess) {
 			//Store connection is Successful. Next we loading product and customer purchasing details
-			AndroidInAppPurchaseManager.instance.retrieveProducDetails();
+			AndroidInAppPurchaseManager.Instance.RetrieveProducDetails();
 			AndroidInAppPurchaseManager.ActionRetrieveProducsFinished += OnRetrieveProductsFinised;
 		} 
 

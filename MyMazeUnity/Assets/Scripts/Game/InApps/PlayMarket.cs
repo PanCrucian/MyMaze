@@ -28,7 +28,7 @@ public class PlayMarket : MonoBehaviour {
         AndroidInAppPurchaseManager.ActionProductPurchased += OnProductPurchased;
         AndroidInAppPurchaseManager.ActionProductConsumed += OnProductConsumed;
 
-        AndroidInAppPurchaseManager.Instance.loadStore();
+        AndroidInAppPurchaseManager.Instance.LoadStore();
     }
 
     /// <summary>
@@ -40,7 +40,7 @@ public class PlayMarket : MonoBehaviour {
         if (result.isSuccess)
         {
             Debug.Log("Connection Success: " + result.response.ToString() + " " + result.message);
-            AndroidInAppPurchaseManager.Instance.retrieveProducDetails();
+            AndroidInAppPurchaseManager.Instance.RetrieveProducDetails();
         }else
             Debug.LogWarning("Connection Error: " + result.response.ToString() + " " + result.message);
     }
@@ -82,7 +82,7 @@ public class PlayMarket : MonoBehaviour {
     /// <param name="SKU"></param>
     public void Purchase(string SKU)
     {
-        AndroidInAppPurchaseManager.Instance.purchase(SKU);
+        AndroidInAppPurchaseManager.Instance.Purchase(SKU);
     }
 
     /// <summary>
@@ -91,7 +91,7 @@ public class PlayMarket : MonoBehaviour {
     /// <param name="SKU"></param>
     public void Consume(string SKU)
     {
-        AndroidInAppPurchaseManager.Instance.consume(SKU);
+        AndroidInAppPurchaseManager.Instance.Consume(SKU);
     }
 
     /// <summary>
@@ -109,7 +109,7 @@ public class PlayMarket : MonoBehaviour {
             Consume(result.purchase.SKU);
         }
         else
-            Debug.LogWarning("Product Purchase Failed: " + result.response.ToString() + " " + result.message);
+            Debug.LogWarning("Product Purchase Failed! Response: " + result.response.ToString() + ", message: " + result.message);
     }
 
     /// <summary>
@@ -127,8 +127,8 @@ public class PlayMarket : MonoBehaviour {
         }
         else
         {
-            Debug.LogWarning("Product Cousume Failed: " + result.response.ToString() + " " + result.message);
+            Debug.LogWarning("Product Purchase Failed! Response: " + result.response.ToString() + ", message: " + result.message);
         }
     }
 #endif
-                                        }
+}

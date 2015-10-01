@@ -25,11 +25,11 @@ public class GoogleCloudUseExample : MonoBehaviour {
 
 		GoogleCloudManager.ActionStateConflict += OnStateConflict;
 
-		GooglePlayConnection.instance.connect ();
+		GooglePlayConnection.instance.Connect ();
 	}
 
 	void FixedUpdate() {
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			foreach(GameObject o in hideOnConnect) {
 				o.SetActive(false);
 			}

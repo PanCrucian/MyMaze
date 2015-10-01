@@ -34,7 +34,7 @@ public class SavedGamesExample : MonoBehaviour {
 		GooglePlaySavedGamesManager.ActionConflict += ActionConflict;
 
 		
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			//checking if player already connected
 			OnPlayerConnected ();
 		} 
@@ -58,13 +58,13 @@ public class SavedGamesExample : MonoBehaviour {
 
 	
 	private void ConncetButtonPress() {
-		Debug.Log("GooglePlayManager State  -> " + GooglePlayConnection.state.ToString());
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		Debug.Log("GooglePlayManager State  -> " + GooglePlayConnection.State.ToString());
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			SA_StatusBar.text = "Disconnecting from Play Service...";
-			GooglePlayConnection.instance.disconnect ();
+			GooglePlayConnection.Instance.Disconnect ();
 		} else {
 			SA_StatusBar.text = "Connecting to Play Service...";
-			GooglePlayConnection.instance.connect ();
+			GooglePlayConnection.Instance.Connect ();
 		}
 	}
 	
@@ -74,7 +74,7 @@ public class SavedGamesExample : MonoBehaviour {
 
 	
 	void FixedUpdate() {
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			if(GooglePlayManager.instance.player.icon != null) {
 				avatar.GetComponent<Renderer>().material.mainTexture = GooglePlayManager.instance.player.icon;
 			}
@@ -84,7 +84,7 @@ public class SavedGamesExample : MonoBehaviour {
 		
 		
 		string title = "Connect";
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			title = "Disconnect";
 			
 			foreach(DefaultPreviewButton btn in ConnectionDependedntButtons) {
@@ -97,7 +97,7 @@ public class SavedGamesExample : MonoBehaviour {
 				btn.DisabledButton();
 				
 			}
-			if(GooglePlayConnection.state == GPConnectionState.STATE_DISCONNECTED || GooglePlayConnection.state == GPConnectionState.STATE_UNCONFIGURED) {
+			if(GooglePlayConnection.State == GPConnectionState.STATE_DISCONNECTED || GooglePlayConnection.State == GPConnectionState.STATE_UNCONFIGURED) {
 				
 				title = "Connect";
 			} else {

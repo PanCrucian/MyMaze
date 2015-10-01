@@ -39,11 +39,11 @@ public class RTM_Game_Example : AndroidNativeExampleBase {
 
 		GooglePlayConnection.ActionPlayerConnected +=  OnPlayerConnected;
 		GooglePlayConnection.ActionPlayerDisconnected += OnPlayerDisconnected;
-		
+
 		GooglePlayConnection.ActionConnectionResultReceived += OnConnectionResult;
 
 		
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			//checking if player already connected
 			OnPlayerConnected ();
 		} 
@@ -53,15 +53,15 @@ public class RTM_Game_Example : AndroidNativeExampleBase {
 
 
 	}
-	
+
 	private void ConncetButtonPress() {
-		Debug.Log("GooglePlayManager State  -> " + GooglePlayConnection.state.ToString());
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		Debug.Log("GooglePlayManager State  -> " + GooglePlayConnection.State.ToString());
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			SA_StatusBar.text = "Disconnecting from Play Service...";
-			GooglePlayConnection.instance.disconnect ();
+			GooglePlayConnection.instance.Disconnect ();
 		} else {
 			SA_StatusBar.text = "Connecting to Play Service...";
-			GooglePlayConnection.instance.connect ();
+			GooglePlayConnection.instance.Connect ();
 		}
 	}
 
@@ -166,7 +166,7 @@ public class RTM_Game_Example : AndroidNativeExampleBase {
 			hi.SetActive(false);
 		}
 
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			if(GooglePlayManager.instance.player.icon != null) {
 				avatar.GetComponent<Renderer>().material.mainTexture = GooglePlayManager.instance.player.icon;
 			}
@@ -176,9 +176,9 @@ public class RTM_Game_Example : AndroidNativeExampleBase {
 		
 		
 		string title = "Connect";
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			title = "Disconnect";
-			
+
 			foreach(DefaultPreviewButton btn in ConnectionDependedntButtons) {
 				btn.EnabledButton();
 			}
@@ -189,7 +189,7 @@ public class RTM_Game_Example : AndroidNativeExampleBase {
 				btn.DisabledButton();
 				
 			}
-			if(GooglePlayConnection.state == GPConnectionState.STATE_DISCONNECTED || GooglePlayConnection.state == GPConnectionState.STATE_UNCONFIGURED) {
+			if(GooglePlayConnection.State == GPConnectionState.STATE_DISCONNECTED || GooglePlayConnection.State == GPConnectionState.STATE_UNCONFIGURED) {
 				
 				title = "Connect";
 			} else {

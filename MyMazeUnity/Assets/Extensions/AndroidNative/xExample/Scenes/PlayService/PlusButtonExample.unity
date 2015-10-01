@@ -308,6 +308,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &131676217
 Transform:
   m_ObjectHideFlags: 0
@@ -738,7 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShoweButtons
+  MethodName: 53686f7765427574746f6e73
 --- !u!114 &290864804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,7 +1027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: CreatePlusButtons
+  MethodName: 437265617465506c7573427574746f6e73
 --- !u!114 &406199061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1431,7 +1432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: HideButtons
+  MethodName: 48696465427574746f6e73
 --- !u!114 &638898251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1762,7 +1763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ChangePosPostButton
+  MethodName: 4368616e6765506f73506f7374427574746f6e
 --- !u!114 &678688104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3419,7 +3420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: CreateRandomPostButton
+  MethodName: 43726561746552616e646f6d506f7374427574746f6e
 --- !u!114 &2041438606
 MonoBehaviour:
   m_ObjectHideFlags: 0

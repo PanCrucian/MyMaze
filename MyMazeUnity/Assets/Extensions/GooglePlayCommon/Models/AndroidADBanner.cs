@@ -97,6 +97,21 @@ public class AndroidADBanner : GoogleMobileAdBanner {
 		AN_GoogleAdProxy.RefreshAd (_id);
 	}
 
+	public void Pause() {
+		if(!_IsLoaded) {
+			return;
+		}
+		
+		AN_GoogleAdProxy.PauseAd (_id);
+	}
+
+	public void Resume() {
+		if(!_IsLoaded) {
+			return;
+		}
+		
+		AN_GoogleAdProxy.ResumeAd (_id);
+	}
 
 	public void SetBannerPosition(int x, int y) {
 		AN_GoogleAdProxy.SetBannerPosition(x, y, id);

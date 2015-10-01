@@ -25,14 +25,14 @@ public class AN_GMSRTMProxy : MonoBehaviour
 		CallActivityFunction("RTMFindMatch", pIds);
 	}
 
-    public static void sendDataToAll(string data, int sendType)
+    public static void sendDataToAll(string data, int sendType, int dataId = 0)
     {
-        CallActivityFunction("sendDataToAll", data, sendType.ToString());
+        CallActivityFunction("sendDataToAll", data, sendType.ToString(), dataId);
     }
 
-    public static void sendDataToPlayers(string data, string players, int sendType)
+    public static void sendDataToPlayers(string data, string players, int sendType, int dataId = 0)
     {
-		CallActivityFunction("sendDataToPlayers", data, players, sendType.ToString());
+		CallActivityFunction("sendDataToPlayers", data, players, sendType.ToString(), dataId);
     }
 
     public static void ShowWaitingRoomIntent()

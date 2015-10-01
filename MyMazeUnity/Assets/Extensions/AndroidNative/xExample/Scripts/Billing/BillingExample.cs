@@ -42,7 +42,7 @@ public class BillingExample : MonoBehaviour {
 
 	public void SuccsesPurchase() {
 		if(GPaymnetManagerExample.isInited) {
-			AndroidInAppPurchaseManager.instance.purchase (GPaymnetManagerExample.ANDROID_TEST_PURCHASED);
+			AndroidInAppPurchaseManager.Instance.Purchase (GPaymnetManagerExample.ANDROID_TEST_PURCHASED);
 		} else {
 			AndroidMessage.Create("Error", "PaymnetManagerExample not yet inited");
 		}
@@ -52,7 +52,7 @@ public class BillingExample : MonoBehaviour {
 
 	public void FailPurchase() {
 		if(GPaymnetManagerExample.isInited) {
-			AndroidInAppPurchaseManager.instance.purchase (GPaymnetManagerExample.ANDROID_TEST_ITEM_UNAVAILABLE);
+			AndroidInAppPurchaseManager.Instance.Purchase (GPaymnetManagerExample.ANDROID_TEST_ITEM_UNAVAILABLE);
 		} else {
 			AndroidMessage.Create("Error", "PaymnetManagerExample not yet inited");
 		}

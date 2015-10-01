@@ -386,6 +386,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &131676217
 Transform:
   m_ObjectHideFlags: 0
@@ -430,7 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: CanselLocal
+  MethodName: 43616e73656c4c6f63616c
 --- !u!114 &187180956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,7 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: Reg
+  MethodName: 526567
 --- !u!114 &291226490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1618,7 +1619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: Local
+  MethodName: 4c6f63616c
 --- !u!114 &807895427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2914,7 +2915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: CancelAll
+  MethodName: 43616e63656c416c6c
 --- !u!114 &1442395268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3889,7 +3890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: Toast
+  MethodName: 546f617374
 --- !u!1 &1971952996
 GameObject:
   m_ObjectHideFlags: 0
@@ -4071,7 +4072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: LoadLastMessage
+  MethodName: 4c6f61644c6173744d657373616765
 --- !u!114 &2005285977
 MonoBehaviour:
   m_ObjectHideFlags: 0

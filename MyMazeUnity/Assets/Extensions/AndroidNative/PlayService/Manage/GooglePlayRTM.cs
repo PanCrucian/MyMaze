@@ -6,11 +6,12 @@ using System;
 public class GooglePlayRTM : SA_Singleton<GooglePlayRTM>  {
 
 	//Actions
-	public static  Action<GP_RTM_Network_Package> ActionDataRecieved		      	=  delegate{};
-	public static  Action<GP_RTM_Room> ActionRoomUpdated            	=  delegate{};
+	public static Action<GP_RTM_Network_Package> 					ActionDataRecieved		      	= delegate{};
+	public static Action<GP_RTM_Room> 								ActionRoomUpdated            	= delegate{};
+	public static Action<GP_RTM_ReliableMessageSentResult> 			ActionReliableMessageSent 		= delegate{};
+	public static Action<GP_RTM_ReliableMessageDeliveredResult> 	ActionReliableMessageDelivered 	= delegate{};
 	
-	
-	public static Action ActionConnectedToRoom        =  delegate{};
+	public static Action ActionConnectedToRoom        	=  delegate{};
 	public static Action ActionDisconnectedFromRoom 	=  delegate{};
 
 	//contains participant id
@@ -38,14 +39,12 @@ public class GooglePlayRTM : SA_Singleton<GooglePlayRTM>  {
 	public static Action<GP_Invite> ActionInvitationReceived =  delegate{};
 	public static Action<string> ActionInvitationRemoved =  delegate{};
 
-
-
-
-
 	private const int BYTE_LIMIT = 256;
 	private GP_RTM_Room _currentRoom = new GP_RTM_Room();
 	private List<GP_Invite> _invitations =  new List<GP_Invite>();
 
+	// Cache for reliable messages data
+	private Dictionary<int, GP_RTM_ReliableMessageListener> _ReliableMassageListeners = new Dictionary<int, GP_RTM_ReliableMessageListener>();
 	
 	//--------------------------------------
 	// INITIALIZATION
@@ -100,13 +99,35 @@ public class GooglePlayRTM : SA_Singleton<GooglePlayRTM>  {
 
 	public void SendDataToAll(byte[] data, GP_RTM_PackageType sendType) {
 		string dataString = ConvertByteDataToString(data);
-		AN_GMSRTMProxy.sendDataToAll(dataString, (int) sendType);
+		switch (sendType) {
+		case GP_RTM_PackageType.RELIABLE:
+
+			GP_RTM_ReliableMessageListener listener = new GP_RTM_ReliableMessageListener(SA_IdFactory.NextId, data);
+			_ReliableMassageListeners.Add(listener.DataTokenId, listener);
+
+			AN_GMSRTMProxy.sendDataToAll(dataString, (int) sendType);
+			break;
+		case GP_RTM_PackageType.UNRELIABLE:
+			AN_GMSRTMProxy.sendDataToAll(dataString, (int) sendType);
+			break;
+		}
 	}
 	
 	public void sendDataToPlayers(byte[] data, GP_RTM_PackageType sendType, params string[] players) {
 		string dataString = ConvertByteDataToString(data);
 		string playersString = string.Join(AndroidNative.DATA_SPLITTER, players);
-		AN_GMSRTMProxy.sendDataToPlayers(dataString, playersString, (int) sendType);
+		switch (sendType) {
+		case GP_RTM_PackageType.RELIABLE:
+
+			GP_RTM_ReliableMessageListener listener = new GP_RTM_ReliableMessageListener(SA_IdFactory.NextId, data);
+			_ReliableMassageListeners.Add(listener.DataTokenId, listener);
+
+			AN_GMSRTMProxy.sendDataToPlayers(dataString, playersString, (int) sendType);
+			break;
+		case GP_RTM_PackageType.UNRELIABLE:
+			AN_GMSRTMProxy.sendDataToPlayers(dataString, playersString, (int) sendType);
+			break;
+		}
 	}
 
 	public void ShowWaitingRoomIntent() {
@@ -151,6 +172,12 @@ public class GooglePlayRTM : SA_Singleton<GooglePlayRTM>  {
 		AN_GMSRTMProxy.RTM_SetExclusiveBitMask (val);
 	}
 
+	public void ClearReliableMessageListener(int dataTokenId) {
+		if (_ReliableMassageListeners.ContainsKey(dataTokenId)) {
+			_ReliableMassageListeners.Remove(dataTokenId);
+			Debug.Log("[ClearReliableMessageListener] Remove data with token " + dataTokenId);
+		}
+	}
 
 	//--------------------------------------
 	// GET / SET
@@ -212,6 +239,43 @@ public class GooglePlayRTM : SA_Singleton<GooglePlayRTM>  {
 
 	}
 
+	private void OnReliableMessageSent(string data) {
+		Debug.Log ("[OnReliableMessageSent] " + data);
+
+		string[] resultData = data.Split(AndroidNative.DATA_SPLITTER[0]);
+		int messageTokedId = Int32.Parse(resultData[2]);
+		int dataTokenId = Int32.Parse(resultData[3]);
+
+		if (_ReliableMassageListeners.ContainsKey(dataTokenId)) {
+			GP_RTM_ReliableMessageSentResult result =
+				new GP_RTM_ReliableMessageSentResult(resultData[0], resultData[1], messageTokedId, _ReliableMassageListeners[dataTokenId].Data);
+			ActionReliableMessageSent(result);
+
+			_ReliableMassageListeners[dataTokenId].ReportSentMessage();
+		} else {
+			GP_RTM_ReliableMessageSentResult result = new GP_RTM_ReliableMessageSentResult(resultData[0], resultData[1], messageTokedId, null);
+			ActionReliableMessageSent(result);
+		}
+	}
+
+	private void OnReliableMessageDelivered(string data) {
+		Debug.Log("[OnReliableMessageDelivered] " + data);
+
+		string[] resultData = data.Split(AndroidNative.DATA_SPLITTER[0]);
+		int messageTokedId = Int32.Parse(resultData[2]);
+		int dataTokenId = Int32.Parse(resultData[3]);
+
+		if (_ReliableMassageListeners.ContainsKey(dataTokenId)) {
+			GP_RTM_ReliableMessageDeliveredResult result =
+				new GP_RTM_ReliableMessageDeliveredResult(resultData[0], resultData[1], messageTokedId, _ReliableMassageListeners[dataTokenId].Data);
+			ActionReliableMessageDelivered(result);
+
+			_ReliableMassageListeners[dataTokenId].ReportDeliveredMessage();
+		} else {
+			GP_RTM_ReliableMessageDeliveredResult result = new GP_RTM_ReliableMessageDeliveredResult(resultData[0], resultData[1], messageTokedId, null);
+			ActionReliableMessageDelivered(result);
+		}
+	}
 
 	private void OnMatchDataRecieved(string data) {
 		if(data.Equals(string.Empty)) {

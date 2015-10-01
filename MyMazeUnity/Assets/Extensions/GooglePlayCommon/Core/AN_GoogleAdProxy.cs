@@ -55,14 +55,19 @@ public class AN_GoogleAdProxy  {
 	public static void RefreshAd(int id) { 
 		CallActivityFunction ("Bridge_RefreshAd", id.ToString());
 	}
-	
+
+	public static void PauseAd(int id) {
+		CallActivityFunction("Bridge_PauseBanner", id.ToString());
+	}
+
+	public static void ResumeAd(int id) {
+		CallActivityFunction("Bridge_ResumeBanner", id.ToString());
+	}
 	
 	public static void DestroyBanner(int id) { 
 		CallActivityFunction ("Bridge_DestroyBanner", id.ToString());
 	}
-	
-	
-	
+		
 	public static void StartInterstitialAd() {
 		CallActivityFunction ("Bridge_StartInterstitialAd");
 	}

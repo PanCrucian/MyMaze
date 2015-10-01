@@ -134,13 +134,24 @@ public class AndroidNativeSettingsEditor : Editor {
 
 	public static bool IsUpToDate {
 		get {
-
-			int currentVersion = SA_VersionsManager.ParceVersion(AndroidNativeSettings.VERSION_NUMBER);
-			if(currentVersion == SA_VersionsManager.AN_Version) {
+			if(CurrentVersion == SA_VersionsManager.AN_Version) {
 				return true;
 			} else {
 				return false;
 			}
+		}
+	}
+
+
+	public static int CurrentVersion {
+		get {
+			return SA_VersionsManager.ParceVersion(AndroidNativeSettings.VERSION_NUMBER);
+		}
+	}
+
+	public static int CurrentMagorVersion {
+		get {
+			return SA_VersionsManager.ParceMagorVersion(AndroidNativeSettings.VERSION_NUMBER);
 		}
 	}
 
@@ -159,6 +170,7 @@ public class AndroidNativeSettingsEditor : Editor {
 
 	public static void UpdateVersionInfo() {
 		FileStaticAPI.Write(SA_VersionsManager.AN_VERSION_INFO_PATH, AndroidNativeSettings.VERSION_NUMBER);
+		SocialPlatfromSettingsEditor.UpdateVersionInfo();
 		UpdateManifest();
 	}
 
@@ -208,19 +220,27 @@ public class AndroidNativeSettingsEditor : Editor {
 				EditorGUILayout.Space();
 				Color c = GUI.color;
 				GUI.color = Color.cyan;
-				if(GUILayout.Button("How to update")) {
 
-					Application.OpenURL("https://goo.gl/Z9wgEI");
 
-					/*
-					AN_Plugin_Update();
-					UpdateVersionInfo();
-					*/
+
+				if(CurrentMagorVersion != SA_VersionsManager.AN_MagorVersion) {
+					if(GUILayout.Button("How to update",  GUILayout.Width(250))) {
+						Application.OpenURL("https://goo.gl/Z9wgEI");
+					}
+				} else {
+					if(GUILayout.Button("Upgrade Resources",  GUILayout.Width(250))) {
+						AN_Plugin_Update();
+						UpdateVersionInfo();
+					}
 				}
+
 
 				GUI.color = c;
 				EditorGUILayout.Space();
 				EditorGUILayout.EndHorizontal();
+
+				EditorGUILayout.Space();
+				Actions();
 
 			} else {
 				EditorGUILayout.HelpBox("Android Native Plugin v" + AndroidNativeSettings.VERSION_NUMBER + " is installed", MessageType.Info);

@@ -31,7 +31,7 @@ public class AndroidInAppPurchaseManager : SA_Singleton<AndroidInAppPurchaseMana
 	private bool _IsConnectingToServiceInProcess 	= false;
 	private bool _IsProductRetrievingInProcess 		= false;
 
-	private bool _IsConnectd = false;
+	private bool _IsConnected = false;
 	private bool _IsInventoryLoaded = false;
 
 
@@ -51,7 +51,7 @@ public class AndroidInAppPurchaseManager : SA_Singleton<AndroidInAppPurchaseMana
 
 
 	//Fill your products befor loading store
-	[System.Obsolete("addProduct is deprectaed, plase use AddProduct instaed")]
+	[System.Obsolete("addProduct is deprectaed, plase use AddProduct instead")]
 	public void addProduct(string SKU) {
 		AddProduct(SKU);
 	}
@@ -68,68 +68,101 @@ public class AndroidInAppPurchaseManager : SA_Singleton<AndroidInAppPurchaseMana
 
 
 
-
+	[System.Obsolete("retrieveProducDetails is deprectaed, plase use RetrieveProducDetails instead")]
 	public void retrieveProducDetails() {
+		RetrieveProducDetails ();
+	}
+
+	public void RetrieveProducDetails() {
 		_IsProductRetrievingInProcess = true;
 		AN_BillingProxy.RetrieveProducDetails();
 	}
 
 
-
-
+	[System.Obsolete("purchase is deprectaed, plase use Purchase instead")]
 	public void purchase(string SKU) {
-		purchase(SKU, "");
+		Purchase(SKU);
 	}
 
+	[System.Obsolete("purchase is deprectaed, plase use Purchase instead")]
 	public void purchase(string SKU, string DeveloperPayload) {
+		Purchase (SKU, DeveloperPayload);
+	}
+
+	public void Purchase(string SKU) {
+		Purchase(SKU, "");
+	}
+
+	public void Purchase(string SKU, string DeveloperPayload) {
 		_processedSKU = SKU;
 		AN_BillingProxy.Purchase (SKU, DeveloperPayload);
 	}
 
-
-
+	[System.Obsolete("subscribe is deprectaed, plase use Subscribe instead")]
 	public void subscribe(string SKU) {
-		subscribe(SKU, "");
+		Subscribe (SKU);
 	}
 
-
+	[System.Obsolete("subscribe is deprectaed, plase use Subscribe instead")]
 	public void subscribe(string SKU, string DeveloperPayload) {
+		Subscribe (SKU, DeveloperPayload);
+	}
+
+	public void Subscribe(string SKU) {
+		Subscribe(SKU, "");
+	}
+
+	public void Subscribe(string SKU, string DeveloperPayload) {
 		_processedSKU = SKU;
 		AN_BillingProxy.Subscribe (SKU, DeveloperPayload);
 	}
 
+	[System.Obsolete("consume is deprectaed, plase use Consume instead")]
 	public void consume(string SKU) {
+		Consume (SKU);
+	}
+
+	public void Consume(string SKU) {
 		_processedSKU = SKU;
 		AN_BillingProxy.Consume (SKU);
 	}
 
-
+	[System.Obsolete("loadStore is deprectaed, plase use LoadStore instead")]
 	public void loadStore() {
+		LoadStore ();
+	}
+
+	[System.Obsolete("loadStore is deprectaed, plase use LoadStore instead")]
+	public void loadStore(string base64EncodedPublicKey) {
+
+		LoadStore (base64EncodedPublicKey);
+	}
+
+	public void LoadStore() {
 		if(AndroidNativeSettings.Instance.IsBase64KeyWasReplaced) {
-			loadStore(AndroidNativeSettings.Instance.base64EncodedPublicKey);
+			LoadStore(AndroidNativeSettings.Instance.base64EncodedPublicKey);
 			_IsConnectingToServiceInProcess = true;
 		} else {
 			Debug.LogError("Replace base64EncodedPublicKey in Androdi Native Setting menu");
 		}
 	}
 
-
-	public void loadStore(string base64EncodedPublicKey) {
-
+	public void LoadStore(string base64EncodedPublicKey) {
+		
 		foreach(string pid in AndroidNativeSettings.Instance.InAppProducts) {
 			AddProduct(pid);
 		}
-
+		
 		string ids = "";
 		int len = _productsIds.Count;
 		for(int i = 0; i < len; i++) {
 			if(i != 0) {
 				ids += ",";
 			}
-
+			
 			ids += _productsIds[i];
 		}
-
+		
 		AN_BillingProxy.Connect (ids, base64EncodedPublicKey);
 	}
 
@@ -157,9 +190,9 @@ public class AndroidInAppPurchaseManager : SA_Singleton<AndroidInAppPurchaseMana
 		}
 	}
 
-	public bool IsConnectd {
+	public bool IsConnected {
 		get {
-			return _IsConnectd;
+			return _IsConnected;
 		}
 	}
 
@@ -229,7 +262,8 @@ public class AndroidInAppPurchaseManager : SA_Singleton<AndroidInAppPurchaseMana
 			purchase.SetState(storeData[6]);
 			purchase.token 	        		= storeData[7];
 			purchase.signature 	        	= storeData[8];
-			purchase.originalJson 	        = storeData[9];
+			purchase.time					= System.Convert.ToInt64(storeData[9]);
+			purchase.originalJson 	        = storeData[10];
 
 			if(_inventory != null) {
 				_inventory.removePurchase (purchase);
@@ -251,7 +285,7 @@ public class AndroidInAppPurchaseManager : SA_Singleton<AndroidInAppPurchaseMana
 		int resp = System.Convert.ToInt32 (storeData[0]);
 
 
-		_IsConnectd = true;
+		_IsConnected = true;
 		_IsConnectingToServiceInProcess = false;
 		BillingResult result = new BillingResult (resp, storeData [1]);
 
@@ -301,7 +335,7 @@ public class AndroidInAppPurchaseManager : SA_Singleton<AndroidInAppPurchaseMana
 			_inventory.addPurchase (tpl);
 		}
 
-		Debug.Log("InAppPurchaseManager, tottal purchases loaded: " + _inventory.purchases.Count);
+		Debug.Log("InAppPurchaseManager, total purchases loaded: " + _inventory.purchases.Count);
 
 	}
 
@@ -328,7 +362,7 @@ public class AndroidInAppPurchaseManager : SA_Singleton<AndroidInAppPurchaseMana
 			_inventory.addProduct (tpl);
 		}
 
-		Debug.Log("InAppPurchaseManager, tottal products loaded: " + _inventory.products.Count);
+		Debug.Log("InAppPurchaseManager, total products loaded: " + _inventory.products.Count);
 	}
 
 

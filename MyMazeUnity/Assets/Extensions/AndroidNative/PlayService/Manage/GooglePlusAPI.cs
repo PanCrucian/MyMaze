@@ -19,6 +19,6 @@ public class GooglePlusAPI : SA_Singleton<GooglePlusAPI> {
 		if (!GooglePlayConnection.CheckState ()) { return; }
 
 		AN_GMSGeneralProxy.clearDefaultAccount();
-		GooglePlayConnection.instance.disconnect();
+		GooglePlayConnection.instance.Disconnect();
 	}
 }

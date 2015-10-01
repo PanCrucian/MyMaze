@@ -15,12 +15,12 @@ public class InitAndroidInventoryTask : MonoBehaviour {
 	public void Run() {
 
 		Debug.Log("InitAndroidInventoryTask task started");
-		if(AndroidInAppPurchaseManager.instance.IsConnectd) {
+		if(AndroidInAppPurchaseManager.Instance.IsConnected) {
 			OnBillingConnected(null);
 		} else {
 			AndroidInAppPurchaseManager.ActionBillingSetupFinished += OnBillingConnected;
-			if(!AndroidInAppPurchaseManager.instance.IsConnectingToServiceInProcess) {
-				AndroidInAppPurchaseManager.instance.loadStore();
+			if(!AndroidInAppPurchaseManager.Instance.IsConnectingToServiceInProcess) {
+				AndroidInAppPurchaseManager.Instance.LoadStore();
 			}
 		}
 	}
@@ -56,8 +56,8 @@ public class InitAndroidInventoryTask : MonoBehaviour {
 			ActionComplete();
 		} else {
 			AndroidInAppPurchaseManager.ActionRetrieveProducsFinished += OnRetrieveProductsFinised;
-			if(!AndroidInAppPurchaseManager.instance.IsProductRetrievingInProcess) {
-				AndroidInAppPurchaseManager.instance.retrieveProducDetails();
+			if(!AndroidInAppPurchaseManager.Instance.IsProductRetrievingInProcess) {
+				AndroidInAppPurchaseManager.Instance.RetrieveProducDetails();
 			}
 		}
 

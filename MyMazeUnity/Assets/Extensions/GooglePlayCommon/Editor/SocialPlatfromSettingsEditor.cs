@@ -36,6 +36,7 @@ public class SocialPlatfromSettingsEditor : Editor {
 
 	void Awake() {
 		if(IsInstalled && IsUpToDate) {
+			PluginsInstalationUtil.IOS_Install_SocialPart();
 			UpdateManifest();
 		}
 	}
@@ -74,7 +75,6 @@ public class SocialPlatfromSettingsEditor : Editor {
 
 
 		GeneralOptions();
-		EditorGUILayout.Space();
 		GeneralSettings();
 		EditorGUILayout.Space();
 		FacebookSettings();
@@ -93,41 +93,36 @@ public class SocialPlatfromSettingsEditor : Editor {
 	}
 
 
-	public static bool IsFullVersion {
-		get {
-			if(FileStaticAPI.IsFileExists(PluginsInstalationUtil.IOS_SOURCE_PATH + "MGInstagram.h")) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-	}
-	
+
 
 	public static bool IsInstalled {
 		get {
-
-			#if UNITY_3_5 || UNITY_4_0 || UNITY_4_1	|| UNITY_4_2 || UNITY_4_3 || UNITY_4_5 || UNITY_4_6
-			if(FileStaticAPI.IsFileExists(PluginsInstalationUtil.ANDROID_DESTANATION_PATH + "androidnative.jar") && FileStaticAPI.IsFileExists(PluginsInstalationUtil.IOS_DESTANATION_PATH + "MGInstagram.h")) {
-			#else
-			if(FileStaticAPI.IsFileExists(PluginsInstalationUtil.ANDROID_DESTANATION_PATH + "androidnative.jar")) {
-			#endif
-				return true;
-			} else {
-				return false;
-			}
+			return SA_VersionsManager.Is_MSP_Installed;
 		}
 	}
+
+
 	
 	public static bool IsUpToDate {
 		get {
 
-			int currentVersion = SA_VersionsManager.ParceVersion(SocialPlatfromSettings.VERSION_NUMBER);
-			if(currentVersion == SA_VersionsManager.MSP_Version) {
+			if(CurrentVersion == SA_VersionsManager.MSP_Version) {
 				return true;
 			} else {
 				return false;
 			}
+		}
+	}
+
+	public static int CurrentVersion {
+		get {
+			return SA_VersionsManager.ParceVersion(SocialPlatfromSettings.VERSION_NUMBER);
+		}
+	}
+	
+	public static int CurrentMagorVersion {
+		get {
+			return SA_VersionsManager.ParceMagorVersion(SocialPlatfromSettings.VERSION_NUMBER);
 		}
 	}
 	
@@ -145,12 +140,6 @@ public class SocialPlatfromSettingsEditor : Editor {
 
 
 	private void GeneralOptions() {
-		
-		if(!IsFullVersion) {
-			EditorGUILayout.HelpBox("Mobile Social Plugin v" + SocialPlatfromSettings.VERSION_NUMBER + " is installed", MessageType.Info);
-			Actions();
-			return;
-		}
 		
 		if(!IsInstalled) {
 			EditorGUILayout.HelpBox("Install Required ", MessageType.Error);
@@ -179,25 +168,29 @@ public class SocialPlatfromSettingsEditor : Editor {
 				EditorGUILayout.Space();
 				Color c = GUI.color;
 				GUI.color = Color.cyan;
-				if(GUILayout.Button("How to update",  GUILayout.Width(250))) {
-				
 
-					Application.OpenURL("https://goo.gl/ZI66Ub");
-						/*
-					PluginsInstalationUtil.Android_InstallPlugin();
-					PluginsInstalationUtil.IOS_InstallPlugin();
-					UpdateVersionInfo();
-					*/
+
+				if(CurrentMagorVersion != SA_VersionsManager.MSP_MagorVersion) {
+					if(GUILayout.Button("How to update",  GUILayout.Width(250))) {
+						Application.OpenURL("https://goo.gl/ZI66Ub");
+					}
+				} else {
+					if(GUILayout.Button("Upgrade Resources",  GUILayout.Width(250))) {
+						PluginsInstalationUtil.Android_InstallPlugin();
+						PluginsInstalationUtil.IOS_InstallPlugin();
+						UpdateVersionInfo();
+					}
 				}
-				
+
 				GUI.color = c;
 				EditorGUILayout.Space();
 				EditorGUILayout.EndHorizontal();
 				
+				EditorGUILayout.Space();
+				Actions();
 			} else {
 				EditorGUILayout.HelpBox("Mobile Social Plugin v" + SocialPlatfromSettings.VERSION_NUMBER + " is installed", MessageType.Info);
-				Actions();
-
+				PluginSettings();
 			}
 		}
 
@@ -373,19 +366,19 @@ public class SocialPlatfromSettingsEditor : Editor {
 		return permissions;
 	}
 
-	private void Actions() {
+	private void PluginSettings() {
 		EditorGUILayout.Space();
-
-
+			
+			
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.LabelField("Keep Android Mnifest Clean");
-		
+			
 		EditorGUI.BeginChangeCheck();
 		SocialPlatfromSettings.Instance.KeepManifestClean = EditorGUILayout.Toggle(SocialPlatfromSettings.Instance.KeepManifestClean);
 		if(EditorGUI.EndChangeCheck()) {
 			UpdateManifest();
 		}
-		
+			
 		if(GUILayout.Button("[?]",  GUILayout.Width(25))) {
 			Application.OpenURL("http://goo.gl/018lnQ");
 		}
@@ -393,23 +386,27 @@ public class SocialPlatfromSettingsEditor : Editor {
 		EditorGUILayout.Space();
 		
 		EditorGUILayout.EndHorizontal();
-
-
+			
+			
 		SocialPlatfromSettings.Instance.ShowAPIS = EditorGUILayout.Foldout(SocialPlatfromSettings.Instance.ShowAPIS, "Mobile Social Plugin APIs");
 		if(SocialPlatfromSettings.Instance.ShowAPIS) {
 			EditorGUI.indentLevel++;
-
+			
 			EditorGUI.BeginChangeCheck();
 			DrawAPIsList();
 			if(EditorGUI.EndChangeCheck()) {
 				UpdateManifest();
 			}
-			
-			
+				
+				
 			EditorGUI.indentLevel--;
 			EditorGUILayout.Space();
 		}
+					
+		Actions();
+	}
 
+	private void Actions() {
 		SocialPlatfromSettings.Instance.ShowActions = EditorGUILayout.Foldout(SocialPlatfromSettings.Instance.ShowActions, "More Actions");
 		if(SocialPlatfromSettings.Instance.ShowActions) {
 				
@@ -463,6 +460,18 @@ public class SocialPlatfromSettingsEditor : Editor {
 				PluginsInstalationUtil.IOS_UpdatePlugin();
 				UpdateVersionInfo();
 				
+			}
+
+				
+			EditorGUILayout.EndHorizontal();	
+			EditorGUILayout.Space();
+
+
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.Space();
+
+			if(GUILayout.Button("Remove",  GUILayout.Width(160))) {
+				SA_RemoveTool.RemovePlugins();
 			}
 				
 			EditorGUILayout.EndHorizontal();	

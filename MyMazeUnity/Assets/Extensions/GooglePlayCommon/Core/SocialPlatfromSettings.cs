@@ -9,7 +9,7 @@ using UnityEditor;
 
 public class SocialPlatfromSettings : ScriptableObject {
 
-	public const string VERSION_NUMBER = "6.4";
+	public const string VERSION_NUMBER = "6.8.1";
 	public const string FB_SDK_VERSION_NUMBER = "6.2.2";
 
 	public bool ShowImageSharingSettings = false;

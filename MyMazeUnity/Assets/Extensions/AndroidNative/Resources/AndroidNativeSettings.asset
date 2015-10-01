@@ -24,7 +24,7 @@ MonoBehaviour:
   EnableATCSupport: 0
   SaveCameraImageToGallery: 0
   UseProductNameAsFolderName: 1
-  GalleryFolderName: MyMazeUnity
+  GalleryFolderName: My Maze
   MaxImageLoadSize: 512
   CameraCaptureMode: 0
   ImageFormat: 0
@@ -37,27 +37,27 @@ MonoBehaviour:
   ExpandNativeAPI: 1
   ExpandPSAPI: 1
   ExpandBillingAPI: 1
-  ExpandSocialAPI: 1
-  ExpandCameraAPI: 1
+  ExpandSocialAPI: 0
+  ExpandCameraAPI: 0
   ShowStoreKitParams: 1
-  ShowCameraAndGalleryParams: 1
-  ShowLocalNotificationParams: 1
-  ShowPushNotificationParams: 1
-  ThirdPartyParams: 1
+  ShowCameraAndGalleryParams: 0
+  ShowLocalNotificationParams: 0
+  ShowPushNotificationParams: 0
+  ThirdPartyParams: 0
   ShowPSSettings: 1
-  ShowPSSettingsResources: 1
+  ShowPSSettingsResources: 0
   ShowActions: 1
   GCMSettingsActinve: 1
   LocalNotificationsAPI: 1
-  ImmersiveModeAPI: 0
-  ApplicationInformationAPI: 0
-  ExternalAppsAPI: 0
-  PoupsandPreloadersAPI: 0
-  CheckAppLicenseAPI: 0
+  ImmersiveModeAPI: 1
+  ApplicationInformationAPI: 1
+  ExternalAppsAPI: 1
+  PoupsandPreloadersAPI: 1
+  CheckAppLicenseAPI: 1
   NetworkStateAPI: 0
   InAppPurchasesAPI: 1
   GooglePlayServicesAPI: 1
-  PlayServicesAdvancedSignInAPI: 0
+  PlayServicesAdvancedSignInAPI: 1
   GoogleButtonAPI: 0
   AnalyticsAPI: 0
   GoogleCloudSaveAPI: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   CameraAPI: 0
   KeepManifestClean: 1
   GCM_SenderId: YOUR_SENDER_ID_HERE
-  GooglePlayServiceAppID: 278954412128
+  GooglePlayServiceAppID: 508693365957
   base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtKcG1AD1jKZO5YMG/A7dBECJm5I+cucStyQdFWBU4c3GUgcku/i9SjQPPZe0s8jQsGQItyesoEiq0LFC1RDYzerGYlsRDWZ7ExxnB20fCWdEmhjWPeHhSjAxhR32QVMsYbFxtCHVZkiKDvwFLWYLHNyvJl5zlEs22MrJIP/BNYWnUz/nWC8/s9wJMbBIgeIMPa1cZyF6y2py2GenxCgWSclm8Htt1r9VZEB6nBceO+adJIWDmPTwCopMFxwUTdaMEeJ3BxVEul2P31cHU2lJnpNrkcGnZPO2yvMLS6Lgw0ol0kcr9VA5GmJCfSNPmlZQG6Y4e95l9F6FA65LBtTEpwIDAQAB
   InAppProducts: []
   ShowWhenAppIsForeground: 1

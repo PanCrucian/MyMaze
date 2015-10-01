@@ -72,32 +72,22 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 		//listen for GooglePlayConnection events
 		GooglePlayConnection.ActionPlayerConnected +=  OnPlayerConnected;
 		GooglePlayConnection.ActionPlayerDisconnected += OnPlayerDisconnected;
-
-
 		GooglePlayConnection.ActionConnectionResultReceived += ActionConnectionResultReceived;
-
-
 
 		//listen for GooglePlayManager events
 		GooglePlayManager.ActionAchievementUpdated += OnAchievementUpdated;
 		GooglePlayManager.ActionScoreSubmited += OnScoreSubmited;
-		GooglePlayManager.ActionScoreRequestReceived += OnScoreUpdated;
-
+		GooglePlayManager.ActionScoresListLoaded += OnScoreUpdated;
 
 		GooglePlayManager.ActionSendGiftResultReceived += OnGiftResult;
 		GooglePlayManager.ActionPendingGameRequestsDetected += OnPendingGiftsDetected;
 		GooglePlayManager.ActionGameRequestsAccepted += OnGameRequestAccepted;
-
 	
 		GooglePlayManager.ActionOAuthTokenLoaded += ActionOAuthTokenLoaded;
 		GooglePlayManager.ActionAvailableDeviceAccountsLoaded += ActionAvailableDeviceAccountsLoaded;
-
-
 		GooglePlayManager.ActionAchievementsLoaded += OnAchievmnetsLoadedInfoListner;
-	
 
-
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			//checking if player already connected
 			OnPlayerConnected ();
 		} 
@@ -116,29 +106,26 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 
 			GooglePlayManager.ActionAchievementUpdated -= OnAchievementUpdated;
 			GooglePlayManager.ActionScoreSubmited -= OnScoreSubmited;
+			GooglePlayManager.ActionScoresListLoaded -= OnScoreUpdated;
 
-
-			
 			GooglePlayManager.ActionSendGiftResultReceived -= OnGiftResult;
 			GooglePlayManager.ActionPendingGameRequestsDetected -= OnPendingGiftsDetected;
 			GooglePlayManager.ActionGameRequestsAccepted -= OnGameRequestAccepted;
 			
 			GooglePlayManager.ActionAvailableDeviceAccountsLoaded -= ActionAvailableDeviceAccountsLoaded;
 			GooglePlayManager.ActionOAuthTokenLoaded -= ActionOAuthTokenLoaded;
-
 			GooglePlayManager.ActionAchievementsLoaded -= OnAchievmnetsLoadedInfoListner;
-
 		}
 	}
 
 	private void ConncetButtonPress() {
-		Debug.Log("GooglePlayManager State  -> " + GooglePlayConnection.state.ToString());
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		Debug.Log("GooglePlayManager State  -> " + GooglePlayConnection.State.ToString());
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			SA_StatusBar.text = "Disconnecting from Play Service...";
-			GooglePlayConnection.Instance.disconnect ();
+			GooglePlayConnection.Instance.Disconnect ();
 		} else {
 			SA_StatusBar.text = "Connecting to Play Service...";
-			GooglePlayConnection.Instance.connect ();
+			GooglePlayConnection.Instance.Connect ();
 		}
 	}
 
@@ -159,11 +146,17 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 	}
 
 	private void loadLeaderBoards() {
+		if (GooglePlayManager.Instance.GetLeaderBoard(LEADERBOARD_ID).GetCurrentPlayerScore(GPBoardTimeSpan.ALL_TIME, GPCollectionType.FRIENDS) == null) {
+			//listening for load event 
+			GooglePlayManager.ActionLeaderboardsLoaded += OnLeaderBoardsLoaded;
+			GooglePlayManager.Instance.LoadLeaderBoards ();
+			SA_StatusBar.text = "Loading Leader Boards Data...";
+		} else {
+			SA_StatusBar.text = LEADERBOARD_NAME + "  score  " + GooglePlayManager.Instance.GetLeaderBoard(LEADERBOARD_ID).GetCurrentPlayerScore(GPBoardTimeSpan.ALL_TIME, GPCollectionType.FRIENDS).LongScore.ToString();
+			AN_PoupsProxy.showMessage (LEADERBOARD_NAME + "  score",  GooglePlayManager.Instance.GetLeaderBoard(LEADERBOARD_ID).GetCurrentPlayerScore(GPBoardTimeSpan.ALL_TIME, GPCollectionType.FRIENDS).LongScore.ToString());
 
-		//listening for load event 
-		GooglePlayManager.ActionLeaderboardsLoaded += OnLeaderBoardsLoaded;
-		GooglePlayManager.Instance.LoadLeaderBoards ();
-		SA_StatusBar.text = "Loading Leader Boards Data...";
+			UpdateBoardInfo();
+		}
 	}
 
 	private void showLeaderBoard() {
@@ -250,7 +243,7 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 
 
 	void FixedUpdate() {
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			if(GooglePlayManager.Instance.player.icon != null) {
 				avatar.GetComponent<Renderer>().material.mainTexture = GooglePlayManager.Instance.player.icon;
 			}
@@ -260,7 +253,7 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 
 
 		string title = "Connect";
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			title = "Disconnect";
 
 			foreach(DefaultPreviewButton btn in ConnectionDependedntButtons) {
@@ -273,7 +266,7 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 				btn.DisabledButton();
 
 			}
-			if(GooglePlayConnection.state == GPConnectionState.STATE_DISCONNECTED || GooglePlayConnection.state == GPConnectionState.STATE_UNCONFIGURED) {
+			if(GooglePlayConnection.State == GPConnectionState.STATE_DISCONNECTED || GooglePlayConnection.State == GPConnectionState.STATE_UNCONFIGURED) {
 
 				title = "Connect";
 			} else {
@@ -351,7 +344,7 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 
 	}
 
-	private void OnAchievementUpdated(GP_GamesResult result) {
+	private void OnAchievementUpdated(GP_AchievementResult result) {
 		SA_StatusBar.text = "Achievment Updated: Id: " + result.achievementId + "\n status: " + result.message;
 		AN_PoupsProxy.showMessage ("Achievment Updated ", "Id: " + result.achievementId + "\n status: " + result.message);
 	}
@@ -368,8 +361,8 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 			}
 
 
-			SA_StatusBar.text = LEADERBOARD_NAME + "  score  " + GooglePlayManager.Instance.GetLeaderBoard(LEADERBOARD_ID).GetCurrentPlayerScore(GPBoardTimeSpan.ALL_TIME, GPCollectionType.FRIENDS).score.ToString();
-			AN_PoupsProxy.showMessage (LEADERBOARD_NAME + "  score",  GooglePlayManager.Instance.GetLeaderBoard(LEADERBOARD_ID).GetCurrentPlayerScore(GPBoardTimeSpan.ALL_TIME, GPCollectionType.FRIENDS).score.ToString());
+			SA_StatusBar.text = LEADERBOARD_NAME + "  score  " + GooglePlayManager.Instance.GetLeaderBoard(LEADERBOARD_ID).GetCurrentPlayerScore(GPBoardTimeSpan.ALL_TIME, GPCollectionType.FRIENDS).LongScore.ToString();
+			AN_PoupsProxy.showMessage (LEADERBOARD_NAME + "  score",  GooglePlayManager.Instance.GetLeaderBoard(LEADERBOARD_ID).GetCurrentPlayerScore(GPBoardTimeSpan.ALL_TIME, GPCollectionType.FRIENDS).LongScore.ToString());
 		} else {
 			SA_StatusBar.text = result.message;
 			AN_PoupsProxy.showMessage ("Leader-Boards Loaded error: ", result.message);
@@ -382,17 +375,28 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 	private void UpdateBoardInfo() {
 		GPLeaderBoard leaderboard = GooglePlayManager.Instance.GetLeaderBoard(LEADERBOARD_ID);
 		if(leaderboard != null) {
-			b_id.text 		= "Id: " + leaderboard.id;
-			b_name.text 	= "Name: " +leaderboard.name;
-			b_all_time.text = "All Time Score: " + leaderboard.GetCurrentPlayerScore(GPBoardTimeSpan.ALL_TIME, GPCollectionType.FRIENDS).score;
-			
+			b_id.text 		= "Id: " + leaderboard.Id;
+			b_name.text 	= "Name: " +leaderboard.Name;
+
+			GPScore score = leaderboard.GetCurrentPlayerScore(GPBoardTimeSpan.ALL_TIME, GPCollectionType.FRIENDS);
+			if (score != null) {
+				b_all_time.text = "All Time Score: " + score.LongScore;
+			} else {
+				b_all_time.text = "All Time Score: EMPTY";
+			}
 		} else {
 			b_all_time.text = "All Time Score: " + " -1";
 		}
 	}
 
-	private void OnScoreSubmited(GooglePlayResult result) {
-		SA_StatusBar.text = "Score Submited:  " + result.message;
+	private void OnScoreSubmited(GP_LeaderboardResult result) {
+		if (result.isSuccess) {
+			SA_StatusBar.text = "Score Submited:  " + result.message
+			+ " LeaderboardId: " + result.Leaderboard.Id
+			+ " LongScore: " + result.Leaderboard.GetCurrentPlayerScore(GPBoardTimeSpan.ALL_TIME, GPCollectionType.GLOBAL).LongScore;
+		} else {
+			SA_StatusBar.text = "Score Submit Fail:  " + result.message;
+		}
 	}
 
 	private void OnScoreUpdated(GooglePlayResult res) {
@@ -460,12 +464,12 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 
 		AndroidDialog dialog = AndroidDialog.Create("Accounts Loaded", msg, "Sign With Fitst one", "Do Nothing");
 		dialog.ActionComplete += SighDialogComplete;
-		
+
 	}
 
 	private void SighDialogComplete (AndroidDialogResult res) {
 		if(res == AndroidDialogResult.YES) {
-			GooglePlayConnection.Instance.connect(GooglePlayManager.Instance.deviceGoogleAccountList[0]);
+			GooglePlayConnection.Instance.Connect(GooglePlayManager.Instance.deviceGoogleAccountList[0]);
 		}
 
 	}

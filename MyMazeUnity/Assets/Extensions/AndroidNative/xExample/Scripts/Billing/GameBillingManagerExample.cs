@@ -48,7 +48,7 @@ public class GameBillingManagerExample : MonoBehaviour {
 	
 
 		//you may use loadStore function without parametr if you have filled base64EncodedPublicKey in plugin settings
-		AndroidInAppPurchaseManager.instance.loadStore();
+		AndroidInAppPurchaseManager.Instance.LoadStore();
 
 		ListnersAdded = true;
 		
@@ -61,11 +61,11 @@ public class GameBillingManagerExample : MonoBehaviour {
 	
 	
 	public static void purchase(string SKU) {
-		AndroidInAppPurchaseManager.instance.purchase (SKU);
+		AndroidInAppPurchaseManager.Instance.Purchase (SKU);
 	}
 	
 	public static void consume(string SKU) {
-		AndroidInAppPurchaseManager.instance.consume (SKU);
+		AndroidInAppPurchaseManager.Instance.Consume (SKU);
 	}
 	
 	//--------------------------------------
@@ -147,7 +147,7 @@ public class GameBillingManagerExample : MonoBehaviour {
 		if(result.isSuccess) {
 			//Store connection is Successful. Next we loading product and customer purchasing details
 			AndroidInAppPurchaseManager.ActionRetrieveProducsFinished += OnRetrieveProductsFinised;
-			AndroidInAppPurchaseManager.instance.retrieveProducDetails();
+			AndroidInAppPurchaseManager.Instance.RetrieveProducDetails();
 
 		} 
 		

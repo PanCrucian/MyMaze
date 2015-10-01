@@ -18,15 +18,19 @@ public class SocialPlatfromInit  {
 			return;
 		}
 
-		if(SocialPlatfromSettingsEditor.IsFullVersion) {
-			if(!SocialPlatfromSettingsEditor.IsInstalled) {
+		if(FileStaticAPI.IsFileExists("Extensions/AndroidNative/Resources/AndroidNativeSettings.asset")) {
+			return;
+		}
+
+
+		if(!SocialPlatfromSettingsEditor.IsInstalled) {
+			EditorApplication.update += OnEditorLoaded;
+		} else {
+			if(!SocialPlatfromSettingsEditor.IsUpToDate) {
 				EditorApplication.update += OnEditorLoaded;
-			} else {
-				if(!SocialPlatfromSettingsEditor.IsUpToDate) {
-					EditorApplication.update += OnEditorLoaded;
-				}
 			}
 		}
+		
 	}
 	
 	private static void OnEditorLoaded() {

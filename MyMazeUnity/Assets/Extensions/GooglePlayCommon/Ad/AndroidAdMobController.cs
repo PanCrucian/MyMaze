@@ -40,7 +40,17 @@ public class AndroidAdMobController : SA_Singleton<AndroidAdMobController>, Goog
 		DontDestroyOnLoad(gameObject);
 	}
 
-
+	void OnApplicationPause(bool pauseStatus) {
+		if (pauseStatus) {
+			foreach (KeyValuePair<int, AndroidADBanner> banner in _banners) {
+				banner.Value.Pause();
+			}
+		} else {
+			foreach (KeyValuePair<int, AndroidADBanner> banner in _banners) {
+				banner.Value.Resume();
+			}
+		}
+	}
 
 	public void Init(string ad_unit_id) {
 		if(_IsInited) {

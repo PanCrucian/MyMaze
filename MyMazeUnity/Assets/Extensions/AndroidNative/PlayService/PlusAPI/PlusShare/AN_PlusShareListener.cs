@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class AN_PlusShareListener : MonoBehaviour {
@@ -9,9 +10,8 @@ public class AN_PlusShareListener : MonoBehaviour {
 		builderCallback = callback;
 	}
 	
-	private void OnPlusShareCallback(string data) {
-		AN_PlusShareResult result = new AN_PlusShareResult(true);
-
+	private void OnPlusShareCallback(string res) {
+		AN_PlusShareResult result = new AN_PlusShareResult(Boolean.Parse(res));
 		builderCallback(result);
 	}
 }

@@ -10,14 +10,14 @@ public class CSharpAPIHelper : MonoBehaviour {
 		GooglePlayConnection.ActionPlayerConnected += OnPlayerConnected;
 		GooglePlayConnection.ActionPlayerDisconnected += OnPlayerDisconnected;
 
+
 		
-		
-		if(GooglePlayConnection.state == GPConnectionState.STATE_CONNECTED) {
+		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			//checking if player already connected
 			OnPlayerConnected ();
 		}  else {
 			Debug.Log("Connecting....");
-			GooglePlayConnection.instance.connect();
+			GooglePlayConnection.instance.Connect();
 		}
 
 

@@ -335,6 +335,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &131676217
 Transform:
   m_ObjectHideFlags: 0
@@ -1656,7 +1657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: findMatch
+  MethodName: 66696e644d61746368
 --- !u!114 &485143256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2551,7 +2552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: LoadActiveMatchesInfo
+  MethodName: 4c6f61644163746976654d617463686573496e666f
 --- !u!114 &833162684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4253,7 +4254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: SendHello
+  MethodName: 53656e6448656c6c6f
 --- !u!114 &1593280047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4508,7 +4509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ConncetButtonPress
+  MethodName: 436f6e6e636574427574746f6e5072657373
 --- !u!114 &1689820749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5023,7 +5024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: InviteFriends
+  MethodName: 496e76697465467269656e6473
 --- !u!114 &1862136975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5780,7 +5781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: LoadAllMatchersInfo
+  MethodName: 4c6f6164416c6c4d61746368657273496e666f
 --- !u!114 &1954793823
 MonoBehaviour:
   m_ObjectHideFlags: 0

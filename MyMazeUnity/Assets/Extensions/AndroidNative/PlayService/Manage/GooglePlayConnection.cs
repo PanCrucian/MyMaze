@@ -12,7 +12,7 @@ using System;
 
 public class GooglePlayConnection : SA_Singleton<GooglePlayConnection> {
 	
-	private bool _isInitialized = false;
+
 	
 
 	//Actions
@@ -23,9 +23,8 @@ public class GooglePlayConnection : SA_Singleton<GooglePlayConnection> {
 	public static event Action ActionPlayerDisconnected =  delegate {};
 
 
-
-
-	private static GPConnectionState _state = GPConnectionState.STATE_UNCONFIGURED;
+	private bool _IsInitialized = false;
+	private static GPConnectionState _State = GPConnectionState.STATE_UNCONFIGURED;
 
 
 	//--------------------------------------
@@ -37,7 +36,7 @@ public class GooglePlayConnection : SA_Singleton<GooglePlayConnection> {
 		DontDestroyOnLoad(gameObject);
 
 		GooglePlayManager.instance.Create();
-		init();
+		Init();
 	}
 
 
@@ -45,7 +44,10 @@ public class GooglePlayConnection : SA_Singleton<GooglePlayConnection> {
 	// PUBLIC API CALL METHODS
 	//--------------------------------------
 
-	private void init() {
+
+
+
+	private void Init() {
 		string connectionString = "";
 		if(AndroidNativeSettings.Instance.EnableGamesAPI) {
 			connectionString += "GamesAPI";
@@ -67,15 +69,25 @@ public class GooglePlayConnection : SA_Singleton<GooglePlayConnection> {
 		AN_GMSGeneralProxy.playServiceInit(connectionString);
 	}
 
-	public void connect()  {
-		connect(null);
+
+	[Obsolete("connect is deprecated, please use Connect instead.")]
+	public void connect() {
+		Connect();
+	}
+
+	public void Connect()  {
+		Connect(null);
+	}
+
+	[Obsolete("connect is deprecated, please use Connect instead.")]
+	public void connect(string accountName) {
+		Connect(accountName);
 	}
 
 
+	public void Connect(string accountName) {
 
-	public void connect(string accountName) {
-
-		if(_state == GPConnectionState.STATE_CONNECTED || _state == GPConnectionState.STATE_CONNECTING) {
+		if(_State == GPConnectionState.STATE_CONNECTED || _State == GPConnectionState.STATE_CONNECTING) {
 			return;
 		}
 
@@ -89,9 +101,14 @@ public class GooglePlayConnection : SA_Singleton<GooglePlayConnection> {
 
 	}
 
+	[Obsolete("disconnect is deprecated, please use Disconnect instead.")]
 	public void disconnect() {
+		Disconnect();
+	}
 
-		if(_state == GPConnectionState.STATE_DISCONNECTED || _state == GPConnectionState.STATE_CONNECTING) {
+	public void Disconnect() {
+
+		if(_State == GPConnectionState.STATE_DISCONNECTED || _State == GPConnectionState.STATE_CONNECTING) {
 			return;
 		}
 
@@ -107,12 +124,9 @@ public class GooglePlayConnection : SA_Singleton<GooglePlayConnection> {
 
 
 	public static bool CheckState() {
-		switch(_state) {
+		switch(_State) {
 			case GPConnectionState.STATE_CONNECTED:
 			return true;
-			case GPConnectionState.STATE_DISCONNECTED:
-			instance.connect ();
-			return false;
 			default:
 			return false;
 		}
@@ -124,16 +138,36 @@ public class GooglePlayConnection : SA_Singleton<GooglePlayConnection> {
 	// GET / SET
 	//--------------------------------------
 
+	public bool IsConnected {
+		get {
+			return State == GPConnectionState.STATE_CONNECTED;
+		}
+	}
+
+	[Obsolete("state is deprecated, please use State instead.")]
 	public static GPConnectionState state {
 		get {
-			return _state;
+			return State;
+		}
+	}
+
+	public static GPConnectionState State {
+		get {
+			return _State;
 		}
 	}
 
 
-	public  bool isInitialized {
+	[Obsolete("isInitialized is deprecated, please use IsInitialized instead.")]
+	public bool isInitialized {
 		get {
-			return _isInitialized;
+			return IsInitialized;
+		}
+	}
+
+	public  bool IsInitialized {
+		get {
+			return _IsInitialized;
 		}
 	}
 
@@ -154,27 +188,16 @@ public class GooglePlayConnection : SA_Singleton<GooglePlayConnection> {
 	}
 
 
-	private void OnConnectionResult(string data) {
-		string[] res;
-		res = data.Split(AndroidNative.DATA_SPLITTER [0]);
+	private void OnConnectionResult(string resultCode) {
+
 		GooglePlayConnectionResult result = new GooglePlayConnectionResult();
-		result.code = (GP_ConnectionResultCode) System.Convert.ToInt32(res[0]);
-
-
-
-		if(System.Convert.ToInt32(res[1]) == 1) {
-			result.HasResolution = true;
-		} else {
-			result.HasResolution = false;
-		}
+		result.code = (GP_ConnectionResultCode) System.Convert.ToInt32(resultCode);
 
 
 		if(result.IsSuccess) {
 			OnStateChange(GPConnectionState.STATE_CONNECTED);
 		} else {
-			if(!result.HasResolution) {
-				OnStateChange(GPConnectionState.STATE_DISCONNECTED);
-			}
+			OnStateChange(GPConnectionState.STATE_DISCONNECTED);
 		}
 
 		ActionConnectionResultReceived(result);
@@ -184,8 +207,8 @@ public class GooglePlayConnection : SA_Singleton<GooglePlayConnection> {
 
 	private void OnStateChange(GPConnectionState connectionState) {
 
-		_state = connectionState;
-		switch(_state) {
+		_State = connectionState;
+		switch(_State) {
 			case GPConnectionState.STATE_CONNECTED:
 				ActionPlayerConnected();
 				break;
@@ -194,9 +217,9 @@ public class GooglePlayConnection : SA_Singleton<GooglePlayConnection> {
 				break; 
 		}
 
-		ActionConnectionStateChanged(_state);
+		ActionConnectionStateChanged(_State);
 
-		Debug.Log("Play Serice Connection State -> " + _state.ToString());
+		Debug.Log("Play Serice Connection State -> " + _State.ToString());
 	}
 
 	

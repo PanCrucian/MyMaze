@@ -42,6 +42,18 @@ public class GooglePlayServices : MonoBehaviour {
     }
     private bool _achievmentsLoaded = false;
 
+    /// <summary>
+    /// ИД рекламы для устройства
+    /// </summary>
+    public static string AdvId
+    {
+        get
+        {
+            return advId;
+        }
+    }
+    private static string advId = "";
+
     void Start()
     {
         GooglePlayConnection.ActionPlayerConnected += OnPlayerConnected;
@@ -58,6 +70,21 @@ public class GooglePlayServices : MonoBehaviour {
             OnPlayerConnected();
         else
             GooglePlayConnection.Instance.Connect();
+
+
+        GooglePlayUtils.ActionAdvertisingIdLoaded += ActionAdvertisingIdLoaded;
+        Debug.Log("Try to GetAdvertisingId");
+        GooglePlayUtils.Instance.GetAdvertisingId();
+    }
+
+
+    private void ActionAdvertisingIdLoaded (GP_AdvertisingIdLoadResult res) {
+	    if(res.IsSucceeded) {
+            Debug.Log("ActionAdvertisingIdLoaded Succeeded. Advertising Id: " + res.id);
+            advId = res.id;
+	    } else {
+            Debug.LogError("Failed ActionAdvertisingIdLoad");
+	    }
     }
 
     /// <summary>

@@ -29,6 +29,15 @@ public class GameCenter : MonoBehaviour
     private bool _isAuth = false;
     private bool _isAchievementsLoaded = false;
 
+    public static string IDFA
+    {
+        get
+        {
+            return idfa;
+        }
+    }
+    private static string idfa = "";
+
     void Start()
     {
         foreach (Achievements.IdToTypeMatching iOSMatch in MyMaze.Instance.Achievements.iOSMatching)
@@ -41,6 +50,14 @@ public class GameCenter : MonoBehaviour
         GameCenterManager.OnAchievementsProgress += OnAchievementProgress;
 
         GameCenterManager.Init();
+
+        IOSSharedApplication.OnAdvertisingIdentifierLoadedAction += OnAdvertisingIdentifierLoadedAction;
+        IOSSharedApplication.Instance.GetAdvertisingIdentifier();
+    }
+
+    void OnAdvertisingIdentifierLoadedAction (string Identifier) {
+        Debug.Log("OnAdvertisingIdentifierLoadedAction Loaded: " + Identifier);
+        idfa = Identifier;
     }
 
     /// <summary>

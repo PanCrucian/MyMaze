@@ -66,7 +66,7 @@ public class FBPostingTask : AsyncTask {
 	}
 
 
-	private void OnFBAuth(FBResult result) {
+	private void OnFBAuth(FB_APIResult result) {
 
 		SPFacebook.Instance.OnAuthCompleteAction -= OnFBAuth;
 

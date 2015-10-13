@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 5375626d697453636f7265
+  MethodName: SubmitScore
 --- !u!114 &97615887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 506f737453637265656853686f74
+  MethodName: PostScreehShot
 --- !u!114 &189636355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1407,7 +1407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 4164646564546f576973686c697374
+  MethodName: AddedToWishlist
 --- !u!114 &194432210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2032,7 +2032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 566965776564436f6e74656e74
+  MethodName: ViewedContent
 --- !u!114 &310331066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2213,7 +2213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 506f7374496d616765
+  MethodName: PostImage
 --- !u!114 &331328862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2809,7 +2809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 496e69746961746564436865636b6f7574
+  MethodName: InitiatedCheckout
 --- !u!114 &405955462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3286,7 +3286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 436f6d706c65746564526567697374726174696f6e
+  MethodName: CompletedRegistration
 --- !u!114 &464613006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3393,7 +3393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 4163746976617465417070
+  MethodName: ActivateApp
 --- !u!114 &470008540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3974,7 +3974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 4164646564546f43617274
+  MethodName: AddedToCart
 --- !u!114 &589955583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4259,7 +4259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 507572636861736564
+  MethodName: Purchased
 --- !u!114 &667321514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4809,7 +4809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 5370656e7443726564697473
+  MethodName: SpentCredits
 --- !u!114 &751978086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5027,7 +5027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 506f73744e617469766553637265656e73686f74
+  MethodName: PostNativeScreenshot
 --- !u!114 &807895427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5537,7 +5537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 44656c657465506c6179657253636f726573
+  MethodName: DeletePlayerScores
 --- !u!114 &893904435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5752,7 +5752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 5365617263686564
+  MethodName: Searched
 --- !u!114 &940761363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7152,7 +7152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 506f73744d657373616765
+  MethodName: PostMessage
 --- !u!114 &1214191023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7335,7 +7335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4c696b6550616765
+  MethodName: LikePage
 --- !u!114 &1228383267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7442,7 +7442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4c6f616441707053636f726573
+  MethodName: LoadAppScores
 --- !u!114 &1231172425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7623,7 +7623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 546573745061796d656e74
+  MethodName: TestPayment
 --- !u!114 &1241428576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7804,7 +7804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 436865636b4c696b65
+  MethodName: CheckLike
 --- !u!114 &1247621474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8058,7 +8058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 41636869657665644c6576656c
+  MethodName: AchievedLevel
 --- !u!114 &1270141221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8165,7 +8165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 41646465645061796d656e74496e666f
+  MethodName: AddedPaymentInfo
 --- !u!114 &1285387094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8641,7 +8641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4c6f616453636f7265
+  MethodName: LoadScore
 --- !u!114 &1475995583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8822,7 +8822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 41707052657175657374
+  MethodName: AppRequest
 --- !u!114 &1513473792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9148,7 +9148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4c6f6164467269656e6473
+  MethodName: LoadFriends
 --- !u!114 &1616635076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9580,7 +9580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 436f6e6e656374
+  MethodName: Connect
 --- !u!114 &1689820749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10019,7 +10019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 556e6c6f636b6564416368696576656d656e74
+  MethodName: UnlockedAchievement
 --- !u!114 &1739797412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10273,7 +10273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 141850967}
-  MethodName: 5261746564
+  MethodName: Rated
 --- !u!114 &1773602556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11059,7 +11059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 506f73745769746841757468436865636b
+  MethodName: PostWithAuthCheck
 --- !u!1 &1911786083
 GameObject:
   m_ObjectHideFlags: 0
@@ -11475,7 +11475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4c6f61645573657244617461
+  MethodName: LoadUserData
 --- !u!114 &2068060169
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -67,10 +67,10 @@ public class Ads : GentleMonoBeh, ISavingElement {
             {
                 case "mymaze-onpause":
                 case "mymaze-onendofgame":
-                    MyMaze.Instance.Ads.FetchInterstitialAd(adTag, false, UnityEngine.Random.Range(15f, 30f));
+                    //MyMaze.Instance.Ads.FetchInterstitialAd(adTag, false, UnityEngine.Random.Range(15f, 30f));
                     break;
                 case "mymaze-onlaunch":
-                    MyMaze.Instance.Ads.FetchInterstitialAd(adTag, true, UnityEngine.Random.Range(15f, 30f));
+                    //MyMaze.Instance.Ads.FetchInterstitialAd(adTag, true, UnityEngine.Random.Range(15f, 30f));
                     break;
             }
         }

@@ -13,6 +13,26 @@ public class AN_GMSGeneralProxy : MonoBehaviour {
 	// Play Service
 	//--------------------------------------
 
+	public static void initTagManager(string containerId, string binDataId) {
+		CallActivityFunction("initTagManager", containerId, binDataId);
+	}
+
+	public static void getValueFromContainer(string key) {
+		CallActivityFunction("getValueFromContainer", key);
+	}
+
+	public static void refreshContainer() {
+		CallActivityFunction("refreshContainer");
+	}
+
+	public static void pushValue(string key, string value) {
+		CallActivityFunction("pushValue", key, value);
+	}
+
+	public static void pushEvent(string tagEvent, string key, string value) {
+		CallActivityFunction("pushEvent", tagEvent, key, value);
+	}
+
 	public static void loadGoogleAccountNames() {
 		CallActivityFunction("loadGoogleAccountNames");
 	}

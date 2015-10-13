@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 5265736574416c6c416368696576656d656e7473
+  MethodName: ResetAllAchievements
 --- !u!23 &135488518
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -887,7 +887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 6c6f6164416368696576656d656e7473
+  MethodName: loadAchievements
 --- !u!114 &143712690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1365,7 +1365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 636c65617244656661756c744163636f756e74
+  MethodName: clearDefaultAccount
 --- !u!114 &280675513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1620,7 +1620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 6c6f6164416368696576656d656e7473
+  MethodName: loadAchievements
 --- !u!114 &319542040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 73686f774c6561646572426f617264
+  MethodName: showLeaderBoard
 --- !u!114 &331328862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2360,7 +2360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 526571756573744164766572746973696e674964
+  MethodName: RequestAdvertisingId
 --- !u!114 &416658833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2511,7 +2511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 696e6372656d656e74416368696576656d656e74
+  MethodName: incrementAchievement
 --- !u!114 &425122402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2788,7 +2788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 7375626d697453636f7265
+  MethodName: submitScore
 --- !u!114 &485143256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3559,7 +3559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 72657665616c416368696576656d656e74
+  MethodName: revealAchievement
 --- !u!114 &689284502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3891,7 +3891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4f70656e496e626f78
+  MethodName: OpenInbox
 --- !u!114 &776203773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4368,7 +4368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 6c6f61644c6561646572426f61726473
+  MethodName: loadLeaderBoards
 --- !u!114 &807895427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5139,7 +5139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 7265706f7274416368696576656d656e74
+  MethodName: reportAchievement
 --- !u!114 &947470213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5972,7 +5972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 5265736574426f617264
+  MethodName: ResetBoard
 --- !u!23 &1082189910
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6359,7 +6359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 73686f77416368696576656d656e74735549
+  MethodName: showAchievementsUI
 --- !u!114 &1125373194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6951,7 +6951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53656e644769667452657175657374
+  MethodName: SendGiftRequest
 --- !u!114 &1265473453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7945,7 +7945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 47657441636373
+  MethodName: GetAccs
 --- !u!114 &1466688163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9423,7 +9423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 436f6e6e636574427574746f6e5072657373
+  MethodName: ConncetButtonPress
 --- !u!114 &1689820749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10877,7 +10877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 73686f774c6561646572426f617264735549
+  MethodName: showLeaderBoardsUI
 --- !u!1 &1915539513
 GameObject:
   m_ObjectHideFlags: 0
@@ -10998,7 +10998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 5265747269657665546f6b656e
+  MethodName: RetrieveToken
 --- !u!114 &1929093485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11208,7 +11208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 5265736574416368696576656d656e74
+  MethodName: ResetAchievement
 --- !u!114 &1976674689
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -189,7 +189,7 @@ public class GooglePlayConnection : SA_Singleton<GooglePlayConnection> {
 
 
 	private void OnConnectionResult(string resultCode) {
-
+		Debug.Log("[OnConnectionResult] resultCode " + resultCode);
 		GooglePlayConnectionResult result = new GooglePlayConnectionResult();
 		result.code = (GP_ConnectionResultCode) System.Convert.ToInt32(resultCode);
 

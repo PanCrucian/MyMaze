@@ -89,8 +89,8 @@ public class FacebookAndroidTurnBasedAndGiftsExample : MonoBehaviour {
 		SPFacebook.instance.OnAppRequestsLoaded += OnAppRequestsLoaded;
 	}
 
-	void OnAppRequestsLoaded (FBResult result) {
-		if(result.Error ==  null) {
+	void OnAppRequestsLoaded (FB_APIResult result) {
+		if(result.IsSucceeded) {
 
 			//Printing all pending request's id's
 			foreach(FBAppRequest request in SPFacebook.instance.AppRequests) {
@@ -221,11 +221,11 @@ public class FacebookAndroidTurnBasedAndGiftsExample : MonoBehaviour {
 	
 
 	
-	private void OnUserDataLoaded(FBResult result) {
+	private void OnUserDataLoaded(FB_APIResult result) {
 
 		SPFacebook.instance.OnUserDataRequestCompleteAction -= OnUserDataLoaded;
 
-		if (result.Error == null)  { 
+		if (result.IsSucceeded)  { 
 			SA_StatusBar.text = "User data loaded";
 			IsUserInfoLoaded = true;
 
@@ -253,7 +253,7 @@ public class FacebookAndroidTurnBasedAndGiftsExample : MonoBehaviour {
 	}
 	
 	
-	private void OnAuth(FBResult result) {
+	private void OnAuth(FB_APIResult result) {
 		if(SPFacebook.instance.IsLoggedIn) {
 			IsAuntificated = true;
 			LoadUserData();

@@ -303,11 +303,11 @@ public class FacebookAndroidUseExample : MonoBehaviour {
 	
 
 	
-	private void OnUserDataLoaded(FBResult result) {
+	private void OnUserDataLoaded(FB_APIResult result) {
 
 		SPFacebook.instance.OnUserDataRequestCompleteAction -= OnUserDataLoaded;
 
-		if (result.Error == null)  { 
+		if (result.IsSucceeded)  { 
 			SA_StatusBar.text = "User data loaded";
 			IsUserInfoLoaded = true;
 
@@ -325,7 +325,7 @@ public class FacebookAndroidUseExample : MonoBehaviour {
 	}
 	
 
-	private void OnFriendsDataLoaded(FBResult res) {
+	private void OnFriendsDataLoaded(FB_APIResult res) {
 		SPFacebook.instance.OnFriendsDataRequestCompleteAction -= OnFriendsDataLoaded;
 
 		if(res.Error == null) {
@@ -355,7 +355,7 @@ public class FacebookAndroidUseExample : MonoBehaviour {
 	}
 	
 	
-	private void OnAuth(FBResult result) {
+	private void OnAuth(FB_APIResult result) {
 		if(SPFacebook.instance.IsLoggedIn) {
 			IsAuntificated = true;
 			SA_StatusBar.text = "user Login -> true";
@@ -387,7 +387,7 @@ public class FacebookAndroidUseExample : MonoBehaviour {
 			SA_StatusBar.text = msg;
 			
 		} else {
-			SA_StatusBar.text = result.responce;
+			SA_StatusBar.text = result.Responce;
 		}
 		
 		
@@ -401,7 +401,7 @@ public class FacebookAndroidUseExample : MonoBehaviour {
 			SA_StatusBar.text = msg;
 			
 		} else {
-			SA_StatusBar.text = result.responce;
+			SA_StatusBar.text = result.Responce;
 		}
 		
 	}
@@ -415,7 +415,7 @@ public class FacebookAndroidUseExample : MonoBehaviour {
 			SA_StatusBar.text = msg;
 			
 		} else {
-			SA_StatusBar.text = result.responce;
+			SA_StatusBar.text = result.Responce;
 		}
 		
 		
@@ -428,7 +428,7 @@ public class FacebookAndroidUseExample : MonoBehaviour {
 			SA_StatusBar.text = msg;
 			
 		} else {
-			SA_StatusBar.text = result.responce;
+			SA_StatusBar.text = result.Responce;
 		}
 		
 		

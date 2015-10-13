@@ -730,7 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53656e645472756e6852657175657374
+  MethodName: SendTrunhRequest
 --- !u!114 &298589694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 526574726976654170705265717565737473
+  MethodName: RetriveAppRequests
 --- !u!114 &331328862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1172,7 +1172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53656e64496e76
+  MethodName: SendInv
 --- !u!114 &380332169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1382,7 +1382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53656e644974656d
+  MethodName: SendItem
 --- !u!114 &699435738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2303,7 +2303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53656e64546f537065636966696564467269656e64
+  MethodName: SendToSpecifiedFriend
 --- !u!114 &1196779923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2782,7 +2782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53656e645472756e6852657175657374546f537065636966696564467269656e64
+  MethodName: SendTrunhRequestToSpecifiedFriend
 --- !u!114 &1468484300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3258,7 +3258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 436f6e6e656374
+  MethodName: Connect
 --- !u!114 &1689820749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3475,7 +3475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 41736b4974656d
+  MethodName: AskItem
 --- !u!114 &1733886166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4324,7 +4324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53656e64496e76546f53706563696661796564466972656e64
+  MethodName: SendInvToSpecifayedFirend
 --- !u!114 &2048777769
 MonoBehaviour:
   m_ObjectHideFlags: 0

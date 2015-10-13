@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 423253686f77
+  MethodName: B2Show
 --- !u!114 &100700669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &100700670
@@ -875,7 +876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 423153686f77
+  MethodName: B1Show
 --- !u!114 &321770096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,6 +891,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &321770097
@@ -1237,7 +1239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 423148696465
+  MethodName: B1Hide
 --- !u!114 &399708722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1252,6 +1254,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &399708723
@@ -1344,7 +1347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53686f77496e7465727374697469616c4164
+  MethodName: ShowInterstitialAd
 --- !u!114 &401504979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1359,6 +1362,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &401504980
@@ -1451,7 +1455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 536d617274544f50
+  MethodName: SmartTOP
 --- !u!114 &407378789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1466,6 +1470,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &407378790
@@ -1867,7 +1872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 423252656672657368
+  MethodName: B2Refresh
 --- !u!114 &544806796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1882,6 +1887,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &544806797
@@ -2061,7 +2067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 43686e616765506f7374546f4d6964646c65
+  MethodName: ChnagePostToMiddle
 --- !u!114 &646796295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2076,6 +2082,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &646796296
@@ -2836,7 +2843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4c6f6164496e7465727374697469616c4164
+  MethodName: LoadInterstitialAd
 --- !u!114 &807895427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2851,6 +2858,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &807895428
@@ -3391,6 +3399,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!114 &921213753
@@ -3405,7 +3414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 43726561746542616e6e6572437573746f6d506f73
+  MethodName: CreateBannerCustomPos
 --- !u!23 &921213754
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3570,7 +3579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 536d617274426f74746f6d
+  MethodName: SmartBottom
 --- !u!114 &973448256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3585,6 +3594,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &973448257
@@ -3678,6 +3688,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!114 &974161384
@@ -3692,7 +3703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 43726561746542616e6e657255707065724c656674
+  MethodName: CreateBannerUpperLeft
 --- !u!23 &974161385
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5154,7 +5165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 43726561746542616e6e6572426f74746f6d5269676874
+  MethodName: CreateBannerBottomRight
 --- !u!114 &1429874707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5169,6 +5180,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &1429874708
@@ -5262,6 +5274,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!114 &1430028747
@@ -5276,7 +5289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 43726561746542616e6e6572426f74746f6d4c656674
+  MethodName: CreateBannerBottomLeft
 --- !u!23 &1430028748
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5843,7 +5856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 43726561746542616e6e6572426f74746f6d43656e746572
+  MethodName: CreateBannerBottomCenter
 --- !u!114 &1557499580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5858,6 +5871,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &1557499581
@@ -5979,7 +5993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 43726561746542616e6e65725570706572436e65746572
+  MethodName: CreateBannerUpperCneter
 --- !u!114 &1601728814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5994,6 +6008,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &1601728815
@@ -6602,7 +6617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 423248696465
+  MethodName: B2Hide
 --- !u!114 &1774700771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6617,6 +6632,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &1774700772
@@ -6930,7 +6946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 423144657374726f7579
+  MethodName: B1Destrouy
 --- !u!114 &1817982139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6945,6 +6961,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &1817982140
@@ -7038,6 +7055,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!114 &1818894609
@@ -7052,7 +7070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 423152656672657368
+  MethodName: B1Refresh
 --- !u!23 &1818894610
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7517,6 +7535,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &1909552824
@@ -7589,7 +7608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 5374617274496e7465727374697469616c4164
+  MethodName: StartInterstitialAd
 --- !u!1 &1971952996
 GameObject:
   m_ObjectHideFlags: 0
@@ -7740,7 +7759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4368616e6765506f737452616e646f6d
+  MethodName: ChangePostRandom
 --- !u!114 &2015254622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7755,6 +7774,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &2015254623
@@ -8068,7 +8088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 423244657374726f7579
+  MethodName: B2Destrouy
 --- !u!114 &2109349348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8083,6 +8103,7 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: eb446a9ec16e94a00bf4ebdb44d5c90d, type: 3}
   pressedTexture: {fileID: 2800000, guid: 640661978a86b4e44a01115406144274, type: 3}
   disabledTexture: {fileID: 2800000, guid: 72713c450e4924637b3aba6323cdb57b, type: 3}
+  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 8300000, guid: b24b4c9da1dc5472db1da29d4ed30bf2, type: 3}
 --- !u!23 &2109349349

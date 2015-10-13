@@ -19,7 +19,8 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 	
 	
 	private FacebookUserInfo _userInfo = null;
-	private Dictionary<string,  FacebookUserInfo> _friends;
+	private Dictionary<string,  FacebookUserInfo> _friends = new Dictionary<string, FacebookUserInfo>();
+	private Dictionary<string,  FacebookUserInfo> _invitableFriends = new Dictionary<string, FacebookUserInfo> ();
 	private bool _IsInited = false;
 	
 	
@@ -40,14 +41,15 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 	
 	
 	public event Action<bool> OnFocusChangedAction = delegate {};
-	public event Action<FBResult> OnAuthCompleteAction = delegate {};
-	public event Action<FBResult> OnPaymentCompleteAction = delegate {};
-	public event Action<FBResult> OnUserDataRequestCompleteAction = delegate {};
-	public event Action<FBResult> OnFriendsDataRequestCompleteAction = delegate {};
+	public event Action<FB_APIResult> OnAuthCompleteAction = delegate {};
+	public event Action<FB_APIResult> OnPaymentCompleteAction = delegate {};
+	public event Action<FB_APIResult> OnUserDataRequestCompleteAction = delegate {};
+	public event Action<FB_APIResult> OnFriendsDataRequestCompleteAction = delegate {};
+	public event Action<FB_APIResult> OnInvitableFriendsDataRequestCompleteAction = delegate {};
 	
 	
 	public event Action<FBAppRequestResult> OnAppRequestCompleteAction = delegate {};
-	public event Action<FBResult> OnAppRequestsLoaded = delegate {};
+	public event Action<FB_APIResult> OnAppRequestsLoaded = delegate {};
 	
 	
 	//--------------------------------------
@@ -122,11 +124,33 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 		} else {
 			
 			Debug.LogWarning("Auth user before loadin data, fail event generated");
-			FBResult res = new FBResult("","User isn't authed");
+			FB_APIResult res = new FB_APIResult(new  FBResult("","User isn't authed"));
 			OnUserDataRequestCompleteAction(res);
 		}
 	}
-	
+
+	public void LoadInvitableFrientdsInfo(int limit) {
+		if(IsLoggedIn) {
+			
+			FB.API("/me?fields=invitable_friends.limit(" + limit.ToString() + ").fields(first_name,id,last_name,name,link,locale,location)", Facebook.HttpMethod.GET, InvitableFriendsDataCallBack);  
+			
+		} else {
+			Debug.LogWarning("Auth user before loadin data, fail event generated");
+			FB_APIResult res = new FB_APIResult(new  FBResult("","User isn't authed"));
+			OnInvitableFriendsDataRequestCompleteAction(res);
+		}
+	}
+
+	public FacebookUserInfo GetInvitableFriendById(string id) {
+		if(_invitableFriends != null) {
+			if(_invitableFriends.ContainsKey(id)) {
+				return _invitableFriends[id];
+			}
+		}
+		
+		return null;
+	}
+
 	public void LoadFrientdsInfo(int limit) {
 		if(IsLoggedIn) {
 			
@@ -134,7 +158,7 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 			
 		} else {
 			Debug.LogWarning("Auth user before loadin data, fail event generated");
-			FBResult res = new FBResult("","User isn't authed");
+			FB_APIResult res = new FB_APIResult(new  FBResult("","User isn't authed"));
 			OnFriendsDataRequestCompleteAction(res);
 		}
 	}
@@ -518,8 +542,9 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 			Debug.LogWarning(result.Error.ToString());
 		}
 		
-		
-		OnAppRequestsLoaded(result);
+
+		FB_APIResult r = new FB_APIResult(result);
+		OnAppRequestsLoaded(r);
 	}
 	
 	
@@ -715,6 +740,12 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 			return _friends;
 		}
 	}
+
+	public Dictionary<string,  FacebookUserInfo> InvitableFriends {
+		get {
+			return _invitableFriends;
+		}
+	}
 	
 	public List<string> friendsIds {
 		get {
@@ -724,6 +755,21 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 			
 			List<string> ids = new List<string>();
 			foreach(KeyValuePair<string, FacebookUserInfo> item in _friends) {
+				ids.Add(item.Key);
+			}
+			
+			return ids;
+		}
+	}
+
+	public List<string> InvitableFriendsIds {
+		get {
+			if(_invitableFriends == null) {
+				return null;
+			}
+			
+			List<string> ids = new List<string>();
+			foreach(KeyValuePair<string, FacebookUserInfo> item in _invitableFriends) {
 				ids.Add(item.Key);
 			}
 			
@@ -746,7 +792,20 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 		}
 	}
 	
-	
+	public List<FacebookUserInfo> InvitableFriendsList {
+		get {
+			if(_invitableFriends == null) {
+				return null;
+			}
+			
+			List<FacebookUserInfo> flist = new List<FacebookUserInfo>();
+			foreach(KeyValuePair<string, FacebookUserInfo> item in _invitableFriends) {
+				flist.Add(item.Value);
+			}
+			
+			return flist;
+		}
+	}
 	
 	public  Dictionary<string,  FBScore> userScores  {
 		get {
@@ -786,10 +845,8 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 	private void OnUserLikesResult(FBResult result, FBLikesRetrieveTask task) {
 		
 		
-		FB_APIResult r;
+		FB_APIResult r = new FB_APIResult(result);
 		if(result.Error != null) {
-			r = new FB_APIResult(false, result.Error);
-			r.Unity_FB_Result = result;
 			OnLikesListLoadedAction(r);
 			return;
 		}
@@ -821,9 +878,7 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 				userLikes.Add(tpl.id, tpl);
 			}
 		}
-		
-		r = new FB_APIResult(true, result.Text);
-		r.Unity_FB_Result = result;
+
 		OnLikesListLoadedAction(r);
 	}
 	
@@ -831,18 +886,14 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 	
 	
 	private void OnScoreDeleted(FBResult result) {
-		FB_APIResult r;
+		FB_APIResult r = new FB_APIResult(result);
 		if(result.Error != null) {
-			r = new FB_APIResult(false, result.Error);
-			r.Unity_FB_Result = result;
 			OnDeleteScoresRequestCompleteAction(r);
 			return;
 		}
 		
 		
 		if(result.Text.Equals("true")) {
-			r = new FB_APIResult(true, result.Text);
-			r.Unity_FB_Result = result;
 			
 			FBScore score = new FBScore();
 			score.AppId = FB.AppId;
@@ -861,34 +912,24 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 			} else {
 				_userScores.Add(FB.AppId, score); 
 			}
-			
-			
-			OnDeleteScoresRequestCompleteAction(r);
-			
-			
-		} else {
-			r = new FB_APIResult(false, result.Error);
-			r.Unity_FB_Result = result;
-			OnDeleteScoresRequestCompleteAction(r);
-		}
+
+		} 
+
+		OnDeleteScoresRequestCompleteAction(r);
 		
 		
 	}
 	
 	private void OnScoreSubmited(FBResult result) {
 		
-		FB_APIResult r;
+		FB_APIResult r = new FB_APIResult(result);
 		if(result.Error != null) {
-			r = new FB_APIResult(false, result.Error);
-			r.Unity_FB_Result = result;
 			OnSubmitScoreRequestCompleteAction(r);
 			return;
 		}
 		
 		
 		if(result.Text.Equals("true")) {
-			r = new FB_APIResult(true, result.Text);
-			r.Unity_FB_Result = result;
 			
 			FBScore score = new FBScore();
 			score.AppId = FB.AppId;
@@ -907,24 +948,17 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 			} else {
 				_userScores.Add(FB.AppId, score); 
 			}
+		
+		} 
 			
-			
-			OnSubmitScoreRequestCompleteAction(r);
-			
-			
-		} else {
-			r = new FB_APIResult(false, result.Error);
-			r.Unity_FB_Result = result;
-			OnSubmitScoreRequestCompleteAction(r);
-		}
+		OnSubmitScoreRequestCompleteAction(r);
+
 	}
 	
 	
 	private void OnAppScoresComplete(FBResult result) {
-		FB_APIResult r;
+		FB_APIResult r = new FB_APIResult(result);
 		if(result.Error != null) {
-			r = new FB_APIResult(false, result.Error);
-			r.Unity_FB_Result = result;
 			OnAppScoresRequestCompleteAction(r);
 			return;
 		}
@@ -975,9 +1009,7 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 			
 			
 		}
-		
-		r = new FB_APIResult(true, result.Text);
-		r.Unity_FB_Result = result;
+
 		OnAppScoresRequestCompleteAction(r);
 	}
 	
@@ -1019,10 +1051,8 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 	private void OnLoaPlayrScoresComplete(FBResult result) {
 		
 		
-		FB_APIResult r;
+		FB_APIResult r = new FB_APIResult(result);
 		if(result.Error != null) {
-			r = new FB_APIResult(false, result.Error);
-			r.Unity_FB_Result = result;
 			OnPlayerScoresRequestCompleteAction(r);
 			return;
 		}
@@ -1053,8 +1083,7 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 			
 		}
 		
-		r = new FB_APIResult(true, result.Text);
-		r.Unity_FB_Result = result;
+
 		OnPlayerScoresRequestCompleteAction(r);
 		
 	}
@@ -1073,26 +1102,31 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 		OnPostingCompleteAction(pr);
 		
 	}
-	
-	
-	private void FriendsDataCallBack(FBResult result) {
+
+
+	private void InvitableFriendsDataCallBack(FBResult result) {
+		FB_APIResult r = new FB_APIResult(result);
+
 		if (result.Error != null)  {                                                                                                                          
 			Debug.LogWarning(result.Error);
 		}  else {
-			ParceFriendsData(result.Text);
+			ParseInvitableFriendsData(result.Text);
 		}        
 		
-		OnFriendsDataRequestCompleteAction(result);
+		OnInvitableFriendsDataRequestCompleteAction(r);
 	}
-	
-	
-	public void ParceFriendsData(string data) {
-		
+
+
+	public void ParseInvitableFriendsData(string data) {
+		ParseFriendsFromJson (data, _invitableFriends);		
+	}
+
+	private void ParseFriendsFromJson(string data, Dictionary<string, FacebookUserInfo> friends) {
 		Debug.Log("ParceFriendsData");
 		Debug.Log(data);
 		
 		try {
-			_friends =  new Dictionary<string, FacebookUserInfo>();
+			friends =  new Dictionary<string, FacebookUserInfo>();
 			IDictionary JSON =  ANMiniJSON.Json.Deserialize(data) as IDictionary;	
 			IDictionary f = JSON["friends"] as IDictionary;
 			IList flist = f["data"] as IList;
@@ -1100,14 +1134,31 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 			
 			for(int i = 0; i < flist.Count; i++) {
 				FacebookUserInfo user = new FacebookUserInfo(flist[i] as IDictionary);
-				_friends.Add(user.id, user);
+				friends.Add(user.id, user);
 			}
 			
 		} catch(System.Exception ex) {
 			Debug.LogWarning("Parceing Friends Data failed");
 			Debug.LogWarning(ex.Message);
 		}
+	}
+	
+	
+	private void FriendsDataCallBack(FBResult result) {
+		FB_APIResult r = new FB_APIResult(result);
+
+		if (result.Error != null)  {                                                                                                                          
+			Debug.LogWarning(result.Error);
+		}  else {
+			ParseFriendsData(result.Text);
+		}        
 		
+		OnFriendsDataRequestCompleteAction(r);
+	}
+
+	
+	public void ParseFriendsData(string data) {
+		ParseFriendsFromJson (data, _friends);		
 	}
 	
 	private void ScoreLoadResult(FBResult result) {
@@ -1115,14 +1166,18 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 	}
 	
 	private void UserDataCallBack(FBResult result) {
+		FB_APIResult r = new FB_APIResult(result);
+
 		if (result.Error != null)  {         
 			Debug.LogWarning(result.Error);
+
 		}   else {
+			Debug.Log(result.Text);
 			_userInfo = new FacebookUserInfo(result.Text);
 		}       
 		
 		
-		OnUserDataRequestCompleteAction(result);
+		OnUserDataRequestCompleteAction(r);
 		
 	}
 	
@@ -1140,12 +1195,11 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 		OnFocusChangedAction(isGameShown);
 	}
 	
-	
-	
-	private FBResult LoginCallbackResult = null;
+
+	private FB_APIResult LoginCallbackResult = null;
 	
 	private void LoginCallback(FBResult result) {
-		LoginCallbackResult = result;
+		LoginCallbackResult = new FB_APIResult(result);
 		BroadcastLoginResult();
 	}
 	
@@ -1158,7 +1212,7 @@ public class SPFacebook : SA_Singleton<SPFacebook> {
 	}
 	
 	private void FBPaymentCallBack (FBResult result) {
-		OnPaymentCompleteAction(result);
+		OnPaymentCompleteAction(new FB_APIResult(result));
 	}	
 	
 	

@@ -28,7 +28,7 @@ public class PlayMarket : MonoBehaviour {
         AndroidInAppPurchaseManager.ActionProductPurchased += OnProductPurchased;
         AndroidInAppPurchaseManager.ActionProductConsumed += OnProductConsumed;
 
-        AndroidInAppPurchaseManager.Instance.LoadStore("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtKcG1AD1jKZO5YMG/A7dBECJm5I+cucStyQdFWBU4c3GUgcku/i9SjQPPZe0s8jQsGQItyesoEiq0LFC1RDYzerGYlsRDWZ7ExxnB20fCWdEmhjWPeHhSjAxhR32QVMsYbFxtCHVZkiKDvwFLWYLHNyvJl5zlEs22MrJIP/BNYWnUz/nWC8/s9wJMbBIgeIMPa1cZyF6y2py2GenxCgWSclm8Htt1r9VZEB6nBceO+adJIWDmPTwCopMFxwUTdaMEeJ3BxVEul2P31cHU2lJnpNrkcGnZPO2yvMLS6Lgw0ol0kcr9VA5GmJCfSNPmlZQG6Y4e95l9F6FA65LBtTEpwIDAQAB");
+        AndroidInAppPurchaseManager.Instance.LoadStore();
     }
 
     /// <summary>
@@ -82,6 +82,7 @@ public class PlayMarket : MonoBehaviour {
     /// <param name="SKU"></param>
     public void Purchase(string SKU)
     {
+        Debug.Log("Try for Purchase: " + SKU);
         AndroidInAppPurchaseManager.Instance.Purchase(SKU);
     }
 
@@ -91,12 +92,7 @@ public class PlayMarket : MonoBehaviour {
     /// <param name="SKU"></param>
     public void Consume(string SKU)
     {
-        StartCoroutine(ConsumeNumerator(SKU));
-    }
-
-    IEnumerator ConsumeNumerator(string SKU)
-    {
-        yield return new WaitForSeconds(1f);
+        Debug.Log("Try for consume: " + SKU);
         AndroidInAppPurchaseManager.Instance.Consume(SKU);
     }
 
@@ -111,7 +107,7 @@ public class PlayMarket : MonoBehaviour {
     {
         if (result.isSuccess)
         {
-            Debug.Log("Purchased Success: " + result.response.ToString() + " " + result.message);
+            Debug.Log("Purchased Success: " + result.response.ToString() + ", message: " + result.message);
             Consume(result.purchase.SKU);
         }
         else
@@ -131,7 +127,7 @@ public class PlayMarket : MonoBehaviour {
 
         if (result.isSuccess)
         {
-            Debug.Log("Cousume Success: " + result.response.ToString() + " " + result.message);
+            Debug.Log("Cousume Success: " + result.response.ToString() + ", message: " + result.message);
             if (OnTransactionSuccess != null)
                 OnTransactionSuccess(MyMaze.Instance.InApps.GetProduct<InApps.MarketMatching>(result.purchase.SKU).type, result.purchase.token);
         }

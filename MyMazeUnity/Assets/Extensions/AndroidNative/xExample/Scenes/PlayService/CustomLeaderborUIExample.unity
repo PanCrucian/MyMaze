@@ -752,7 +752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4f70656e5549
+  MethodName: OpenUI
 --- !u!114 &141181349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53686f774c6f63616c
+  MethodName: ShowLocal
 --- !u!114 &327740569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4111,7 +4111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4c6f616453636f7265
+  MethodName: LoadScore
 --- !u!114 &1261468849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4218,7 +4218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53686f775765656b
+  MethodName: ShowWeek
 --- !u!114 &1276069018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4842,7 +4842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53686f77476c6f62616c
+  MethodName: ShowGlobal
 --- !u!114 &1423355798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5173,7 +5173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53686f77416c6c54696d65
+  MethodName: ShowAllTime
 --- !u!114 &1532937650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5501,7 +5501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 436f6e6e636574427574746f6e5072657373
+  MethodName: ConncetButtonPress
 --- !u!114 &1689820749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6677,7 +6677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 5375626d697453636f7265
+  MethodName: SubmitScore
 --- !u!23 &1950945270
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6871,7 +6871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53686f77446179
+  MethodName: ShowDay
 --- !u!114 &1972817189
 MonoBehaviour:
   m_ObjectHideFlags: 0

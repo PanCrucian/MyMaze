@@ -82,8 +82,8 @@ public class GooglePlayServices : MonoBehaviour {
     /// </summary>
     void LoadLeaderboards()
     {
-        GooglePlayManager.Instance.LoadLeaderBoards();
         Debug.Log("Loading Leader Boards Data...");
+        GooglePlayManager.Instance.LoadLeaderBoards();
     }
 
     /// <summary>
@@ -112,8 +112,8 @@ public class GooglePlayServices : MonoBehaviour {
     /// </summary>
     void LoadAchievements()
     {
-        GooglePlayManager.Instance.LoadAchievements();
         Debug.Log("Loading Achievements Data...");
+        GooglePlayManager.Instance.LoadAchievements();
     }
 
     /// <summary>

@@ -2098,7 +2098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 66696e644d61746368
+  MethodName: findMatch
 --- !u!114 &485143256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3195,7 +3195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 4c65617665526f6f6d
+  MethodName: LeaveRoom
 --- !u!114 &833162684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5717,7 +5717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53656e6448656c6c6f
+  MethodName: SendHello
 --- !u!114 &1593280047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6046,7 +6046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 436f6e6e636574427574746f6e5072657373
+  MethodName: ConncetButtonPress
 --- !u!114 &1689820749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6794,7 +6794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 496e76697465467269656e6473
+  MethodName: InviteFriends
 --- !u!114 &1862136975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7596,7 +7596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: 53686f77576174696e67526f6f6d
+  MethodName: ShowWatingRoom
 --- !u!114 &1954793823
 MonoBehaviour:
   m_ObjectHideFlags: 0

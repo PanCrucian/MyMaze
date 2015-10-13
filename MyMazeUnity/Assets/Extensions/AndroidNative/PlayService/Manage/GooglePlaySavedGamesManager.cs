@@ -120,7 +120,7 @@ public class GooglePlaySavedGamesManager :  SA_Singleton<GooglePlaySavedGamesMan
 			
 			_AvailableGameSaves.Clear ();
 			
-			for(int i = 1; i < storeData.Length; i+=4) {
+			for(int i = 1; i < storeData.Length; i+=5) {
 				if(storeData[i] == AndroidNative.DATA_EOF) {
 					break;
 				}

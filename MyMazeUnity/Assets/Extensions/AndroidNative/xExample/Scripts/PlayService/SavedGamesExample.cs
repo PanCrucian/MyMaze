@@ -140,7 +140,7 @@ public class SavedGamesExample : MonoBehaviour {
 				Debug.Log("Meta.Description: " 				+ meta.Description);
 				Debug.Log("Meta.CoverImageUrl): " 			+ meta.CoverImageUrl);
 				Debug.Log("Meta.LastModifiedTimestamp: " 	+ meta.LastModifiedTimestamp);
-
+				Debug.Log("Meta.TotalPlayedTime" 			+ meta.TotalPlayedTime);
 			}
 
 			if(GooglePlaySavedGamesManager.instance.AvailableGameSaves.Count > 0) {

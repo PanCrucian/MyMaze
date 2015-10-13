@@ -30,6 +30,8 @@ public class FacebookUserInfo {
 	
 	private string _rawJSON 	= string.Empty;
 
+	private DateTime _Birthday = new DateTime();
+
 	private GoogleGender _gender = GoogleGender.Unknown;
 
 
@@ -53,6 +55,7 @@ public class FacebookUserInfo {
 		IDictionary JSON =  ANMiniJSON.Json.Deserialize(_rawJSON) as IDictionary;	
 
 		InitializeData(JSON);
+
 	}
 
 
@@ -67,6 +70,12 @@ public class FacebookUserInfo {
 		if(JSON.Contains("id")) {
 			_id 								= System.Convert.ToString(JSON["id"]);
 		}
+
+
+		if(JSON.Contains("birthday")) {
+			_Birthday 							=DateTime.Parse(System.Convert.ToString(JSON["birthday"])); 
+		}
+
 
 		if(JSON.Contains("name")) {
 			_name 								= System.Convert.ToString(JSON["name"]);
@@ -176,6 +185,12 @@ public class FacebookUserInfo {
 	public string id {
 		get {
 			return _id;
+		}
+	}
+
+	public DateTime Birthday {
+		get {
+			return _Birthday;
 		}
 	}
 

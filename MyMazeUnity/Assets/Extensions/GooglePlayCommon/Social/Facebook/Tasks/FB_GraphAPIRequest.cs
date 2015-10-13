@@ -30,7 +30,7 @@ public class FB_GraphAPIRequest : MonoBehaviour   {
 		if(SPFacebook.instance.IsLoggedIn) {
 			StartCoroutine(Request());
 		}  else {
-			ActionComplete(new FB_APIResult(false, "User not logged in"));
+			ActionComplete(new FB_APIResult(new FBResult("", "User not logged in")));
 			Destroy(gameObject);
 		}
 	}
@@ -83,12 +83,13 @@ public class FB_GraphAPIRequest : MonoBehaviour   {
 			Debug.Log(kv.Key + " : " + kv.Value);
 		}
 
-		
+		FBResult r = new FBResult(www);
+
 		if(www.error == null) {
-			ActionComplete( new FB_APIResult(true, www.text));
+			ActionComplete( new FB_APIResult(r));
 			Destroy(gameObject);
 		} else {
-			ActionComplete( new FB_APIResult(false, www.error));
+			ActionComplete( new FB_APIResult(r));
 			Destroy(gameObject);
 		}
 

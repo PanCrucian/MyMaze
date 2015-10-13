@@ -249,6 +249,11 @@ public class AndroidInAppPurchaseManager : SA_Singleton<AndroidInAppPurchaseMana
 		string[] storeData;
 		storeData = data.Split(AndroidNative.DATA_SPLITTER [0]);
 
+        string debugStr = "Debug Store Data On Consume + \n";
+        for (int i = 0; i < storeData.Length; i++)
+            debugStr += i.ToString() + ": " + storeData[i] + "\n";
+        Debug.Log(debugStr);
+
 		int resp = System.Convert.ToInt32 (storeData[0]);
 		GooglePurchaseTemplate purchase = null;
 
@@ -262,8 +267,8 @@ public class AndroidInAppPurchaseManager : SA_Singleton<AndroidInAppPurchaseMana
 			purchase.SetState(storeData[6]);
 			purchase.token 	        		= storeData[7];
 			purchase.signature 	        	= storeData[8];
-			purchase.time					= System.Convert.ToInt64(storeData[9]);
-			purchase.originalJson 	        = storeData[10];
+            purchase.time =                 (long)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+			purchase.originalJson 	        = storeData[9];
 
 			if(_inventory != null) {
 				_inventory.removePurchase (purchase);

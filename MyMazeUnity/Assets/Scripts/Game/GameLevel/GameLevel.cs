@@ -236,6 +236,11 @@ public class GameLevel : MonoBehaviour {
             Debug.Log("Сейчас у игры пауза. Не могу вызвать событие запроса на перемещение");
             return;
         }
+        if (MovesLeft <= 0)
+        {
+            Debug.Log("Закончились ходы");
+            return;
+        }
         if (OnPlayerMoveRequest != null)
             OnPlayerMoveRequest(direction);
 
@@ -499,6 +504,9 @@ public class GameLevel : MonoBehaviour {
     void OnPlayerMoveEnd(int move)
     {
         if (MovesLeft > 0)
+            return;
+
+        if (IsGameOver())
             return;
 
         //ходы закончились

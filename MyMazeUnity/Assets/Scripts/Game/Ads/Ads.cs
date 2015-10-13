@@ -82,6 +82,13 @@ public class Ads : GentleMonoBeh, ISavingElement {
     HZIncentivizedAd.AdDisplayListener HZIncentivizedListener = delegate(string adState, string adTag)
     {
         Debug.Log("HZIncentivizedAd: " + adState + ", Tag: " + adTag);
+
+        if (adState.Equals("show"))
+        {
+#if UNITY_IPHONE && !UNITY_EDITOR
+        MyMaze.Instance.Sounds.Mute();
+#endif
+        }
         if (adState.Equals("hide"))
         {
 #if UNITY_IPHONE
@@ -341,9 +348,6 @@ public class Ads : GentleMonoBeh, ISavingElement {
         showOptions.Tag = "mymaze-adlife";
         if (HZIncentivizedAd.IsAvailable(showOptions.Tag))
             HZIncentivizedAd.ShowWithOptions(showOptions);
-#if UNITY_IPHONE && !UNITY_EDITOR
-        MyMaze.Instance.Sounds.Mute();
-#endif
     }
 
     /// <summary>
@@ -355,9 +359,6 @@ public class Ads : GentleMonoBeh, ISavingElement {
         showOptions.Tag = "mymaze-admoves";
         if (HZIncentivizedAd.IsAvailable(showOptions.Tag))
             HZIncentivizedAd.ShowWithOptions(showOptions);
-#if UNITY_IPHONE && !UNITY_EDITOR
-        MyMaze.Instance.Sounds.Mute();
-#endif
     }
 
     /// <summary>

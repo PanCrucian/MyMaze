@@ -11,7 +11,7 @@ public class AppsFlyerTrackerCallbacks : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		print ("AppsFlyerTrackerCallbacks on Start");		
+		Debug.Log ("AppsFlyerTrackerCallbacks on Start");
 	}
 	
 	// Update is called once per frame
@@ -20,39 +20,39 @@ public class AppsFlyerTrackerCallbacks : MonoBehaviour {
 	}
 	
 	public void didReceiveConversionData(string conversionData) {
-		print ("AppsFlyerTrackerCallbacks:: got conversion data = " + conversionData);
+        Debug.Log("AppsFlyerTrackerCallbacks:: got conversion data = " + conversionData);
 	}
 	
 	public void didReceiveConversionDataWithError(string error) {
-		print ("AppsFlyerTrackerCallbacks:: got conversion data error = " + error);
+        Debug.Log("AppsFlyerTrackerCallbacks:: got conversion data error = " + error);
 	}
 	
 	public void didFinishValidateReceipt(string validateResult) {
-		print ("AppsFlyerTrackerCallbacks:: got didFinishValidateReceipt  = " + validateResult);
+        Debug.Log("AppsFlyerTrackerCallbacks:: got didFinishValidateReceipt  = " + validateResult);
 		
 	}
 	
 	public void didFinishValidateReceiptWithError (string error) {
-		print ("AppsFlyerTrackerCallbacks:: got idFinishValidateReceiptWithError error = " + error);
+        Debug.Log("AppsFlyerTrackerCallbacks:: got idFinishValidateReceiptWithError error = " + error);
 		
 	}
 	
 	public void onAppOpenAttribution(string validateResult) {
-		print ("AppsFlyerTrackerCallbacks:: got onAppOpenAttribution  = " + validateResult);
+        Debug.Log("AppsFlyerTrackerCallbacks:: got onAppOpenAttribution  = " + validateResult);
 		
 	}
 	
 	public void onAppOpenAttributionFailure (string error) {
-		print ("AppsFlyerTrackerCallbacks:: got onAppOpenAttributionFailure error = " + error);
+        Debug.Log("AppsFlyerTrackerCallbacks:: got onAppOpenAttributionFailure error = " + error);
 		
 	}
 	
 	public void onInAppBillingSuccess (string res) {
-		print ("AppsFlyerTrackerCallbacks:: got onInAppBillingSuccess succcess var = " + res);
+        Debug.Log("AppsFlyerTrackerCallbacks:: got onInAppBillingSuccess succcess var = " + res);
 		
 	}
 	public void onInAppBillingFailure (string error) {
-		print ("AppsFlyerTrackerCallbacks:: got onInAppBillingFailure error = " + error);
+        Debug.Log("AppsFlyerTrackerCallbacks:: got onInAppBillingFailure error = " + error);
 		
 	}
 }

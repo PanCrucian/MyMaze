@@ -12,7 +12,7 @@ public class ScreenOverlayUI : GentleMonoBeh {
     {
         get
         {
-            return  0.725f;
+            return  0.825f;
         }
     }
 

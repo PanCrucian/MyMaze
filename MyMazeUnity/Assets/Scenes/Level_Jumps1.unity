@@ -11418,27 +11418,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -54.6480103
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -54.6480103
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80212e13a346984a87151b1b5984a72, type: 2}
@@ -13869,6 +13869,7 @@ MonoBehaviour:
   addMoves: 0
   MovesLeft: 0
   CurrentLevelStars: []
+  notUseLifeFlag: 0
 --- !u!114 &951999073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18790,7 +18791,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 559368476}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 11427190, guid: 6b8b55ae11d42dc409d75a4533508fc0, type: 2}
+      propertyPath: m_Color.r
+      value: .262745112
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427190, guid: 6b8b55ae11d42dc409d75a4533508fc0, type: 2}
+      propertyPath: m_Color.g
+      value: .188235313
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427190, guid: 6b8b55ae11d42dc409d75a4533508fc0, type: 2}
+      propertyPath: m_Color.b
+      value: .356862754
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b8b55ae11d42dc409d75a4533508fc0, type: 2}
   m_IsPrefabParent: 0

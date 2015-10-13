@@ -22,8 +22,11 @@ public class TeleportUI : MonoBehaviour {
         teleport = MyMaze.Instance.TeleportBooster;
         if (teleport.IsClosed) // && teleport.avaliableAtLevel != MyMaze.Instance.LastSelectedLevel для тестов
         {
-            gameObject.SetActive(false);
-            return;
+            if (teleport.unlimitedUseLevel != MyMaze.Instance.LastSelectedLevel)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
         }
         segments = new float[maxSegments];
         float segmentsInterval = 1f / (float)maxSegments;

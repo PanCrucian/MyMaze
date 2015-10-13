@@ -20,6 +20,8 @@ public class TeleportBooster : Booster, ISavingElement {
         }
     }
 
+    public Level unlimitedUseLevel;
+
     /// <summary>
     /// Используем
     /// </summary>
@@ -27,7 +29,9 @@ public class TeleportBooster : Booster, ISavingElement {
     {
         if (!IsAvaliable())
             Debug.LogWarning("Бустер телепорт недоступен для использования, но вы всеравно используете его");
-        _lastUsingTime = Timers.Instance.UnixTimestamp;
+
+        if (unlimitedUseLevel != MyMaze.Instance.LastSelectedLevel)
+            _lastUsingTime = Timers.Instance.UnixTimestamp;
     }
 
     /// <summary>
@@ -36,6 +40,8 @@ public class TeleportBooster : Booster, ISavingElement {
     /// <returns></returns>
     public bool IsAvaliable()
     {
+        if (unlimitedUseLevel == MyMaze.Instance.LastSelectedLevel)
+            return true;
         if (Mathf.Abs(Timers.Instance.UnixTimestamp - _lastUsingTime) >= usingInterval)
             return true;
 

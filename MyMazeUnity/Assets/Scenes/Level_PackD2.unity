@@ -588,27 +588,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -93.1500549
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -93.1500549
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80212e13a346984a87151b1b5984a72, type: 2}
@@ -6734,7 +6734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .0431372561, g: .313725501, b: .792156935, a: 1}
+  m_Color: {r: .278546691, g: .344867289, b: .676470578, a: 1}
   m_Sprite: {fileID: 21300278, guid: 425dafc30817a104d9a57e8cca356bec, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -12404,7 +12404,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 559368476}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 11427190, guid: 6b8b55ae11d42dc409d75a4533508fc0, type: 2}
+      propertyPath: m_Color.r
+      value: .188235313
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427190, guid: 6b8b55ae11d42dc409d75a4533508fc0, type: 2}
+      propertyPath: m_Color.g
+      value: .21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427190, guid: 6b8b55ae11d42dc409d75a4533508fc0, type: 2}
+      propertyPath: m_Color.b
+      value: .376470625
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b8b55ae11d42dc409d75a4533508fc0, type: 2}
   m_IsPrefabParent: 0
@@ -13516,8 +13528,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiGame: {fileID: 0}
   uiResults: {fileID: 0}
+  uiAdsLife: {fileID: 0}
+  uiAdsMoves: {fileID: 0}
+  uiReplay: {fileID: 0}
   state: 1
   pyramids: []
+  addMoves: 0
+  MovesLeft: 0
+  CurrentLevelStars: []
+  notUseLifeFlag: 0
 --- !u!114 &951999073
 MonoBehaviour:
   m_ObjectHideFlags: 0

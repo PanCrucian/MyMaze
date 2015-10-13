@@ -64938,22 +64938,6 @@ Prefab:
       propertyPath: showUI
       value: 
       objectReference: {fileID: 205894228}
-    - target: {fileID: 195668, guid: 5863129b096e6ac438498af34fe886a6, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22543684, guid: 5863129b096e6ac438498af34fe886a6, type: 2}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22543684, guid: 5863129b096e6ac438498af34fe886a6, type: 2}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22543684, guid: 5863129b096e6ac438498af34fe886a6, type: 2}
-      propertyPath: m_BlocksRaycasts
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5863129b096e6ac438498af34fe886a6, type: 2}
   m_IsPrefabParent: 0

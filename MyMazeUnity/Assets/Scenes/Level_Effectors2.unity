@@ -3654,27 +3654,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -54.6480103
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -54.6480103
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80212e13a346984a87151b1b5984a72, type: 2}
@@ -6338,7 +6338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .278222322, g: .40512237, b: .45588237, a: 1}
+  m_Color: {r: 0, g: .329411775, b: .670588255, a: 1}
   m_Sprite: {fileID: 21300278, guid: 425dafc30817a104d9a57e8cca356bec, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -11513,12 +11513,12 @@ Transform:
   - {fileID: 2107577595}
   - {fileID: 1125897324}
   - {fileID: 1685076185}
-  - {fileID: 2017570019}
   - {fileID: 1236198033}
-  - {fileID: 614422169}
   - {fileID: 1347279104}
+  - {fileID: 2017570019}
   - {fileID: 40375253}
   - {fileID: 621107212}
+  - {fileID: 614422169}
   - {fileID: 1915798221}
   - {fileID: 1494314203}
   - {fileID: 702666107}
@@ -19818,30 +19818,30 @@ Transform:
   - {fileID: 1205950809}
   - {fileID: 1424113900}
   - {fileID: 1186755824}
+  - {fileID: 549275370}
   - {fileID: 382297347}
   - {fileID: 634215452}
   - {fileID: 527477730}
-  - {fileID: 549275370}
   - {fileID: 90626603}
   - {fileID: 2027445240}
+  - {fileID: 569087244}
   - {fileID: 1252965253}
   - {fileID: 1974082206}
-  - {fileID: 569087244}
   - {fileID: 1441588508}
   - {fileID: 1763361833}
+  - {fileID: 868153054}
   - {fileID: 29276597}
   - {fileID: 372364004}
-  - {fileID: 1401191876}
-  - {fileID: 247182713}
-  - {fileID: 868153054}
   - {fileID: 1031537624}
   - {fileID: 831620400}
+  - {fileID: 247182713}
+  - {fileID: 1401191876}
   - {fileID: 1042489360}
-  - {fileID: 954634537}
-  - {fileID: 376493252}
   - {fileID: 346916553}
   - {fileID: 1323894095}
+  - {fileID: 954634537}
   - {fileID: 1069694795}
+  - {fileID: 376493252}
   - {fileID: 1046976258}
   - {fileID: 972844112}
   - {fileID: 1688383244}
@@ -26716,16 +26716,16 @@ Transform:
   - {fileID: 1650597758}
   - {fileID: 1078346900}
   - {fileID: 1427413385}
-  - {fileID: 596039722}
-  - {fileID: 592534532}
   - {fileID: 1003741827}
+  - {fileID: 596039722}
+  - {fileID: 1525013548}
+  - {fileID: 592534532}
+  - {fileID: 2111945761}
   - {fileID: 835275626}
   - {fileID: 1561415288}
-  - {fileID: 951215884}
-  - {fileID: 2111945761}
-  - {fileID: 1525013548}
   - {fileID: 1451653123}
   - {fileID: 1178630854}
+  - {fileID: 951215884}
   m_Father: {fileID: 951999070}
   m_RootOrder: 1
 --- !u!114 &2000138011

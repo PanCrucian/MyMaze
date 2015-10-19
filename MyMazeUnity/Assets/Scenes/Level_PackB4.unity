@@ -17703,27 +17703,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -93.1500549
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -93.1500549
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80212e13a346984a87151b1b5984a72, type: 2}
@@ -27665,7 +27665,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 443676, guid: 429278d1aee446943b669d947b1d7b93, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.24000001
+      value: 1.86000001
       objectReference: {fileID: 0}
     - target: {fileID: 443676, guid: 429278d1aee446943b669d947b1d7b93, type: 2}
       propertyPath: m_LocalPosition.z
@@ -27701,7 +27701,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11455186, guid: 429278d1aee446943b669d947b1d7b93, type: 2}
       propertyPath: position.yRow
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11407958, guid: 429278d1aee446943b669d947b1d7b93, type: 2}
       propertyPath: outPortal

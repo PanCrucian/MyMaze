@@ -3946,27 +3946,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -54.6480103
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -54.6480103
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80212e13a346984a87151b1b5984a72, type: 2}
@@ -5192,7 +5192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .278222322, g: .40512237, b: .45588237, a: 1}
+  m_Color: {r: 0, g: .329411775, b: .670588255, a: 1}
   m_Sprite: {fileID: 21300278, guid: 425dafc30817a104d9a57e8cca356bec, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -10233,8 +10233,8 @@ Transform:
   - {fileID: 603163757}
   - {fileID: 1818575377}
   - {fileID: 951295922}
-  - {fileID: 565509588}
   - {fileID: 1075857591}
+  - {fileID: 565509588}
   - {fileID: 926822786}
   - {fileID: 973914344}
   - {fileID: 1902181206}

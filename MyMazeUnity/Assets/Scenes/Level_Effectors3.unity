@@ -6407,7 +6407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .278222322, g: .40512237, b: .45588237, a: 1}
+  m_Color: {r: 0, g: .329411775, b: .670588255, a: 1}
   m_Sprite: {fileID: 21300278, guid: 425dafc30817a104d9a57e8cca356bec, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -14431,13 +14431,13 @@ Transform:
   - {fileID: 789608649}
   - {fileID: 1219344924}
   - {fileID: 1489873182}
-  - {fileID: 1007908229}
   - {fileID: 1304469301}
   - {fileID: 1109844894}
   - {fileID: 1704453365}
+  - {fileID: 1007908229}
   - {fileID: 690038522}
-  - {fileID: 737529483}
   - {fileID: 1863374043}
+  - {fileID: 737529483}
   m_Father: {fileID: 951999070}
   m_RootOrder: 3
 --- !u!114 &890757890
@@ -24683,27 +24683,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -54.6480103
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -54.6480103
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80212e13a346984a87151b1b5984a72, type: 2}

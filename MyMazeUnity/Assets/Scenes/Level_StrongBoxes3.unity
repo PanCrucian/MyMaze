@@ -12342,7 +12342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .278222322, g: .40512237, b: .45588237, a: 1}
+  m_Color: {r: 0, g: .329411775, b: .670588255, a: 1}
   m_Sprite: {fileID: 21300278, guid: 425dafc30817a104d9a57e8cca356bec, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -21720,27 +21720,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -54.6480103
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -54.6480103
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80212e13a346984a87151b1b5984a72, type: 2}
@@ -21852,19 +21852,19 @@ Transform:
   - {fileID: 1804716013}
   - {fileID: 1593845616}
   - {fileID: 1863217120}
-  - {fileID: 1915191845}
-  - {fileID: 1626519749}
   - {fileID: 1119914564}
+  - {fileID: 1626519749}
   - {fileID: 1088756532}
   - {fileID: 1779374368}
   - {fileID: 981664374}
+  - {fileID: 1915191845}
   - {fileID: 189869779}
   - {fileID: 1144905635}
   - {fileID: 677314667}
   - {fileID: 735266324}
   - {fileID: 1580343870}
-  - {fileID: 1005251736}
   - {fileID: 1848484960}
+  - {fileID: 1005251736}
   - {fileID: 302838532}
   m_Father: {fileID: 864054844}
   m_RootOrder: 0

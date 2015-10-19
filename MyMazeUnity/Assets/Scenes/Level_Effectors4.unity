@@ -6683,7 +6683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .278222322, g: .40512237, b: .45588237, a: 1}
+  m_Color: {r: 0, g: .329411775, b: .670588255, a: 1}
   m_Sprite: {fileID: 21300278, guid: 425dafc30817a104d9a57e8cca356bec, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -11419,27 +11419,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -54.6480103
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -54.6480103
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80212e13a346984a87151b1b5984a72, type: 2}
@@ -23035,7 +23035,6 @@ Transform:
   - {fileID: 1238944203}
   - {fileID: 1971503420}
   - {fileID: 1615006946}
-  - {fileID: 1579143631}
   - {fileID: 490621252}
   - {fileID: 61339698}
   - {fileID: 1614720328}
@@ -23043,8 +23042,8 @@ Transform:
   - {fileID: 725005873}
   - {fileID: 1113863123}
   - {fileID: 1206457688}
+  - {fileID: 1579143631}
   - {fileID: 493567337}
-  - {fileID: 1636269026}
   - {fileID: 370144921}
   - {fileID: 1939803656}
   - {fileID: 2085074560}
@@ -23053,9 +23052,10 @@ Transform:
   - {fileID: 819458049}
   - {fileID: 1421691731}
   - {fileID: 888581566}
-  - {fileID: 984111853}
+  - {fileID: 1636269026}
   - {fileID: 407221588}
   - {fileID: 475647490}
+  - {fileID: 984111853}
   - {fileID: 38899765}
   - {fileID: 441910037}
   - {fileID: 1767745722}

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" android:theme="@android:style/Theme.NoTitleBar" package="com.thumbspire.mymaze" android:versionName="1.0.6" android:versionCode="6">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" android:theme="@android:style/Theme.NoTitleBar" package="com.thumbspire.mymaze" android:versionName="1.0.7" android:versionCode="7">
   <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true" android:anyDensity="true" />
   <uses-feature android:glEsVersion="0x00020000" />
   <uses-feature android:name="android.hardware.touchscreen" />
@@ -29,7 +29,7 @@
         <action android:name="com.android.vending.INSTALL_REFERRER" />
       </intent-filter>
     </receiver>
-    <meta-data android:name="AppsFlyerDevKey" android:value="YOUR_DEV_KEY_HERE" />
+    <meta-data android:name="AppsFlyerDevKey" android:value="wr4oyoitcFGVerfzDk5Qf9" />
     <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true" />
     <meta-data android:name="com.google.android.gms.version" android:value="7571000" />
     <meta-data android:name="applovin.sdk.key" android:value="YOUR_SDK_KEY" />

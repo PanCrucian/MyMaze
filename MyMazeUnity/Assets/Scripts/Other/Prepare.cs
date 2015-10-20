@@ -8,6 +8,8 @@ public class Prepare : MonoBehaviour {
 
     int counter;
     string ddnakey = "07355525153794960673570812114368";
+    public string clientVersion = "1.0.6";
+
     void Awake()
     {
         Application.targetFrameRate = 60;
@@ -33,6 +35,8 @@ public class Prepare : MonoBehaviour {
         {
             DDNA.Instance.AndroidRegistrationID = GoogleCloudMessageService.Instance.registrationId;
         }
+
+        DDNA.Instance.ClientVersion = clientVersion;
 
         DDNA.Instance.StartSDK(
             ddnakey,
@@ -62,7 +66,7 @@ public class Prepare : MonoBehaviour {
     {
         Debug.Log("Try for start: DeltaDNA SDK");
         DDNA.Instance.SetLoggingLevel(Logger.Level.INFO);
-        DDNA.Instance.ClientVersion = "1.0.5";
+        DDNA.Instance.ClientVersion = clientVersion;
 
 #if UNITY_IPHONE
         DDNA.Instance.Notifications.RegisterForPushNotifications();
@@ -111,7 +115,7 @@ public class Prepare : MonoBehaviour {
         AppsFlyer.trackAppLaunch();
 #elif UNITY_ANDROID
 		// All Initialization occur in the override activity defined in the mainfest.xml, including track app launch
-		// You can define AppsFlyer library here use this commented out code.
+		// You can define AppsFlyer library here use this commented out code
 
 		//AppsFlyer.setAppID ("YOUR_ANDROID_PACKAGE_NAME_HERE"); // un-comment this in case you are not working with the manifest file
 		//AppsFlyer.setIsSandbox(true);

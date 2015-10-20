@@ -57,7 +57,11 @@ public class LeaderboardUI : MonoBehaviour, IPointerClickHandler
         GameCenterManager.ShowLeaderboard(MyMaze.Instance.Leaderboards.GetMarketId(LeaderboardTypes.Stars));
 #endif
 #if UNITY_ANDROID
-        GooglePlayManager.Instance.ShowLeaderBoardsUI();
+        if (MyMaze.Instance.GooglePlayServices.IsAuth && MyMaze.Instance.GooglePlayServices.IsLeaderboardsLoaded)
+            GooglePlayManager.Instance.ShowLeaderBoardsUI();
+
+        if (!MyMaze.Instance.GooglePlayServices.IsAuth)
+            GooglePlayConnection.Instance.Connect();
 #endif
     }
 }

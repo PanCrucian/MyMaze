@@ -56,7 +56,11 @@ public class AchievementsUI : MonoBehaviour, IPointerClickHandler {
         GameCenterManager.ShowAchievements();
 #endif
 #if UNITY_ANDROID
-        GooglePlayManager.Instance.ShowAchievementsUI();
+        if (MyMaze.Instance.GooglePlayServices.IsAuth && MyMaze.Instance.GooglePlayServices.IsAchievementsLoaded)
+            GooglePlayManager.Instance.ShowAchievementsUI();
+
+        if (!MyMaze.Instance.GooglePlayServices.IsAuth)
+            GooglePlayConnection.Instance.Connect();
 #endif
     }
 }

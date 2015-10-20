@@ -14,6 +14,7 @@ public class GameLevel : MonoBehaviour {
     public AdsLifeUI uiAdsLife;
     public AdsMovesUI uiAdsMoves;
     public ReplayUI uiReplay;
+    public MenuLoadConfirmUI uiConfirmMenu;
     public GameLevelStates state;
     public List<Pyramid> pyramids;
 
@@ -59,6 +60,7 @@ public class GameLevel : MonoBehaviour {
 
         CurrentLevelStars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();
         uiReplay = GameObject.FindObjectOfType<ReplayUI>();
+        uiConfirmMenu = GameObject.FindObjectOfType<MenuLoadConfirmUI>();
         uiAdsMoves = GameObject.FindObjectOfType<AdsMovesUI>();
         uiAdsLife = GameObject.FindObjectOfType<AdsLifeUI>();
         uiGame = GameObject.FindGameObjectWithTag("uiGame").GetComponent<Animator>();

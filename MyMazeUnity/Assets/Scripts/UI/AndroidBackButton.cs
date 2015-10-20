@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Heyzap;
 
 public class AndroidBackButton : MonoBehaviour {
     
@@ -16,6 +17,8 @@ public class AndroidBackButton : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            HeyzapAds.OnBackPressed();
+
             bool backBtnFound = false;
             BackButtonUI[] backBtns = GameObject.FindObjectsOfType<BackButtonUI>();
             foreach (BackButtonUI btn in backBtns)
@@ -44,6 +47,10 @@ public class AndroidBackButton : MonoBehaviour {
                         quitRequestsCount = 0;
                     }
 
+                }
+                else
+                {
+                    InputSimulator.Instance.SimulateClick(GameObject.Find("b_Menu"));
                 }
             }
         }

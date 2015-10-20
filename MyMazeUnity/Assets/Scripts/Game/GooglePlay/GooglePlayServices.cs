@@ -45,14 +45,14 @@ public class GooglePlayServices : MonoBehaviour {
     /// <summary>
     /// ИД рекламы для устройства
     /// </summary>
-    public static string AdvId
+    public string AdvId
     {
         get
         {
             return advId;
         }
     }
-    private static string advId = "";
+    private string advId = "";
 
     void Start()
     {
@@ -69,7 +69,10 @@ public class GooglePlayServices : MonoBehaviour {
         if (GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED)
             OnPlayerConnected();
         else
-            GooglePlayConnection.Instance.Connect();
+        {
+            if (!PlayerPrefs.HasKey("isFirstGlobalAppRun"))
+                GooglePlayConnection.Instance.Connect();
+        }
 
 
         GooglePlayUtils.ActionAdvertisingIdLoaded += ActionAdvertisingIdLoaded;

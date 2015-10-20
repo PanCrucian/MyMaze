@@ -17,8 +17,7 @@ public class ButtonReplayUI : MonoBehaviour {
     {
         GameLevel.Instance.uiAdsLife.Hide();
         GameLevel.Instance.uiReplay.Hide();
-        if (!useLife)
-            GameLevel.Instance.notUseLifeFlag = true;
+        GameLevel.Instance.notUseLifeFlag = !useLife;
         GameLevel.Instance.OnRestartRequest();
     }
 

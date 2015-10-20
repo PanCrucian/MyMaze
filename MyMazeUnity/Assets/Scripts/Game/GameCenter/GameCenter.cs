@@ -29,14 +29,14 @@ public class GameCenter : MonoBehaviour
     private bool _isAuth = false;
     private bool _isAchievementsLoaded = false;
 
-    public static string IDFA
+    public string IDFA
     {
         get
         {
             return idfa;
         }
     }
-    private static string idfa = "";
+    private string idfa = "";
 
     void Start()
     {

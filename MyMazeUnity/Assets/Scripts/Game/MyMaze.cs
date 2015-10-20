@@ -817,6 +817,8 @@ public class MyMaze : MonoBehaviour, ISavingElement
         //когда установил игру
         PlayerPrefs.SetInt("InstallTime", _installTime);
 
+        PlayerPrefs.SetInt("isFirstGlobalAppRun", 1);
+
         //звуки
         this.Sounds.Save();
 

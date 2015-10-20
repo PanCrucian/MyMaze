@@ -305,10 +305,10 @@ public class MyDDNA : MonoBehaviour {
         Debug.Log("RecordTransaction " + type.ToString("g"));
         EventBuilder transaction = new EventBuilder();
 #if UNITY_IPHONE
-        transaction.AddParam("thumbAdvID", GameCenter.IDFA);
+        transaction.AddParam("thumbAdvID", MyMaze.Instance.GetComponent<GameCenter>().IDFA);
 #endif
 #if UNITY_ANDROID
-        transaction.AddParam("thumbAdvID", GooglePlayServices.AdvId);
+        transaction.AddParam("thumbAdvID", MyMaze.Instance.GetComponent<GooglePlayServices>().AdvId);
 #endif
         transaction.AddParam("thumbUserDaysInGame", MyMaze.Instance.DaysInGame);
         transaction.AddParam("transactionName", type.ToString("g"));

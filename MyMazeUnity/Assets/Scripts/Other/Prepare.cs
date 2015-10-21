@@ -117,12 +117,12 @@ public class Prepare : MonoBehaviour {
 		// All Initialization occur in the override activity defined in the mainfest.xml, including track app launch
 		// You can define AppsFlyer library here use this commented out code
 
-		//AppsFlyer.setAppID ("YOUR_ANDROID_PACKAGE_NAME_HERE"); // un-comment this in case you are not working with the manifest file
+        AppsFlyer.setAppID("com.thumbspire.mymaze"); // un-comment this in case you are not working with the manifest file
 		//AppsFlyer.setIsSandbox(true);
 		//AppsFlyer.setIsDebug (true);
 		//AppsFlyer.createValidateInAppListener ("AppsFlyerTrackerCallbacks", "onInAppBillingSuccess", "onInAppBillingFailure");
-		//AppsFlyer.loadConversionData("AppsFlyerTrackerCallbacks","didReceiveConversionData", "didReceiveConversionDataWithError");
-		//AppsFlyer.trackAppLaunch ();
+        AppsFlyer.loadConversionData("AppsFlyerTrackerCallbacks", "didReceiveConversionData", "didReceiveConversionDataWithError");
+		AppsFlyer.trackAppLaunch ();
 #endif
     }
 }

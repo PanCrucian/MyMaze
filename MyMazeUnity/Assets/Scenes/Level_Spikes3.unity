@@ -2936,20 +2936,20 @@ Transform:
   - {fileID: 1410352348}
   - {fileID: 1952518765}
   - {fileID: 247860351}
-  - {fileID: 1587969260}
   - {fileID: 844701502}
   - {fileID: 1687722291}
   - {fileID: 919179929}
   - {fileID: 169268911}
+  - {fileID: 1587969260}
   - {fileID: 180061586}
   - {fileID: 39526772}
   - {fileID: 866023283}
   - {fileID: 358911426}
   - {fileID: 1835045349}
   - {fileID: 1108827509}
-  - {fileID: 1439380658}
   - {fileID: 972370319}
   - {fileID: 80427221}
+  - {fileID: 1439380658}
   - {fileID: 960881440}
   - {fileID: 22158308}
   - {fileID: 507101733}
@@ -5656,6 +5656,76 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 411702, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_PrefabInternal: {fileID: 487245682}
+--- !u!1001 &489314177
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1499663634}
+    m_Modifications:
+    - target: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.48000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.0999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: m_RootOrder
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 21207388, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: m_Color.r
+      value: .262745112
+      objectReference: {fileID: 0}
+    - target: {fileID: 21207388, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: m_Color.g
+      value: .188235313
+      objectReference: {fileID: 0}
+    - target: {fileID: 21207388, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: m_Color.b
+      value: .356862754
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472076, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: position.yRow
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 193164, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: m_Name
+      value: LineVertical (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472076, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+      propertyPath: position.xCell
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &489314178 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 485720, guid: 3934c69e00660b2428daea99d6d9c7e5, type: 2}
+  m_PrefabInternal: {fileID: 489314177}
 --- !u!1001 &490232714
 Prefab:
   m_ObjectHideFlags: 0
@@ -13031,6 +13101,7 @@ MonoBehaviour:
   uiAdsLife: {fileID: 0}
   uiAdsMoves: {fileID: 0}
   uiReplay: {fileID: 0}
+  uiConfirmMenu: {fileID: 0}
   state: 1
   pyramids: []
   addMoves: 0
@@ -17831,7 +17902,7 @@ Prefab:
     - target: {fileID: 11454232, guid: d14ad374c89594d4096e7d760da73e97, type: 2}
       propertyPath: hideObjects.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1672756968}
     - target: {fileID: 11454232, guid: d14ad374c89594d4096e7d760da73e97, type: 2}
       propertyPath: hiddenFill
       value: 
@@ -21192,6 +21263,7 @@ Transform:
   - {fileID: 1980859758}
   - {fileID: 229611862}
   - {fileID: 1288785840}
+  - {fileID: 489314178}
   m_Father: {fileID: 864054844}
   m_RootOrder: 0
 --- !u!114 &1499663635
@@ -22451,10 +22523,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 164494, guid: 662b8d365aa5c3147a59bd9dadfb425b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 662b8d365aa5c3147a59bd9dadfb425b, type: 2}
   m_IsPrefabParent: 0
@@ -23254,6 +23322,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 411702, guid: 624d30e71890cf240b1b4d23d2936431, type: 2}
   m_PrefabInternal: {fileID: 1672495351}
+--- !u!212 &1672756968 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 21297436, guid: 177e42fe8d6002d4fb691dbffff48d71,
+    type: 2}
+  m_PrefabInternal: {fileID: 1818220492}
 --- !u!1001 &1683202924
 Prefab:
   m_ObjectHideFlags: 0
@@ -24930,7 +25003,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -93.1500549
+      value: -54.6480103
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
@@ -24942,7 +25015,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -93.1500549
+      value: -54.6480103
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80212e13a346984a87151b1b5984a72, type: 2}

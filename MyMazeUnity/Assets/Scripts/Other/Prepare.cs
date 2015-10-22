@@ -9,7 +9,7 @@ public class Prepare : MonoBehaviour {
 
     int counter;
     string ddnakey = "07355525153794960673570812114368";
-    public string clientVersion = "1.0.6";
+    public string clientVersion = "1.0.9";
 
     void Awake()
     {
@@ -40,43 +40,43 @@ public class Prepare : MonoBehaviour {
     void InitDeltaDNA()
     {
 #if UNITY_IPHONE
+        if (PlayerPrefs.HasKey("pushNotifKey"))
+            DDNA.Instance.PushNotificationToken = PlayerPrefs.GetString("pushNotifKey");
+
         IOSNotificationController.OnDeviceTokenReceived += (IOSNotificationDeviceToken t) =>
         {
             Debug.Log("Got an iOS push token: " + t.tokenString);
             DDNA.Instance.PushNotificationToken = t.tokenString;
-
-            Debug.Log("Try for start: DeltaDNA SDK");
-            DDNA.Instance.SetLoggingLevel(Logger.Level.INFO);
-            DDNA.Instance.ClientVersion = clientVersion;
-
-            DDNA.Instance.StartSDK(
-                ddnakey,
-                "http://collect5099mymzs.deltadna.net/collect/api",
-                "http://engage5099mymzs.deltadna.net",
-                DDNA.AUTO_GENERATED_USER_ID
-                );
-        };        
+            PlayerPrefs.SetString("pushNotifKey", DDNA.Instance.PushNotificationToken);
+        };
         IOSNotificationController.Instance.RegisterForRemoteNotifications(NotificationType.Alert | NotificationType.Badge | NotificationType.Sound);
+
+        Debug.Log("iOS push token: " + DDNA.Instance.AndroidRegistrationID);
 #endif
 #if UNITY_ANDROID
+        if (PlayerPrefs.HasKey("AndroidRegistrationID"))
+            DDNA.Instance.AndroidRegistrationID = PlayerPrefs.GetString("AndroidRegistrationID");
+
         GoogleCloudMessageService.ActionCMDRegistrationResult += (GP_GCM_RegistrationResult res) =>
         {
             Debug.Log("Got an Android CMD Reg ID: " + GoogleCloudMessageService.Instance.registrationId);
             DDNA.Instance.AndroidRegistrationID = GoogleCloudMessageService.Instance.registrationId;
-
-            Debug.Log("Try for start: DeltaDNA SDK");
-            DDNA.Instance.SetLoggingLevel(Logger.Level.INFO);
-            DDNA.Instance.ClientVersion = clientVersion;
-
-            DDNA.Instance.StartSDK(
-                ddnakey,
-                "http://collect5099mymzs.deltadna.net/collect/api",
-                "http://engage5099mymzs.deltadna.net",
-                DDNA.AUTO_GENERATED_USER_ID
-                );
+            PlayerPrefs.SetString("AndroidRegistrationID", DDNA.Instance.AndroidRegistrationID);
         };
         GoogleCloudMessageService.Instance.RgisterDevice();
+
+        Debug.Log("AndroidRegistrationID: " + DDNA.Instance.AndroidRegistrationID);
 #endif
+        Debug.Log("Try for start: DeltaDNA SDK");
+        DDNA.Instance.SetLoggingLevel(Logger.Level.INFO);
+        DDNA.Instance.ClientVersion = clientVersion;
+
+        DDNA.Instance.StartSDK(
+            ddnakey,
+            "http://collect5099mymzs.deltadna.net/collect/api",
+            "http://engage5099mymzs.deltadna.net",
+            DDNA.AUTO_GENERATED_USER_ID
+            );
     }
 
     /// <summary>

@@ -77,7 +77,7 @@ public class InApps : MonoBehaviour, ISavingElement {
             Debug.LogWarning("Play market не инициализирован");        
 #endif
 #if UNITY_EDITOR
-        OnTransactionSuccess(type, "empty");
+        OnTransactionSuccess(type, "empty", "empty");
 #endif
     }
 
@@ -85,7 +85,7 @@ public class InApps : MonoBehaviour, ISavingElement {
     /// Какаято транзакция была успешно проведена
     /// </summary>
     /// <param name="type">Тип продукта</param>
-    void OnTransactionSuccess(ProductTypes type, string reciept)
+    void OnTransactionSuccess(ProductTypes type, string reciept, string transId)
     {
         switch (type)
         {
@@ -106,7 +106,7 @@ public class InApps : MonoBehaviour, ISavingElement {
                 break;
         }
         if (OnBuyed != null)
-            OnBuyed(type, reciept);
+            OnBuyed(type, reciept, transId);
         Save();
     }
 
@@ -303,7 +303,7 @@ public class InApps : MonoBehaviour, ISavingElement {
         Debug.Log("Пытаюсь восстановить покупки");
 #if UNITY_EDITOR
         foreach (BasketItem item in basket)
-            OnTransactionSuccess(item.type, "empty");        
+            OnTransactionSuccess(item.type, "empty", "empty");        
 #elif UNITY_IPHONE        
         IOSInAppPurchaseManager.instance.restorePurchases();
 #elif UNITY_ANDROID

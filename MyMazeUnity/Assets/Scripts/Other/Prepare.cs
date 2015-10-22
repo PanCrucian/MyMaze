@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 using DeltaDNA;
 using Heyzap;
+using UnityEngine.iOS;
 
 public class Prepare : MonoBehaviour {
 
@@ -19,33 +20,7 @@ public class Prepare : MonoBehaviour {
         if (Screen.currentResolution.width > 1280 && Screen.currentResolution.height > 800 && Screen.dpi > 240f)
             Screen.SetResolution(Convert.ToInt32(Screen.currentResolution.width / 2), Convert.ToInt32(Screen.currentResolution.height / 2), true);
 #endif
-    }
-
-    void Start()
-    {
-#if UNITY_ANDROID
-        GoogleCloudMessageService.ActionCMDRegistrationResult += HandleActionCMDRegistrationResult;
-#endif
-    }
-
-#if UNITY_ANDROID
-    void HandleActionCMDRegistrationResult(GP_GCM_RegistrationResult res)
-    {
-        if (res.isSuccess)
-        {
-            DDNA.Instance.AndroidRegistrationID = GoogleCloudMessageService.Instance.registrationId;
-        }
-
-        DDNA.Instance.ClientVersion = clientVersion;
-
-        DDNA.Instance.StartSDK(
-            ddnakey,
-            "http://collect5099mymzs.deltadna.net/collect/api",
-            "http://engage5099mymzs.deltadna.net",
-            DDNA.AUTO_GENERATED_USER_ID
-            );
-    }
-#endif
+    }    
 
     void Update()
     {
@@ -64,27 +39,42 @@ public class Prepare : MonoBehaviour {
     /// </summary>
     void InitDeltaDNA()
     {
-        Debug.Log("Try for start: DeltaDNA SDK");
-        DDNA.Instance.SetLoggingLevel(Logger.Level.INFO);
-        DDNA.Instance.ClientVersion = clientVersion;
-
 #if UNITY_IPHONE
-        DDNA.Instance.Notifications.RegisterForPushNotifications();
-        // Enable push notifications for iOS
-        DDNA.Instance.Notifications.OnDidRegisterForPushNotifications += (string n) => { 
-            Debug.Log("Got an iOS push token: " + n); 
-            DDNA.Instance.PushNotificationToken = n; 
-        };
-        DDNA.Instance.Notifications.OnDidReceivePushNotification += (string n) => { Debug.Log("Got an iOS push notification! " + n); };
+        IOSNotificationController.OnDeviceTokenReceived += (IOSNotificationDeviceToken t) =>
+        {
+            Debug.Log("Got an iOS push token: " + t.tokenString);
+            DDNA.Instance.PushNotificationToken = t.tokenString;
 
-        DDNA.Instance.StartSDK(
-            ddnakey,
-            "http://collect5099mymzs.deltadna.net/collect/api",
-            "http://engage5099mymzs.deltadna.net",
-            DDNA.AUTO_GENERATED_USER_ID
-            );
+            Debug.Log("Try for start: DeltaDNA SDK");
+            DDNA.Instance.SetLoggingLevel(Logger.Level.INFO);
+            DDNA.Instance.ClientVersion = clientVersion;
+
+            DDNA.Instance.StartSDK(
+                ddnakey,
+                "http://collect5099mymzs.deltadna.net/collect/api",
+                "http://engage5099mymzs.deltadna.net",
+                DDNA.AUTO_GENERATED_USER_ID
+                );
+        };        
+        IOSNotificationController.Instance.RegisterForRemoteNotifications(NotificationType.Alert | NotificationType.Badge | NotificationType.Sound);
 #endif
 #if UNITY_ANDROID
+        GoogleCloudMessageService.ActionCMDRegistrationResult += (GP_GCM_RegistrationResult res) =>
+        {
+            Debug.Log("Got an Android CMD Reg ID: " + GoogleCloudMessageService.Instance.registrationId);
+            DDNA.Instance.AndroidRegistrationID = GoogleCloudMessageService.Instance.registrationId;
+
+            Debug.Log("Try for start: DeltaDNA SDK");
+            DDNA.Instance.SetLoggingLevel(Logger.Level.INFO);
+            DDNA.Instance.ClientVersion = clientVersion;
+
+            DDNA.Instance.StartSDK(
+                ddnakey,
+                "http://collect5099mymzs.deltadna.net/collect/api",
+                "http://engage5099mymzs.deltadna.net",
+                DDNA.AUTO_GENERATED_USER_ID
+                );
+        };
         GoogleCloudMessageService.Instance.RgisterDevice();
 #endif
     }

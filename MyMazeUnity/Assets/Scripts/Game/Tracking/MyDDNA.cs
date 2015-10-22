@@ -98,9 +98,9 @@ public class MyDDNA : MonoBehaviour {
     /// Что-то купили
     /// </summary>
     /// <param name="type"></param>
-    void OnBuyed(ProductTypes type, string reciept)
+    void OnBuyed(ProductTypes type, string reciept, string transId)
     {
-        RecordTransaction(type, reciept);
+        RecordTransaction(type, reciept, transId);
     }
 
     /// <summary>
@@ -283,7 +283,12 @@ public class MyDDNA : MonoBehaviour {
             return;
 
         EventBuilder thumbPurchaseAttempt = new EventBuilder();
-        thumbPurchaseAttempt.AddParam("thumbAdvID", type.ToString("g"));
+#if UNITY_IPHONE
+        thumbPurchaseAttempt.AddParam("thumbAdvID", MyMaze.Instance.GetComponent<GameCenter>().IDFA);
+#endif
+#if UNITY_ANDROID
+        thumbPurchaseAttempt.AddParam("thumbAdvID", MyMaze.Instance.GetComponent<GooglePlayServices>().AdvId);
+#endif
         thumbPurchaseAttempt.AddParam("thumbIAPid", MyMaze.Instance.InApps.GetProduct<InApps.MarketMatching>(type).productId);
         thumbPurchaseAttempt.AddParam("thumbUserDaysInGame", MyMaze.Instance.DaysInGame);
         thumbPurchaseAttempt.AddParam("transactionName", type.ToString("g"));
@@ -297,7 +302,7 @@ public class MyDDNA : MonoBehaviour {
     /// Запишем покупку
     /// </summary>
     /// <param name="type"></param>
-    void RecordTransaction(ProductTypes type, string reciept)
+    void RecordTransaction(ProductTypes type, string reciept, string transId)
     {
         if (!IsDDNAInitalized)
             return;
@@ -328,6 +333,7 @@ public class MyDDNA : MonoBehaviour {
 #if UNITY_IPHONE
         transaction.AddParam("transactionServer", "APPLE");
         transaction.AddParam("transactionReceipt", reciept);
+        transaction.AddParam("transactionID", transId);
 #endif
 #if UNITY_ANDROID
         transaction.AddParam("transactionServer", "GOOGLE");

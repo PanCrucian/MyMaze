@@ -12425,6 +12425,7 @@ MonoBehaviour:
   uiAdsLife: {fileID: 0}
   uiAdsMoves: {fileID: 0}
   uiReplay: {fileID: 0}
+  uiConfirmMenu: {fileID: 0}
   state: 1
   pyramids: []
   addMoves: 0
@@ -19638,8 +19639,8 @@ Transform:
   - {fileID: 785064326}
   - {fileID: 548358037}
   - {fileID: 1058325518}
-  - {fileID: 1073506919}
   - {fileID: 2115416181}
+  - {fileID: 1073506919}
   - {fileID: 618647709}
   - {fileID: 285739724}
   - {fileID: 1899888630}
@@ -20054,11 +20055,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
@@ -20066,15 +20067,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492944, guid: c80212e13a346984a87151b1b5984a72, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -170.752747
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438914, guid: c80212e13a346984a87151b1b5984a72, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -170.752747
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80212e13a346984a87151b1b5984a72, type: 2}

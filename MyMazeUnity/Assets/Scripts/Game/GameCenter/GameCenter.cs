@@ -36,7 +36,7 @@ public class GameCenter : MonoBehaviour
             return idfa;
         }
     }
-    private string idfa = "";
+    private string idfa = "Server did not respond";
 
     void Start()
     {

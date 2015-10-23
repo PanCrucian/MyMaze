@@ -9,7 +9,8 @@ public class Prepare : MonoBehaviour {
 
     int counter;
     string ddnakey = "07355525153794960673570812114368";
-    public string clientVersion = "1.0.9";
+    public string androidClientVersion = "1.0.10";
+    public string iphoneClientVersion = "0.1.4";
 
     void Awake()
     {
@@ -69,7 +70,12 @@ public class Prepare : MonoBehaviour {
 #endif
         Debug.Log("Try for start: DeltaDNA SDK");
         DDNA.Instance.SetLoggingLevel(Logger.Level.INFO);
-        DDNA.Instance.ClientVersion = clientVersion;
+#if UNITY_ANDROID
+        DDNA.Instance.ClientVersion = androidClientVersion;
+#endif
+#if UNITY_IPHONE
+        DDNA.Instance.ClientVersion = iphoneClientVersion;
+#endif
 
         DDNA.Instance.StartSDK(
             ddnakey,

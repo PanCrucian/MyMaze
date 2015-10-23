@@ -52,7 +52,7 @@ public class GooglePlayServices : MonoBehaviour {
             return advId;
         }
     }
-    private string advId = "";
+    private string advId = "Server did not respond";
 
     void Start()
     {

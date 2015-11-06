@@ -12,24 +12,39 @@ MonoBehaviour:
   m_Name: IOSNativeSettings
   m_EditorClassIdentifier: 
   AppleId: 1018888691
-  InAppProducts: []
+  ToolbarIndex: 0
   SendFakeEventsInEditor: 1
-  RegisteredAchievementsIds: []
   DefaultStoreProductsView: []
+  InAppProducts: []
+  Leaderboards: []
+  Achievements: []
   checkInternetBeforeLoadRequest: 0
-  ShowStoreKitParams: 0
-  ShowGCParams: 0
+  ShowStoreKitProducts: 1
+  ShowLeaderboards: 1
   ShowAchievementsParams: 1
   ShowUsersParams: 1
   ShowOtherParams: 0
-  ShowCameraAndGalleryParams: 0
-  UseOneSignal: 0
+  ShowRPKParams: 0
+  ExpandAPISettings: 1
+  EnableGameCenterAPI: 1
+  EnableInAppsAPI: 1
+  EnableCameraAPI: 1
+  EnableSocialSharingAPI: 1
+  EnableMediaPlayerAPI: 1
+  EnableiAdAPI: 1
+  EnableReplayKit: 0
+  EnableSoomla: 0
+  EnablePushNotificationsAPI: 0
   DisablePluginLogs: 0
   UseGCRequestCaching: 0
   UsePPForAchievements: 0
-  EnablePushNotificationsAPI: 0
   AutoLoadUsersSmallImages: 1
   AutoLoadUsersBigImages: 0
   MaxImageLoadSize: 512
   JPegCompressionRate: .800000012
   GalleryImageFormat: 1
+  RPK_iPadViewType: 0
+  SoomlaDownloadLink: http://goo.gl/7LYwuj
+  SoomlaDocsLink: https://goo.gl/JFkpNa
+  SoomlaGameKey: 
+  SoomlaEnvKey: 

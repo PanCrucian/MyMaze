@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEditor;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -285,7 +286,66 @@ public class SocialPlatfromSettingsEditor : Editor {
 				SocialProxyActivity.RemoveProperty(intent_filter);
 			}
 		}
-        		
+
+		////////////////////////
+		//FB API
+		////////////////////////
+		AN_PropertyTemplate ApplicationId_meta = application.GetOrCreatePropertyWithName("meta-data", "com.facebook.sdk.ApplicationId");
+		AN_ActivityTemplate LoginActivity = application.GetOrCreateActivityWithName("com.facebook.LoginActivity");
+		AN_ActivityTemplate FBUnityLoginActivity = application.GetOrCreateActivityWithName("com.facebook.unity.FBUnityLoginActivity");
+		AN_ActivityTemplate FBUnityDeepLinkingActivity = application.GetOrCreateActivityWithName("com.facebook.unity.FBUnityDeepLinkingActivity");
+		AN_ActivityTemplate FBUnityDialogsActivity = application.GetOrCreateActivityWithName("com.facebook.unity.FBUnityDialogsActivity");
+
+
+		if(IsFacebookInstalled) {
+
+
+
+			#if UNITY_ANDROID
+
+			string FBAppId = "0";
+			try {
+				ScriptableObject FB_Resourse = 	Resources.Load("FacebookSettings") as ScriptableObject;
+
+				if(FB_Resourse != null) {
+					Type fb_settings = FB_Resourse.GetType();
+					Debug.Log(fb_settings);
+					System.Reflection.PropertyInfo propert  = fb_settings.GetProperty("AppId", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public);
+					FBAppId = (string) propert.GetValue(null, null);
+				}
+
+
+			} catch(Exception ex) {
+				Debug.LogError("AndroidNative. FBSettings.AppId reflection failed: " + ex.Message);
+			}
+
+
+
+			ApplicationId_meta.SetValue("android:value", "\\ " + FBAppId);
+
+			LoginActivity.SetValue("android:label", "@string/app_name");
+			LoginActivity.SetValue("android:theme", "@android:style/Theme.Translucent.NoTitleBar");
+			LoginActivity.SetValue("android:configChanges", "keyboardHidden|orientation");
+
+
+			FBUnityLoginActivity.SetValue("android:theme", "@android:style/Theme.Translucent.NoTitleBar.Fullscreen");
+			FBUnityLoginActivity.SetValue("android:configChanges", "fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen");
+
+			FBUnityDialogsActivity.SetValue("android:theme", "@android:style/Theme.Translucent.NoTitleBar.Fullscreen");
+			FBUnityDialogsActivity.SetValue("android:configChanges", "fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen");
+
+			FBUnityDeepLinkingActivity.SetValue("android:exported", "true");
+			#endif
+
+			
+		} else {
+			application.RemoveProperty(ApplicationId_meta);
+			application.RemoveActivity(LoginActivity);
+			application.RemoveActivity(FBUnityLoginActivity);
+			application.RemoveActivity(FBUnityDeepLinkingActivity);
+			application.RemoveActivity(FBUnityDialogsActivity);
+		}
+		
 		
 		////////////////////////
 		//NativeSharingAPI
@@ -385,13 +445,7 @@ public class SocialPlatfromSettingsEditor : Editor {
 					"Remove",
 					"Cansel");
 				if(result) {
-					FileStaticAPI.DeleteFolder(PluginsInstalationUtil.ANDROID_DESTANATION_PATH + "facebook");
-					FileStaticAPI.DeleteFolder("Facebook");
-					FileStaticAPI.DeleteFolder("Extensions/GooglePlayCommon/Social/Facebook");
-					FileStaticAPI.DeleteFile("Extensions/MobileSocialPlugin/Example/Scripts/MSPFacebookUseExample.cs");
-					FileStaticAPI.DeleteFile("Extensions/MobileSocialPlugin/Example/Scripts/MSP_FacebookAnalyticsExample.cs");
-					FileStaticAPI.DeleteFile("Extensions/MobileSocialPlugin/Example/Scripts/MSP_FacebookAndroidTurnBasedAndGiftsExample.cs");
-					FileStaticAPI.CopyFile("Extensions/StansAssetsCommon/SA_FB_PlaceHolder.txt", "Extensions/StansAssetsCommon/SA_FB_PlaceHolder.cs");
+					PluginsInstalationUtil.Remove_FB_SDK();
 				}
 					
 			}
@@ -463,6 +517,7 @@ public class SocialPlatfromSettingsEditor : Editor {
 	
 	private static string newPermition = "";
 	public static void FacebookSettings() {
+		EditorGUILayout.Space();
 		EditorGUILayout.HelpBox("Facebook Settings", MessageType.None);
 
 		if (SocialPlatfromSettings.Instance.fb_scopes_list.Count == 0) {

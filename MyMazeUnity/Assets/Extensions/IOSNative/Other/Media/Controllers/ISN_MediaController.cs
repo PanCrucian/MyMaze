@@ -1,15 +1,26 @@
-﻿using UnityEngine;
+#define VIDEO_API
+////////////////////////////////////////////////////////////////////////////////
+//  
+// @module IOS Native Plugin for Unity3D 
+// @author Osipov Stanislav (Stan's Assets) 
+// @support stans.assets@gmail.com 
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+#if (UNITY_IPHONE && !UNITY_EDITOR && VIDEO_API) || SA_DEBUG_MODE
 using System.Runtime.InteropServices;
 #endif
 
 public class ISN_MediaController : ISN_Singleton<ISN_MediaController> {
 
 
-	#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+	#if (UNITY_IPHONE && !UNITY_EDITOR && VIDEO_API) || SA_DEBUG_MODE
 
 	
 	[DllImport ("__Internal")]
@@ -67,7 +78,7 @@ public class ISN_MediaController : ISN_Singleton<ISN_MediaController> {
 	
 	void Awake() {
 
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && VIDEO_API) || SA_DEBUG_MODE
 		_ISN_InitMediaController();
 		#endif
 
@@ -80,51 +91,51 @@ public class ISN_MediaController : ISN_Singleton<ISN_MediaController> {
 	//--------------------------------------
 
 	public void SetRepeatMode(MP_MusicRepeatMode mode) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && VIDEO_API) || SA_DEBUG_MODE
 		_ISN_SetRepeatMode((int) mode);
 
 		#endif
 	}
 
 	public void SetShuffleMode(MP_MusicShuffleMode mode) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && VIDEO_API) || SA_DEBUG_MODE
 		_ISN_SetShuffleMode((int) mode);
 		#endif
 	}
 
 	public void Play() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && VIDEO_API) || SA_DEBUG_MODE
 		_ISN_Play();
 		#endif
 	}
 
 	public void Pause() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && VIDEO_API) || SA_DEBUG_MODE
 		_ISN_Pause();
 		#endif
 	}
 
 
 	public void SkipToNextItem() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && VIDEO_API) || SA_DEBUG_MODE
 		_ISN_SkipToNextItem();
 		#endif
 	}
 
 	public void SkipToBeginning() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && VIDEO_API) || SA_DEBUG_MODE
 		_ISN_SkipToBeginning();
 		#endif
 	}
 
 	public void SkipToPreviousItem() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && VIDEO_API) || SA_DEBUG_MODE
 		_ISN_SkipToPreviousItem();
 		#endif
 	}
 
 	public void ShowMediaPicker() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && VIDEO_API) || SA_DEBUG_MODE
 		_ISN_ShowMediaPicker();
 		#endif
 	}
@@ -143,7 +154,7 @@ public class ISN_MediaController : ISN_Singleton<ISN_MediaController> {
 
 
 	public void SetCollection(params string[] itemIds) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && VIDEO_API) || SA_DEBUG_MODE
 		_ISN_SetCollection(IOSNative.SerializeArray(itemIds));
 		#endif
 	}

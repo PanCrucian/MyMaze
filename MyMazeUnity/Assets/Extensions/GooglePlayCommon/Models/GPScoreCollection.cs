@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class GPScoreCollection {
 
 	public Dictionary<int, GPScore> AllTimeScores 	=  new Dictionary<int, GPScore>();

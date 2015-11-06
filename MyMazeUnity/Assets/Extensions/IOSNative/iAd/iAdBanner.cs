@@ -1,3 +1,5 @@
+#define IAD_API
+
 ////////////////////////////////////////////////////////////////////////////////
 //  
 // @module IOS Native Plugin for Unity3D 
@@ -12,13 +14,13 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+#if (UNITY_IPHONE && !UNITY_EDITOR  && IAD_API) || SA_DEBUG_MODE
 using System.Runtime.InteropServices;
 #endif
 
 public class iAdBanner  {
 
-	#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+	#if (UNITY_IPHONE && !UNITY_EDITOR  && IAD_API) || SA_DEBUG_MODE
 	[DllImport ("__Internal")]
 	private static extern void _IADCreateBannerAd(int gravity,  int id);
 	
@@ -58,7 +60,7 @@ public class iAdBanner  {
 		_anchor = anchor;
 		
 		
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR  && IAD_API) || SA_DEBUG_MODE
 			_IADCreateBannerAd(gravity, _id);
 		#endif
 	}
@@ -67,7 +69,7 @@ public class iAdBanner  {
 		_id = id;
 		
 		
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR  && IAD_API) || SA_DEBUG_MODE
 			_IADCreateBannerAdPos(x, y, _id);
 		#endif
 		
@@ -81,7 +83,7 @@ public class iAdBanner  {
 		}
 		
 		_IsOnScreen = false;
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR  && IAD_API) || SA_DEBUG_MODE
 			_IADHideAd(_id);
 		#endif
 	}
@@ -94,7 +96,7 @@ public class iAdBanner  {
 		}
 		
 		_IsOnScreen = true;
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR  && IAD_API) || SA_DEBUG_MODE
 			_IADShowAd(_id);
 		#endif
 	}

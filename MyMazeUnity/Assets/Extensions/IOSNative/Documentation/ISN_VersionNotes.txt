@@ -1,3 +1,52 @@
+8.0.5
+Replay Kit IsMicEnabled property added
+Replay Kit IsRecodingAvailableToShare property added
+Replay Kit DiscardRecording method added
+Gamce Center API minor fix
+
+Guided Access. Read more: https://goo.gl/HOf7sf
+
+8.0.4
+Replay Kit IsAvaliavble property added
+IOSProductTemplate.Price is now float
+iAd Interstisials fixed
+iAdBannerController IsInterstisialsAdReady property added
+
+8.0.3
+Improvments:
+Ediotr Settings Redisigned
+Reaply Kit: ability to choose view mode on iPad
+
+Fixes:
+Minor Popups dismissing fix
+RTM multiplayer invitations fix
+TRB multiplayer example scene fixes
+Push notification API compilation dependencies fix
+
+Refactor:
+IOSProductTemplate class, all filed names now strating from the capital letter
+
+8.0.2
+Local notifications, ability to set custom sound.  Read more: https://goo.gl/bVQG0s
+Game Center RTM matches random disconnect issue fixed
+Replay Kit on iPad fixed
+Game Center invitation handing from the Game Center app fixed.
+
+8.0.1
+Replay Kit API improvements
+
+8.0:
+Ability to enable / disable plugin APIs. Read more: https://goo.gl/GsUcA0
+Local Receipts. Read more: https://goo.gl/k9SISo
+Device GUID. Read more: https://goo.gl/dPmPc3
+Instagram API added
+Ability to load pending local notifications list added
+iOS9 support added
+ReplayKit API. Read more: https://goo.gl/ZtE2Gx
+
+Fixes:
+Popups event fixed
+
 7.3.1:
 Perfomance improvments
 Twitter share with no account, iOS 7 NPE fixed

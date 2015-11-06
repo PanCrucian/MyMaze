@@ -31,28 +31,18 @@ public class GooglePlayManager : SA_Singleton<GooglePlayManager> {
 	public static event Action<List<string>> ActionAvailableDeviceAccountsLoaded 			= delegate {};
 	public static event Action<string> ActionOAuthTokenLoaded 								= delegate {};
 
-
-
 	private GooglePlayerTemplate _player = null ;
-	
 
-	private Dictionary<string, GPLeaderBoard> _leaderBoards =  new Dictionary<string, GPLeaderBoard>();
-	private Dictionary<string, GPAchievement> _achievements = new Dictionary<string, GPAchievement>();
 	private Dictionary<string, GooglePlayerTemplate> _players = new Dictionary<string, GooglePlayerTemplate>();
-
-
 
 	private List<string> _friendsList 		  				=  new List<string>();
 	private List<string> _deviceGoogleAccountList 		 	=  new List<string>();
 	private List<GPGameRequest> _gameRequests 				=  new List<GPGameRequest>();
 
-
 	private string _loadedAuthToken = "";
 	private string _currentAccount = "";
 
 	private static bool _IsLeaderboardsDataLoaded = false;
-	
-
 
 	//--------------------------------------
 	// INITIALIZE
@@ -167,13 +157,12 @@ public class GooglePlayManager : SA_Singleton<GooglePlayManager> {
 		AN_GMSGeneralProxy.loadLeaderBoards ();
 	}
 
-	public void UpdatePlayerScoreLocal(string leaderboardId) {
+	public void UpdatePlayerScoreLocal(GPLeaderBoard leaderboard) {
 		if (!GooglePlayConnection.CheckState ()) { return; }
 		int requestId = SA_IdFactory.NextId;
-		GPLeaderBoard leaderboard = GetLeaderBoard(leaderboardId);
 		leaderboard.CreateScoreListener(requestId);
 
-		AN_GMSGeneralProxy.loadLeaderboardInfoLocal(leaderboardId, requestId);
+		AN_GMSGeneralProxy.loadLeaderboardInfoLocal(leaderboard.Id, requestId);
 	}
 
 	[Obsolete("loadPlayerCenteredScores is deprecated, please use LoadPlayerCenteredScores instead.")]
@@ -306,10 +295,12 @@ public class GooglePlayManager : SA_Singleton<GooglePlayManager> {
 		if (!GooglePlayConnection.CheckState ()) { return; }
 		AN_GMSGeneralProxy.resetLeaderBoard(leaderboardId);
 
-		if(leaderBoards.ContainsKey(leaderboardId)) {
-			leaderBoards.Remove(leaderboardId);
+		foreach (GPLeaderBoard lb in LeaderBoards) {
+			if (lb.Id.Equals(leaderboardId)) {
+				LeaderBoards.Remove(lb);
+				return;
+			}
 		}
-
 	}
 
 	[Obsolete("loadConnectedPlayers is deprecated, please use LoadFriends instead.")]
@@ -386,24 +377,25 @@ public class GooglePlayManager : SA_Singleton<GooglePlayManager> {
 	//--------------------------------------
 
 	public GPLeaderBoard GetLeaderBoard(string leaderboardId) {
-
-		if(_leaderBoards.ContainsKey(leaderboardId)) {
-			return _leaderBoards[leaderboardId];
-		} else {
-			GPLeaderBoard lb = new GPLeaderBoard (leaderboardId, "");
-			_leaderBoards.Add(leaderboardId, lb);
-			return lb;
+		foreach(GPLeaderBoard lb in LeaderBoards) {
+			if (lb.Id.Equals(leaderboardId)) {
+				return lb;
+			}
 		}
 
+		GPLeaderBoard leaderboard = new GPLeaderBoard(leaderboardId, string.Empty);
+		LeaderBoards.Add(leaderboard);
+		return leaderboard;
 	}
 	
 
 	public GPAchievement GetAchievement(string achievementId) {
-		if(_achievements.ContainsKey(achievementId)) {
-			return _achievements[achievementId];
-		} else {
-			return null;
+		foreach (GPAchievement achievement in Achievements) {
+			if (achievement.Id.Equals(achievementId)) {
+				return achievement;
+			}
 		}
+		return null;
 	}
 
 
@@ -442,16 +434,29 @@ public class GooglePlayManager : SA_Singleton<GooglePlayManager> {
 		}
 	}
 	
-
-	public Dictionary<string, GPLeaderBoard> leaderBoards {
+	[System.Obsolete("leaderBoards is deprectaed, please use LeaderBoards instead")]
+	public List<GPLeaderBoard> leaderBoards {
 		get {
-			return _leaderBoards;
+			return LeaderBoards;
 		}
 	}
 
-	public Dictionary<string, GPAchievement> achievements {
+	public List<GPLeaderBoard> LeaderBoards {
 		get {
-			return _achievements;
+			return AndroidNativeSettings.Instance.Leaderboards;
+		}
+	}
+
+	[System.Obsolete("achievements is deprectaed, please use Achievements instead")]
+	public List<GPAchievement> achievements {
+		get {
+			return Achievements;
+		}
+	}
+
+	public List<GPAchievement> Achievements {
+		get {
+			return AndroidNativeSettings.Instance.Achievements;
 		}
 	}
 
@@ -514,7 +519,7 @@ public class GooglePlayManager : SA_Singleton<GooglePlayManager> {
 		GooglePlayResult result = new GooglePlayResult (storeData [0]);
 		if(result.isSuccess) {
 
-			_achievements.Clear ();
+			Achievements.Clear ();
 
 			for(int i = 1; i < storeData.Length; i+=7) {
 				if(storeData[i] == AndroidNative.DATA_EOF) {
@@ -530,15 +535,15 @@ public class GooglePlayManager : SA_Singleton<GooglePlayManager> {
 				                                       storeData[i + 6]
 				                                       );
 
-				Debug.Log (ach.name);
-				Debug.Log (ach.type);
+				Debug.Log (ach.Name);
+				Debug.Log (ach.Type);
 
 
-				_achievements.Add (ach.id, ach);
+				Achievements.Add (ach);
 
 			}
 
-			Debug.Log ("Loaded: " + _achievements.Count + " Achievements");
+			Debug.Log ("Loaded: " + Achievements.Count + " Achievements");
 		}
 
 		ActionAchievementsLoaded(result);
@@ -637,7 +642,7 @@ public class GooglePlayManager : SA_Singleton<GooglePlayManager> {
 				}
 			}
 
-			Debug.Log ("Loaded: " + _leaderBoards.Count + " Leaderboards");
+			Debug.Log ("Loaded: " + LeaderBoards.Count + " Leaderboards");
 		}
 
 		_IsLeaderboardsDataLoaded = true;
@@ -697,7 +702,7 @@ public class GooglePlayManager : SA_Singleton<GooglePlayManager> {
 		if (result.isSuccess) {
 			Debug.Log("Score was submitted to leaderboard -> " + lb);
 
-			UpdatePlayerScoreLocal(lb.Id);
+			UpdatePlayerScoreLocal(lb);
 		} else {
 			ActionScoreSubmited(result);
 		}

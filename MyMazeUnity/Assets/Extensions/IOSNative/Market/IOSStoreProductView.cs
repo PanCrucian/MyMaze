@@ -1,4 +1,5 @@
-﻿////////////////////////////////////////////////////////////////////////////////
+#define INAPP_API_ENABLED
+////////////////////////////////////////////////////////////////////////////////
 //  
 // @module IOS Native Plugin for Unity3D 
 // @author Osipov Stanislav (Stan's Assets) 
@@ -10,7 +11,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+#if (UNITY_IPHONE && !UNITY_EDITOR && INAPP_API_ENABLED) || SA_DEBUG_MODE
 using System.Runtime.InteropServices;
 #endif
 
@@ -25,7 +26,7 @@ public class IOSStoreProductView {
 
 
 
-	#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+	#if (UNITY_IPHONE && !UNITY_EDITOR && INAPP_API_ENABLED) || SA_DEBUG_MODE
 	[DllImport ("__Internal")]
 	private static extern void _createProductView(int viewId, string productsId);
 	
@@ -76,7 +77,7 @@ public class IOSStoreProductView {
 	
 
 	public void Load() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && INAPP_API_ENABLED) || SA_DEBUG_MODE
 			string ids = "";
 			int len = _ids.Count;
 			for(int i = 0; i < len; i++) {
@@ -92,7 +93,7 @@ public class IOSStoreProductView {
 	}
 
 	public void Show() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR  && INAPP_API_ENABLED) || SA_DEBUG_MODE
 			_showProductView(id);
 		#endif
 	}

@@ -172,12 +172,12 @@ public class GameBillingManagerExample : MonoBehaviour {
 
 	private static void UpdateStoreData() {
 
-		foreach(GoogleProductTemplate p in AndroidInAppPurchaseManager.instance.inventory.products) {
-			Debug.Log("Loaded product: " + p.title);
+		foreach(GoogleProductTemplate p in AndroidInAppPurchaseManager.instance.Inventory.Products) {
+			Debug.Log("Loaded product: " + p.Title);
 		}
 
 		//chisking if we already own some consuamble product but forget to consume those
-		if(AndroidInAppPurchaseManager.instance.inventory.IsProductPurchased(COINS_ITEM)) {
+		if(AndroidInAppPurchaseManager.instance.Inventory.IsProductPurchased(COINS_ITEM)) {
 			consume(COINS_ITEM);
 		}
 
@@ -186,7 +186,7 @@ public class GameBillingManagerExample : MonoBehaviour {
 		//This is replacment for restore purchase fnunctionality on IOS
 
 
-		if(AndroidInAppPurchaseManager.instance.inventory.IsProductPurchased(COINS_BOOST)) {
+		if(AndroidInAppPurchaseManager.instance.Inventory.IsProductPurchased(COINS_BOOST)) {
 			GameDataExample.EnableCoinsBoost();
 		}
 

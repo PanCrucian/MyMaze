@@ -133,7 +133,7 @@ public class SavedGamesExample : MonoBehaviour {
 
 	private void ActionAvailableGameSavesLoaded (GooglePlayResult res) {
 
-		GooglePlaySavedGamesManager.ActionAvailableGameSavesLoaded += ActionAvailableGameSavesLoaded;
+		GooglePlaySavedGamesManager.ActionAvailableGameSavesLoaded -= ActionAvailableGameSavesLoaded;
 		if(res.isSuccess) {
 			foreach(GP_SnapshotMeta meta in GooglePlaySavedGamesManager.instance.AvailableGameSaves) {
 				Debug.Log("Meta.Title: " 					+ meta.Title);

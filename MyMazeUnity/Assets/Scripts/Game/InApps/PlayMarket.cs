@@ -69,8 +69,8 @@ public class PlayMarket : MonoBehaviour {
     {
         if (!IsInitalized)
             return;
-        foreach (GoogleProductTemplate p in AndroidInAppPurchaseManager.Instance.inventory.products)
-            if (AndroidInAppPurchaseManager.Instance.inventory.IsProductPurchased(p.SKU))
+        foreach (GoogleProductTemplate p in AndroidInAppPurchaseManager.Instance.Inventory.Products)
+            if (AndroidInAppPurchaseManager.Instance.Inventory.IsProductPurchased(p.SKU))
                 Consume(p.SKU);
         if (OnRestoreCompleteSuccess != null)
             OnRestoreCompleteSuccess();

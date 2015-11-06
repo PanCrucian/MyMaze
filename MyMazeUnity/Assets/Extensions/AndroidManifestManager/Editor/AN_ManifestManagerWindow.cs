@@ -42,257 +42,275 @@ public class AN_ManifestManagerWindow : EditorWindow {
 
 			switch (toolbarButtons[toolbarButtonIndex]) {
 			case "Manifest" : {
-				GUILayout.Label ("Values", EditorStyles.boldLabel);
-				foreach (string key in AN_ManifestManager.GetManifest().Values.Keys) {
-					EditorGUILayout.BeginHorizontal();
+				AN_ManifestTemplate manifest = AN_ManifestManager.GetManifest();
 
-					GUILayout.Label(key);
-					if (key.Equals("xmlns:android") ||
-					    key.Equals("android:installLocation") ||
-					    key.Equals("package") ||
-					    key.Equals("android:versionName") ||
-					    key.Equals("android:versionCode") ||
-					    key.Equals("android:theme")) {
-
-						GUI.enabled = false;
-						GUILayout.TextField(AN_ManifestManager.GetManifest().Values[key], GUILayout.Width(300.0f));
-					} else {
+				if (manifest != null) {
+					GUILayout.Label ("Values", EditorStyles.boldLabel);
+					foreach (string key in manifest.Values.Keys) {
+						EditorGUILayout.BeginHorizontal();
+						
+						GUILayout.Label(key);
+						if (key.Equals("xmlns:android") ||
+						    key.Equals("android:installLocation") ||
+						    key.Equals("package") ||
+						    key.Equals("android:versionName") ||
+						    key.Equals("android:versionCode") ||
+						    key.Equals("android:theme")) {
+							
+							GUI.enabled = false;
+							GUILayout.TextField(AN_ManifestManager.GetManifest().Values[key], GUILayout.Width(300.0f));
+						} else {
+							GUI.enabled = true;
+							
+							string input = AN_ManifestManager.GetManifest().Values[key];
+							EditorGUI.BeginChangeCheck();
+							input = GUILayout.TextField(AN_ManifestManager.GetManifest().Values[key], GUILayout.Width(276.0f));
+							if(EditorGUI.EndChangeCheck()) {
+								AN_ManifestManager.GetManifest().SetValue(key, input);
+								return;
+							}
+							
+							if(GUILayout.Button("X", GUILayout.Width(20.0f))) {
+								AN_ManifestManager.GetManifest().RemoveValue(key);
+								return;
+							}
+						}
 						GUI.enabled = true;
-
-						string input = AN_ManifestManager.GetManifest().Values[key];
+						EditorGUILayout.EndHorizontal();
+					}
+					
+					EditorGUILayout.BeginHorizontal();
+					EditorGUILayout.Space();
+					if (GUILayout.Button("Add Value", GUILayout.Width(100.0f))) {
+						AddValueDialog(AN_ManifestManager.GetManifest());
+					}
+					EditorGUILayout.Space();
+					EditorGUILayout.EndHorizontal();
+					
+					GUILayout.Label ("Properties", EditorStyles.boldLabel);
+					DrawProperties(AN_ManifestManager.GetManifest());
+					
+					EditorGUILayout.BeginHorizontal();
+					EditorGUILayout.Space();
+					if (GUILayout.Button("Add Property", GUILayout.Width(100.0f))) {
+						AddPropertyDialog(AN_ManifestManager.GetManifest());
+					}
+					EditorGUILayout.Space();
+					EditorGUILayout.EndHorizontal();
+					EditorGUILayout.Space();
+					
+					EditorGUILayout.Space();
+					if(GUILayout.Button("Save Manifest", GUILayout.Height(22.0f))) {
+						AN_ManifestManager.SaveManifest();
+					}
+				} else {
+					EditorGUILayout.HelpBox("Selected build platform DOESN'T support AndroidManifest.xml file", MessageType.Info);
+				}
+			} break;
+			case "Application" : {
+				AN_ManifestTemplate manifest = AN_ManifestManager.GetManifest();
+				
+				if (manifest != null) {
+					scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width (position.width), GUILayout.Height (position.height - 50f));
+					
+					GUILayout.Label ("Values", EditorStyles.boldLabel);
+					foreach (string key in manifest.ApplicationTemplate.Values.Keys) {
+						EditorGUILayout.BeginHorizontal();
+						
+						GUILayout.Label(key);
+						
+						string input = AN_ManifestManager.GetManifest().ApplicationTemplate.Values[key];
 						EditorGUI.BeginChangeCheck();
-						input = GUILayout.TextField(AN_ManifestManager.GetManifest().Values[key], GUILayout.Width(276.0f));
+						input = GUILayout.TextField(AN_ManifestManager.GetManifest().ApplicationTemplate.Values[key], GUILayout.Width(200.0f));
 						if(EditorGUI.EndChangeCheck()) {
-							AN_ManifestManager.GetManifest().SetValue(key, input);
+							AN_ManifestManager.GetManifest().ApplicationTemplate.SetValue(key, input);
 							return;
 						}
 						
 						if(GUILayout.Button("X", GUILayout.Width(20.0f))) {
-							AN_ManifestManager.GetManifest().RemoveValue(key);
+							AN_ManifestManager.GetManifest().ApplicationTemplate.RemoveValue(key);
 							return;
 						}
-					}
-					GUI.enabled = true;
-					EditorGUILayout.EndHorizontal();
-				}
-
-				EditorGUILayout.BeginHorizontal();
-				EditorGUILayout.Space();
-				if (GUILayout.Button("Add Value", GUILayout.Width(100.0f))) {
-					AddValueDialog(AN_ManifestManager.GetManifest());
-				}
-				EditorGUILayout.Space();
-				EditorGUILayout.EndHorizontal();
-
-				GUILayout.Label ("Properties", EditorStyles.boldLabel);
-				DrawProperties(AN_ManifestManager.GetManifest());
-
-				EditorGUILayout.BeginHorizontal();
-				EditorGUILayout.Space();
-				if (GUILayout.Button("Add Property", GUILayout.Width(100.0f))) {
-					AddPropertyDialog(AN_ManifestManager.GetManifest());
-				}
-				EditorGUILayout.Space();
-				EditorGUILayout.EndHorizontal();
-				EditorGUILayout.Space();
-
-				EditorGUILayout.Space();
-				if(GUILayout.Button("Save Manifest", GUILayout.Height(22.0f))) {
-					AN_ManifestManager.SaveManifest();
-				}
-			} break;
-			case "Application" : {
-				scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width (position.width), GUILayout.Height (position.height - 50f));
-
-				GUILayout.Label ("Values", EditorStyles.boldLabel);
-				foreach (string key in AN_ManifestManager.GetManifest().ApplicationTemplate.Values.Keys) {
-					EditorGUILayout.BeginHorizontal();
-
-					GUILayout.Label(key);
-
-					string input = AN_ManifestManager.GetManifest().ApplicationTemplate.Values[key];
-					EditorGUI.BeginChangeCheck();
-					input = GUILayout.TextField(AN_ManifestManager.GetManifest().ApplicationTemplate.Values[key], GUILayout.Width(200.0f));
-					if(EditorGUI.EndChangeCheck()) {
-						AN_ManifestManager.GetManifest().ApplicationTemplate.SetValue(key, input);
-						return;
-					}
-
-					if(GUILayout.Button("X", GUILayout.Width(20.0f))) {
-						AN_ManifestManager.GetManifest().ApplicationTemplate.RemoveValue(key);
-						return;
+						
+						EditorGUILayout.EndHorizontal();
 					}
 					
-					EditorGUILayout.EndHorizontal();
-				}
-
-				EditorGUILayout.BeginHorizontal();
-				EditorGUILayout.Space();
-				if (GUILayout.Button("Add Value", GUILayout.Width(100.0f))) {
-					AddValueDialog(AN_ManifestManager.GetManifest().ApplicationTemplate);
-				}
-				EditorGUILayout.Space();
-				EditorGUILayout.EndHorizontal();
-
-				GUILayout.Label ("Activities", EditorStyles.boldLabel);
-
-				int launcherActivities = 0;
-				foreach (int id in AN_ManifestManager.GetManifest().ApplicationTemplate.Activities.Keys) {
-					AN_ActivityTemplate activity = AN_ManifestManager.GetManifest().ApplicationTemplate.Activities[id];
-
-					if (activity.IsLauncher) {
-						launcherActivities++;
-					}
-
-					EditorGUILayout.BeginVertical(GUI.skin.box);
 					EditorGUILayout.BeginHorizontal();
-					activity.IsOpen = EditorGUILayout.Foldout(activity.IsOpen, activity.Name);
-					if(GUILayout.Button("X", GUILayout.Width(20.0f))) {
-						AN_ManifestManager.GetManifest().ApplicationTemplate.RemoveActivity(activity);
-						return;
+					EditorGUILayout.Space();
+					if (GUILayout.Button("Add Value", GUILayout.Width(100.0f))) {
+						AddValueDialog(AN_ManifestManager.GetManifest().ApplicationTemplate);
 					}
+					EditorGUILayout.Space();
 					EditorGUILayout.EndHorizontal();
-
-					if (activity.IsOpen) {
-						EditorGUILayout.BeginVertical();
-
-						bool isLauncher = activity.IsLauncher;
-						EditorGUI.BeginChangeCheck();
-						isLauncher = EditorGUILayout.Toggle("Is Launcher", activity.IsLauncher);
-						if (EditorGUI.EndChangeCheck()) {
-							activity.SetAsLauncher(isLauncher);
+					
+					GUILayout.Label ("Activities", EditorStyles.boldLabel);
+					
+					int launcherActivities = 0;
+					foreach (int id in AN_ManifestManager.GetManifest().ApplicationTemplate.Activities.Keys) {
+						AN_ActivityTemplate activity = AN_ManifestManager.GetManifest().ApplicationTemplate.Activities[id];
+						
+						if (activity.IsLauncher) {
+							launcherActivities++;
 						}
-
-						foreach (string k in activity.Values.Keys) {
-							EditorGUILayout.BeginHorizontal();
+						
+						EditorGUILayout.BeginVertical(GUI.skin.box);
+						EditorGUILayout.BeginHorizontal();
+						activity.IsOpen = EditorGUILayout.Foldout(activity.IsOpen, activity.Name);
+						if(GUILayout.Button("X", GUILayout.Width(20.0f))) {
+							AN_ManifestManager.GetManifest().ApplicationTemplate.RemoveActivity(activity);
+							return;
+						}
+						EditorGUILayout.EndHorizontal();
+						
+						if (activity.IsOpen) {
+							EditorGUILayout.BeginVertical();
 							
-							GUILayout.Label(k);
-							EditorGUILayout.Space();
-
-							string input = activity.Values[k];
+							bool isLauncher = activity.IsLauncher;
 							EditorGUI.BeginChangeCheck();
-
-							if (k.Equals("android:name")) {
-								input = GUILayout.TextField(activity.Values[k], GUILayout.Width(224.0f));
-							} else {
-								input = GUILayout.TextField(activity.Values[k], GUILayout.Width(200.0f));
+							isLauncher = EditorGUILayout.Toggle("Is Launcher", activity.IsLauncher);
+							if (EditorGUI.EndChangeCheck()) {
+								activity.SetAsLauncher(isLauncher);
 							}
-
-							if(EditorGUI.EndChangeCheck()) {
-								activity.SetValue(k, input);
-								return;
-							}
-
-							if (!k.Equals("android:name")) {
-								if(GUILayout.Button("X", GUILayout.Width(20.0f))) {
-									activity.RemoveValue(k);
+							
+							foreach (string k in activity.Values.Keys) {
+								EditorGUILayout.BeginHorizontal();
+								
+								GUILayout.Label(k);
+								EditorGUILayout.Space();
+								
+								string input = activity.Values[k];
+								EditorGUI.BeginChangeCheck();
+								
+								if (k.Equals("android:name")) {
+									input = GUILayout.TextField(activity.Values[k], GUILayout.Width(224.0f));
+								} else {
+									input = GUILayout.TextField(activity.Values[k], GUILayout.Width(200.0f));
+								}
+								
+								if(EditorGUI.EndChangeCheck()) {
+									activity.SetValue(k, input);
 									return;
 								}
+								
+								if (!k.Equals("android:name")) {
+									if(GUILayout.Button("X", GUILayout.Width(20.0f))) {
+										activity.RemoveValue(k);
+										return;
+									}
+								}
+								
+								EditorGUILayout.EndHorizontal();
+								EditorGUILayout.Space();
 							}
 							
+							DrawProperties(activity);
+							
+							EditorGUILayout.BeginHorizontal();
+							EditorGUILayout.Space();
+							if (GUILayout.Button("Add Value", GUILayout.Width(100.0f))) {
+								AddValueDialog(activity);
+							}
+							if (GUILayout.Button("Add Property", GUILayout.Width(100.0f))) {
+								AddPropertyDialog(activity);
+							}
+							EditorGUILayout.Space();
 							EditorGUILayout.EndHorizontal();
 							EditorGUILayout.Space();
+							
+							EditorGUILayout.EndVertical();
 						}
-
-						DrawProperties(activity);
-
-						EditorGUILayout.BeginHorizontal();
-						EditorGUILayout.Space();
-						if (GUILayout.Button("Add Value", GUILayout.Width(100.0f))) {
-							AddValueDialog(activity);
-						}
-						if (GUILayout.Button("Add Property", GUILayout.Width(100.0f))) {
-							AddPropertyDialog(activity);
-						}
-						EditorGUILayout.Space();
-						EditorGUILayout.EndHorizontal();
-						EditorGUILayout.Space();
-
 						EditorGUILayout.EndVertical();
 					}
-					EditorGUILayout.EndVertical();
-				}
-
-				EditorGUILayout.BeginHorizontal();
-				EditorGUILayout.Space();
-				if (GUILayout.Button("Add Activity", GUILayout.Width(100.0f))) {
-					AddPermissionDialog dlg = EditorWindow.CreateInstance<AddPermissionDialog>();
-					dlg.onClose += OnPermissionDlgClose;
-					dlg.onAddClick += OnAddActivityClick;
-
-#if UNITY_5
-					dlg.titleContent.text = "Add Activity";
-#else
-					dlg.title = "Add Activity";
-#endif
-
-					dlg.ShowAuxWindow();
-				}
-				EditorGUILayout.Space();
-				EditorGUILayout.EndHorizontal();
-
-				if (launcherActivities > 1) {
-					EditorGUILayout.HelpBox("There is MORE THAN ONE Launcher Activity in Manifest", MessageType.Warning);
-				} else if (launcherActivities < 1){
-					EditorGUILayout.HelpBox("There is NO Launcher Activities in Manifest", MessageType.Warning);
-				}
-
-				GUILayout.Label ("Properties", EditorStyles.boldLabel);
-				DrawProperties(AN_ManifestManager.GetManifest().ApplicationTemplate);
-
-				EditorGUILayout.BeginHorizontal();
-				EditorGUILayout.Space();
-				if (GUILayout.Button("Add Property", GUILayout.Width(100.0f))) {
-					AddPropertyDialog(AN_ManifestManager.GetManifest().ApplicationTemplate);
-				}
-				EditorGUILayout.Space();
-				EditorGUILayout.EndHorizontal();
-
-				EditorGUILayout.Space();
-				EditorGUILayout.EndScrollView();
+					
+					EditorGUILayout.BeginHorizontal();
+					EditorGUILayout.Space();
+					if (GUILayout.Button("Add Activity", GUILayout.Width(100.0f))) {
+						AddPermissionDialog dlg = EditorWindow.CreateInstance<AddPermissionDialog>();
+						dlg.onClose += OnPermissionDlgClose;
+						dlg.onAddClick += OnAddActivityClick;
+						
+						#if UNITY_5
+						dlg.titleContent.text = "Add Activity";
+						#else
+						dlg.title = "Add Activity";
+						#endif
+						
+						dlg.ShowAuxWindow();
+					}
+					EditorGUILayout.Space();
+					EditorGUILayout.EndHorizontal();
+					
+					if (launcherActivities > 1) {
+						EditorGUILayout.HelpBox("There is MORE THAN ONE Launcher Activity in Manifest", MessageType.Warning);
+					} else if (launcherActivities < 1){
+						EditorGUILayout.HelpBox("There is NO Launcher Activities in Manifest", MessageType.Warning);
+					}
+					
+					GUILayout.Label ("Properties", EditorStyles.boldLabel);
+					DrawProperties(AN_ManifestManager.GetManifest().ApplicationTemplate);
+					
+					EditorGUILayout.BeginHorizontal();
+					EditorGUILayout.Space();
+					if (GUILayout.Button("Add Property", GUILayout.Width(100.0f))) {
+						AddPropertyDialog(AN_ManifestManager.GetManifest().ApplicationTemplate);
+					}
+					EditorGUILayout.Space();
+					EditorGUILayout.EndHorizontal();
+					
+					EditorGUILayout.Space();
+					EditorGUILayout.EndScrollView();
+				} else {
+					EditorGUILayout.HelpBox("Selected build platform DOESN'T support AndroidManifest.xml file", MessageType.Info);
+				}				
 			} break;
 			case "Permissions" : {
-				scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width (position.width), GUILayout.Height (position.height - 50f));
-				EditorGUILayout.BeginVertical();
-
-				foreach (AN_PropertyTemplate permission in AN_ManifestManager.GetManifest().Permissions) {
-					EditorGUILayout.BeginHorizontal(GUI.skin.box);
-					EditorGUILayout.LabelField(permission.Values["android:name"]);
-					if(GUILayout.Button("X", GUILayout.Width(20.0f))) {
-						AN_ManifestManager.GetManifest().RemovePermission(permission);
-						return;
+				AN_ManifestTemplate manifest = AN_ManifestManager.GetManifest();
+				
+				if (manifest != null) {
+					scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width (position.width), GUILayout.Height (position.height - 50f));
+					EditorGUILayout.BeginVertical();
+					
+					foreach (AN_PropertyTemplate permission in AN_ManifestManager.GetManifest().Permissions) {
+						EditorGUILayout.BeginHorizontal(GUI.skin.box);
+						EditorGUILayout.LabelField(permission.Values["android:name"]);
+						if(GUILayout.Button("X", GUILayout.Width(20.0f))) {
+							AN_ManifestManager.GetManifest().RemovePermission(permission);
+							return;
+						}
+						EditorGUILayout.EndHorizontal();
+					}
+					
+					EditorGUILayout.BeginHorizontal();
+					if(GUILayout.Button("Add Android Permission")) {
+						GenericMenu permissionsMenu = new GenericMenu();
+						foreach (string pStr in PermissionsStrings) {
+							permissionsMenu.AddItem(new GUIContent(pStr), false, SelectPermission, pStr);
+						}
+						permissionsMenu.ShowAsContext();
+					}
+					
+					if (GUILayout.Button("Add Other Permission")) {
+						AddPermissionDialog dlg = EditorWindow.CreateInstance<AddPermissionDialog>();
+						dlg.onClose += OnPermissionDlgClose;
+						dlg.onAddClick += OnAddPermissionClick;
+						
+						#if UNITY_5
+						dlg.titleContent.text = "Add Permission";
+						#else
+						dlg.title = "Add Permission";
+						#endif
+						
+						
+						dlg.ShowAuxWindow();
 					}
 					EditorGUILayout.EndHorizontal();
-				}
-
-				EditorGUILayout.BeginHorizontal();
-				if(GUILayout.Button("Add Android Permission")) {
-					GenericMenu permissionsMenu = new GenericMenu();
-					foreach (string pStr in PermissionsStrings) {
-						permissionsMenu.AddItem(new GUIContent(pStr), false, SelectPermission, pStr);
-					}
-					permissionsMenu.ShowAsContext();
-				}
-
-				if (GUILayout.Button("Add Other Permission")) {
-					AddPermissionDialog dlg = EditorWindow.CreateInstance<AddPermissionDialog>();
-					dlg.onClose += OnPermissionDlgClose;
-					dlg.onAddClick += OnAddPermissionClick;
-
-					#if UNITY_5
-					dlg.titleContent.text = "Add Permission";
-					#else
-					dlg.title = "Add Permission";
-					#endif
-
-				
-					dlg.ShowAuxWindow();
-				}
-				EditorGUILayout.EndHorizontal();
-
-				EditorGUILayout.Space();
-				EditorGUILayout.EndVertical();
-				EditorGUILayout.EndScrollView();
+					
+					EditorGUILayout.Space();
+					EditorGUILayout.EndVertical();
+					EditorGUILayout.EndScrollView();
+				} else {
+					EditorGUILayout.HelpBox("Selected build platform DOESN'T support AndroidManifest.xml file", MessageType.Info);
+				}				
 			} break;
 			default: break;
 			}

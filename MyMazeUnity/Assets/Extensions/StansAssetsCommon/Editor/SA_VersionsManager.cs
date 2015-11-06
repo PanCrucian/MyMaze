@@ -7,6 +7,9 @@ using System.Collections;
 public static class SA_VersionsManager  {
 
 
+	public const string SUPPORT_EMAIL = "support@stansassets.com";
+
+
 	public const string VERSION_INFO_PATH = "Plugins/StansAssets/Versions/";
 
 	public const string AN_VERSION_INFO_PATH 	= VERSION_INFO_PATH + "AN_VersionInfo.txt";
@@ -26,7 +29,7 @@ public static class SA_VersionsManager  {
 	
 	public static bool Is_AN_Installed {
 		get { 
-			return FileStaticAPI.IsFileExists(PluginsInstalationUtil.ANDROID_DESTANATION_PATH + "androidnative.jar") && FileStaticAPI.IsFileExists(AN_VERSION_INFO_PATH);
+			return FileStaticAPI.IsFileExists(AN_VERSION_INFO_PATH);
 		}
 	}
 
@@ -86,7 +89,7 @@ public static class SA_VersionsManager  {
 	 
 	public static bool Is_UM_Installed {
 		get {
-			return FileStaticAPI.IsFileExists(UM_VERSION_INFO_PATH) && FileStaticAPI.IsFileExists(PluginsInstalationUtil.ANDROID_DESTANATION_PATH + "androidnative.jar") && FileStaticAPI.IsFileExists(UM_IOS_INSTALATION_MARK);
+			return FileStaticAPI.IsFileExists(UM_VERSION_INFO_PATH);
 		} 
 	}
 	

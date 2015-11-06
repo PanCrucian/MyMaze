@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
  
 [AddComponentMenu("UI/Effects/Gradient")]
-public class UIGradient : BaseVertexEffect
+public class UIGradient : BaseMeshEffect
 {
 		public GradientMode gradientMode = GradientMode.Global;
 		public GradientDir gradientDir = GradientDir.Vertical;
@@ -13,32 +13,26 @@ public class UIGradient : BaseVertexEffect
 		public Color vertex2 = Color.black;
 		private Graphic targetGraphic;
     
-        /*public override void ModifyMesh(Mesh mesh)
-        {
-            if (!this.IsActive())
-                return;
-
-            List<UIVertex> list = new List<UIVertex>();
-            using (VertexHelper vertexHelper = new VertexHelper(mesh))
-            {
-                vertexHelper.GetUIVertexStream(list);
-            }
-
-            ModifyVertices(list);  // calls the old ModifyVertices which was used on pre 5.2
-
-            using (VertexHelper vertexHelper2 = new VertexHelper())
-            {
-                vertexHelper2.AddUIVertexTriangleStream(list);
-                vertexHelper2.FillMesh(mesh);
-            }
-        }*/
-
         protected override void Start()
         {
             targetGraphic = GetComponent<Graphic>();
         }
 
-        public override void ModifyVertices(List<UIVertex> vertexList)
+        public override void ModifyMesh(VertexHelper vh)
+        {
+            if (!this.IsActive())
+                return;
+
+            List<UIVertex> vertexList = new List<UIVertex>();
+            vh.GetUIVertexStream(vertexList);
+
+            ModifyVertices(vertexList);
+
+            vh.Clear();
+            vh.AddUIVertexTriangleStream(vertexList);
+        }
+
+        public void ModifyVertices(List<UIVertex> vertexList)
 		{
 				if (!IsActive () || vertexList.Count == 0) {
 						return;

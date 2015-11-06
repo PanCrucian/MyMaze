@@ -1,3 +1,4 @@
+#define GAME_CENTER_ENABLED
 ////////////////////////////////////////////////////////////////////////////////
 //  
 // @module IOS Native Plugin for Unity3D 
@@ -12,7 +13,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 using System.Runtime.InteropServices;
 #endif
 
@@ -20,7 +21,7 @@ public class GameCenter_RTM : ISN_Singleton<GameCenter_RTM> {
 
 
 	
-	#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+	#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 
 
 	[DllImport ("__Internal")]
@@ -104,101 +105,101 @@ public class GameCenter_RTM : ISN_Singleton<GameCenter_RTM> {
 
 
 	public void FindMatch(int minPlayers, int maxPlayers, string msg = "", string[] playersToInvite = null) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		_ISN_RTM_FindMatch(minPlayers, maxPlayers, msg, IOSNative.SerializeArray(playersToInvite));
 		#endif
 	}
 	
 	public void FindMatchWithNativeUI(int minPlayers, int maxPlayers, string msg = "", string[] playersToInvite = null) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		_ISN_RTM_FindMatchWithNativeUI(minPlayers, maxPlayers, msg, IOSNative.SerializeArray(playersToInvite));
 		#endif
 	}
 
 	public void SetPlayerGroup(int group) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		_ISN_RTM_SetPlayerGroup(group);
 		#endif
 	}
 	
 	
 	public void SetPlayerAttributes(int attributes)  {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		_ISN_RTM_SetPlayerAttributes(attributes);
 		#endif
 	}
 
 	public void StartMatchWithInvite(GK_Invite invite, bool useNativeUI) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		ISN_RTM_StartMatchWithInviteID(invite.Id,  useNativeUI);
 		#endif
 	}
 
 	public void CancelPendingInviteToPlayer(GK_Player player) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		ISN_RTM_CancelPendingInviteToPlayerWithId(player.Id);
 		#endif
 	}
 
 	public void CancelMatchSeartch() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		ISN_RTM_CancelMatchSeartch();
 		#endif
 	}
 
 	public void FinishMatchmaking() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		ISN_RTM_FinishMatchmaking();
 		#endif
 	}
 
 
 	public void QueryActivity() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		ISN_RTM_QueryActivity();
 		#endif
 	}
 
 	public void QueryPlayerGroupActivity(int group) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		ISN_RTM_QueryPlayerGroupActivity(group);
 		#endif
 	}
 
 	public void StartBrowsingForNearbyPlayers() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		ISN_RTM_StartBrowsingForNearbyPlayers();
 		#endif
 	}
 
 	public void StopBrowsingForNearbyPlayers() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		ISN_RTM_StopBrowsingForNearbyPlayers();
 		#endif
 	}
 
 	public void Rematch() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		ISN_RTM_Rematch();
 		#endif
 	}
 
 	public void Disconnect() {
 		_CurrentMatch = null;
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		ISN_RTM_Disconnect();
 		#endif
 	}
 	
 	public void SendDataToAll(byte[] data, GK_MatchSendDataMode dataMode) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		string bytesString = System.Convert.ToBase64String (data);
 		ISN_RTM_SendDataToAll(bytesString, (int) dataMode);
 		#endif
 	}
 
 	public void SendData(byte[] data, GK_MatchSendDataMode dataMode, params GK_Player[] players) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && GAME_CENTER_ENABLED) || SA_DEBUG_MODE
 		string bytesString = System.Convert.ToBase64String (data);
 
 		List<string> playersIds =  new List<string>();
@@ -318,6 +319,8 @@ public class GameCenter_RTM : ISN_Singleton<GameCenter_RTM> {
 		string[] DataArray = data.Split(IOSNative.DATA_SPLITTER);
 		string playerId = DataArray[0];
 		GK_Player player = GameCenterManager.GetPlayerById(playerId);
+
+
 
 		GK_PlayerConnectionState state = (GK_PlayerConnectionState) Convert.ToInt32(DataArray[1]);
 		ActionPlayerStateChanged(player, state, CurrentMatch);

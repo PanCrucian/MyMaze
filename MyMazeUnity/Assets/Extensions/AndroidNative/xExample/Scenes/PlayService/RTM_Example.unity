@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 0
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -479,6 +477,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2098,7 +2097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: findMatch
+  MethodName: 66696e644d61746368
 --- !u!114 &485143256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3195,7 +3194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: LeaveRoom
+  MethodName: 4c65617665526f6f6d
 --- !u!114 &833162684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5717,7 +5716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: SendHello
+  MethodName: 53656e6448656c6c6f
 --- !u!114 &1593280047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6046,7 +6045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ConncetButtonPress
+  MethodName: 436f6e6e636574427574746f6e5072657373
 --- !u!114 &1689820749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6794,7 +6793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: InviteFriends
+  MethodName: 496e76697465467269656e6473
 --- !u!114 &1862136975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7596,7 +7595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShowWatingRoom
+  MethodName: 53686f77576174696e67526f6f6d
 --- !u!114 &1954793823
 MonoBehaviour:
   m_ObjectHideFlags: 0

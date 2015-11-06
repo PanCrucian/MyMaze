@@ -1,3 +1,5 @@
+#define IAD_API
+
 ////////////////////////////////////////////////////////////////////////////////
 //  
 // @module IOS Native Plugin for Unity3D 
@@ -12,13 +14,13 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+#if (UNITY_IPHONE && !UNITY_EDITOR && IAD_API) || SA_DEBUG_MODE
 using System.Runtime.InteropServices;
 #endif
 
 public class iAdBannerController : ISN_Singleton<iAdBannerController> {
 
-	#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+	#if (UNITY_IPHONE && !UNITY_EDITOR && IAD_API) || SA_DEBUG_MODE
 	[DllImport ("__Internal")]
 	private static extern void _IADDestroyBanner(int id);
 
@@ -31,6 +33,8 @@ public class iAdBannerController : ISN_Singleton<iAdBannerController> {
 
 	[DllImport ("__Internal")]
 	private static extern void _IADShowInterstitialAd();
+	
+
 	#endif
 
 
@@ -38,6 +42,8 @@ public class iAdBannerController : ISN_Singleton<iAdBannerController> {
 	private static int _nextId = 0;
 	private static iAdBannerController _instance;
 	private Dictionary<int, iAdBanner> _banners; 
+
+	private bool _IsInterstisialsAdReady = false;
 
 	//Actions
 	public static event Action InterstitialDidFailWithErrorAction 	= delegate {};
@@ -87,7 +93,7 @@ public class iAdBannerController : ISN_Singleton<iAdBannerController> {
 			if(_banners.ContainsKey(id)) {
 				_banners.Remove(id);
 				
-				#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+				#if (UNITY_IPHONE && !UNITY_EDITOR && IAD_API) || SA_DEBUG_MODE
 					_IADDestroyBanner(id);
 				#endif
 			}
@@ -97,7 +103,7 @@ public class iAdBannerController : ISN_Singleton<iAdBannerController> {
 
 	public void StartInterstitialAd() {
 
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && IAD_API) || SA_DEBUG_MODE
 
 		#if UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_5 || UNITY_4_6
 			if((iPhone.generation.ToString()).IndexOf("iPhone") == -1 && (iPhone.generation.ToString()).IndexOf("iPad") == -1){
@@ -126,7 +132,7 @@ public class iAdBannerController : ISN_Singleton<iAdBannerController> {
 	}
 	
 	public void LoadInterstitialAd() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && IAD_API) || SA_DEBUG_MODE
 
 		#if UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_5 || UNITY_4_6
 			if((iPhone.generation.ToString()).IndexOf("iPhone") == -1 && (iPhone.generation.ToString()).IndexOf("iPad") == -1){
@@ -151,9 +157,14 @@ public class iAdBannerController : ISN_Singleton<iAdBannerController> {
 	}
 	
 	public void ShowInterstitialAd() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
-			_IADShowInterstitialAd();
-		#endif
+		if(_IsInterstisialsAdReady) {
+
+			Invoke("interstitialAdActionDidFinish", 1f);
+			_IsInterstisialsAdReady = false;
+			#if (UNITY_IPHONE && !UNITY_EDITOR && IAD_API) || SA_DEBUG_MODE
+				_IADShowInterstitialAd();
+			#endif
+		}
 	}
 
 	
@@ -168,7 +179,12 @@ public class iAdBannerController : ISN_Singleton<iAdBannerController> {
 		}
 	}
 
-
+	public bool IsInterstisialsAdReady {
+		get {
+			return _IsInterstisialsAdReady;
+		}
+	}
+	
 
 	
 	public iAdBanner GetBanner(int id) {
@@ -253,17 +269,20 @@ public class iAdBannerController : ISN_Singleton<iAdBannerController> {
 
 	private void interstitialdidFailWithError(string data) {
 		InterstitialDidFailWithErrorAction();
+		_IsInterstisialsAdReady = false;
 	}
 
 	private void interstitialAdWillLoad(string data) {
 		InterstitialAdWillLoadAction();
+		_IsInterstisialsAdReady = false;
 	}
 
 	private void interstitialAdDidLoad(string data) {
 		InterstitialAdDidLoadAction();
+		_IsInterstisialsAdReady = true;
 	}
 
-	private void interstitialAdActionDidFinish(string data) {
+	private void interstitialAdActionDidFinish() {
 		InterstitialAdDidFinishAction();
 	}
 

@@ -1,4 +1,4 @@
-﻿//#define SA_DEBUG_MODE
+#define SOCIAL_API
 ////////////////////////////////////////////////////////////////////////////////
 //  
 // @module IOS Native Plugin for Unity3D 
@@ -12,13 +12,13 @@
 using System;
 using UnityEngine;
 using System.Collections;
-#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+#if (UNITY_IPHONE && !UNITY_EDITOR && SOCIAL_API) || SA_DEBUG_MODE
 using System.Runtime.InteropServices;
 #endif
 
 public class IOSSocialManager : ISN_Singleton<IOSSocialManager> {
 
-	#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+	#if (UNITY_IPHONE && !UNITY_EDITOR && SOCIAL_API) || SA_DEBUG_MODE
 	[DllImport ("__Internal")]
 	private static extern void _ISN_TwPost(string text, string url, string encodedMedia);
 
@@ -32,14 +32,34 @@ public class IOSSocialManager : ISN_Singleton<IOSSocialManager> {
 	private static extern void _ISN_SendMail(string subject, string body,  string recipients, string encodedMedia);
 
 
+	[DllImport ("__Internal")]
+	private static extern void _ISN_InstaShare(string encodedMedia, string message);
+
+
+	[DllImport ("__Internal")]
+	private static extern void _ISN_WP_ShareText(string message);
+
+	[DllImport ("__Internal")]
+	private static extern void _ISN_WP_ShareMedia(string encodedMedia);
+
+
 	#endif
 	
 
 
 	//Actions
+
+	public static event Action OnFacebookPostStart = delegate {};
+	public static event Action OnTwitterPostStart = delegate {};
+	public static event Action OnInstagramPostStart = delegate {};
+
+
 	public static event Action<ISN_Result> OnFacebookPostResult = delegate {};
 	public static event Action<ISN_Result> OnTwitterPostResult = delegate {};
+	public static event Action<ISN_Result> OnInstagramPostResult = delegate {};
 	public static event Action<ISN_Result> OnMailResult = delegate {};
+
+
 
 	
 	//--------------------------------------
@@ -61,7 +81,7 @@ public class IOSSocialManager : ISN_Singleton<IOSSocialManager> {
 	}
 
 	public void ShareMedia(string text, Texture2D texture) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && SOCIAL_API) || SA_DEBUG_MODE
 			if(texture != null) {
 				byte[] val = texture.EncodeToPNG();
 				string bytesString = System.Convert.ToBase64String (val);
@@ -73,7 +93,8 @@ public class IOSSocialManager : ISN_Singleton<IOSSocialManager> {
 	}
 
 	public void TwitterPost(string text, string url = null, Texture2D texture = null) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		OnTwitterPostStart();
+		#if (UNITY_IPHONE && !UNITY_EDITOR && SOCIAL_API) || SA_DEBUG_MODE
 		if(text == null) {
 			text = "";
 		}
@@ -97,7 +118,8 @@ public class IOSSocialManager : ISN_Singleton<IOSSocialManager> {
 
 
 	public void FacebookPost(string text, string url = null, Texture2D texture = null) {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		OnFacebookPostStart();
+		#if (UNITY_IPHONE && !UNITY_EDITOR && SOCIAL_API) || SA_DEBUG_MODE
 		if(text == null) {
 			text = "";
 		}
@@ -119,19 +141,60 @@ public class IOSSocialManager : ISN_Singleton<IOSSocialManager> {
 	}
 
 
+	public void InstagramPost(Texture2D texture) {
+		InstagramPost(texture, "");
+	}
+	
+	
+	public void InstagramPost(Texture2D texture, string message) {
+		OnInstagramPostStart();
+		#if (UNITY_IPHONE && !UNITY_EDITOR && SOCIAL_API) || SA_DEBUG_MODE
+		
+		byte[] val = texture.EncodeToPNG();
+		string bytesString = System.Convert.ToBase64String (val);
+		
+		
+		_ISN_InstaShare(bytesString, message);
+		
+		#endif
+		
+	}
+
+
+	public void WhatsAppShareText(string message) {
+		#if (UNITY_IPHONE && !UNITY_EDITOR && SOCIAL_API) || SA_DEBUG_MODE
+		_ISN_WP_ShareText(message);
+		#endif
+	}
+
+
+	public void WhatsAppShareImage(Texture2D texture) {
+
+		#if (UNITY_IPHONE && !UNITY_EDITOR && SOCIAL_API) || SA_DEBUG_MODE
+
+		byte[] val = texture.EncodeToPNG();
+		string bytesString = System.Convert.ToBase64String (val);
+
+		_ISN_WP_ShareMedia(bytesString);
+
+		#endif
+	}
+
+
+
 	public void SendMail(string subject, string body, string recipients) {
 		SendMail(subject, body, recipients, null);
 	}
 	
 	public void SendMail(string subject, string body, string recipients, Texture2D texture) {
 		if(texture == null) {
-			#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+			#if (UNITY_IPHONE && !UNITY_EDITOR && SOCIAL_API) || SA_DEBUG_MODE
 			_ISN_SendMail(subject, body, recipients, "");
 			#endif
 		} else {
 			
 			
-			#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+			#if (UNITY_IPHONE && !UNITY_EDITOR && SOCIAL_API) || SA_DEBUG_MODE
 			byte[] val = texture.EncodeToPNG();
 			string bytesString = System.Convert.ToBase64String (val);
 			_ISN_SendMail(subject, body, recipients, bytesString);
@@ -172,6 +235,23 @@ public class IOSSocialManager : ISN_Singleton<IOSSocialManager> {
 	private void OnMailSuccess() {
 		ISN_Result result = new ISN_Result(true);
 		OnMailResult(result);
+	}
+
+
+	private void OnInstaPostSuccess() {
+		ISN_Result result = new ISN_Result(true);
+		OnInstagramPostResult(result);
+	}
+	
+	
+	private void OnInstaPostFailed(string data) {
+
+		int code = System.Convert.ToInt32(data);
+
+		ISN_Error error =  new ISN_Error(code, "Posting Failed");
+		ISN_Result result = new ISN_Result(error);
+		OnInstagramPostResult(result);
+
 	}
 
 

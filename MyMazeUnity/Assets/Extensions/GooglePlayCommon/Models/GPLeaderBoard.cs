@@ -13,18 +13,29 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-
+[System.Serializable]
 public class GPLeaderBoard  {
-	
-	private string _id;
-	private string _name;
 
+	//Editor Only
+	public bool IsOpen = true;
+
+	[SerializeField]
+	private string _id = string.Empty;
+
+	[SerializeField]
+	private string _name = string.Empty;
+
+	[SerializeField]
+	private string _description = string.Empty;
+
+	[SerializeField]
+	private Texture2D _Texture;
 	
 	public GPScoreCollection SocsialCollection =  new GPScoreCollection();
 	public GPScoreCollection GlobalCollection  =  new GPScoreCollection();
 
 	public List<GPScore> CurrentPlayerScore =  new List<GPScore>();
-	private Dictionary<int, GP_LocalPlayerScoreUpdateListener> ScoreUpdateListners =  new Dictionary<int, GP_LocalPlayerScoreUpdateListener>();
+	private Dictionary<int, GP_LocalPlayerScoreUpdateListener> _ScoreUpdateListners;
 
 	//--------------------------------------
 	// INITIALIZE
@@ -147,12 +158,12 @@ public class GPLeaderBoard  {
 	}
 
 	public void ReportLocalPlayerScoreUpdate (GPScore score, int requestId) {
-		GP_LocalPlayerScoreUpdateListener listener = ScoreUpdateListners[requestId];
+		GP_LocalPlayerScoreUpdateListener listener = _ScoreUpdateListners[requestId];
 		listener.ReportScoreUpdate(score);
 	}
 
 	public void ReportLocalPlayerScoreUpdateFail(string errorData, int requestId) {
-		GP_LocalPlayerScoreUpdateListener listener = ScoreUpdateListners[requestId];
+		GP_LocalPlayerScoreUpdateListener listener = _ScoreUpdateListners[requestId];
 		listener.ReportScoreUpdateFail(errorData);
 	}
 
@@ -213,11 +224,45 @@ public class GPLeaderBoard  {
 		get {
 			return _id;
 		}
+		set {
+			_id = value;
+		}
 	}
 
 	public string Name {
 		get {
 			return _name;
+		}
+		set {
+			_name = value;
+		}
+	}
+
+	public string Description {
+		get {
+			return _description;
+		}
+		set {
+			_description = value;
+		}
+	}
+
+	public Texture2D Texture {
+		get {
+			return _Texture;
+		}
+		set {
+			_Texture = value;
+		}
+	}
+
+	private Dictionary<int, GP_LocalPlayerScoreUpdateListener> ScoreUpdateListners {
+		get {
+			if(_ScoreUpdateListners == null) {
+				_ScoreUpdateListners	=  new Dictionary<int, GP_LocalPlayerScoreUpdateListener>();
+			}
+
+			return _ScoreUpdateListners;
 		}
 	}
 }

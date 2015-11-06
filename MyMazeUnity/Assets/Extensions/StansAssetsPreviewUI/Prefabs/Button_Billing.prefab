@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba0a5a4bb2d2453ca958d5fbe7ebc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: BillingExample
+  levelName: 42696c6c696e674578616d706c65
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,7 +251,6 @@ MonoBehaviour:
   normalTexture: {fileID: 2800000, guid: 41d3587fc0c404efbbe1f3343b897d1a, type: 3}
   pressedTexture: {fileID: 2800000, guid: fe8587a55c4eb4e1fbdec59528c43d0b, type: 3}
   disabledTexture: {fileID: 0}
-  selectedTexture: {fileID: 0}
   sound: {fileID: 8300000, guid: 1c6c76807173e4fcc83788a496bcbeb3, type: 3}
   disabledsound: {fileID: 0}
 --- !u!1001 &100100000

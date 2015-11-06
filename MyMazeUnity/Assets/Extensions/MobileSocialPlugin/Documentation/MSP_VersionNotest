@@ -1,0 +1,207 @@
+7.1.2:
+Fixes:
+iOS Postprocessing Player fix
+
+7.1.1:
+Fixes:
+Fecabook SDK remove fix
+
+7.1:
+Compatibility update
+
+7.0:
+Compatibility update
+
+Refactor:
+SPFacebook actions with FB_Result callback have FB_APIResult callback for now
+
+6.9:
+Fixes:
+Facebook posting fix
+Compatibility update
+
+6.8:
+New Features:
+Facebook Post message in background - use SPFacebook.Instance.PostText("message")
+
+Fixes:
+Facebook connection decline fix
+Twitter connection decline fix
+Compatibility update
+
+6.7:
+Google+ Sharing fix. MSPAndroidSocialGate.StartShareIntent is deprecated for now, use MSPAndroidSocialGate.StartGooglePlusShare instead
+Compatibility update
+
+6.6:
+Compatibility update
+
+6.5:
+New features:
+Now, if you need to use text sharing only, SD card permission will not be added
+
+Fixes:
+'bimagechooser' folder is removed for now
+Remove Camera image from Gallery after transfering to Unity options added
+
+6.4:
+MSP_OpenAppInStore PlayMaker action added
+
+6.3:
+Compatibility update
+
+6.2:
+Unity 5 support added
+
+5.1:
+Compatibility updated
+
+
+5.0:
+Mobile Social does not overrides main activity anymore
+
+4.3:
+Twitter image posting fixed
+Facebook Game Gifting API. Reade more: http://goo.gl/uhxaLf
+Facebook Trun Based Notifications: Read more:http://goo.gl/sZNJDU
+
+4.2:
+Instagram actions fixed
+Facebook auth bug fixed
+IOS Twitter API compilation bug fixed
+FB SDK updated to 6.1
+
+4.0:
+Instagram posting result action added
+Manifest auto Generation
+
+3.9:
+iPad sharing bug fixed
+Editor improvements
+
+
+3.8:
+Refactor:
+Flash Like event system now use own namespace: UnionAssets.FLE
+
+Read More about update:
+http://goo.gl/PH2CmM
+
+3.7;
+
+Remove Facebook SDK Action fixed
+FB Login Play Maker Action fixed
+Post process script improved
+
+3.6.1
+Manifesr post process fix
+
+3.6:
+New Features:
+SPFacebook C# Actions Added
+SPTwitter  C# Actions Added
+
+
+3.5:
+Duplicate on deploy fixed
+Native Sharing on android now will use Local Storage
+if External Storage is not available
+
+
+3.4:
+
+Twitter:
+Setting Editor updated
+Consumer Key -> Api Key
+Consumer Secret -> Api Secret
+
+User time Line Request updated
+
+
+Facebook:
+Unity Facebook SDK updated to 6.0.0
+
+SPFacebook.instance.Pay method added
+Metrics API Added. SPFacebookAnalytics methods:
+ActivateApp
+AchievedLevel
+Rated
+UnlockedAchievement
+CompletedRegistration
+CompletedTutorial
+AddedPaymentInfo
+Purchased
+AddedToCart
+AddedToWishlist
+InitiatedCheckout
+Searched
+SpentCredits
+ViewedContent
+
+
+
+3.2:
+Send Mail added
+
+3.1
+New features:
+Twitter Application Only API Added
+Facebook Leaderboards API Added
+
+
+
+Fixes:
+Twitter Auth Bug Fixed
+
+3.0:
+Compatibility update
+
+
+2.9:
+Fixes:
+SPShareUtility.ShareMedia - crash on Android fixed
+
+
+Moved:
+Assets/Plugins/Android - > Assets/StansAssets/Plugins/Android
+
+2.8:
+Code Refactor:
+Removed:
+Assets/Extensions/MobileSocialPlugin/Scripts/Android/Twitter
+Assets/Plugins/IOS/Unity3d.m
+Assets/Plugins/IOS/Unity3d.h
+Assets/Plugins/IOS/SPDataUtility.m
+Assets/Plugins/IOS/SPDataUtility.h
+
+
+
+Added:
+Assets/Extensions/GooglePlayCommon/Social/Twitter/Manage
+Assets/Plugins/IOS/ISNDataConvertor.m
+Assets/Plugins/IOS/ISNDataConvertor.h
+
+Fixes:
+Conflict with IOS Native Plugin Fixed
+
+
+
+2.7:
+Code Refactor:
+Singletone -> Singleton
+SPTwitter now TwitterManagerInterface
+Spelling fixes
+Updates:
+Documentation Updated
+Example Scne Updated
+MSP_Preview scene added
+
+2.6:
+Stability Improvments
+Android Native Compatibility update
+
+2.5:
+Native posting added
+GUI updated
+FB app request added
+Unity 4.5 cpmpatibility

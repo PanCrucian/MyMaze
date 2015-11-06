@@ -12,11 +12,16 @@ public class ISN_DeviceGUID  {
 	}
 
 
-	public string GetBase64String() {
-		return _Base64;
+	public string Base64String {
+		get {
+			return _Base64;
+		}
+
 	}
 
-	public byte[] GetBytes() {
-		return _Bytes;
+	public byte[] Bytes {
+		get {
+			return _Bytes;
+		}
 	}
 }

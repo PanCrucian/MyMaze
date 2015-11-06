@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -154,7 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ce91fc836d73647a99182d02e5d787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clientVersion: 1.0.9
+  androidClientVersion: 1.0.11
+  iphoneClientVersion: 0.1.4
 --- !u!4 &1780507429
 Transform:
   m_ObjectHideFlags: 0

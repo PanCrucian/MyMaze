@@ -12,6 +12,9 @@ public class ISN_LocalNotification  {
 	private int _Badges = 0;
 	private string _Data = string.Empty;
 
+	private string _SoundName = "";
+	private const string DATA_SPLITTER = "|||";
+
 
 	//--------------------------------------
 	// INITIALIZE
@@ -20,10 +23,29 @@ public class ISN_LocalNotification  {
 	public ISN_LocalNotification(DateTime time, string message, bool useSound = true) {
 
 
-		_Id = IOSNotificationController.GetNextNotificationId;
+		_Id = SA_IdFactory.NextId;
 		_Date = time;
 		_Message = message;
 		_UseSound = useSound;
+
+	}
+
+	public ISN_LocalNotification(string serializaedNotificationData) {
+
+		try {
+			string[] nodes = serializaedNotificationData.Split(new string[] { DATA_SPLITTER }, StringSplitOptions.None);
+			
+			
+			_Id = System.Convert.ToInt32(nodes[0]);
+			_UseSound = System.Convert.ToBoolean(nodes[1]);
+			_Badges =  System.Convert.ToInt32(nodes[2]);
+			_Data = nodes[3];
+			_SoundName = nodes[4];
+			_Date = new DateTime(System.Convert.ToInt64(nodes[5]));
+		} catch(Exception ex) {
+			Debug.LogError("Failed to deserialize the ISN_LocalNotification object");
+			Debug.LogError(ex.Message);
+		}
 
 	}
 
@@ -42,6 +64,10 @@ public class ISN_LocalNotification  {
 
 	public void SetData(string data) {
 		_Data = data;
+	}
+
+	public void SetSoundName(string soundName) {
+		_SoundName = soundName;
 	}
 
 
@@ -71,6 +97,16 @@ public class ISN_LocalNotification  {
 		}
 	}
 
+	public bool IsFired {
+		get {
+			if(System.DateTime.Now.Ticks > Date.Ticks) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+
 	public string Message {
 		get {
 			return _Message;
@@ -92,6 +128,25 @@ public class ISN_LocalNotification  {
 	public string Data {
 		get {
 			return _Data;
+		}
+	}
+
+	public string SoundName {
+		get {
+			return _SoundName;
+		}
+	}
+
+	public string SerializedString {
+		get {
+			return System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes( 
+			                                                                        Id.ToString() + DATA_SPLITTER + 
+			                                                                        UseSound.ToString() + DATA_SPLITTER + 
+			                                                                        Badges.ToString() + DATA_SPLITTER + 
+			                                                                        Data + DATA_SPLITTER + 
+			                                                                        SoundName + DATA_SPLITTER + 
+			                                                                        Date.Ticks.ToString() 			                                                                     
+			                                                                        ));
 		}
 	}
 }

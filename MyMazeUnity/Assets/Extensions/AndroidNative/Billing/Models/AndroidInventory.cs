@@ -13,9 +13,6 @@ using System.Collections.Generic;
 public class AndroidInventory  {
 
 	private Dictionary<string, GooglePurchaseTemplate> _purchases;
-	private Dictionary<string, GoogleProductTemplate> _products;
-
-
 
 	//--------------------------------------
 	// INITIALIZE
@@ -23,22 +20,13 @@ public class AndroidInventory  {
 
 	public AndroidInventory () {
 		_purchases = new  Dictionary<string, GooglePurchaseTemplate> ();
-		_products  = new Dictionary<string, GoogleProductTemplate> ();
 	} 
 
 	//--------------------------------------
 	// PUBLIC METHODS
 	//--------------------------------------
 
-
-	public void addProduct(GoogleProductTemplate product) {
-		if(_products.ContainsKey(product.SKU)) {
-			_products [product.SKU] = product;
-		} else {
-			_products.Add (product.SKU, product);
-		}
-	}
-
+	
 
 	public void addPurchase(GooglePurchaseTemplate purchase) {
 		if(_purchases.ContainsKey(purchase.SKU)) {
@@ -69,11 +57,14 @@ public class AndroidInventory  {
 
 
 	public GoogleProductTemplate GetProductDetails(string SKU) {
-		if(_products.ContainsKey(SKU)) {
-			return _products [SKU];
-		} else {
-			return null;
+		foreach(GoogleProductTemplate p in Products) {
+			if(p.SKU.Equals(SKU)) {
+				return p;
+			}
 		}
+
+		GoogleProductTemplate product = new GoogleProductTemplate(){SKU = SKU};
+		return product;
 	}
 
 	public GooglePurchaseTemplate GetPurchaseDetails(string SKU) {
@@ -88,18 +79,31 @@ public class AndroidInventory  {
 	// GET / SET
 	//--------------------------------------
 
+	[System.Obsolete("purchases is deprectaed, plase use Purchases instead")]
 	public List<GooglePurchaseTemplate> purchases {
 		get {
 			return  new List<GooglePurchaseTemplate>(_purchases.Values);
 		}
 	}
 
-	public List<GoogleProductTemplate> products {
+	public List<GooglePurchaseTemplate> Purchases {
 		get {
-			return  new List<GoogleProductTemplate>(_products.Values);
+			return  new List<GooglePurchaseTemplate>(_purchases.Values);
 		}
 	}
 
+	[System.Obsolete("products is deprectaed, plase use Products instead")]
+	public List<GoogleProductTemplate> products {
+		get {
+			return  Products;
+		}
+	}
+
+	public List<GoogleProductTemplate> Products {
+		get {
+			return  AndroidNativeSettings.Instance.InAppProducts;
+		}
+	}
 
 
 }

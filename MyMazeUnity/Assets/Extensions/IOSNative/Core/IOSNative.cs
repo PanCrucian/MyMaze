@@ -22,7 +22,7 @@ public class IOSNative {
 	public const string DATA_SPLITTER2 = "|%|";
 	public const string DATA_EOF = "endofline";
 
-
+	
 	public static string SerializeArray(string[] array) {
 
 		if(array == null) {

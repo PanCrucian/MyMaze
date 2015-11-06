@@ -35,9 +35,9 @@ public class GK_TBM_Participant  {
 
 		_MatchOutcome = outcome;
 
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
-		GameCenter_TBM._ISN_TBM_UpdateParticipantOutcome(MatchId, (int) _MatchOutcome, _PlayerId);
-		#endif
+		GameCenter_TBM.Instance.UpdateParticipantOutcome (MatchId, (int)_MatchOutcome, _PlayerId);
+
+
 	}
 
 

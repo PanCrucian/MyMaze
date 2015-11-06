@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 0
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -304,6 +302,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -739,7 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShoweButtons
+  MethodName: 53686f7765427574746f6e73
 --- !u!114 &290864804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,7 +1026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: CreatePlusButtons
+  MethodName: 437265617465506c7573427574746f6e73
 --- !u!114 &406199061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,7 +1431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: HideButtons
+  MethodName: 48696465427574746f6e73
 --- !u!114 &638898251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1763,7 +1762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ChangePosPostButton
+  MethodName: 4368616e6765506f73506f7374427574746f6e
 --- !u!114 &678688104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3420,7 +3419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: CreateRandomPostButton
+  MethodName: 43726561746552616e646f6d506f7374427574746f6e
 --- !u!114 &2041438606
 MonoBehaviour:
   m_ObjectHideFlags: 0

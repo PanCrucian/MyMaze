@@ -13,7 +13,7 @@ using System.Collections.Generic;
 
 public class LeaderboardCustomGUIExample : MonoBehaviour {
 
-	private string leaderboardId =  "your.leaderboard2.id.here";
+	private string leaderboardId_1 =  "your.ios.leaderbord1.id";
 	public int hiScore = 100;
 
 
@@ -43,12 +43,13 @@ public class LeaderboardCustomGUIExample : MonoBehaviour {
 		GUI.Label(new Rect(10, 20, 400, 40), "Custom Leaderboard GUI Example", headerStyle);
 
 		if(GUI.Button(new Rect(400, 10, 150, 50), "Load Friends Scores")) {
-			GameCenterManager.LoadScore(leaderboardId, 1, 10, GK_TimeSpan.ALL_TIME, GK_CollectionType.FRIENDS);
+			GameCenterManager.LoadScore(leaderboardId_1, 1, 10, GK_TimeSpan.ALL_TIME, GK_CollectionType.FRIENDS);
 		}
 
 		if(GUI.Button(new Rect(600, 10, 150, 50), "Load Global Scores")) {
-			GameCenterManager.LoadScore(leaderboardId, 50, 150, GK_TimeSpan.ALL_TIME, GK_CollectionType.GLOBAL);
+			GameCenterManager.LoadScore(leaderboardId_1, 1, 20, GK_TimeSpan.ALL_TIME, GK_CollectionType.GLOBAL);
 		}
+
 
 		Color defaultColor = GUI.color;
 
@@ -81,11 +82,11 @@ public class LeaderboardCustomGUIExample : MonoBehaviour {
 				GK_Score score = loadedLeaderboard.GetScore(i, GK_TimeSpan.ALL_TIME, displayCollection);
 				if(score != null) {
 					GUI.Label(new Rect(10,  90 + 70 * i, 100, 40), i.ToString(), boardStyle);
-					GUI.Label(new Rect(100, 90 + 70 * i, 100, 40), score.GetLongScore().ToString() , boardStyle);
-					GUI.Label(new Rect(200, 90 + 70 * i, 100, 40), score.playerId, boardStyle);
+					GUI.Label(new Rect(100, 90 + 70 * i, 100, 40), score.LongScore.ToString() , boardStyle);
+					GUI.Label(new Rect(200, 90 + 70 * i, 100, 40), score.PlayerId, boardStyle);
 
 
-					GK_Player player = GameCenterManager.GetPlayerById(score.playerId);
+					GK_Player player = GameCenterManager.GetPlayerById(score.PlayerId);
 					if(player != null) {
 						GUI.Label(new Rect(400, 90 + 70 * i , 100, 40), player.Alias, boardStyle);
 						if(player.SmallPhoto != null) {
@@ -96,7 +97,7 @@ public class LeaderboardCustomGUIExample : MonoBehaviour {
 					}
 
 					if(GUI.Button(new Rect(650, 90 + 70 * i, 100, 30), "Challenge")) {
-						GameCenterManager.IssueLeaderboardChallenge(leaderboardId, "Your message here", score.playerId);
+						GameCenterManager.IssueLeaderboardChallenge(leaderboardId_1, "Your message here", score.PlayerId);
 					}
 
 				}
@@ -110,10 +111,11 @@ public class LeaderboardCustomGUIExample : MonoBehaviour {
 
 	private void OnScoresListLoaded (ISN_Result res) {
 		if(res.IsSucceeded) {
-			Debug.Log("Scores loaded");
-			loadedLeaderboard = GameCenterManager.GetLeaderboard(leaderboardId);
+
+			loadedLeaderboard = GameCenterManager.GetLeaderboard(leaderboardId_1);
+			IOSMessage.Create("Success", "Scores loaded");
 		} else  {
-			Debug.Log("Failed to load scores");
+			IOSMessage.Create("Fail", "Failed to load scores");
 		}
 	}
 

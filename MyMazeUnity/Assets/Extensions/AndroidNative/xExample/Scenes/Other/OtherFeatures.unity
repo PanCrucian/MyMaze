@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 0
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -559,6 +557,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1067,7 +1066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: CheckForTV
+  MethodName: 436865636b466f725456
 --- !u!114 &226478467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,7 +1475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: LoadExternal
+  MethodName: 4c6f616445787465726e616c
 --- !u!114 &312991861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1584,7 +1583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: SaveScreenshot
+  MethodName: 5361766553637265656e73686f74
 --- !u!114 &315338537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2493,7 +2492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: RunApp
+  MethodName: 52756e417070
 --- !u!114 &581789552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2823,7 +2822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: GetImageFromCamera
+  MethodName: 476574496d61676546726f6d43616d657261
 --- !u!114 &686164445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3935,7 +3934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: LoadInternal
+  MethodName: 4c6f6164496e7465726e616c
 --- !u!114 &1009838906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4043,7 +4042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: CheckAppLicense
+  MethodName: 436865636b4170704c6963656e7365
 --- !u!114 &1018409330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4448,7 +4447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: LoadAppInfo
+  MethodName: 4c6f6164417070496e666f
 --- !u!114 &1106142199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4855,7 +4854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: CheckAppInstalation
+  MethodName: 436865636b417070496e7374616c6174696f6e
 --- !u!114 &1156973110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6306,7 +6305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: GetAndroidId
+  MethodName: 476574416e64726f69644964
 --- !u!114 &1549415033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6488,7 +6487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: EnableImmersiveMode
+  MethodName: 456e61626c65496d6d6572736976654d6f6465
 --- !u!114 &1627510698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7261,7 +7260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: GetImageFromGallery
+  MethodName: 476574496d61676546726f6d47616c6c657279
 --- !u!114 &1703678980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7912,7 +7911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: LoadAdressBook
+  MethodName: 4c6f6164416472657373426f6f6b
 --- !u!114 &1859386734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8207,7 +8206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: SaveToGalalry
+  MethodName: 53617665546f47616c616c7279
 --- !u!1 &1952842232
 GameObject:
   m_ObjectHideFlags: 0

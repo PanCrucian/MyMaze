@@ -33,8 +33,8 @@ public class PaymentManagerExample {
 			//You do not have to add products by code if you already did it in seetings guid
 			//Windows -> IOS Native -> Edit Settings
 			//Billing tab.
-			IOSInAppPurchaseManager.Instance.addProductId(SMALL_PACK);
-			IOSInAppPurchaseManager.Instance.addProductId(NC_PACK);
+			IOSInAppPurchaseManager.Instance.AddProductId(SMALL_PACK);
+			IOSInAppPurchaseManager.Instance.AddProductId(NC_PACK);
 			
 
 
@@ -51,7 +51,7 @@ public class PaymentManagerExample {
 
 		} 
 
-		IOSInAppPurchaseManager.Instance.loadStore();
+		IOSInAppPurchaseManager.Instance.LoadStore();
 
 
 	}
@@ -64,7 +64,7 @@ public class PaymentManagerExample {
 	
 	
 	public static void buyItem(string productId) {
-		IOSInAppPurchaseManager.Instance.buyProduct(productId);
+		IOSInAppPurchaseManager.Instance.BuyProduct(productId);
 	}
 	
 	//--------------------------------------
@@ -88,17 +88,17 @@ public class PaymentManagerExample {
 		}
 	}
 
-	private static void OnTransactionComplete (IOSStoreKitResult response) {
+	private static void OnTransactionComplete (IOSStoreKitResult result) {
 
-		Debug.Log("OnTransactionComplete: " + response.ProductIdentifier);
-		Debug.Log("OnTransactionComplete: state: " + response.State);
+		Debug.Log("OnTransactionComplete: " + result.ProductIdentifier);
+		Debug.Log("OnTransactionComplete: state: " + result.State);
 
-		switch(response.State) {
+		switch(result.State) {
 		case InAppPurchaseState.Purchased:
 		case InAppPurchaseState.Restored:
 			//Our product been succsesly purchased or restored
 			//So we need to provide content to our user depends on productIdentifier
-			UnlockProducts(response.ProductIdentifier);
+			UnlockProducts(result.ProductIdentifier);
 			break;
 		case InAppPurchaseState.Deferred:
 			//iOS 8 introduces Ask to Buy, which lets parents approve any purchases initiated by children
@@ -108,17 +108,17 @@ public class PaymentManagerExample {
 		case InAppPurchaseState.Failed:
 			//Our purchase flow is failed.
 			//We can unlock intrefase and repor user that the purchase is failed. 
-			Debug.Log("Transaction failed with error, code: " + response.Error.Code);
-			Debug.Log("Transaction failed with error, description: " + response.Error.Description);
+			Debug.Log("Transaction failed with error, code: " + result.Error.Code);
+			Debug.Log("Transaction failed with error, description: " + result.Error.Description);
 
 
 			break;
 		}
 
-		if(response.State == InAppPurchaseState.Failed) {
-			IOSNativePopUpManager.showMessage("Transaction Failed", "Error code: " + response.Error.Code + "\n" + "Error description:" + response.Error.Description);
+		if(result.State == InAppPurchaseState.Failed) {
+			IOSNativePopUpManager.showMessage("Transaction Failed", "Error code: " + result.Error.Code + "\n" + "Error description:" + result.Error.Description);
 		} else {
-			IOSNativePopUpManager.showMessage("Store Kit Response", "product " + response.ProductIdentifier + " state: " + response.State.ToString());
+			IOSNativePopUpManager.showMessage("Store Kit Response", "product " + result.ProductIdentifier + " state: " + result.State.ToString());
 		}
 
 	}
@@ -143,8 +143,16 @@ public class PaymentManagerExample {
 	private static void OnStoreKitInitComplete(ISN_Result result) {
 
 		if(result.IsSucceeded) {
-			IOSNativePopUpManager.showMessage("StoreKit Init Succeeded", "Available products count: " + IOSInAppPurchaseManager.instance.products.Count.ToString());
-			Debug.Log("StoreKit Init Succeeded Available products count: " + IOSInAppPurchaseManager.instance.products.Count.ToString());
+
+			int avaliableProductsCount = 0;
+			foreach(IOSProductTemplate tpl in IOSInAppPurchaseManager.instance.Products) {
+				if(tpl.IsAvaliable) {
+					avaliableProductsCount++;
+				}
+			}
+
+			IOSNativePopUpManager.showMessage("StoreKit Init Succeeded", "Available products count: " + avaliableProductsCount);
+			Debug.Log("StoreKit Init Succeeded Available products count: " + avaliableProductsCount);
 		} else {
 			IOSNativePopUpManager.showMessage("StoreKit Init Failed",  "Error code: " + result.Error.Code + "\n" + "Error description:" + result.Error.Description);
 		}

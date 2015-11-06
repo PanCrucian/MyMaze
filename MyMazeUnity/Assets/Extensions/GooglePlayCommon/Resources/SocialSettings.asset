@@ -17,14 +17,9 @@ MonoBehaviour:
   ShowActions: 1
   ShowAPIS: 1
   fb_scopes_list:
-  - user_about_me
   - user_friends
   - email
-  - publish_actions
-  - read_friendlists
-  - user_games_activity
-  - user_activities
-  - user_likes
+  - public_profile
   TWITTER_CONSUMER_KEY: REPLACE_WITH_YOUR_CONSUMER_KEY
   TWITTER_CONSUMER_SECRET: REPLACE_WITH_YOUR_CONSUMER_SECRET
   TWITTER_ACCESS_TOKEN: 
@@ -33,5 +28,5 @@ MonoBehaviour:
   TwitterAPI: 0
   NativeSharingAPI: 0
   InstagramAPI: 0
-  EnableImageSharing: 1
-  KeepManifestClean: 0
+  EnableImageSharing: 0
+  KeepManifestClean: 1

@@ -7,7 +7,6 @@ public class TBM_Multiplayer_Example : BaseIOSFeaturePreview {
 	private static bool IsInitialized = false;
 
 
-
 	void Awake() {
 		if(!IsInitialized) {
 
@@ -236,6 +235,7 @@ public class TBM_Multiplayer_Example : BaseIOSFeaturePreview {
 		Debug.Log("ActionTrunEnded IsSucceeded: " + result.IsSucceeded);
 
 		if(result.IsFailed) {
+			IOSMessage.Create("ActionTrunEnded", result.Error.Description);
 			Debug.Log(result.Error.Description);
 		} else {
 			GameCenter_TBM.PrintMatchInfo(result.Match);
@@ -284,6 +284,5 @@ public class TBM_Multiplayer_Example : BaseIOSFeaturePreview {
 			GameCenter_TBM.PrintMatchInfo(result.Match);
 		}
 	}
-
 
 }

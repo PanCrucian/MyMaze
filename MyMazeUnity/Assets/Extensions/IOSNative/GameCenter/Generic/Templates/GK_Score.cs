@@ -7,96 +7,196 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-
 using UnityEngine;
 using System.Collections;
 
 public class GK_Score  {
 	
 
-	private int _rank;
-	private string _score;
+	private int _Rank;
+	private long _Score;
 
-	private string _playerId;
-	private string _leaderboardId;
+	private string _PlayerId;
+	private string _LeaderboardId;
 
-	private GK_CollectionType _collection;
-	private GK_TimeSpan _timeSpan;
+	private GK_CollectionType _Collection;
+	private GK_TimeSpan _TimeSpan;
 
 
-	public GK_Score(string vScore, int vRank, GK_TimeSpan vTimeSpan, GK_CollectionType sCollection, string lid, string pid) {
-		_score = vScore;
-		_rank = vRank;
+	public GK_Score(long vScore, int vRank, GK_TimeSpan vTimeSpan, GK_CollectionType sCollection, string lid, string pid) {
+		_Score = vScore; 
+		_Rank = vRank;
 		
-		_playerId = pid;
-		_leaderboardId = lid;
+		_PlayerId = pid;
+		_LeaderboardId = lid;
 		
 		
-		_timeSpan  = vTimeSpan;
-		_collection = sCollection;
+		_TimeSpan  = vTimeSpan;
+		_Collection = sCollection;
 		
-	}
-
-	//--------------------------------------
-	//  PUBLIC METHODS
-	//--------------------------------------
-	
-	
-	public double GetDoubleScore() {
-		return GetLongScore () / 100f;
-	}
-	
-	public long GetLongScore() {
-		return System.Convert.ToInt64 (_score);
-	}
-	
-	
-	public int GetRank() {
-		return rank;
 	}
 
 
 	//--------------------------------------
 	// GET / SET
 	//--------------------------------------
+	
 
+
+	public int Rank {
+		get {
+			return _Rank;
+		}
+	}
+	
+	public long LongScore {
+		get {
+			return _Score;
+		}
+	}
+
+
+	
+	public float CurrencyScore {
+		get {
+			return _Score / 100.0f;
+		}
+	}
+
+
+
+	public float DecimalFloat_1 {
+		get {
+			return _Score / 10.0f;
+		}
+	}
+
+	public float DecimalFloat_2 {
+		get {
+			return _Score / 100.0f;
+		}
+	}
+
+	public float DecimalFloat_3 {
+		get {
+			return _Score / 100.0f;
+		}
+	}
+
+
+
+	public System.TimeSpan Minutes {
+		get {
+			return System.TimeSpan.FromMinutes(_Score);
+		}
+	}
+
+	public System.TimeSpan Seconds {
+		get {
+			
+			return System.TimeSpan.FromSeconds(_Score);
+		}
+	}
+
+	public System.TimeSpan Milliseconds {
+		get {
+			return System.TimeSpan.FromMilliseconds(_Score);
+		}
+	}
+
+
+
+
+	
+	public string PlayerId {
+		get {
+			return _PlayerId;
+		}
+	}
+
+	public GK_Player Player {
+		get {
+			return GameCenterManager.GetPlayerById(PlayerId);
+		}
+	}
+	
+	public string LeaderboardId {
+		get {
+			return _LeaderboardId;
+		}
+	}
+
+	public GK_Leaderboard Leaderboard {
+		get {
+			return GameCenterManager.GetLeaderboard(LeaderboardId);
+		}
+	}
+
+	public GK_CollectionType Collection {
+		get {
+			return _Collection;
+		}
+	}
+	
+	public GK_TimeSpan TimeSpan {
+		get {
+			return _TimeSpan;
+		}
+	}
+
+
+
+	
+	//--------------------------------------
+	// Deprectaed
+	//--------------------------------------
+
+	[System.Obsolete("rank is deprectaed, plase use Rank instead")]
 	public int rank {
 		get {
-			return _rank;
+			return _Rank;
 		}
 	}
 
-	public string score {
+	[System.Obsolete("score is deprectaed, plase use LongScore instead")]
+	public long score {
 		get {
-			return _score;
+			return _Score;
 		}
 	}
-	
+
+
+	[System.Obsolete("playerId is deprectaed, plase use PlayerId instead")]
 	public string playerId {
 		get {
-			return _playerId;
+			return _PlayerId;
 		}
 	}
 	
+	[System.Obsolete("leaderboardId is deprectaed, plase use LeaderboardId instead")]
 	public string leaderboardId {
 		get {
-			return _leaderboardId;
+			return _LeaderboardId;
 		}
 	}
-	
-	
-	public GK_CollectionType collection {
-		get {
-			return _collection;
-		}
-	}
-	
-	
+
+
+	[System.Obsolete("timeSpan is deprectaed, plase use TimeSpan instead")]
 	public GK_TimeSpan timeSpan {
 		get {
-			return _timeSpan;
+			return _TimeSpan;
 		}
 	}
+
+
+	[System.Obsolete("collection is deprectaed, plase use Collection instead")]
+	public GK_CollectionType collection {
+		get {
+			return _Collection;
+		}
+	}
+	
+
 
 }
 

@@ -145,12 +145,12 @@ public class GPaymnetManagerExample : MonoBehaviour {
 
 		if(result.isSuccess) {
 			_isInited = true;
-			AndroidMessage.Create("Success", "Billing init complete inventory contains: " + AndroidInAppPurchaseManager.instance.inventory.purchases.Count + " products");
+			AndroidMessage.Create("Success", "Billing init complete inventory contains: " + AndroidInAppPurchaseManager.instance.Inventory.Purchases.Count + " products");
 
 			Debug.Log("Loaded products names");
-			foreach(GoogleProductTemplate tpl in AndroidInAppPurchaseManager.instance.inventory.products) {
-				Debug.Log(tpl.title);
-				Debug.Log(tpl.originalJson);
+			foreach(GoogleProductTemplate tpl in AndroidInAppPurchaseManager.instance.Inventory.Products) {
+				Debug.Log(tpl.Title);
+				Debug.Log(tpl.OriginalJson);
 			}
 		} else {
 			 AndroidMessage.Create("Connection Responce", result.response.ToString() + " " + result.message);

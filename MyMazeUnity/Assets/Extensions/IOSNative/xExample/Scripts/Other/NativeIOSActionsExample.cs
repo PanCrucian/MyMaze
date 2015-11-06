@@ -134,14 +134,14 @@ public class NativeIOSActionsExample : BaseIOSFeaturePreview {
 		StartX += XButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Get Image From Camera")) {
 			IOSCamera.OnImagePicked += OnImage;
-			IOSCamera.Instance.GetImageFromCamera();
+			IOSCamera.Instance.PickImage(ISN_ImageSource.Camera);
 			
 		}
 
 		StartX += XButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Get Image From Album")) {
 			IOSCamera.OnImagePicked += OnImage;
-			IOSCamera.Instance.GetImageFromAlbum();
+			IOSCamera.Instance.PickImage(ISN_ImageSource.Album);
 
 		}
 

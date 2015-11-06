@@ -15,8 +15,7 @@ public class GK_UserInfoLoadResult : ISN_Result {
 		_tpl = tpl;
 	}
 	
-	
-	
+
 	
 	public string playerId {
 		get {

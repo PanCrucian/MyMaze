@@ -62,10 +62,10 @@ public class IOSDialog : BaseIOSPopup {
 		int index = System.Convert.ToInt16(buttonIndex);
 		
 		switch(index) {
-			case 1: 
+			case 0: 
 				OnComplete(IOSDialogResult.YES);
 				break;
-			case 0: 
+			case 1: 
 				OnComplete(IOSDialogResult.NO);
 				break;
 		}

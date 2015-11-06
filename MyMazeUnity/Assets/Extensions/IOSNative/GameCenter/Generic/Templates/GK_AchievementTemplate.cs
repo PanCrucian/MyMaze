@@ -6,19 +6,23 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-
-
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class GK_AchievementTemplate  {
 
+	//Editor Use Only
+	public bool IsOpen = true;
 
+	
+	public string Id = string.Empty;
+	public string Title = "New Achievement";
+	public string Description = string.Empty;
+	public float _progress = 0f;
 
-	public string Id;
-	public string Description;
-	public float _progress;
+	public Texture2D Texture;
 
 
 

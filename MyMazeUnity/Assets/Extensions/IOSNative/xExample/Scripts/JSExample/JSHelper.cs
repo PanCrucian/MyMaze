@@ -39,7 +39,7 @@ public class JSHelper : MonoBehaviour {
 		GameCenterManager.OnAchievementsReset += HandleOnAchievementsReset;
 
 
-		GameCenterManager.OnPlayerScoreLoaded += HandleOnPlayerScoreLoaded;
+		GameCenterManager.OnScoreSubmitted += OnScoreSubmitted;
 		GameCenterManager.OnAuthFinished += HandleOnAuthFinished;
 	
 
@@ -109,10 +109,10 @@ public class JSHelper : MonoBehaviour {
 		Debug.Log ("All Achievements were reset");
 	}
 
-	void HandleOnPlayerScoreLoaded (GK_PlayerScoreLoadedResult result) {
+	void OnScoreSubmitted (GK_LeaderboardResult result) {
 		if(result.IsSucceeded) {
-			GK_Score score = result.loadedScore;
-			IOSNativePopUpManager.showMessage("Leaderboard " + score.leaderboardId, "Score: " + score.score + "\n" + "Rank:" + score.rank);
+			GK_Score score = result.Leaderboard.GetCurrentPlayerScore(GK_TimeSpan.ALL_TIME, GK_CollectionType.GLOBAL);
+			IOSNativePopUpManager.showMessage("Leaderboard " + score.LeaderboardId, "Score: " + score.LongScore + "\n" + "Rank:" + score.Rank);
 		}
 	}
 

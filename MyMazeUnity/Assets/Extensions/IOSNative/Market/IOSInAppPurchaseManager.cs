@@ -22,6 +22,10 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 	
 
 	//Actions
+	public static event Action OnRestoreStarted 				= delegate{};
+	public static event Action<string> OnTransactionStarted 	= delegate{};
+
+
 	public static event Action<IOSStoreKitResult> OnTransactionComplete = delegate{};
 	public static event Action<IOSStoreKitRestoreResult> OnRestoreComplete = delegate{};
 	public static event Action<ISN_Result> OnStoreKitInitComplete = delegate{};
@@ -31,11 +35,9 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 	
 	private bool _IsStoreLoaded = false;
 	private bool _IsWaitingLoadResult = false;
-	private bool _IsInAppPurchasesEnabled = true;
 	private static int _nextId = 1;
-	
-	private List<string> _productsIds =  new List<string>();
-	private List<IOSProductTemplate> _products    =  new List<IOSProductTemplate>();
+
+
 	private Dictionary<int, IOSStoreProductView> _productsView =  new Dictionary<int, IOSStoreProductView>(); 
 
 	private static string lastPurchasedProduct;
@@ -53,8 +55,15 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 	//--------------------------------------
 	//  PUBLIC METHODS
 	//--------------------------------------
-	
+
+
+
+	[System.Obsolete("loadStore is deprecated, please use LoadStore instead.")]
 	public void loadStore() {
+		LoadStore();
+	}
+
+	public void LoadStore() {
 
 		if(_IsStoreLoaded) {
 			Invoke("FireSuccessInitEvent", 1f);
@@ -66,21 +75,19 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 		}
 
 		_IsWaitingLoadResult = true;
-		
-		foreach(string pid in IOSNativeSettings.Instance.InAppProducts) {
-			addProductId(pid);
-		}
-		
+
+
 		string ids = "";
-		int len = _productsIds.Count;
+		int len = Products.Count;
 		for(int i = 0; i < len; i++) {
 			if(i != 0) {
 				ids += ",";
 			}
 			
-			ids += _productsIds[i];
+			ids += Products[i].Id;
 		}
 
+		ISN_SoomlaGrow.Init();
 
 		#if !UNITY_EDITOR
 		IOSNativeMarketBridge.loadStore(ids);
@@ -91,16 +98,21 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 		#endif
 		
 	}
+	
 
-	public void RequestInAppSettingState() {
-		IOSNativeMarketBridge.ISN_RequestInAppSettingState();
+	[System.Obsolete("buyProduct is deprecated, please use BuyProduct instead.")]
+	public void buyProduct(string productId) {
+		BuyProduct(productId);
 	}
 
+	public void BuyProduct(string productId) {
 
-	public void buyProduct(string productId) {
+
 
 		#if !UNITY_EDITOR
 
+		OnTransactionStarted(productId);
+	
 		if(!_IsStoreLoaded) {
 
 			if(!IOSNativeSettings.Instance.DisablePluginLogs) 
@@ -118,27 +130,61 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 		}
 		#endif
 	}
-	
-	public void addProductId(string productId) {
-		if(_productsIds.Contains(productId)) {
-			return;
-		}
 
-		_productsIds.Add(productId);
+
+	[System.Obsolete("addProductId is deprecated, please use AddProductId instead.")]
+	public void addProductId(string productId) {
+		AddProductId(productId);
+	}
+	
+	public void AddProductId(string productId) {
+
+		IOSProductTemplate tpl  = new IOSProductTemplate();
+		tpl.Id = productId;
+		AddProductId(tpl);
 	}
 
-	public IOSProductTemplate GetProductById(string id) {
-		foreach(IOSProductTemplate tpl in products) {
-			if(tpl.id.Equals(id)) {
-				return tpl;
+
+	public void AddProductId(IOSProductTemplate product) {
+
+		bool IsPordcutAlreadyInList = false;
+		int replaceIndex = 0;
+		foreach(IOSProductTemplate p in Products) {
+			if(p.Id.Equals(product.Id)) {
+				IsPordcutAlreadyInList = true;
+				replaceIndex = Products.IndexOf(p);
+				break;
 			}
 		}
 
-		return null;
+		if(IsPordcutAlreadyInList) {
+			Products[replaceIndex] = product;
+		} else {
+			Products.Add(product);
+		}
 	}
 
+	public IOSProductTemplate GetProductById(string prodcutId) {
+		foreach(IOSProductTemplate p in Products) {
+			if(p.Id.Equals(prodcutId)) {
+				return p;
+			}
+		} 
+
+		IOSProductTemplate tpl =  new IOSProductTemplate();
+		tpl.Id = prodcutId;
+		Products.Add(tpl);
+
+		return tpl;
+	}
 	
+
+	[System.Obsolete("restorePurchases is deprecated, please use RestorePurchases instead.")]
 	public void restorePurchases() {
+		RestorePurchases();
+	}
+
+	public void RestorePurchases() {
 
 		if(!_IsStoreLoaded) {
 
@@ -149,14 +195,19 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 			return;
 		}
 
+		OnRestoreStarted();
+
 		#if !UNITY_EDITOR
 		IOSNativeMarketBridge.restorePurchases();
 		#else
 		if(IOSNativeSettings.Instance.SendFakeEventsInEditor) {
-			foreach(string productId in _productsIds) {
-				Debug.Log("Restored: " + productId);
-				FireProductBoughtEvent(productId, "", "", "", true);
+			foreach(IOSProductTemplate product in Products) {
+				if(product.ProductType == ISN_InAppType.NonConsumable) {
+					Debug.Log("Restored: " + product.Id);
+					FireProductBoughtEvent(product.Id, "", "", "", true);
+				}
 			}
+
 			FireRestoreCompleteEvent();
 		}
 		#endif
@@ -173,7 +224,7 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 	}
 
 	public void RegisterProductView(IOSStoreProductView view) {
-		view.SetId(nextId);
+		view.SetId(NextId);
 		_productsView.Add(view.id, view);
 	}
 	
@@ -182,9 +233,16 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 	//  GET/SET
 	//--------------------------------------
 
+	[System.Obsolete("products is deprecated, please use Products instead.")]
 	public List<IOSProductTemplate> products {
 		get {
-			return _products;
+			return Products;
+		}
+	}
+
+	public List<IOSProductTemplate> Products {
+		get {
+			return IOSNativeSettings.Instance.InAppProducts;
 		}
 	}
 
@@ -196,7 +254,7 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 
 	public bool IsInAppPurchasesEnabled {
 		get {
-			return _IsInAppPurchasesEnabled;
+			return IOSNativeMarketBridge.ISN_InAppSettingState();
 		}
 	}
 
@@ -206,7 +264,7 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 		}
 	}
 
-	public static int nextId {
+	private static int NextId {
 		get {
 			_nextId++;
 			return _nextId;
@@ -218,16 +276,6 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 	//  EVENTS
 	//--------------------------------------
 
-	private void onStoreKitStart(string data) {
-		int satus = System.Convert.ToInt32(data);
-		if(satus == 1) {
-			_IsInAppPurchasesEnabled = true;
-		} else {
-			_IsInAppPurchasesEnabled = false;
-		}
-
-		OnPurchasesStateSettingsLoaded(_IsInAppPurchasesEnabled);
-	}
 
 	private void OnStoreKitInitFailed(string data) {
 
@@ -248,29 +296,41 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 	
 	private void onStoreDataReceived(string data) {
 		if(data.Equals(string.Empty)) {
-			Debug.Log("InAppPurchaseManager, no products avaiable: " + _products.Count.ToString());
+			Debug.Log("InAppPurchaseManager, no products avaiable");
 			ISN_Result res = new ISN_Result(true);
 			OnStoreKitInitComplete(res);
 			return;
 		}
 
 
-		string[] storeData;
-		storeData = data.Split("|" [0]);
+		string[] storeData = data.Split(IOSNative.DATA_SPLITTER);
 		
 		for(int i = 0; i < storeData.Length; i+=7) {
-			IOSProductTemplate tpl =  new IOSProductTemplate();
-			tpl.id 				= storeData[i];
-			tpl.title 			= storeData[i + 1];
-			tpl.description 	= storeData[i + 2];
-			tpl.localizedPrice 	= storeData[i + 3];
-			tpl.price 			= storeData[i + 4];
-			tpl.currencyCode 	= storeData[i + 5];
-			tpl.currencySymbol 	= storeData[i + 6];
-			_products.Add(tpl);
+			string prodcutId = storeData[i];
+			IOSProductTemplate tpl =  GetProductById(prodcutId);
+
+
+			tpl.DisplayName 	= storeData[i + 1];
+			tpl.Description 	= storeData[i + 2];
+			tpl.LocalizedPrice 	= storeData[i + 3];
+			tpl.Price 			= System.Convert.ToSingle(storeData[i + 4]);
+			tpl.CurrencyCode 	= storeData[i + 5];
+			tpl.CurrencySymbol 	= storeData[i + 6];
+			tpl.IsAvaliable = true;
+			
 		}
 		
-		Debug.Log("InAppPurchaseManager, total products loaded: " + _products.Count.ToString());
+		Debug.Log("InAppPurchaseManager, total products in settings: " + Products.Count.ToString());
+
+
+		int avaliableProductsCount = 0;
+		foreach(IOSProductTemplate tpl in Products) {
+			if(tpl.IsAvaliable) {
+				avaliableProductsCount++;
+			}
+		}
+
+		Debug.Log("InAppPurchaseManager, total avaliable products" + avaliableProductsCount);
 		FireSuccessInitEvent();
 	}
 	
@@ -284,7 +344,11 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 			IsRestored = true;
 		}
 
-		FireProductBoughtEvent(data [0], data [2], data [3], data [4], IsRestored);
+		string productId = data [0];
+
+
+
+		FireProductBoughtEvent(productId, data [2], data [3], data [4], IsRestored);
 
 	}
 
@@ -301,7 +365,12 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 		string[] data;
 		data = array.Split("|" [0]);
 
-		SendTransactionFailEvent(data [0], data [1], (IOSTransactionErrorCode) System.Convert.ToInt32( data [2]));
+		string prodcutId = data [0];
+		int e = System.Convert.ToInt32(data [2]);
+		IOSTransactionErrorCode erroCode = (IOSTransactionErrorCode) e;
+
+
+		SendTransactionFailEvent(prodcutId, data [1], erroCode);
 	}
 	
 	
@@ -325,7 +394,6 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 		ISN_Error e = new ISN_Error(array);
 
 		IOSStoreKitRestoreResult r =  new IOSStoreKitRestoreResult(e);
-
 
 		OnRestoreComplete (r);
 	}
@@ -405,19 +473,7 @@ public class IOSInAppPurchaseManager : ISN_Singleton<IOSInAppPurchaseManager> {
 	//--------------------------------------
 
 	private void EditorFakeInitEvent() {
-		foreach(string id in _productsIds) {
 
-			IOSProductTemplate tpl =  new IOSProductTemplate();
-			tpl.id 				= id;
-			tpl.title 			= "Title for " + id;
-			tpl.description 	= "Description for " + id;
-			tpl.localizedPrice 	= "1 $";
-			tpl.price 			= "1";
-			tpl.currencyCode 	= "USD";
-			tpl.currencySymbol 	= "$";
-			_products.Add(tpl);
-
-		}
 
 		FireSuccessInitEvent();
 	}

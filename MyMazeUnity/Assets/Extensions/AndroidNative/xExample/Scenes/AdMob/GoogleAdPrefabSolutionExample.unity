@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 0
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -114,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49a45e523e6c47a692c8d4393300a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InterstitialUnityId: ca-app-pub-6101605888755494/3301497967
+  InterstitialUnityId: 63612d6170702d7075622d363130313630353838383735353439342f33333031343937393637
 --- !u!4 &179126096
 Transform:
   m_ObjectHideFlags: 0
@@ -195,6 +193,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -239,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d59e1d7493af04613aef7d531613fe61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BannersUnityId: ca-app-pub-6101605888755494/1824764765
+  BannersUnityId: 63612d6170702d7075622d363130313630353838383735353439342f31383234373634373635
   size: 2
   anchor: 7
 --- !u!4 &2001926348

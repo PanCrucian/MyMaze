@@ -34,6 +34,14 @@ public class GK_Player {
 		_DisplayName = pName;
 		_Alias = pAlias;
 
+		if(IOSNativeSettings.Instance.AutoLoadUsersBigImages) {
+			LoadPhoto(GK_PhotoSize.GKPhotoSizeNormal);
+		}
+
+		if(IOSNativeSettings.Instance.AutoLoadUsersSmallImages) {
+			LoadPhoto(GK_PhotoSize.GKPhotoSizeSmall);
+		}
+
 	}
 
 

@@ -1,4 +1,4 @@
-
+﻿
 using UnityEngine;
 using UnityEditor;
 using System.IO;
@@ -68,6 +68,53 @@ public class AndroidNativeSettingsEditor : Editor {
 	}
 
 
+	private Texture[] _ToolbarImages = null;
+
+	public Texture[] ToolbarImages {
+		get {
+			if(_ToolbarImages == null) {
+				Texture2D market =  Resources.Load("market") as Texture2D;
+				Texture2D googleplay =  Resources.Load("googleplay") as Texture2D;
+				Texture2D notifications =  Resources.Load("notifications") as Texture2D;
+				Texture2D sharing =  Resources.Load("sharing") as Texture2D;
+				Texture2D other =  Resources.Load("other") as Texture2D;
+
+				Texture2D android =  Resources.Load("android") as Texture2D;
+				Texture2D camera =  Resources.Load("gallery") as Texture2D;
+				
+				List<Texture2D> textures =  new List<Texture2D>();
+				textures.Add(android);
+				textures.Add(googleplay);
+				textures.Add(market);
+				textures.Add(notifications);
+				textures.Add(sharing);
+				textures.Add(camera);
+				textures.Add(other);
+
+
+				_ToolbarImages = textures.ToArray();
+
+			}
+			return _ToolbarImages;
+		}
+	}
+
+
+	private int _Width = 500;
+	public int Width {
+		get {
+			EditorGUILayout.BeginHorizontal();
+			GUILayout.FlexibleSpace();
+			EditorGUILayout.EndHorizontal();
+			Rect scale = GUILayoutUtility.GetLastRect();
+
+			if(scale.width != 1) {
+				_Width = System.Convert.ToInt32(scale.width);
+			}
+
+			return _Width;
+		}
+	}
 
 	public override void OnInspectorGUI() {
 		#if UNITY_WEBPLAYER
@@ -84,6 +131,7 @@ public class AndroidNativeSettingsEditor : Editor {
 		}
 
 
+
 		#endif
 
 
@@ -91,40 +139,59 @@ public class AndroidNativeSettingsEditor : Editor {
 
 		GUI.changed = false;
 
-
-
-		GeneralOptions();
-
-
-		PlayServiceSettings();
-
-		EditorGUILayout.Space();
-		BillingSettings();
-		EditorGUILayout.Space();
-		GCM ();
-		EditorGUILayout.Space();
-		Other ();
-
-
-		EditorGUILayout.Space();
-		SocialPlatfromSettingsEditor.FacebookSettings();
-		EditorGUILayout.Space();
-		SocialPlatfromSettingsEditor.TwitterSettings();
-		EditorGUILayout.Space();
-
-
-		AboutGUI();
-
-
+		InstallOptions();
 	
+
+		GUILayoutOption[] toolbarSize = new GUILayoutOption[]{GUILayout.Width(Width-5), GUILayout.Height(30)};
+
+		EditorGUILayout.BeginHorizontal();
+		GUILayout.FlexibleSpace();
+		
+		AndroidNativeSettings.Instance.ToolbarSelectedIndex =  GUILayout.Toolbar(AndroidNativeSettings.Instance.ToolbarSelectedIndex, ToolbarImages, toolbarSize);
+		GUILayout.FlexibleSpace();
+
+		EditorGUILayout.EndHorizontal();
+
+		switch(AndroidNativeSettings.Instance.ToolbarSelectedIndex) {
+		case 0:
+			PluginSetting();
+			EditorGUILayout.Space();
+			AboutGUI();
+			break;
+
+		case 1:
+			PlayServiceSettings();
+			break;
+
+		case 2:
+			BillingSettings();
+			break;
+
+		case 3:
+			NotificationsSettings();
+			break;
+
+		case 4:
+			SocialPlatfromSettingsEditor.FacebookSettings();
+			EditorGUILayout.Space();
+			SocialPlatfromSettingsEditor.TwitterSettings();
+			break;
+		case 5:
+			CameraAndGalleryParams();
+			break;
+
+		case 6:
+			ThirdPartyParams ();
+			break;
+		}
+
 
 		if(GUI.changed) {
 			DirtyEditor();
 		}
 
 	}
-
-
+	
 
 	public static bool IsInstalled {
 		get {
@@ -192,28 +259,35 @@ public class AndroidNativeSettingsEditor : Editor {
 	}
 	
 
-	private void GeneralOptions() {
+	private void InstallOptions() {
 
 
 
 		if(!IsInstalled) {
+			EditorGUILayout.BeginVertical (GUI.skin.box);
 			EditorGUILayout.HelpBox("Install Required ", MessageType.Error);
 
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.Space();
 			Color c = GUI.color;
 			GUI.color = Color.cyan;
-			if(GUILayout.Button("Install Plugin",  GUILayout.Width(120))) {
+			if(GUILayout.Button("Install Plugin",  GUILayout.Width(350))) {
 				PluginsInstalationUtil.Android_InstallPlugin();
 				UpdateVersionInfo();
 			}
+
+			EditorGUILayout.Space();
 			GUI.color = c;
 			EditorGUILayout.EndHorizontal();
+			EditorGUILayout.Space();
+			EditorGUILayout.EndVertical();
+			EditorGUILayout.Space();
+
 		}
 
 		if(IsInstalled) {
 			if(!IsUpToDate) {
-
+				EditorGUILayout.BeginVertical (GUI.skin.box);
 				EditorGUILayout.HelpBox("Update Required \nResources version: " + SA_VersionsManager.AN_StringVersionId + " Plugin version: " + AndroidNativeSettings.VERSION_NUMBER, MessageType.Warning);
 
 				EditorGUILayout.BeginHorizontal();
@@ -224,11 +298,11 @@ public class AndroidNativeSettingsEditor : Editor {
 
 
 				if(CurrentMagorVersion != SA_VersionsManager.AN_MagorVersion) {
-					if(GUILayout.Button("How to update",  GUILayout.Width(250))) {
+					if(GUILayout.Button("How to update",  GUILayout.Width(350))) {
 						Application.OpenURL("https://goo.gl/Z9wgEI");
 					}
 				} else {
-					if(GUILayout.Button("Upgrade Resources",  GUILayout.Width(250))) {
+					if(GUILayout.Button("Upgrade Resources",  GUILayout.Width(350))) {
 						AN_Plugin_Update();
 						UpdateVersionInfo();
 					}
@@ -240,11 +314,13 @@ public class AndroidNativeSettingsEditor : Editor {
 				EditorGUILayout.EndHorizontal();
 
 				EditorGUILayout.Space();
-				Actions();
+
+				EditorGUILayout.EndVertical();
+				EditorGUILayout.Space();
+
 
 			} else {
 				EditorGUILayout.HelpBox("Android Native Plugin v" + AndroidNativeSettings.VERSION_NUMBER + " is installed", MessageType.Info);
-				PluginSetting();
 			}
 		}
 
@@ -255,91 +331,94 @@ public class AndroidNativeSettingsEditor : Editor {
 
 
 	private void Actions() {
-		AndroidNativeSettings.Instance.ShowActions = EditorGUILayout.Foldout(AndroidNativeSettings.Instance.ShowActions, "More Actions");
-		if(AndroidNativeSettings.Instance.ShowActions) {
 
-			if(!IsFacebookInstalled) {
-				GUI.enabled = false;
-			}	
+		EditorGUILayout.Space();
+ 		EditorGUILayout.LabelField("More Actions", EditorStyles.boldLabel);
 
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.Space();
 
-			if(GUILayout.Button("Remove Facebook SDK",  GUILayout.Width(160))) {
-				bool result = EditorUtility.DisplayDialog(
-					"Removing Facebook SDK",
-					"Warning action can not be undone without reimporting the plugin",
-					"Remove",
-					"Cansel");
+		if(!IsFacebookInstalled) {
+			GUI.enabled = false;
+		}	
 
-				if(result) {
-					FileStaticAPI.DeleteFolder(PluginsInstalationUtil.ANDROID_DESTANATION_PATH + "facebook");
-					FileStaticAPI.DeleteFolder("Facebook");
-					FileStaticAPI.DeleteFolder("Extensions/GooglePlayCommon/Social/Facebook");
-					FileStaticAPI.DeleteFile("Extensions/AndroidNative/xExample/Scripts/Social/FacebookAndroidUseExample.cs");
-					FileStaticAPI.DeleteFile("Extensions/AndroidNative/xExample/Scripts/Social/FacebookAnalyticsExample.cs");
-					FileStaticAPI.DeleteFile("Extensions/AndroidNative/xExample/Scripts/Social/FacebookAndroidTurnBasedAndGiftsExample.cs");
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.Space();
 
-					FileStaticAPI.CopyFile("Extensions/StansAssetsCommon/SA_FB_PlaceHolder.txt", "Extensions/StansAssetsCommon/SA_FB_PlaceHolder.cs");
-				}
+		if(GUILayout.Button("Remove Facebook SDK",  GUILayout.Width(160))) {
+			bool result = EditorUtility.DisplayDialog(
+				"Removing Facebook SDK",
+				"Warning action can not be undone without reimporting the plugin",
+				"Remove",
+				"Cansel");
 
+			if(result) {
+				PluginsInstalationUtil.Remove_FB_SDK();
 			}
 
-			GUI.enabled = true;
-
-			if(GUILayout.Button("Open Manifest ",  GUILayout.Width(160))) {
-				UnityEditorInternal.InternalEditorUtility.OpenFileAtLineExternal("Assets" + AN_ManifestManager.MANIFEST_FILE_PATH, 1);
-			}
-
-			EditorGUILayout.EndHorizontal();
-			EditorGUILayout.Space();
-
-
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.Space();
-			if(GUILayout.Button("Reset Settings",  GUILayout.Width(160))) {
-
-				SocialPlatfromSettingsEditor.ResetSettings();
-
-				FileStaticAPI.DeleteFile("Extensions/AndroidNative/Resources/AndroidNativeSettings.asset");
-				AndroidNativeSettings.Instance.ShowActions = true;
-				Selection.activeObject = AndroidNativeSettings.Instance;
-
-				return;
-			}
-
-			if(GUILayout.Button("Load Example Settings",  GUILayout.Width(160))) {
-				LoadExampleSettings();
-			}
-
-			EditorGUILayout.EndHorizontal();
-			EditorGUILayout.Space();
-
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.Space();
-			if(GUILayout.Button("Reinstall",  GUILayout.Width(160))) {
-				AN_Plugin_Update();
-				UpdateVersionInfo();
-
-			}
-			if(GUILayout.Button("Remove",  GUILayout.Width(160))) {
-				SA_RemoveTool.RemovePlugins();
-			}
-			
-			EditorGUILayout.EndHorizontal();
 		}
+
+		GUI.enabled = true;
+
+		if(GUILayout.Button("Open Manifest ",  GUILayout.Width(160))) {
+			UnityEditorInternal.InternalEditorUtility.OpenFileAtLineExternal("Assets" + AN_ManifestManager.MANIFEST_FILE_PATH, 1);
+		}
+
+		if(GUILayout.Button("Reset Settings",  GUILayout.Width(160))) {
+			
+			SocialPlatfromSettingsEditor.ResetSettings();
+			
+			FileStaticAPI.DeleteFile("Extensions/AndroidNative/Resources/AndroidNativeSettings.asset");
+			AndroidNativeSettings.Instance.ShowActions = true;
+			Selection.activeObject = AndroidNativeSettings.Instance;
+			
+			return;
+		}
+		EditorGUILayout.Space();
+		EditorGUILayout.EndHorizontal();
+		EditorGUILayout.Space();
+
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.Space();
+
+		if(GUILayout.Button("Load Example Settings",  GUILayout.Width(160))) {
+			LoadExampleSettings();
+		}
+
+		if(GUILayout.Button("Reinstall",  GUILayout.Width(160))) {
+			AN_Plugin_Update();
+			UpdateVersionInfo();
+			
+		}
+		if(GUILayout.Button("Remove",  GUILayout.Width(160))) {
+			SA_RemoveTool.RemovePlugins();
+		}
+
+		EditorGUILayout.Space();
+
+		EditorGUILayout.EndHorizontal();
+		EditorGUILayout.Space();
+
+		
 	}
 
 	public static void LoadExampleSettings()  {
 		AndroidNativeSettings.Instance.base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsV676BTvO5djSDdUwotbLCIPtGZ5OVCbIn402RXuEpDwuHZMIOy5E6DQjUlQPKCiB7A1Vx+ePQI50Gk8NO1zuPRBgCgvW/oTTf863KkF34QLZD+Ii8fc6VE0UKp3GfApnLmq2qtr1fwDmRCteBUET1h0EcRn3/6R/BA5DMmF1aTv8yUY5LQETWqEPIjGdyNaAhmnWf2sTliYLANiR51WXsfbDdCNT4Ux3gQo/XJynGadfwRS7A9N9e5SgvMEFUR6EwnANOF9QXgE2d0HEitpS56D3uHH/2LwICrTWAmbLX3qPYlQ3Ncf1SRyjqiKae2wW8QUnDFU5BSozwGW6tcQvQIDAQAB";
-		AndroidNativeSettings.Instance.InAppProducts =  new List<string>();
-		AndroidNativeSettings.Instance.InAppProducts.Add("coins_bonus");
-		AndroidNativeSettings.Instance.InAppProducts.Add("small_coins_bag");
-		AndroidNativeSettings.Instance.InAppProducts.Add("pm_coins");
-		AndroidNativeSettings.Instance.InAppProducts.Add("pm_green_sphere");
-		AndroidNativeSettings.Instance.InAppProducts.Add("pm_red_sphere");
+		AndroidNativeSettings.Instance.InAppProducts =  new List<GoogleProductTemplate>();
+
+		AndroidNativeSettings.Instance.InAppProducts.Add(new GoogleProductTemplate(){ SKU = "coins_bonus", 		Title = "Bonus Coins", IsOpen = false});
+		AndroidNativeSettings.Instance.InAppProducts.Add(new GoogleProductTemplate(){ SKU = "small_coins_bag", 	Title = "Small Coins Bag", IsOpen = false});
+		AndroidNativeSettings.Instance.InAppProducts.Add(new GoogleProductTemplate(){ SKU = "pm_coins", 		Title = "Coins Pack", IsOpen = false});
+		AndroidNativeSettings.Instance.InAppProducts.Add(new GoogleProductTemplate(){ SKU = "pm_green_sphere", 	Title = "Green Sphere", IsOpen = false});
+		AndroidNativeSettings.Instance.InAppProducts.Add(new GoogleProductTemplate(){ SKU = "pm_red_sphere", 	Title = "Red Sphere", IsOpen = false});
+
+
+		AndroidNativeSettings.Instance.SoomlaEnvKey = "3c3df370-ad80-4577-8fe5-ca2c49b2c1b4";
+		AndroidNativeSettings.Instance.SoomlaGameKey = "db24ba61-3aa7-4653-a3f7-9c613cb2c0f3";
+		
 		AndroidNativeSettings.Instance.GCM_SenderId = "216817929098";
 		AndroidNativeSettings.Instance.GooglePlayServiceAppID = "216817929098";
+
+		PlayerSettings.bundleIdentifier = "com.unionassets.android.plugin.preview";
 
 		SocialPlatfromSettingsEditor.LoadExampleSettings();
 	}
@@ -350,6 +429,165 @@ public class AndroidNativeSettingsEditor : Editor {
 
 		EditorGUILayout.Space();
 		EditorGUILayout.HelpBox("Plugin Settings", MessageType.None);
+
+
+		EditorGUILayout.LabelField("Android Native Libs", EditorStyles.boldLabel);
+	
+		
+		EditorGUI.indentLevel++;
+		EditorGUI.BeginChangeCheck();
+		
+		
+		
+		//Native Lib API
+		EditorGUILayout.BeginHorizontal();
+		settings.ExpandNativeAPI = EditorGUILayout.Foldout(settings.ExpandNativeAPI, "Enable Native Lib");
+		SuperSpace();
+		GUI.enabled = false;
+		EditorGUILayout.Toggle(true);
+		GUI.enabled = true;
+		EditorGUILayout.EndHorizontal();
+		if(settings.ExpandNativeAPI) {
+			EditorGUI.indentLevel++;
+			
+			
+			EditorGUILayout.BeginHorizontal();
+			settings.LocalNotificationsAPI = EditorGUILayout.Toggle(AN_API_NAME.LocalNotifications,  settings.LocalNotificationsAPI);
+			settings.ImmersiveModeAPI = EditorGUILayout.Toggle(AN_API_NAME.ImmersiveMode,  settings.ImmersiveModeAPI);
+			EditorGUILayout.EndHorizontal();
+			
+			EditorGUILayout.BeginHorizontal();
+			settings.ApplicationInformationAPI = EditorGUILayout.Toggle(AN_API_NAME.ApplicationInformation,  settings.ApplicationInformationAPI);
+			settings.ExternalAppsAPI = EditorGUILayout.Toggle(AN_API_NAME.RunExternalApp,  settings.ExternalAppsAPI);
+			EditorGUILayout.EndHorizontal();
+			
+			
+			EditorGUILayout.BeginHorizontal();
+			settings.PoupsandPreloadersAPI = EditorGUILayout.Toggle(AN_API_NAME.PoupsandPreloaders,  settings.PoupsandPreloadersAPI);
+			settings.CheckAppLicenseAPI = EditorGUILayout.Toggle(AN_API_NAME.CheckAppLicense,  settings.CheckAppLicenseAPI);
+			EditorGUILayout.EndHorizontal();
+			
+			EditorGUILayout.BeginHorizontal();
+			settings.NetworkStateAPI = EditorGUILayout.Toggle(AN_API_NAME.NetworkInfo,  settings.NetworkStateAPI);
+			EditorGUILayout.EndHorizontal();
+			
+			EditorGUI.indentLevel--;
+			EditorGUILayout.Space();
+		}
+		
+		
+		
+		
+		EditorGUILayout.BeginHorizontal();
+		settings.ExpandBillingAPI = EditorGUILayout.Foldout(settings.ExpandBillingAPI, "Enable Billing Lib");
+		SuperSpace();
+		settings.EnableBillingAPI	 	= EditorGUILayout.Toggle(settings.EnableBillingAPI);
+		
+		EditorGUILayout.EndHorizontal();
+		if(settings.ExpandBillingAPI) {
+			EditorGUI.indentLevel++;
+			
+			
+			EditorGUILayout.BeginHorizontal();
+			settings.InAppPurchasesAPI = EditorGUILayout.Toggle(AN_API_NAME.InAppPurchases,  settings.InAppPurchasesAPI);
+			EditorGUILayout.EndHorizontal();
+			
+			EditorGUI.indentLevel--;
+			EditorGUILayout.Space();
+		}
+		
+		
+		//GOOGLE PLAY API
+		EditorGUILayout.BeginHorizontal();
+		settings.ExpandPSAPI = EditorGUILayout.Foldout(settings.ExpandPSAPI, "Enable Google Play Lib");
+		SuperSpace();
+		
+		settings.EnablePSAPI = EditorGUILayout.Toggle(settings.EnablePSAPI);
+		
+		EditorGUILayout.EndHorizontal();
+		
+		if(settings.ExpandPSAPI) {
+			EditorGUI.indentLevel++;
+			
+			EditorGUILayout.BeginHorizontal();
+			settings.GooglePlayServicesAPI = EditorGUILayout.Toggle(AN_API_NAME.GooglePlayServices,  settings.GooglePlayServicesAPI);
+			settings.PlayServicesAdvancedSignInAPI = EditorGUILayout.Toggle(AN_API_NAME.GooglePlayServicesAdvancedSignIn,  settings.PlayServicesAdvancedSignInAPI);
+			EditorGUILayout.EndHorizontal();
+			
+			EditorGUILayout.BeginHorizontal();
+			settings.PushNotificationsAPI = EditorGUILayout.Toggle(AN_API_NAME.PushNotifications,  settings.PushNotificationsAPI);
+			settings.GoogleCloudSaveAPI = EditorGUILayout.Toggle(AN_API_NAME.GoogleCloudSave,  settings.GoogleCloudSaveAPI);
+			EditorGUILayout.EndHorizontal();
+			
+			
+			EditorGUILayout.BeginHorizontal();
+			settings.AnalyticsAPI = EditorGUILayout.Toggle(AN_API_NAME.Analytics,  settings.AnalyticsAPI);
+			settings.GoogleMobileAdAPI = EditorGUILayout.Toggle(AN_API_NAME.GoogleMobileAd,  settings.GoogleMobileAdAPI);
+			EditorGUILayout.EndHorizontal();
+			
+			EditorGUILayout.BeginHorizontal();
+			settings.GoogleButtonAPI = EditorGUILayout.Toggle(AN_API_NAME.GoogleButton,  settings.GoogleButtonAPI);
+			EditorGUILayout.EndHorizontal();
+			
+			EditorGUI.indentLevel--;
+			EditorGUILayout.Space();
+		}
+		
+		
+		
+		
+		
+		EditorGUILayout.BeginHorizontal();
+		settings.ExpandSocialAPI = EditorGUILayout.Foldout(settings.ExpandSocialAPI, "Enable Social Lib");
+		SuperSpace();
+		
+		
+		settings.EnableSocialAPI	 	= EditorGUILayout.Toggle(settings.EnableSocialAPI);
+		EditorGUILayout.EndHorizontal();
+		if(settings.ExpandSocialAPI) {
+			EditorGUI.indentLevel++;
+			
+			SocialPlatfromSettingsEditor.DrawAPIsList();
+			
+			
+			EditorGUI.indentLevel--;
+			EditorGUILayout.Space();
+		}
+		
+		
+		
+		EditorGUILayout.BeginHorizontal();
+		settings.ExpandCameraAPI = EditorGUILayout.Foldout(settings.ExpandCameraAPI, "Enable Camera Lib");
+		SuperSpace();
+		
+		settings.EnableCameraAPI	 	= EditorGUILayout.Toggle(settings.EnableCameraAPI);
+		
+		
+		EditorGUILayout.EndHorizontal();
+		if(settings.ExpandCameraAPI) {
+			EditorGUI.indentLevel++;
+			EditorGUILayout.BeginHorizontal();
+			settings.CameraAPI = EditorGUILayout.Toggle(AN_API_NAME.CameraAPI,  settings.CameraAPI);
+			settings.GalleryAPI = EditorGUILayout.Toggle(AN_API_NAME.Gallery,  settings.GalleryAPI);
+			EditorGUILayout.EndHorizontal();
+			EditorGUI.indentLevel--;
+			EditorGUILayout.Space();
+		}
+		
+		
+		EditorGUI.indentLevel--;
+		
+		if(EditorGUI.EndChangeCheck()) {
+			UpdateAPIsInstalation();
+		}
+
+
+		EditorGUILayout.Space();
+		EditorGUILayout.LabelField("Android Manifest", EditorStyles.boldLabel);
+
+
+		EditorGUI.indentLevel++;
+
 
 		AN_ManifestManager.Refresh();
 
@@ -377,7 +615,7 @@ public class AndroidNativeSettingsEditor : Editor {
 		if(AndroidNativeSettings.Instance.ShowAppPermissions) {
 			AN_ManifestManager.Refresh();
 
-			//EditorGUI.indentLevel++;
+
 			EditorGUILayout.LabelField("Required By Android Native:", EditorStyles.boldLabel);
 			List<string> permissions = GetRequiredPermissions();
 
@@ -416,155 +654,8 @@ public class AndroidNativeSettingsEditor : Editor {
 			//EditorGUI.indentLevel--;
 		}
 
-		AndroidNativeSettings.Instance.ShowPluginSettings = EditorGUILayout.Foldout(AndroidNativeSettings.Instance.ShowPluginSettings, "Android Native Libs");
-		if(AndroidNativeSettings.Instance.ShowPluginSettings) {
-			EditorGUI.indentLevel++;
-			EditorGUI.BeginChangeCheck();
 
-
-
-			//Native Lib API
-			EditorGUILayout.BeginHorizontal();
-			settings.ExpandNativeAPI = EditorGUILayout.Foldout(settings.ExpandNativeAPI, "Enable Native Lib");
-			SuperSpace();
-			GUI.enabled = false;
-			EditorGUILayout.Toggle(true);
-			GUI.enabled = true;
-			EditorGUILayout.EndHorizontal();
-			if(settings.ExpandNativeAPI) {
-				EditorGUI.indentLevel++;
-
-				
-				EditorGUILayout.BeginHorizontal();
-				settings.LocalNotificationsAPI = EditorGUILayout.Toggle(AN_API_NAME.LocalNotifications,  settings.LocalNotificationsAPI);
-				settings.ImmersiveModeAPI = EditorGUILayout.Toggle(AN_API_NAME.ImmersiveMode,  settings.ImmersiveModeAPI);
-				EditorGUILayout.EndHorizontal();
-				
-				EditorGUILayout.BeginHorizontal();
-				settings.ApplicationInformationAPI = EditorGUILayout.Toggle(AN_API_NAME.ApplicationInformation,  settings.ApplicationInformationAPI);
-				settings.ExternalAppsAPI = EditorGUILayout.Toggle(AN_API_NAME.RunExternalApp,  settings.ExternalAppsAPI);
-				EditorGUILayout.EndHorizontal();
-				
-				
-				EditorGUILayout.BeginHorizontal();
-				settings.PoupsandPreloadersAPI = EditorGUILayout.Toggle(AN_API_NAME.PoupsandPreloaders,  settings.PoupsandPreloadersAPI);
-				settings.CheckAppLicenseAPI = EditorGUILayout.Toggle(AN_API_NAME.CheckAppLicense,  settings.CheckAppLicenseAPI);
-				EditorGUILayout.EndHorizontal();
-
-				EditorGUILayout.BeginHorizontal();
-				settings.NetworkStateAPI = EditorGUILayout.Toggle(AN_API_NAME.NetworkInfo,  settings.NetworkStateAPI);
-				EditorGUILayout.EndHorizontal();
-				
-				EditorGUI.indentLevel--;
-				EditorGUILayout.Space();
-			}
-
-
-
-
-			EditorGUILayout.BeginHorizontal();
-			settings.ExpandBillingAPI = EditorGUILayout.Foldout(settings.ExpandBillingAPI, "Enable Billing Lib");
-			SuperSpace();
-			settings.EnableBillingAPI	 	= EditorGUILayout.Toggle(settings.EnableBillingAPI);
-
-			EditorGUILayout.EndHorizontal();
-			if(settings.ExpandBillingAPI) {
-				EditorGUI.indentLevel++;
-
-
-				EditorGUILayout.BeginHorizontal();
-				settings.InAppPurchasesAPI = EditorGUILayout.Toggle(AN_API_NAME.InAppPurchases,  settings.InAppPurchasesAPI);
-				EditorGUILayout.EndHorizontal();
-	
-				EditorGUI.indentLevel--;
-				EditorGUILayout.Space();
-			}
-
-
-			//GOOGLE PLAY API
-			EditorGUILayout.BeginHorizontal();
-			settings.ExpandPSAPI = EditorGUILayout.Foldout(settings.ExpandPSAPI, "Enable Google Play Lib");
-			SuperSpace();
-
-			settings.EnablePSAPI = EditorGUILayout.Toggle(settings.EnablePSAPI);
-
-			EditorGUILayout.EndHorizontal();
-
-			if(settings.ExpandPSAPI) {
-				EditorGUI.indentLevel++;
-				
-				EditorGUILayout.BeginHorizontal();
-				settings.GooglePlayServicesAPI = EditorGUILayout.Toggle(AN_API_NAME.GooglePlayServices,  settings.GooglePlayServicesAPI);
-				settings.PlayServicesAdvancedSignInAPI = EditorGUILayout.Toggle(AN_API_NAME.GooglePlayServicesAdvancedSignIn,  settings.PlayServicesAdvancedSignInAPI);
-				EditorGUILayout.EndHorizontal();
-				
-				EditorGUILayout.BeginHorizontal();
-				settings.PushNotificationsAPI = EditorGUILayout.Toggle(AN_API_NAME.PushNotifications,  settings.PushNotificationsAPI);
-				settings.GoogleCloudSaveAPI = EditorGUILayout.Toggle(AN_API_NAME.GoogleCloudSave,  settings.GoogleCloudSaveAPI);
-				EditorGUILayout.EndHorizontal();
-				
-				
-				EditorGUILayout.BeginHorizontal();
-				settings.AnalyticsAPI = EditorGUILayout.Toggle(AN_API_NAME.Analytics,  settings.AnalyticsAPI);
-				settings.GoogleMobileAdAPI = EditorGUILayout.Toggle(AN_API_NAME.GoogleMobileAd,  settings.GoogleMobileAdAPI);
-				EditorGUILayout.EndHorizontal();
-
-				EditorGUILayout.BeginHorizontal();
-				settings.GoogleButtonAPI = EditorGUILayout.Toggle(AN_API_NAME.GoogleButton,  settings.GoogleButtonAPI);
-				EditorGUILayout.EndHorizontal();
-
-				EditorGUI.indentLevel--;
-				EditorGUILayout.Space();
-			}
-
-
-
-
-
-			EditorGUILayout.BeginHorizontal();
-			settings.ExpandSocialAPI = EditorGUILayout.Foldout(settings.ExpandSocialAPI, "Enable Social Lib");
-			SuperSpace();
-
-
-			settings.EnableSocialAPI	 	= EditorGUILayout.Toggle(settings.EnableSocialAPI);
-			EditorGUILayout.EndHorizontal();
-			if(settings.ExpandSocialAPI) {
-				EditorGUI.indentLevel++;
-				
-				SocialPlatfromSettingsEditor.DrawAPIsList();
-				
-			
-				EditorGUI.indentLevel--;
-				EditorGUILayout.Space();
-			}
-
-
-
-			EditorGUILayout.BeginHorizontal();
-			settings.ExpandCameraAPI = EditorGUILayout.Foldout(settings.ExpandCameraAPI, "Enable Camera Lib");
-			SuperSpace();
-
-			settings.EnableCameraAPI	 	= EditorGUILayout.Toggle(settings.EnableCameraAPI);
-
-
-			EditorGUILayout.EndHorizontal();
-			if(settings.ExpandCameraAPI) {
-				EditorGUI.indentLevel++;
-				EditorGUILayout.BeginHorizontal();
-				settings.CameraAPI = EditorGUILayout.Toggle(AN_API_NAME.CameraAPI,  settings.CameraAPI);
-				settings.GalleryAPI = EditorGUILayout.Toggle(AN_API_NAME.Gallery,  settings.GalleryAPI);
-				EditorGUILayout.EndHorizontal();
-				EditorGUI.indentLevel--;
-				EditorGUILayout.Space();
-			}
-
-
-			EditorGUI.indentLevel--;
-
-			if(EditorGUI.EndChangeCheck()) {
-				UpdateAPIsInstalation();
-			}
-		}
+		EditorGUI.indentLevel--;
 
 
 		Actions();
@@ -1172,29 +1263,214 @@ public class AndroidNativeSettingsEditor : Editor {
 						EditorGUILayout.TextField(r.InnerText, GUILayout.Width(170.0f));
 						EditorGUILayout.EndHorizontal();
 					}
+
+					GUI.enabled = true;
+					EditorGUILayout.BeginHorizontal ();
+					EditorGUILayout.Space ();
+					if (GUILayout.Button("[?] How to GET Resources?", GUILayout.Width(200.0f))) {
+						Application.OpenURL("https://unionassets.com/android-native-plugin/get-playservice-settings-resources-284");
+					}
+					EditorGUILayout.Space ();
+					EditorGUILayout.EndHorizontal ();
 				}
 				EditorGUI.indentLevel--;
 			}
 		}
 
 		GUI.enabled = true;
-		EditorGUILayout.BeginHorizontal ();
-		EditorGUILayout.Space ();
-		if (GUILayout.Button("[?] How to GET Resources?", GUILayout.Width(200.0f))) {
-			Application.OpenURL("https://unionassets.com/android-native-plugin/get-playservice-settings-resources-284");
-		}
-		EditorGUILayout.Space ();
-		EditorGUILayout.EndHorizontal ();
 	}
 
+	GUIContent LeaderboardIdDLabel 		= new GUIContent("LeaderboardId[?]:", "A unique identifier that will be used for reporting. It can be composed of letters and numbers.");
+	GUIContent LeaderboardNameLabel  	= new GUIContent("Display Name[?]:", "This is the name of the Leaderboard that will be seen by customers (if this is their primary language). For automatically renewable subscriptions, don’t include a duration in the display name. The display name can’t be longer than 75 characters.");
+	GUIContent LeaderboardDescriptionLabel 	= new GUIContent("Description[?]:", "This is the description of the Leaderboard. The description cannot be longer than 255 bytes.");
+
+	GUIContent AchievementIdDLabel 		= new GUIContent("AchievementId[?]:", "A unique identifier that will be used for reporting. It can be composed of letters and numbers.");
+	GUIContent AchievementNameLabel  	= new GUIContent("Display Name[?]:", "This is the name of the Achievement that will be seen by customers (if this is their primary language). For automatically renewable subscriptions, don’t include a duration in the display name. The display name can’t be longer than 75 characters.");
+	GUIContent AchievementDescriptionLabel 	= new GUIContent("Description[?]:", "This is the description of the Achievement. The description cannot be longer than 255 bytes.");
+
 	private void PlayServiceSettings() {
-		EditorGUILayout.HelpBox("Google API Settings", MessageType.None);
-		AndroidNativeSettings.Instance.ShowPSSettings = EditorGUILayout.Foldout(AndroidNativeSettings.Instance.ShowPSSettings, "PlayService Settings");
-		if(AndroidNativeSettings.Instance.ShowPSSettings) {
 
-			PlayServiceDrawXmlIDs();
+		EditorGUILayout.Space();
+		EditorGUILayout.HelpBox("Play Service API Settings", MessageType.None);
 
-			EditorGUILayout.LabelField("API:");
+
+		PlayServiceDrawXmlIDs();
+		EditorGUILayout.Space();
+
+		EditorGUI.indentLevel++;
+		{
+			EditorGUILayout.BeginVertical (GUI.skin.box);
+			
+			
+			EditorGUILayout.BeginHorizontal();
+			AndroidNativeSettings.Instance.ShowLeaderboards = EditorGUILayout.Foldout(AndroidNativeSettings.Instance.ShowLeaderboards, "Leaderboards");
+			
+			EditorGUILayout.EndHorizontal();
+			EditorGUILayout.Space();
+			
+			if(AndroidNativeSettings.Instance.ShowLeaderboards) {
+				
+				foreach(GPLeaderBoard leaderboard in AndroidNativeSettings.Instance.Leaderboards) {
+					
+					EditorGUILayout.BeginVertical (GUI.skin.box);
+					
+					EditorGUILayout.BeginHorizontal();
+					
+					GUIStyle s =  new GUIStyle();
+					s.padding =  new RectOffset();
+					s.margin =  new RectOffset();
+					s.border =  new RectOffset();
+					
+					if(leaderboard.Texture != null) {
+						GUILayout.Box(leaderboard.Texture, s, new GUILayoutOption[]{GUILayout.Width(18), GUILayout.Height(18)});
+					}
+					
+					leaderboard.IsOpen 	= EditorGUILayout.Foldout(leaderboard.IsOpen, leaderboard.Name);
+					
+					bool ItemWasRemoved = DrawSortingButtons((object) leaderboard, AndroidNativeSettings.Instance.Leaderboards);
+					if(ItemWasRemoved) {
+						return;
+					}
+					
+					EditorGUILayout.EndHorizontal();
+					
+					if(leaderboard.IsOpen) {
+						EditorGUILayout.BeginHorizontal();
+						EditorGUILayout.LabelField(LeaderboardIdDLabel);
+						leaderboard.Id	 	= EditorGUILayout.TextField(leaderboard.Id);
+						if(leaderboard.Id.Length > 0) {
+							leaderboard.Id 		= leaderboard.Id.Trim();
+						}
+						EditorGUILayout.EndHorizontal();
+						
+						EditorGUILayout.BeginHorizontal();
+						EditorGUILayout.LabelField(LeaderboardNameLabel);
+						leaderboard.Name	 	= EditorGUILayout.TextField(leaderboard.Name);
+						EditorGUILayout.EndHorizontal();
+						
+						EditorGUILayout.Space();
+						EditorGUILayout.Space();
+						
+						EditorGUILayout.BeginHorizontal();
+						EditorGUILayout.LabelField(LeaderboardDescriptionLabel);
+						EditorGUILayout.EndHorizontal();
+						
+						EditorGUILayout.BeginHorizontal();
+						leaderboard.Description	 = EditorGUILayout.TextArea(leaderboard.Description,  new GUILayoutOption[]{GUILayout.Height(60), GUILayout.Width(200)} );
+						leaderboard.Texture = (Texture2D) EditorGUILayout.ObjectField("", leaderboard.Texture, typeof (Texture2D), false);
+						EditorGUILayout.EndHorizontal();
+					}
+					
+					EditorGUILayout.EndVertical();
+				}
+				
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.Space();
+				if(GUILayout.Button("Add new", EditorStyles.miniButton, GUILayout.Width(250))) {
+					GPLeaderBoard leaderboard =  new GPLeaderBoard(string.Empty, "New Leaderboard");
+					AndroidNativeSettings.Instance.Leaderboards.Add(leaderboard);
+				}
+				
+				EditorGUILayout.Space();
+				EditorGUILayout.EndHorizontal();
+				EditorGUILayout.Space();
+			}
+			
+			EditorGUILayout.EndVertical();
+		}
+		EditorGUI.indentLevel--;
+		
+		EditorGUI.indentLevel++;
+		{
+			EditorGUILayout.BeginVertical (GUI.skin.box);
+			
+			
+			EditorGUILayout.BeginHorizontal();
+			AndroidNativeSettings.Instance.ShowAchievements = EditorGUILayout.Foldout(AndroidNativeSettings.Instance.ShowAchievements, "Achievements");
+			
+			EditorGUILayout.EndHorizontal();
+			EditorGUILayout.Space();
+			
+			if(AndroidNativeSettings.Instance.ShowAchievements) {
+				
+				foreach(GPAchievement achievement in AndroidNativeSettings.Instance.Achievements) {
+					
+					EditorGUILayout.BeginVertical (GUI.skin.box);
+					
+					EditorGUILayout.BeginHorizontal();
+					
+					GUIStyle s =  new GUIStyle();
+					s.padding =  new RectOffset();
+					s.margin =  new RectOffset();
+					s.border =  new RectOffset();
+					
+					if(achievement.Texture != null) {
+						GUILayout.Box(achievement.Texture, s, new GUILayoutOption[]{GUILayout.Width(18), GUILayout.Height(18)});
+					}
+					
+					achievement.IsOpen 	= EditorGUILayout.Foldout(achievement.IsOpen, achievement.Name);
+					
+					bool ItemWasRemoved = DrawSortingButtons((object) achievement, AndroidNativeSettings.Instance.Achievements);
+					if(ItemWasRemoved) {
+						return;
+					}
+					
+					EditorGUILayout.EndHorizontal();
+					
+					if(achievement.IsOpen) {
+						EditorGUILayout.BeginHorizontal();
+						EditorGUILayout.LabelField(AchievementIdDLabel);
+						achievement.Id	 	= EditorGUILayout.TextField(achievement.Id);
+						if(achievement.Id.Length > 0) {
+							achievement.Id 		= achievement.Id.Trim();
+						}
+						EditorGUILayout.EndHorizontal();
+						
+						EditorGUILayout.BeginHorizontal();
+						EditorGUILayout.LabelField(AchievementNameLabel);
+						achievement.Name	 	= EditorGUILayout.TextField(achievement.Name);
+						EditorGUILayout.EndHorizontal();
+						
+						EditorGUILayout.Space();
+						EditorGUILayout.Space();
+						
+						EditorGUILayout.BeginHorizontal();
+						EditorGUILayout.LabelField(AchievementDescriptionLabel);
+						EditorGUILayout.EndHorizontal();
+						
+						EditorGUILayout.BeginHorizontal();
+						achievement.Description	 = EditorGUILayout.TextArea(achievement.Description,  new GUILayoutOption[]{GUILayout.Height(60), GUILayout.Width(200)} );
+						achievement.Texture = (Texture2D) EditorGUILayout.ObjectField("", achievement.Texture, typeof (Texture2D), false);
+						EditorGUILayout.EndHorizontal();
+					}
+					
+					EditorGUILayout.EndVertical();
+				}
+				
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.Space();
+				if(GUILayout.Button("Add new", EditorStyles.miniButton, GUILayout.Width(250))) {
+					GPAchievement achievement =  new GPAchievement(string.Empty, "New Achievement");
+					AndroidNativeSettings.Instance.Achievements.Add(achievement);
+				}
+				
+				EditorGUILayout.Space();
+				EditorGUILayout.EndHorizontal();
+				EditorGUILayout.Space();
+			}
+			
+			EditorGUILayout.EndVertical();
+		}
+		EditorGUI.indentLevel--;
+
+
+
+
+
+
+			
+
+			EditorGUILayout.LabelField("API:", EditorStyles.boldLabel);
 			EditorGUI.indentLevel++;
 
 
@@ -1225,7 +1501,7 @@ public class AndroidNativeSettingsEditor : Editor {
 			EditorGUI.indentLevel--;
 
 
-			EditorGUILayout.LabelField("Auto Image Loading:");
+			EditorGUILayout.LabelField("Auto Image Loading:", EditorStyles.boldLabel);
 
 			EditorGUI.indentLevel++;
 			EditorGUILayout.BeginHorizontal();
@@ -1256,7 +1532,7 @@ public class AndroidNativeSettingsEditor : Editor {
 			EditorGUILayout.EndHorizontal();
 			EditorGUI.indentLevel--;
 
-			EditorGUILayout.LabelField("Extras:");
+			EditorGUILayout.LabelField("Extras:", EditorStyles.boldLabel);
 
 			EditorGUI.indentLevel++;
 			EditorGUILayout.BeginHorizontal();
@@ -1265,14 +1541,21 @@ public class AndroidNativeSettingsEditor : Editor {
 			EditorGUILayout.EndHorizontal();
 			EditorGUI.indentLevel--;
 
-		}
+			
+
+		
 
 	}
 
+	GUIContent ProductIdDLabel 		= new GUIContent("ProductId[?]:", "A unique identifier that will be used for reporting. It can be composed of letters and numbers.");
+	GUIContent IsConsLabel 			= new GUIContent("Is Consumable[?]:", "Is prodcut allowed to be purchased more than once?");
+	GUIContent DisplayNameLabel  	= new GUIContent("Display Name[?]:", "This is the name of the In-App Purchase that will be seen by customers (if this is their primary language). For automatically renewable subscriptions, don’t include a duration in the display name. The display name can’t be longer than 75 characters.");
+	GUIContent DescriptionLabel 	= new GUIContent("Description[?]:", "This is the description of the In-App Purchase that will be used by App Review during the review process. If indicated in your code, this description may also be seen by customers. For automatically renewable subscriptions, do not include a duration in the description. The description cannot be longer than 255 bytes.");
+
 	private void BillingSettings() {
-	//	EditorGUILayout.HelpBox("(Optional) In-app Billing Parameters", MessageType.None);
-		AndroidNativeSettings.Instance.ShowStoreKitParams = EditorGUILayout.Foldout(AndroidNativeSettings.Instance.ShowStoreKitParams, "Billing Settings");
-		if(AndroidNativeSettings.Instance.ShowStoreKitParams) {
+		EditorGUILayout.Space();
+		EditorGUILayout.HelpBox("Billing Settings", MessageType.None);
+
 
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField(Base64KeyLabel);
@@ -1284,111 +1567,244 @@ public class AndroidNativeSettingsEditor : Editor {
 
 			EditorGUILayout.EndHorizontal();
 
-
-			if(settings.InAppProducts.Count == 0) {
-				EditorGUILayout.HelpBox("No products added", MessageType.Warning);
-			}
-		
-
-			int i = 0;
-			foreach(string str in settings.InAppProducts) {
+			EditorGUI.indentLevel++;
+			{
+				EditorGUILayout.BeginVertical (GUI.skin.box);
+				
+				
 				EditorGUILayout.BeginHorizontal();
-				settings.InAppProducts[i]	 	= EditorGUILayout.TextField(settings.InAppProducts[i]);
-				if(settings.InAppProducts[i].Length > 0) {
-					settings.InAppProducts[i]		= settings.InAppProducts[i].Trim();
-				}
-				if(GUILayout.Button("Remove",  GUILayout.Width(80))) {
-					settings.InAppProducts.Remove(str);
-					break;
-				}
+				AndroidNativeSettings.Instance.ShowStoreProducts = EditorGUILayout.Foldout(AndroidNativeSettings.Instance.ShowStoreProducts, "Products");
+				
 				EditorGUILayout.EndHorizontal();
-				i++;
+				EditorGUILayout.Space();
+
+				if(AndroidNativeSettings.Instance.ShowStoreProducts) {
+					
+					foreach(GoogleProductTemplate product in AndroidNativeSettings.Instance.InAppProducts) {
+						
+						EditorGUILayout.BeginVertical (GUI.skin.box);
+						
+						EditorGUILayout.BeginHorizontal();
+						
+						GUIStyle s =  new GUIStyle();
+						s.padding =  new RectOffset();
+						s.margin =  new RectOffset();
+						s.border =  new RectOffset();
+						
+						if(product.Texture != null) {
+							GUILayout.Box(product.Texture, s, new GUILayoutOption[]{GUILayout.Width(18), GUILayout.Height(18)});
+						}
+						
+						product.IsOpen 	= EditorGUILayout.Foldout(product.IsOpen, product.Title);
+
+						
+						EditorGUILayout.LabelField(product.Price + "$");
+						bool ItemWasRemoved = DrawSortingButtons((object) product, AndroidNativeSettings.Instance.InAppProducts);
+						if(ItemWasRemoved) {
+							return;
+						}
+						
+						EditorGUILayout.EndHorizontal();
+						
+						if(product.IsOpen) {
+							EditorGUILayout.BeginHorizontal();
+							EditorGUILayout.LabelField(ProductIdDLabel);
+							product.SKU	 	= EditorGUILayout.TextField(product.SKU);
+							if(product.SKU.Length > 0) {
+								product.SKU 		= product.SKU.Trim();
+							}
+							EditorGUILayout.EndHorizontal();
+							
+							EditorGUILayout.BeginHorizontal();
+							EditorGUILayout.LabelField(DisplayNameLabel);
+							product.Title	 	= EditorGUILayout.TextField(product.Title);
+							EditorGUILayout.EndHorizontal();
+							
+							EditorGUILayout.BeginHorizontal();
+							EditorGUILayout.LabelField(IsConsLabel);
+							product.ProductType	 	= (AN_InAppType) EditorGUILayout.EnumPopup(product.ProductType);
+							EditorGUILayout.EndHorizontal();
+							
+							EditorGUILayout.Space();
+							EditorGUILayout.Space();
+
+							EditorGUILayout.BeginHorizontal();
+							EditorGUILayout.LabelField(DescriptionLabel);
+							EditorGUILayout.EndHorizontal();
+							
+							EditorGUILayout.BeginHorizontal();
+							product.Description	 = EditorGUILayout.TextArea(product.Description,  new GUILayoutOption[]{GUILayout.Height(60), GUILayout.Width(200)} );
+							product.Texture = (Texture2D) EditorGUILayout.ObjectField("", product.Texture, typeof (Texture2D), false);
+							EditorGUILayout.EndHorizontal();
+						}
+
+						
+						EditorGUILayout.EndVertical();
+						
+					}
+					
+					EditorGUILayout.BeginHorizontal();
+					EditorGUILayout.Space();
+					if(GUILayout.Button("Add new", EditorStyles.miniButton, GUILayout.Width(250))) {
+						GoogleProductTemplate product =  new GoogleProductTemplate();
+						AndroidNativeSettings.Instance.InAppProducts.Add(product);
+					}
+					
+					EditorGUILayout.Space();
+					EditorGUILayout.EndHorizontal();
+					EditorGUILayout.Space();
+				}
+				
+				EditorGUILayout.EndVertical();
 			}
 
+			EditorGUI.indentLevel--;
 
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.Space();
-			if(GUILayout.Button("Add",  GUILayout.Width(80))) {
-				settings.InAppProducts.Add("");
-			}
-			EditorGUILayout.EndHorizontal();
+	}
 
-
-			EditorGUILayout.Space();
+	private bool DrawSortingButtons(object currentObject, IList ObjectsList) {
+		
+		int ObjectIndex = ObjectsList.IndexOf(currentObject);
+		if(ObjectIndex == 0) {
+			GUI.enabled = false;
+		} 
+		
+		bool up 		= GUILayout.Button("↑", EditorStyles.miniButtonLeft, GUILayout.Width(20));
+		if(up) {
+			object c = currentObject;
+			ObjectsList[ObjectIndex]  		= ObjectsList[ObjectIndex - 1];
+			ObjectsList[ObjectIndex - 1] 	=  c;
 		}
+		
+		
+		if(ObjectIndex >= ObjectsList.Count -1) {
+			GUI.enabled = false;
+		} else {
+			GUI.enabled = true;
+		}
+		
+		bool down 		= GUILayout.Button("↓", EditorStyles.miniButtonMid, GUILayout.Width(20));
+		if(down) {
+			object c = currentObject;
+			ObjectsList[ObjectIndex] =  ObjectsList[ObjectIndex + 1];
+			ObjectsList[ObjectIndex + 1] = c;
+		}
+		
+		
+		GUI.enabled = true;
+		bool r 			= GUILayout.Button("-", EditorStyles.miniButtonRight, GUILayout.Width(20));
+		if(r) {
+			ObjectsList.Remove(currentObject);
+		}
+		
+		return r;
+	}
+	
+	private void NotificationsSettings() {
+		EditorGUILayout.Space ();
+
+		EditorGUILayout.HelpBox("Local Notifications", MessageType.None);
+		LocalNotificationParams();
+
+		EditorGUILayout.Space ();
+		EditorGUILayout.Space ();
+		EditorGUILayout.HelpBox("Push Notifications", MessageType.None);
+		PushNotificationParams();
+
 	}
 
 
-
-
-	private void GCM() {
-		AndroidNativeSettings.Instance.GCMSettingsActinve = EditorGUILayout.Foldout(AndroidNativeSettings.Instance.GCMSettingsActinve, "Google Cloud Messaging  Settings");
-		if (AndroidNativeSettings.Instance.GCMSettingsActinve) {
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.LabelField("Sender Id");
-			settings.GCM_SenderId	 	= EditorGUILayout.TextField(settings.GCM_SenderId);
-			if(settings.GCM_SenderId.Length > 0) {
-				settings.GCM_SenderId		= settings.GCM_SenderId.Trim();
-			}
-
-			EditorGUILayout.EndHorizontal();
-		}
-	}
-
-
-
-	private void Other() {
-		EditorGUILayout.HelpBox("Android Native API Settings", MessageType.None);
-
-		AndroidNativeSettings.Instance.ShowCameraAndGalleryParams = EditorGUILayout.Foldout(AndroidNativeSettings.Instance.ShowCameraAndGalleryParams, "Camera And Gallery");
-		if (AndroidNativeSettings.Instance.ShowCameraAndGalleryParams) {
-			CameraAndGalleryParams();
-		}
-
-		EditorGUILayout.Space ();
-		AndroidNativeSettings.Instance.ShowLocalNotificationParams = EditorGUILayout.Foldout (AndroidNativeSettings.Instance.ShowLocalNotificationParams, "Local Notifications");
-		if (AndroidNativeSettings.Instance.ShowLocalNotificationParams) {
-			LocalNotificationParams();
-		}
-
-		EditorGUILayout.Space ();
-		AndroidNativeSettings.Instance.ShowPushNotificationParams = EditorGUILayout.Foldout (AndroidNativeSettings.Instance.ShowPushNotificationParams, "Push Notifications");
-		if (AndroidNativeSettings.Instance.ShowPushNotificationParams) {
-			PushNotificationParams();
-		}
-
-
-		EditorGUILayout.Space ();
-		AndroidNativeSettings.Instance.ThirdPartyParams = EditorGUILayout.Foldout (AndroidNativeSettings.Instance.ThirdPartyParams, "Third-Party Plug-Ins Params");
-		if (AndroidNativeSettings.Instance.ThirdPartyParams) {
-			ThirdPartyParams();
-		}
-	}
 
 	public void ThirdPartyParams() {
+
+		EditorGUILayout.Space();
+		EditorGUILayout.HelpBox("Third-Party Plug-Ins Support Seettings", MessageType.None);
+
 		EditorGUI.BeginChangeCheck ();
 
-		EditorGUILayout.BeginHorizontal ();
-		EditorGUILayout.LabelField ("Anti-Cheat Toolkit Support");
-		AndroidNativeSettings.Instance.EnableATCSupport = EditorGUILayout.Toggle ("", AndroidNativeSettings.Instance.EnableATCSupport);
 
 
-		EditorGUILayout.Space ();
-		EditorGUILayout.EndHorizontal ();
+		EditorGUILayout.LabelField ("Anti-Cheat Toolkit", EditorStyles.boldLabel);
 
-		if(EditorGUI.EndChangeCheck()) {
-			UpdatePluginSettings();
-		}
+		EditorGUI.indentLevel++; {
+			EditorGUILayout.BeginHorizontal ();
+			EditorGUILayout.LabelField ("Anti-Cheat Toolkit Support");
+			AndroidNativeSettings.Instance.EnableATCSupport = EditorGUILayout.Toggle ("", AndroidNativeSettings.Instance.EnableATCSupport);
+			
+			
+			EditorGUILayout.Space ();
+			EditorGUILayout.EndHorizontal ();
+			
+			if(EditorGUI.EndChangeCheck()) {
+				UpdatePluginSettings();
+			}
+			
+			
+			
+			EditorGUILayout.BeginHorizontal ();
+			EditorGUILayout.Space ();
+			if (GUILayout.Button("[?] Read More", GUILayout.Width(100.0f))) {
+				Application.OpenURL("http://goo.gl/dokdpv");
+			}
+			
+			EditorGUILayout.EndHorizontal ();
+		} EditorGUI.indentLevel--;
 
 
+		EditorGUILayout.Space();
+		EditorGUILayout.LabelField("Soomla Configuration", EditorStyles.boldLabel);
+		
+		EditorGUI.indentLevel++; {
+			
+			
+			EditorGUI.BeginChangeCheck(); 
+			bool prevSoomlaState = AndroidNativeSettings.Instance.EnableSoomla;
+			AndroidNativeSettings.Instance.EnableSoomla = ToggleFiled("Enable GROW", AndroidNativeSettings.Instance.EnableSoomla);
+			if(EditorGUI.EndChangeCheck())  {
+				
+				if(!AndroidNativeSettings.Instance.EnableSoomla) {
+					PluginsInstalationUtil.DisableSoomlaAPI();
+				} else {
+					
+					if(FileStaticAPI.IsFileExists("Plugins/IOS/libSoomlaGrowLite.a")) {
+						PluginsInstalationUtil.EnableSoomlaAPI();
+					} else {
+						
+						
+						bool res = EditorUtility.DisplayDialog("Soomla Grow not found", "Android Native wasn't able to find Soomla Grow libraryes in your project. Would you like to donwload and install it?", "Download", "No Thanks");
+						if(res) {
+							Application.OpenURL(AndroidNativeSettings.Instance.SoomlaDownloadLink);
+						}
+						
+						AndroidNativeSettings.Instance.EnableSoomla = false;
+					}
+				}
+			}
 
-		EditorGUILayout.BeginHorizontal ();
-		EditorGUILayout.Space ();
-		if (GUILayout.Button("[?] Read More", GUILayout.Width(100.0f))) {
-			Application.OpenURL("http://goo.gl/dokdpv");
-		}
+			if(!prevSoomlaState && AndroidNativeSettings.Instance.EnableSoomla) {
+				bool res = EditorUtility.DisplayDialog("Soomla Grow", "Make sure you initialize SoomlaGrow when your games starts: \nAN_SoomlaGrow.Init();", "Documentation", "Got it");
+				if(res) {
+					Application.OpenURL(AndroidNativeSettings.Instance.SoomlaDocsLink);
+				}
+			}
 
-		EditorGUILayout.EndHorizontal ();
+
+			
+			
+			GUI.enabled = AndroidNativeSettings.Instance.EnableSoomla;
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField("Game Key");
+			AndroidNativeSettings.Instance.SoomlaGameKey =  EditorGUILayout.TextField(AndroidNativeSettings.Instance.SoomlaGameKey);
+			EditorGUILayout.EndHorizontal();
+			
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField("Env Key");
+			AndroidNativeSettings.Instance.SoomlaEnvKey =  EditorGUILayout.TextField(AndroidNativeSettings.Instance.SoomlaEnvKey);
+			EditorGUILayout.EndHorizontal();
+			GUI.enabled = true;
+			
+		}EditorGUI.indentLevel--;
+
 	}
 
 	public static void LocalNotificationParams() {
@@ -1447,6 +1863,15 @@ public class AndroidNativeSettingsEditor : Editor {
 
 	public static void PushNotificationParams() {
 		EditorGUI.BeginChangeCheck ();
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("Sender Id");
+		AndroidNativeSettings.Instance.GCM_SenderId	 	= EditorGUILayout.TextField(AndroidNativeSettings.Instance.GCM_SenderId);
+		if(AndroidNativeSettings.Instance.GCM_SenderId.Length > 0) {
+			AndroidNativeSettings.Instance.GCM_SenderId		= AndroidNativeSettings.Instance.GCM_SenderId.Trim();
+		}
+		EditorGUILayout.EndHorizontal();
+
 		EditorGUILayout.BeginHorizontal ();
 		EditorGUILayout.LabelField ("Show when App is foreground");
 		AndroidNativeSettings.Instance.ShowPushWhenAppIsForeground = EditorGUILayout.Toggle ("", AndroidNativeSettings.Instance.ShowPushWhenAppIsForeground);
@@ -1571,6 +1996,10 @@ public class AndroidNativeSettingsEditor : Editor {
 	}
 
 	public static void CameraAndGalleryParams() {
+
+		EditorGUILayout.Space();
+		EditorGUILayout.HelpBox("Camera and Gallery", MessageType.None);
+
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.LabelField("Camera Capture Mode");
 		AndroidNativeSettings.Instance.CameraCaptureMode	 	= (AN_CameraCaptureType) EditorGUILayout.EnumPopup(AndroidNativeSettings.Instance.CameraCaptureMode);
@@ -1636,7 +2065,7 @@ public class AndroidNativeSettingsEditor : Editor {
 
 
 
-		SelectableLabelField(SupportEmail, "stans.assets@gmail.com");
+		SelectableLabelField(SupportEmail, "support@stansassets.com");
 		
 		
 	}
@@ -1659,7 +2088,25 @@ public class AndroidNativeSettingsEditor : Editor {
 		AndroidNativeSettingsEditor.UpdateAPIsInstalation();
 	}
 
-
+	private bool ToggleFiled(string titile, bool value) {
+		
+		AN_Bool initialValue = AN_Bool.Yes;
+		if(!value) {
+			initialValue = AN_Bool.No;
+		}
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField(titile);
+		
+		initialValue = (AN_Bool) EditorGUILayout.EnumPopup(initialValue);
+		if(initialValue == AN_Bool.Yes) {
+			value = true;
+		} else {
+			value = false;
+		}
+		EditorGUILayout.EndHorizontal();
+		
+		return value;
+	}
 
 	private static void DirtyEditor() {
 		#if UNITY_EDITOR

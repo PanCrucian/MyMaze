@@ -13,6 +13,8 @@ public class IOSNativeFeaturesPreview : BaseIOSFeaturePreview {
 		if(back == null) {
 			back = IOSNativePreviewBackButton.Create();
 		}
+
+
 	}
 
 
@@ -75,6 +77,12 @@ public class IOSNativeFeaturesPreview : BaseIOSFeaturePreview {
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Local And Push Notifications")) {
 			Application.LoadLevel("NotificationExample");
 
+		}
+
+		StartX = XStartPos;
+		StartY += YButtonStep;
+		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "ReplayKit")) {
+			Application.LoadLevel("ReplayKitExampleScene");
 		}
 
 

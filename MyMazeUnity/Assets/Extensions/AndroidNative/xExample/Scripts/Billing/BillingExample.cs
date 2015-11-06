@@ -61,7 +61,7 @@ public class BillingExample : MonoBehaviour {
 
 	public void ConsumeProduct() {
 		if(GPaymnetManagerExample.isInited) {
-			if(AndroidInAppPurchaseManager.instance.inventory.IsProductPurchased(GPaymnetManagerExample.ANDROID_TEST_PURCHASED)) {
+			if(AndroidInAppPurchaseManager.instance.Inventory.IsProductPurchased(GPaymnetManagerExample.ANDROID_TEST_PURCHASED)) {
 				GPaymnetManagerExample.consume (GPaymnetManagerExample.ANDROID_TEST_PURCHASED);
 			} else {
 				AndroidMessage.Create("Error", "You do not own product to consume it");

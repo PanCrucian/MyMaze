@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AN_BillingProxy : MonoBehaviour {
+public class AN_BillingProxy  {
 
 	private const string CLASS_NAME = "com.androidnative.billing.core.BillingManager";
 	

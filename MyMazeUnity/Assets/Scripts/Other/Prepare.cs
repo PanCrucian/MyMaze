@@ -30,6 +30,7 @@ public class Prepare : MonoBehaviour {
             InitDeltaDNA();
             InitAppsFlayer();
             InitHeyzap();
+            SPFacebook.Instance.Init();
             Application.LoadLevel("WhiteRoomGames");
         }
         counter++;

@@ -1,13 +1,15 @@
-﻿using UnityEngine;
+#define INAPP_API_ENABLED
+
+using UnityEngine;
 using System;
 using System.Collections;
-#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+#if (UNITY_IPHONE && !UNITY_EDITOR && INAPP_API_ENABLED) || SA_DEBUG_MODE
 using System.Runtime.InteropServices;
 #endif
 
 public class ISN_Security : ISN_Singleton<ISN_Security> { 
 
-	#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+	#if (UNITY_IPHONE && !UNITY_EDITOR && INAPP_API_ENABLED) || SA_DEBUG_MODE
 
 	[DllImport ("__Internal")]
 	private static extern void _ISN_RetrieveLocalReceipt();
@@ -23,28 +25,28 @@ public class ISN_Security : ISN_Singleton<ISN_Security> {
 	#endif
 
 
-	public static Action<ISN_LocalReceiptResult> OnReceiptLoaded = delegate{};
-	public static Action<ISN_DeviceGUID> OnGUIDLoaded = delegate{};
-	public static Action<ISN_Result> OnReceiptRefreshComplete = delegate{};
+	public static event Action<ISN_LocalReceiptResult> OnReceiptLoaded = delegate{};
+	public static event Action<ISN_DeviceGUID> OnGUIDLoaded = delegate{};
+	public static event Action<ISN_Result> OnReceiptRefreshComplete = delegate{};
 
 
 
 	public void RetrieveLocalReceipt() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && INAPP_API_ENABLED) || SA_DEBUG_MODE
 		_ISN_RetrieveLocalReceipt();
 		#endif
 	}
 
 
 	public void RetrieveDeviceGUID() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && INAPP_API_ENABLED) || SA_DEBUG_MODE
 		_ISN_RetrieveDeviceGUID();
 		#endif
 	}
 
 
 	public void StartReceiptRefreshRequest() {
-		#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IPHONE && !UNITY_EDITOR && INAPP_API_ENABLED) || SA_DEBUG_MODE
 		_ISN_ReceiptRefreshRequest();
 		#endif
 	}

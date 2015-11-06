@@ -21,7 +21,6 @@ public class iAdUseExample : MonoBehaviour {
 	private iAdBanner banner1;
 	private iAdBanner banner2;
 
-	private bool IsInterstisialsAdReady = false;
 	public GameObject		Quad;
 	//--------------------------------------
 	// INITIALIZE
@@ -80,7 +79,17 @@ public class iAdUseExample : MonoBehaviour {
 		}
 		*/
 	}
-	
+
+
+	void FixedUpdate() {
+		//Debug.Log(iAdBannerController.Instance.IsPresentingFullScreenAd);
+	}
+
+	void OnApplicationPause(bool pauseStatus) {
+		Debug.Log(pauseStatus);
+	}
+
+
 	void OnGUI() {
 		
 		float StartY = 20;
@@ -89,22 +98,19 @@ public class iAdUseExample : MonoBehaviour {
 
 		StartY+= 40;
 		if(GUI.Button(new Rect(StartX, StartY, 150, 50), "Start Interstitial Ad")) {
-			IsInterstisialsAdReady = false;
 			iAdBannerController.instance.StartInterstitialAd ();
 		}
 
 		StartX += 170;
 		if(GUI.Button(new Rect(StartX, StartY, 150, 50), "Load Interstitial Ad")) {
-			IsInterstisialsAdReady = false;
 			iAdBannerController.instance.LoadInterstitialAd ();
 		}
 
 
 		StartX += 170;
-		GUI.enabled = IsInterstisialsAdReady;
+		GUI.enabled = iAdBannerController.Instance.IsInterstisialsAdReady;
 		if(GUI.Button(new Rect(StartX, StartY, 150, 50), "Show Interstitial Ad")) {
 			iAdBannerController.instance.ShowInterstitialAd ();
-			IsInterstisialsAdReady = false;
 		}
 		GUI.enabled  = true;
 
@@ -217,8 +223,7 @@ public class iAdUseExample : MonoBehaviour {
 	}
 	
 	void HandleInterstitialAdDidLoadAction (){
-		Debug.Log("OnInterstitialFinish event fired");
-		IsInterstisialsAdReady = false;
+		Debug.Log("HandleInterstitialAdDidLoadAction event fired");
 	}
 	
 

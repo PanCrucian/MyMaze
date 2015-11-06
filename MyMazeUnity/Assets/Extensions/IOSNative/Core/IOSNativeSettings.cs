@@ -10,24 +10,45 @@ using UnityEditor;
 
 public class IOSNativeSettings : ScriptableObject {
 
-	public const string VERSION_NUMBER = "7.3.1";
+	public const string VERSION_NUMBER = "8.0.6";
 
 	public string AppleId = "XXXXXXXXX";
 
-	public List<string> InAppProducts = new List<string>();
+
+	public int ToolbarIndex = 0;
+	
 	public bool SendFakeEventsInEditor = true;
-	public List<string> RegisteredAchievementsIds = new List<string>();
 	public List<string> DefaultStoreProductsView = new List<string>();
 
 
+	public List<IOSProductTemplate> InAppProducts =  new List<IOSProductTemplate>();
+	public List<GK_Leaderboard> Leaderboards =  new List<GK_Leaderboard>();
+	public List<GK_AchievementTemplate> Achievements =  new List<GK_AchievementTemplate>();
+
+
+
 	public bool checkInternetBeforeLoadRequest = false;
-	public bool ShowStoreKitParams = false;
-	public bool ShowGCParams = false;
-	public bool ShowAchievementsParams = false;
+	public bool ShowStoreKitProducts = true;
+	public bool ShowLeaderboards = true;
+	public bool ShowAchievementsParams = true;
 	public bool ShowUsersParams = false;
 	public bool ShowOtherParams = false;
-	public bool ShowCameraAndGalleryParams = false;
-	public bool UseOneSignal = false;
+	public bool ShowRPKParams = false;
+
+
+	public bool ExpandAPISettings = true;
+
+
+	public bool EnableGameCenterAPI = true;
+	public bool EnableInAppsAPI = true;
+	public bool EnableCameraAPI = true;
+	public bool EnableSocialSharingAPI = true;
+	public bool EnableMediaPlayerAPI = true;
+	public bool EnableiAdAPI = true;
+	public bool EnableReplayKit = false;
+	public bool EnableSoomla = false;
+
+	public bool EnablePushNotificationsAPI = false;
 
 
 	public bool DisablePluginLogs = false;
@@ -35,7 +56,7 @@ public class IOSNativeSettings : ScriptableObject {
 
 	public bool UseGCRequestCaching = false;
 	public bool UsePPForAchievements = false;
-	public bool EnablePushNotificationsAPI = false;
+
 
 	public bool AutoLoadUsersSmallImages = true;
 	public bool AutoLoadUsersBigImages = false;
@@ -46,6 +67,15 @@ public class IOSNativeSettings : ScriptableObject {
 	public IOSGalleryLoadImageFormat GalleryImageFormat = IOSGalleryLoadImageFormat.JPEG;
 
 
+	public int RPK_iPadViewType = 0;
+
+
+
+	//Soomla
+	public string SoomlaDownloadLink = "http://goo.gl/7LYwuj";
+	public string SoomlaDocsLink = "https://goo.gl/JFkpNa";
+	public string SoomlaGameKey = "" ;
+	public string SoomlaEnvKey = "" ;
 
 
 	private const string ISNSettingsAssetName = "IOSNativeSettings";
@@ -54,7 +84,6 @@ public class IOSNativeSettings : ScriptableObject {
 
 	private static IOSNativeSettings instance = null;
 
-	
 	public static IOSNativeSettings Instance {
 
 		

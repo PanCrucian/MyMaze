@@ -83,7 +83,14 @@ public class PopUpExamples : BaseIOSFeaturePreview {
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Hide Preloader")) {
 			HidePreloader();
 		}
-		
+
+		StartX += XButtonStep;
+		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Get Locale")) {
+			IOSNativeUtility.OnLocaleLoaded += GetLocale;
+			IOSNativeUtility.Instance.GetLocale();
+		}
+
+
 	}
 	
 
@@ -140,6 +147,18 @@ public class PopUpExamples : BaseIOSFeaturePreview {
 		Debug.Log("Message was just closed");
 		IOSNativePopUpManager.showMessage("Result", "Message Closed");
 	}
+
+
+	private void GetLocale (ISN_Locale locale){
+		Debug.Log ("GetLocale");
+		Debug.Log (locale.DisplayCountry);
+			IOSNativePopUpManager.showMessage("Locale Info:", "Country:" + locale.CountryCode + "/" 
+		                          + locale.DisplayCountry + "  :   " + "Language:" 
+		                          + locale.LanguageCode + "/" 
+		                          + locale.DisplayLanguage);
+		IOSNativeUtility.OnLocaleLoaded -= GetLocale;
+	}
+
 	
 	//--------------------------------------
 	//  PRIVATE METHODS

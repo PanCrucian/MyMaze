@@ -30,7 +30,7 @@ public class NotificationExample : BaseIOSFeaturePreview {
 	
 	
 	void Awake() {
-        IOSNotificationController.Instance.RequestNotificationPermissions();
+		IOSNotificationController.instance.RequestNotificationPermissions();
 
 		IOSNotificationController.OnLocalNotificationReceived += HandleOnLocalNotificationReceived;
 
@@ -71,6 +71,7 @@ public class NotificationExample : BaseIOSFeaturePreview {
 
 			ISN_LocalNotification notification =  new ISN_LocalNotification(DateTime.Now.AddSeconds(5),"Your Notification Text", true);
 			notification.SetData("some_test_data");
+			notification.SetSoundName("purchase_ok.wav");
 			notification.SetBadgesNumber(1);
 			notification.Schedule();
 
@@ -80,7 +81,7 @@ public class NotificationExample : BaseIOSFeaturePreview {
 		
 		StartX += XButtonStep;
 		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Cancel All Notifications")) {
-            IOSNotificationController.Instance.CancelAllLocalNotifications();
+			IOSNotificationController.instance.CancelAllLocalNotifications();
 			IOSNativeUtility.SetApplicationBagesNumber(0);
 		}
 		
@@ -88,7 +89,7 @@ public class NotificationExample : BaseIOSFeaturePreview {
 		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Cansel Last Notification")) {
 
 
-            IOSNotificationController.Instance.CancelLocalNotificationById(lastNotificationId);
+			IOSNotificationController.instance.CancelLocalNotificationById(lastNotificationId);
 		}
 		
 		
@@ -101,12 +102,12 @@ public class NotificationExample : BaseIOSFeaturePreview {
 			#if UNITY_IPHONE
 			
 			#if UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_5 || UNITY_4_6
-			IOSNotificationController.instance.RegisterForRemoteNotifications (RemoteNotificationType.Alert |  RemoteNotificationType.Badge |  RemoteNotificationType.Sound);
+			IOSNotificationController.Instance.RegisterForRemoteNotifications (RemoteNotificationType.Alert |  RemoteNotificationType.Badge |  RemoteNotificationType.Sound);
 
 			IOSNotificationController.OnDeviceTokenReceived += OnDeviceTokenReceived;
 
 			#else
-            IOSNotificationController.Instance.RegisterForRemoteNotifications(NotificationType.Alert | NotificationType.Badge | NotificationType.Sound);
+			IOSNotificationController.Instance.RegisterForRemoteNotifications (NotificationType.Alert |  NotificationType.Badge |  NotificationType.Sound);
 			IOSNotificationController.OnDeviceTokenReceived += OnDeviceTokenReceived;
 			#endif
 			
@@ -119,7 +120,7 @@ public class NotificationExample : BaseIOSFeaturePreview {
 		
 		StartX += XButtonStep;
 		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Show Game Kit Notification")) {
-            IOSNotificationController.Instance.ShowGmaeKitNotification("Title", "Message");
+			IOSNotificationController.instance.ShowGmaeKitNotification("Title", "Message");
 		}
 		
 		
@@ -151,8 +152,9 @@ public class NotificationExample : BaseIOSFeaturePreview {
 		
 		IOSDialog.Create("OnTokenReceived", token.tokenString);
 		
-		IOSNotificationController.OnDeviceTokenReceived += OnDeviceTokenReceived;
+		IOSNotificationController.OnDeviceTokenReceived -= OnDeviceTokenReceived;
 	}
+	
 
 	void HandleOnLocalNotificationReceived (ISN_LocalNotification notification) {
 		IOSMessage.Create("Notification Received", "Messgae: " + notification.Message + "\nNotification Data: " + notification.Data);

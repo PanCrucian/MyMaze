@@ -17,7 +17,7 @@ public class IOSBillingInitChecker
 
 			IOSInAppPurchaseManager.OnStoreKitInitComplete += HandleOnStoreKitInitComplete;
 			if(!IOSInAppPurchaseManager.Instance.IsWaitingLoadResult) {
-				IOSInAppPurchaseManager.Instance.loadStore();
+				IOSInAppPurchaseManager.Instance.LoadStore();
 			}
 		}
 	}

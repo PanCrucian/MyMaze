@@ -20,6 +20,8 @@ public class GameCenterFriendLoadExample : MonoBehaviour {
 		
 		//Initializing Game Center class. This action will trigger authentication flow
 		GameCenterManager.Init();
+
+
 	}
 
 

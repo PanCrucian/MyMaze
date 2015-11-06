@@ -310,13 +310,13 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 
 
 		if(achievement != null) {
-			a_id.text 		= "Id: " + achievement.id;
-			a_name.text 	= "Name: " +achievement.name;
-			a_descr.text 	= "Description: " + achievement.description;
-			a_type.text 	= "Type: " + achievement.type.ToString();
-			a_state.text 	= "State: " + achievement.state.ToString();
-			a_steps.text 	= "CurrentSteps: " + achievement.currentSteps.ToString();
-			a_total.text 	= "TotalSteps: " + achievement.totalSteps.ToString();
+			a_id.text 		= "Id: " + achievement.Id;
+			a_name.text 	= "Name: " +achievement.Name;
+			a_descr.text 	= "Description: " + achievement.Description;
+			a_type.text 	= "Type: " + achievement.Type.ToString();
+			a_state.text 	= "State: " + achievement.State.ToString();
+			a_steps.text 	= "CurrentSteps: " + achievement.CurrentSteps.ToString();
+			a_total.text 	= "TotalSteps: " + achievement.TotalSteps.ToString();
 		}
 	}
 
@@ -324,19 +324,18 @@ public class PlayServiceExample : AndroidNativeExampleBase {
 		GooglePlayManager.ActionAchievementsLoaded -= OnAchievementsLoaded;
 		if(result.isSuccess) {
 
-			foreach(string achievementId in GooglePlayManager.Instance.achievements.Keys) {
-				GPAchievement achievement = GooglePlayManager.Instance.GetAchievement(achievementId);
-				Debug.Log(achievement.id);
-				Debug.Log(achievement.name);
-				Debug.Log(achievement.description);
-				Debug.Log(achievement.type);
-				Debug.Log(achievement.state);
-				Debug.Log(achievement.currentSteps);
-				Debug.Log(achievement.totalSteps);
+			foreach (GPAchievement achievement in GooglePlayManager.Instance.Achievements) {
+				Debug.Log(achievement.Id);
+				Debug.Log(achievement.Name);
+				Debug.Log(achievement.Description);
+				Debug.Log(achievement.Type);
+				Debug.Log(achievement.State);
+				Debug.Log(achievement.CurrentSteps);
+				Debug.Log(achievement.TotalSteps);
 			}
 
-			SA_StatusBar.text = "Total Achievement: " + GooglePlayManager.Instance.achievements.Count.ToString();
-			AN_PoupsProxy.showMessage ("Achievments Loaded", "Total Achievements: " + GooglePlayManager.Instance.achievements.Count.ToString());
+			SA_StatusBar.text = "Total Achievement: " + GooglePlayManager.Instance.Achievements.Count.ToString();
+			AN_PoupsProxy.showMessage ("Achievments Loaded", "Total Achievements: " + GooglePlayManager.Instance.Achievements.Count.ToString());
 		} else {
 			SA_StatusBar.text = result.message;
 			AN_PoupsProxy.showMessage ("Achievments Loaded error: ", result.message);

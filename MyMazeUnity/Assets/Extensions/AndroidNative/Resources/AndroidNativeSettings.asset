@@ -22,38 +22,37 @@ MonoBehaviour:
   LoadEventsIcons: 1
   ShowConnectingPopup: 1
   EnableATCSupport: 0
+  EnableSoomla: 0
+  SoomlaDownloadLink: http://goo.gl/7LYwuj
+  SoomlaDocsLink: https://goo.gl/es5j1N
+  SoomlaGameKey: 
+  SoomlaEnvKey: 
   SaveCameraImageToGallery: 0
   UseProductNameAsFolderName: 1
   GalleryFolderName: My Maze
   MaxImageLoadSize: 512
   CameraCaptureMode: 0
   ImageFormat: 0
-  ShowPluginSettings: 1
-  ShowAppPermissions: 0
+  ShowAppPermissions: 1
   EnableBillingAPI: 1
   EnablePSAPI: 1
-  EnableSocialAPI: 0
+  EnableSocialAPI: 1
   EnableCameraAPI: 0
   ExpandNativeAPI: 1
   ExpandPSAPI: 1
   ExpandBillingAPI: 1
-  ExpandSocialAPI: 0
-  ExpandCameraAPI: 0
-  ShowStoreKitParams: 1
-  ShowCameraAndGalleryParams: 0
-  ShowLocalNotificationParams: 0
-  ShowPushNotificationParams: 0
+  ExpandSocialAPI: 1
+  ExpandCameraAPI: 1
   ThirdPartyParams: 0
-  ShowPSSettings: 1
   ShowPSSettingsResources: 0
   ShowActions: 1
   GCMSettingsActinve: 1
   LocalNotificationsAPI: 1
-  ImmersiveModeAPI: 1
-  ApplicationInformationAPI: 1
-  ExternalAppsAPI: 1
-  PoupsandPreloadersAPI: 1
-  CheckAppLicenseAPI: 1
+  ImmersiveModeAPI: 0
+  ApplicationInformationAPI: 0
+  ExternalAppsAPI: 0
+  PoupsandPreloadersAPI: 0
+  CheckAppLicenseAPI: 0
   NetworkStateAPI: 0
   InAppPurchasesAPI: 1
   GooglePlayServicesAPI: 1
@@ -62,14 +61,20 @@ MonoBehaviour:
   AnalyticsAPI: 0
   GoogleCloudSaveAPI: 0
   PushNotificationsAPI: 1
-  GoogleMobileAdAPI: 1
+  GoogleMobileAdAPI: 0
   GalleryAPI: 0
   CameraAPI: 0
-  KeepManifestClean: 0
+  KeepManifestClean: 1
   GCM_SenderId: 508693365957
   GooglePlayServiceAppID: 508693365957
+  ToolbarSelectedIndex: 3
   base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjt+1/95x4VMHcpMqUpTz2mTympmfnk6NF/diAAxZkBs7G1hI18GrRznJrO5OEcbFswp2UkH8xcSUIx0O2CjD/0bPH0/uvuKqsUUqd3hQaak652I0QTGrpVIKUNqRksWQfqwWKmUk6cr3XtuAoZHiGoACZMX0qxFxX2p6hE4F0SBHYxjwEy5RXlA9tdpRwU/pshU9U2PY2oKs607vhas1J1tGnEOwoYT5ZGk2HlLLawrzoWtXf+npb49USvwqhVavfFyAr8mNbqclAHcR4BKxYxV9YisPJ9PGapVVZF1plDMxofF1rBBp2M+4KJ/lfUWBDla1obnLv7AV12w8txVTzQIDAQAB
+  ShowStoreProducts: 1
   InAppProducts: []
+  ShowLeaderboards: 1
+  Leaderboards: []
+  ShowAchievements: 1
+  Achievements: []
   ShowWhenAppIsForeground: 1
   EnableVibrationLocal: 0
   LocalNotificationIcon: {fileID: 0}

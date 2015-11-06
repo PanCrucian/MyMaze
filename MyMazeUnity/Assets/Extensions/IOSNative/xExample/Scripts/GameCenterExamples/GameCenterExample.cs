@@ -17,8 +17,8 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 	private int hiScore = 200;
 	
 	
-	private string leaderBoardId =  "your.ios.leaderbord1.id";
-	private string leaderBoardId2 = "your.ios.leaderbord2.id";
+	private string TEST_LEADERBOARD_1 = "your.ios.leaderbord1.id";
+	private string TEST_LEADERBOARD_2 = "combined.board.1";
 	
 	
 	
@@ -39,6 +39,7 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 	
 	
 	void Awake() {
+
 		if(!IsInitialized) {
 			
 			//Achievement registration. If you skip this step GameCenterManager.achievements array will contain only achievements with reported progress 
@@ -49,16 +50,17 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 			//Listen for the Game Center events
 			GameCenterManager.OnAchievementsProgress += HandleOnAchievementsProgress;
 			GameCenterManager.OnAchievementsReset += HandleOnAchievementsReset;
-			
-
-			GameCenterManager.OnPlayerScoreLoaded += HandleOnPlayerScoreLoaded;
-
-			GameCenterManager.OnPlayerScoreLoaded += OnPlayerScoreLoaded;
-			GameCenterManager.OnAuthFinished += OnAuthFinished;
-			
 			GameCenterManager.OnAchievementsLoaded += OnAchievementsLoaded;
 			
+
+			GameCenterManager.OnScoreSubmitted += OnScoreSubmitted;
+			GameCenterManager.OnLeadrboardInfoLoaded += OnLeadrboardInfoLoaded;
+
+
+
+			GameCenterManager.OnAuthFinished += OnAuthFinished;
 			
+
 			//Initializing Game Center class. This action will trigger authentication flow
 			GameCenterManager.Init();
 			IsInitialized = true;
@@ -122,19 +124,19 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 		StartX = XStartPos;
 		StartY+= YButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Show Leaderboard 1")) {
-			GameCenterManager.ShowLeaderboard(leaderBoardId);
+			GameCenterManager.ShowLeaderboard(TEST_LEADERBOARD_1);
 		}
 		
 		StartX += XButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Report Score LB 1")) {
 			hiScore++;
-			GameCenterManager.ReportScore(hiScore, leaderBoardId);
+			GameCenterManager.ReportScore(hiScore, TEST_LEADERBOARD_1);
 			
 		}
 		
 		StartX += XButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Get Score LB 1")) {
-			GameCenterManager.LoadCurrentPlayerScore(leaderBoardId);
+			GameCenterManager.LoadLeaderboardInfo(TEST_LEADERBOARD_1);
 		}
 		
 		
@@ -147,14 +149,14 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 		
 		StartY+= YLableStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Show Leader Board2")) {
-			GameCenterManager.ShowLeaderboard(leaderBoardId2);
+			GameCenterManager.ShowLeaderboard(TEST_LEADERBOARD_2);
 
 		}
 		
 		
 		StartX += XButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Show Leaderboard 2 Today")) {
-			GameCenterManager.ShowLeaderboard(leaderBoardId2, GK_TimeSpan.TODAY);
+			GameCenterManager.ShowLeaderboard(TEST_LEADERBOARD_2, GK_TimeSpan.TODAY);
 		}
 		
 		StartX += XButtonStep;
@@ -162,19 +164,19 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 			hiScore++;
 			
 			GameCenterManager.OnScoreSubmitted += OnScoreSubmitted;
-			GameCenterManager.ReportScore(hiScore, leaderBoardId2);
+			GameCenterManager.ReportScore(hiScore, TEST_LEADERBOARD_2);
 		}
 		
 		
 		StartX += XButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Get Score LB 2")) {
-			GameCenterManager.LoadCurrentPlayerScore(leaderBoardId2);
+			GameCenterManager.LoadLeaderboardInfo(TEST_LEADERBOARD_2);
 		}
 		
 		
 		StartX += XButtonStep;
 		if(GUI.Button(new Rect(StartX, StartY, buttonWidth, buttonHeight), "Send Challenge")) {
-			GameCenterManager.IssueLeaderboardChallenge(leaderBoardId2, "Here's a tiny challenge for you");
+			GameCenterManager.IssueLeaderboardChallenge(TEST_LEADERBOARD_2, "Here's a tiny challenge for you");
 		}
 		
 		
@@ -296,25 +298,25 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 		}
 	}
 
-	void HandleOnPlayerScoreLoaded (GK_PlayerScoreLoadedResult result) {
+	void OnScoreSubmitted (GK_LeaderboardResult result) {
 		if(result.IsSucceeded) {
-			GK_Score score = result.loadedScore;
-			IOSNativePopUpManager.showMessage("Leaderboard " + score.leaderboardId, "Score: " + score.score + "\n" + "Rank:" + score.rank);
+			GK_Score score = result.Leaderboard.GetCurrentPlayerScore(GK_TimeSpan.ALL_TIME, GK_CollectionType.GLOBAL);
+			IOSNativePopUpManager.showMessage("Leaderboard " + score.LongScore, "Score: " + score.LongScore + "\n" + "Rank:" + score.Rank);
 		}
 	}
 
 	
-	private void OnPlayerScoreLoaded (GK_PlayerScoreLoadedResult result) {
+	private void OnLeadrboardInfoLoaded (GK_LeaderboardResult result) {
 		if(result.IsSucceeded) {
-			GK_Score score = result.loadedScore;
-			IOSNativePopUpManager.showMessage("Leaderboard " + score.leaderboardId, "Score: " + score.score + "\n" + "Rank:" + score.rank);
+			GK_Score score = result.Leaderboard.GetCurrentPlayerScore(GK_TimeSpan.ALL_TIME, GK_CollectionType.GLOBAL);
+			IOSNativePopUpManager.showMessage("Leaderboard " + score.LeaderboardId, "Score: " + score.LongScore + "\n" + "Rank:" + score.Rank);
 			
-			Debug.Log("double score representation: " + score.GetDoubleScore());
-			Debug.Log("long score representation: " + score.GetLongScore());
+			Debug.Log("double score representation: " + score.DecimalFloat_2);
+			Debug.Log("long score representation: " + score.LongScore);
 			
-			if(score.leaderboardId.Equals(leaderBoardId2)) {
+			if(score.LeaderboardId.Equals(TEST_LEADERBOARD_2)) {
 				Debug.Log("Updating leaderboard 2 score");
-				LB2BestScores = score.GetLongScore();
+				LB2BestScores = score.LongScore;
 				
 			}
 		}
@@ -334,7 +336,7 @@ public class GameCenterExample : BaseIOSFeaturePreview {
 	void OnAuthFinished (ISN_Result res) {
 		if (res.IsSucceeded) {
 			IOSNativePopUpManager.showMessage("Player Authed ", "ID: " + GameCenterManager.Player.Id + "\n" + "Alias: " + GameCenterManager.Player.Alias);
-			GameCenterManager.LoadCurrentPlayerScore(leaderBoardId2);
+			GameCenterManager.LoadLeaderboardInfo(TEST_LEADERBOARD_1);
 		} else {
 			IOSNativePopUpManager.showMessage("Game Center ", "Player authentication failed");
 		}

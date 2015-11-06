@@ -154,7 +154,7 @@ public class GooglePlayServices : MonoBehaviour {
     {
         if (result.isSuccess)
         {
-            Debug.Log("Total Achievement: " + GooglePlayManager.Instance.achievements.Count.ToString());
+            Debug.Log("Total Achievement: " + GooglePlayManager.Instance.Achievements.Count.ToString());
             _achievmentsLoaded = true;
             CheckAchievementCache();
             CheckAchIntegrity();
@@ -167,7 +167,7 @@ public class GooglePlayServices : MonoBehaviour {
 
     void CheckAchIntegrity()
     {
-        foreach (Achievement achievement in MyMaze.Instance.Achievements.elements)
+        /*foreach (Achievement achievement in MyMaze.Instance.Achievements.elements)
         {
             bool haveCopy = false;
             foreach (string achievementId in GooglePlayManager.Instance.achievements.Keys)
@@ -184,7 +184,7 @@ public class GooglePlayServices : MonoBehaviour {
                 Debug.LogWarning("No copy for achievement pair GooglePlay into MyMaze. Please check GameController->Achievements->gPSMathcing id's AND GooglePLay achievemnts id.xml");
                 break;
             }
-        }
+        }*/
     }
 
     /// <summary>
@@ -194,7 +194,7 @@ public class GooglePlayServices : MonoBehaviour {
     {
         foreach (Achievement achievement in MyMaze.Instance.Achievements.elements)
             if (achievement.IsAchieved)
-                if (GooglePlayManager.Instance.GetAchievement(MyMaze.Instance.Achievements.GetMarketId(achievement.type)).state != GPAchievementState.STATE_UNLOCKED)
+                if (GooglePlayManager.Instance.GetAchievement(MyMaze.Instance.Achievements.GetMarketId(achievement.type)).State != GPAchievementState.STATE_UNLOCKED)
                     achievement.GooglePlayAchieve();
     }
 

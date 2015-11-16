@@ -5,8 +5,7 @@ using Heyzap;
 public class AndroidBackButton : MonoBehaviour {
     
 #if UNITY_ANDROID || UNITY_EDITOR
-    int tapsForQuit = 0;
-    public int quitRequestsCount = 0;
+    MenuLoadConfirmUI menuLoadConfirm;
 
     void Start()
     {
@@ -37,14 +36,15 @@ public class AndroidBackButton : MonoBehaviour {
                     {
                         if (cg_Main.activeSelf)
                         {
-                            if (quitRequestsCount >= tapsForQuit)
-                                Application.Quit();
-                            quitRequestsCount++;
+                            if(menuLoadConfirm == null)
+                                menuLoadConfirm = GameObject.FindObjectOfType<MenuLoadConfirmUI>();
+
+                            if (menuLoadConfirm != null)
+                            {
+                                menuLoadConfirm.Show();
+                                menuLoadConfirm.OnPositive = () => Application.Quit();
+                            }
                         }
-                    }
-                    else
-                    {
-                        quitRequestsCount = 0;
                     }
 
                 }

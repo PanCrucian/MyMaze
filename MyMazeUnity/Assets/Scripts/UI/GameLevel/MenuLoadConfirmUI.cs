@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class MenuLoadConfirmUI : MonoBehaviour {
+
+    public Action OnPositive;
 
     /// <summary>
     /// Спрячем экран с предложением рекламы
@@ -26,5 +29,23 @@ public class MenuLoadConfirmUI : MonoBehaviour {
         CGSwitcher.Instance.Switch();
 
         GetComponent<SoundsPlayer>().PlayOneShootSound();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            if (GetComponent<CanvasGroup>().alpha >= 0.1f)
+                Hide();
+    }
+
+    public void Positive()
+    {
+        if (OnPositive != null)
+            OnPositive();
+    }
+
+    public void Negative()
+    {
+
     }
 }

@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6505737247537c48998e8d446bb1e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quitRequestsCount: 0
 --- !u!4 &1244196504
 Transform:
   m_ObjectHideFlags: 0
@@ -152,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ce91fc836d73647a99182d02e5d787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  androidClientVersion: 1.0.11
+  androidClientVersion: 1.0.12
   iphoneClientVersion: 0.1.4
 --- !u!4 &1780507429
 Transform:

@@ -48,7 +48,7 @@ MonoBehaviour:
   ShowActions: 1
   GCMSettingsActinve: 1
   LocalNotificationsAPI: 1
-  ImmersiveModeAPI: 0
+  ImmersiveModeAPI: 1
   ApplicationInformationAPI: 0
   ExternalAppsAPI: 0
   PoupsandPreloadersAPI: 0
@@ -70,15 +70,62 @@ MonoBehaviour:
   ToolbarSelectedIndex: 3
   base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjt+1/95x4VMHcpMqUpTz2mTympmfnk6NF/diAAxZkBs7G1hI18GrRznJrO5OEcbFswp2UkH8xcSUIx0O2CjD/0bPH0/uvuKqsUUqd3hQaak652I0QTGrpVIKUNqRksWQfqwWKmUk6cr3XtuAoZHiGoACZMX0qxFxX2p6hE4F0SBHYxjwEy5RXlA9tdpRwU/pshU9U2PY2oKs607vhas1J1tGnEOwoYT5ZGk2HlLLawrzoWtXf+npb49USvwqhVavfFyAr8mNbqclAHcR4BKxYxV9YisPJ9PGapVVZF1plDMxofF1rBBp2M+4KJ/lfUWBDla1obnLv7AV12w8txVTzQIDAQAB
   ShowStoreProducts: 1
-  InAppProducts: []
+  InAppProducts:
+  - IsOpen: 1
+    SKU: mymaze_noads
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: mymaze_rewind
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: mymaze_unlimited
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: mymaze_refill
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: mymaze_teleportation
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
   ShowLeaderboards: 1
   Leaderboards: []
   ShowAchievements: 1
   Achievements: []
   ShowWhenAppIsForeground: 1
   EnableVibrationLocal: 0
-  LocalNotificationIcon: {fileID: 0}
-  LocalNotificationSound: {fileID: 0}
+  LocalNotificationIcon: {fileID: 2800000, guid: 94a5ca9f6a9a7eb4fab90d2b64fceb4e,
+    type: 3}
+  LocalNotificationSound: {fileID: 8300000, guid: 64bc780c14572e246b8d4fe022cf94fe,
+    type: 3}
   UseGameThrivePushNotifications: 0
   GameThriveAppID: YOUR_ONESIGNAL_APP_ID
   UseParsePushNotifications: 0

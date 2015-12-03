@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class GameLevel : MonoBehaviour {
     public Deligates.DirectionEvent OnPlayerMoveRequest;
@@ -15,6 +16,7 @@ public class GameLevel : MonoBehaviour {
     public AdsMovesUI uiAdsMoves;
     public ReplayUI uiReplay;
     public MenuLoadConfirmUI uiConfirmMenu;
+    public RestartGameConfirmUI uiConfirmRestart;
     public GameLevelStates state;
     public List<Pyramid> pyramids;
 
@@ -61,6 +63,7 @@ public class GameLevel : MonoBehaviour {
         CurrentLevelStars = MyMaze.Instance.LastSelectedLevel.GetSimpleStars();
         uiReplay = GameObject.FindObjectOfType<ReplayUI>();
         uiConfirmMenu = GameObject.FindObjectOfType<MenuLoadConfirmUI>();
+        uiConfirmRestart = GameObject.FindObjectOfType<RestartGameConfirmUI>();
         uiAdsMoves = GameObject.FindObjectOfType<AdsMovesUI>();
         uiAdsLife = GameObject.FindObjectOfType<AdsLifeUI>();
         uiGame = GameObject.FindGameObjectWithTag("uiGame").GetComponent<Animator>();
@@ -456,6 +459,14 @@ public class GameLevel : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public void OnRestartRequest(bool withDialog)
+    {
+        if (!notUseLifeFlag)
+            uiConfirmRestart.Show();
+        else
+            OnRestartRequest();
     }
 
     /// <summary>

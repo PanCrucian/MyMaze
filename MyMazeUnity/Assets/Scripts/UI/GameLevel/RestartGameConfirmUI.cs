@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class ReplayUI : MonoBehaviour {
+public class RestartGameConfirmUI : MonoBehaviour {
+
+    public Action OnPositive;
 
     /// <summary>
     /// Спрячем экран с предложением рекламы
@@ -28,12 +31,23 @@ public class ReplayUI : MonoBehaviour {
         GetComponent<SoundsPlayer>().PlayOneShootSound();
     }
 
-    /// <summary>
-    /// Нажали кнопку рестарта уровня
-    /// </summary>
-    public void OnRestartButton()
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            if (GetComponent<CanvasGroup>().alpha >= 0.1f)
+                Hide();
+    }
+
+    public void Positive()
+    {
+        GameLevel.Instance.OnRestartRequest();
+        if (OnPositive != null)
+            OnPositive();
+        Hide();
+    }
+
+    public void Negative()
     {
         Hide();
-        GameLevel.Instance.OnRestartRequest(true);
     }
 }

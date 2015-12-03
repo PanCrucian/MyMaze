@@ -17,6 +17,8 @@ public class AndroidBackButton : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             HeyzapAds.OnBackPressed();
+            if (MyMaze.Instance.Ads.isAnyShowed)
+                return;
 
             bool backBtnFound = false;
             BackButtonUI[] backBtns = GameObject.FindObjectsOfType<BackButtonUI>();

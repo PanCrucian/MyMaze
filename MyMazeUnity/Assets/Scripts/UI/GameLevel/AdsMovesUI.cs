@@ -42,11 +42,7 @@ public class AdsMovesUI : GentleMonoBeh {
     /// </summary>
     void OnGameRestart()
     {
-        CanvasGroup cg = GetComponent<CanvasGroup>();
-        if (cg.alpha >= 0.99f)
-        {
-            Hide();
-        }
+        Hide();
     }
 
     /// <summary>
@@ -54,10 +50,13 @@ public class AdsMovesUI : GentleMonoBeh {
     /// </summary>
     void Hide()
     {
-        if (GameLevel.Instance.state == GameLevelStates.Pause)
-            GameLevel.Instance.UnPause();
-        CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());
-        CGSwitcher.Instance.Switch();
+        if (GetComponent<CanvasGroup>().alpha >= 0.9f)
+        {
+            if (GameLevel.Instance.state == GameLevelStates.Pause)
+                GameLevel.Instance.UnPause();
+            CGSwitcher.Instance.SetHideObject(GetComponent<Animator>());
+            CGSwitcher.Instance.Switch();
+        }
     }
 
     void OnLifeWindowAds()

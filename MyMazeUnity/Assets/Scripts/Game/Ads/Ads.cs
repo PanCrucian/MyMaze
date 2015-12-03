@@ -38,6 +38,8 @@ public class Ads : GentleMonoBeh, ISavingElement {
     public int adsShowTrashhold = 5;
 
     public Pack[] noAdsPacks;
+
+    public bool isAnyShowed = false;
         
     /// <summary>
     /// Слушатель состояния интерстишалов
@@ -45,6 +47,10 @@ public class Ads : GentleMonoBeh, ISavingElement {
     HZInterstitialAd.AdDisplayListener HZInterstitialListener = delegate(string adState, string adTag)
     {
         Debug.Log("HZInterstitialAd: " + adState + ", Tag: " + adTag);
+        if (adState.Equals("show"))
+        {
+            MyMaze.Instance.Ads.isAnyShowed = true;
+        }
         if (adState.Equals("hide"))
         {
             MyMaze.Instance.Ads.lastAdsHideTime = Timers.Instance.UnixTimestamp;
@@ -60,6 +66,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
                     MyMaze.Instance.Ads.FetchInterstitialAd(adTag, true);
                     break;
             }
+            MyMaze.Instance.Ads.isAnyShowed = false;
         }
         if (adState.Equals("fetch_failed"))
         {
@@ -88,6 +95,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
 #if UNITY_IPHONE && !UNITY_EDITOR
         MyMaze.Instance.Sounds.Mute();
 #endif
+            MyMaze.Instance.Ads.isAnyShowed = true;
         }
         if (adState.Equals("hide"))
         {
@@ -109,6 +117,7 @@ public class Ads : GentleMonoBeh, ISavingElement {
 
             MyMaze.Instance.Ads.ScreenOrientationPortrait();
             MyMaze.Instance.Ads.FetchIncentivizedAd(adTag);
+            MyMaze.Instance.Ads.isAnyShowed = false;
         }
     };
 

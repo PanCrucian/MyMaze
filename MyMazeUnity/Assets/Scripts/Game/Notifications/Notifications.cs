@@ -57,6 +57,7 @@ public class Notifications : MonoBehaviour {
     {
         if (MyMaze.Instance.Life.Units == MyMaze.Instance.Life.MaxUnits)
             return;
+        CancelAllNotifications();
         System.DateTime launchTime = System.DateTime.Now.AddSeconds(
             Mathf.Abs(MyMaze.Instance.Life.GetLastBlock().regenerationTime - Timers.Instance.UnixTimestamp)
         );

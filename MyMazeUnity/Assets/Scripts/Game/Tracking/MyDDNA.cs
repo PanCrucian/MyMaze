@@ -98,9 +98,9 @@ public class MyDDNA : MonoBehaviour {
     /// Что-то купили
     /// </summary>
     /// <param name="type"></param>
-    void OnBuyed(ProductTypes type, string reciept, string transId)
+    void OnBuyed(ProductTypes type, string reciept, string transId, string signature)
     {
-        RecordTransaction(type, reciept, transId);
+        RecordTransaction(type, reciept, transId, signature);
     }
 
     /// <summary>
@@ -302,7 +302,7 @@ public class MyDDNA : MonoBehaviour {
     /// Запишем покупку
     /// </summary>
     /// <param name="type"></param>
-    void RecordTransaction(ProductTypes type, string reciept, string transId)
+    void RecordTransaction(ProductTypes type, string reciept, string transId, string signature)
     {
         if (!IsDDNAInitalized)
             return;
@@ -338,6 +338,7 @@ public class MyDDNA : MonoBehaviour {
 #if UNITY_ANDROID
         transaction.AddParam("transactionServer", "GOOGLE");
         transaction.AddParam("transactionReceipt", reciept);
+        transaction.AddParam("transactionReceiptSignature", signature);
 #endif
 
         DDNA.Instance.RecordEvent("transaction", transaction);

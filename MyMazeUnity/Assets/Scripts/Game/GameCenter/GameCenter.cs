@@ -45,7 +45,7 @@ public class GameCenter : MonoBehaviour
 
         GameCenterManager.OnAuthFinished += OnAuthFinished;
         GameCenterManager.OnAchievementsLoaded += OnAchievementsLoaded;
-        GameCenterManager.OnPlayerScoreLoaded += OnPlayerScoreLoaded;
+        GameCenterManager.OnLeadrboardInfoLoaded += OnLeadrboardInfoLoaded;
         
         GameCenterManager.OnAchievementsProgress += OnAchievementProgress;
 
@@ -77,7 +77,7 @@ public class GameCenter : MonoBehaviour
         else
         {
             Debug.Log("Player Authed" + "\n" + "ID: " + GameCenterManager.Player.Id + "\n" + "Alias: " + GameCenterManager.Player.Alias);
-            GameCenterManager.LoadCurrentPlayerScore(MyMaze.Instance.Leaderboards.GetMarketId(LeaderboardTypes.Stars));
+            GameCenterManager.LoadLeaderboardInfo(MyMaze.Instance.Leaderboards.GetMarketId(LeaderboardTypes.Stars));
         }
     }
 
@@ -143,11 +143,12 @@ public class GameCenter : MonoBehaviour
     /// Загружена информация о рекорде игрока
     /// </summary>
     /// <param name="result"></param>
-    private void OnPlayerScoreLoaded(GK_PlayerScoreLoadedResult result)
+    private void OnLeadrboardInfoLoaded(GK_LeaderboardResult result)
     {
         if (result.IsSucceeded)
         {
-            Debug.Log("Leaderboard " + result.loadedScore.leaderboardId + "\n" + "Score: " + result.loadedScore.score + "\n" + "Rank:" + result.loadedScore.rank);
+            GK_Score score = result.Leaderboard.GetCurrentPlayerScore(GK_TimeSpan.ALL_TIME, GK_CollectionType.GLOBAL);
+            Debug.Log("Leaderboard " + score.LeaderboardId + "\n" + "Score: " + score.LongScore.ToString() + "\n" + "Rank:" + score.Rank.ToString());
             //if (result.loadedScore.leaderboardId.Equals(MyMaze.Instance.Leaderboards.GetMarketId(LeaderboardTypes.Stars)))
                 //MyMaze.Instance.Leaderboards.SetStarsLeaderboard();
         }

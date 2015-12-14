@@ -66,7 +66,7 @@ public class InApps : MonoBehaviour, ISavingElement {
         Debug.Log("Отправляю запрос на покупку продукта: " + type.ToString("g"));
 #if UNITY_IPHONE
         if (MyMaze.Instance.AppStore.IsInitalized)
-            IOSInAppPurchaseManager.Instance.buyProduct(GetProduct<MarketMatching>(type).productId);
+            IOSInAppPurchaseManager.Instance.BuyProduct(GetProduct<MarketMatching>(type).productId);
         else
             Debug.Log("AppStore не инициализирован");
 #endif
@@ -77,7 +77,7 @@ public class InApps : MonoBehaviour, ISavingElement {
             Debug.LogWarning("Play market не инициализирован");        
 #endif
 #if UNITY_EDITOR
-        OnTransactionSuccess(type, "empty", "empty");
+        OnTransactionSuccess(type, "empty", "empty", "empty");
 #endif
     }
 
@@ -85,7 +85,7 @@ public class InApps : MonoBehaviour, ISavingElement {
     /// Какаято транзакция была успешно проведена
     /// </summary>
     /// <param name="type">Тип продукта</param>
-    void OnTransactionSuccess(ProductTypes type, string reciept, string transId)
+    void OnTransactionSuccess(ProductTypes type, string reciept, string transId, string signature)
     {
         switch (type)
         {
@@ -106,7 +106,7 @@ public class InApps : MonoBehaviour, ISavingElement {
                 break;
         }
         if (OnBuyed != null)
-            OnBuyed(type, reciept, transId);
+            OnBuyed(type, reciept, transId, signature);
         Save();
     }
 
@@ -303,7 +303,7 @@ public class InApps : MonoBehaviour, ISavingElement {
         Debug.Log("Пытаюсь восстановить покупки");
 #if UNITY_EDITOR
         foreach (BasketItem item in basket)
-            OnTransactionSuccess(item.type, "empty", "empty");        
+            OnTransactionSuccess(item.type, "empty", "empty", "empty");        
 #elif UNITY_IPHONE        
         IOSInAppPurchaseManager.instance.restorePurchases();
 #elif UNITY_ANDROID

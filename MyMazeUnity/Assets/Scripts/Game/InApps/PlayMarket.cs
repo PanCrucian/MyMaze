@@ -129,7 +129,7 @@ public class PlayMarket : MonoBehaviour {
         {
             Debug.Log("Cousume Success: " + result.response.ToString() + ", message: " + result.message);
             if (OnTransactionSuccess != null)
-                OnTransactionSuccess(MyMaze.Instance.InApps.GetProduct<InApps.MarketMatching>(result.purchase.SKU).type, result.purchase.originalJson, result.purchase.orderId);
+                OnTransactionSuccess(MyMaze.Instance.InApps.GetProduct<InApps.MarketMatching>(result.purchase.SKU).type, result.purchase.originalJson, result.purchase.orderId, result.purchase.signature);
         }
         else
         {

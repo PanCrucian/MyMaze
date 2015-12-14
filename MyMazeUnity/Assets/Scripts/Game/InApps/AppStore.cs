@@ -25,13 +25,13 @@ public class AppStore : MonoBehaviour {
     void Start()
     {
         foreach (InApps.MarketMatching product in MyMaze.Instance.InApps.appStoreProducts)
-            IOSInAppPurchaseManager.Instance.addProductId(product.productId);
+            IOSInAppPurchaseManager.Instance.AddProductId(product.productId);
 
         IOSInAppPurchaseManager.OnStoreKitInitComplete += OnStoreKitInitComplete;
         IOSInAppPurchaseManager.OnTransactionComplete += OnTransactionComplete;
         IOSInAppPurchaseManager.OnRestoreComplete += OnRestoreComplete;
 
-        IOSInAppPurchaseManager.Instance.loadStore();
+        IOSInAppPurchaseManager.Instance.LoadStore();
     }
 
     /// <summary>
@@ -42,7 +42,7 @@ public class AppStore : MonoBehaviour {
     {
         _isInitalized = result.IsSucceeded;
         if (_isInitalized)
-            Debug.Log("StoreKit Init Succeeded" + "\n" + "Available products count: " + IOSInAppPurchaseManager.Instance.products.Count.ToString());
+            Debug.Log("StoreKit Init Succeeded" + "\n" + "Available products count: " + IOSInAppPurchaseManager.Instance.Products.Count.ToString());
         else
             Debug.LogWarning("StoreKit Init Failed" + "\n" + "Error code: " + result.Error.Code + "\n" + "Error description:" + result.Error.Description);
     }
@@ -61,7 +61,7 @@ public class AppStore : MonoBehaviour {
                 InApps.MarketMatching product = MyMaze.Instance.InApps.GetProduct<InApps.MarketMatching>(response.ProductIdentifier);
                 if(product != null)
                     if (OnTransactionSuccess != null)
-                        OnTransactionSuccess(product.type, response.Receipt, response.TransactionIdentifier);
+                        OnTransactionSuccess(product.type, response.Receipt, response.TransactionIdentifier, "empty");
                 break;
             case InAppPurchaseState.Deferred:
                 //iOS 8 introduces Ask to Buy, which lets parents approve any purchases initiated by children

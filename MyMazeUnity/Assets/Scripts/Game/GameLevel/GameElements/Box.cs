@@ -5,25 +5,47 @@ using System.Collections.Generic;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Box : GameLevelObject
 {
+    /// <summary>
+    /// Игрок входит
+    /// </summary>
     public Deligates.SimpleEvent OnPlayerEnter;
 
+    /// <summary>
+    /// Цвет
+    /// </summary>
     public BoxColors color;
+
+    /// <summary>
+    /// Колайдер
+    /// </summary>
     [HideInInspector]
     public BoxCollider2D boxCollider;
 
+    /// <summary>
+    /// История состояний
+    /// </summary>
     private Dictionary<int, BoxRecordData> boxHistory = new Dictionary<int, BoxRecordData>();
 
+    /// <summary>
+    /// Старт
+    /// </summary>
 	public override void Start () {
         boxCollider = GetComponent<BoxCollider2D>();
         base.Start();
 	}
 
+    /// <summary>
+    /// Рестарт уровня
+    /// </summary>
     public override void Restart()
     {
         ToDefaultState();
         base.Restart();
     }
 
+    /// <summary>
+    /// В обычное состояние
+    /// </summary>
     public void ToDefaultState()
     {
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Empty"))
@@ -31,6 +53,9 @@ public class Box : GameLevelObject
         boxCollider.enabled = true;
     }
 
+    /// <summary>
+    /// Исчезаем
+    /// </summary>
     public void FadeOut()
     {
         boxCollider.enabled = false;

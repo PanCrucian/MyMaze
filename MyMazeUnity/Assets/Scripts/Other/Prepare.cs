@@ -70,7 +70,7 @@ public class Prepare : MonoBehaviour {
         Debug.Log("AndroidRegistrationID: " + DDNA.Instance.AndroidRegistrationID);
 #endif
         Debug.Log("Try for start: DeltaDNA SDK");
-        DDNA.Instance.SetLoggingLevel(Logger.Level.INFO);
+        DDNA.Instance.SetLoggingLevel(DeltaDNA.Logger.Level.INFO);
 #if UNITY_ANDROID
         DDNA.Instance.ClientVersion = androidClientVersion;
 #endif

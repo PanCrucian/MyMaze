@@ -271,6 +271,7 @@ public class MyDDNA : MonoBehaviour {
                 .AddParam("notificationName", name)
         );
         Upload();*/
+        Debug.LogError("Not used");
     }
 
     /// <summary>
